@@ -1,0 +1,48 @@
+group 'storageAppDemo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile project(':persistence')
+    compile project(':persistence-model')
+    compile project(':persistence-mapper')
+
+    //test
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'com.github.springtestdbunit', name: 'spring-test-dbunit', version: '1.3.0'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.9.RELEASE'
+
+    //hibernate
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+
+
+    //j2ee
+    compile('javax.enterprise:cdi-api:2.0')
+    compile group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
+
+    //spring
+    compile group: 'org.springframework', name: 'spring-core', version: '4.1.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.1.6.RELEASE'
+
+    //Spring data
+    compile group: 'org.springframework.data', name: 'spring-data-commons', version: '1.13.4.RELEASE'
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.4.RELEASE'
+
+    //Spring security
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.3.RELEASE'
+
+    // sql/db
+    runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.21'
+
+    //apache
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
+}

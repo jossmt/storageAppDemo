@@ -1,0 +1,22 @@
+group 'storageAppDemo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':domain-model')
+    compile project(':persistence')
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.powermock', name: 'powermock-api-easymock', version: '1.7.0'
+    testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.5.1'
+
+    //spring
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.3.RELEASE'
+
+}

@@ -1,0 +1,12 @@
+rootProject.name = 'storageAppDemo'
+include 'controller'
+include 'controller-mapper'
+include 'controller-model'
+include 'domain-model'
+include 'integration'
+include 'integration-mapper'
+include 'persistence'
+include 'persistence-mapper'
+include 'persistence-model'
+include 'service'
+

@@ -1,0 +1,25 @@
+group 'storageAppDemo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile rootProject
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile project (':domain-model')
+    compile project (':persistence-model')
+
+    //spring
+    compile group: 'org.springframework', name: 'spring-core', version: '4.1.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.1.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.1.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.1.6.RELEASE'
+
+    compile group: 'org.mockito', name: 'mockito-all', version: '1.8.4'
+}

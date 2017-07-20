@@ -1,0 +1,54 @@
+li {
+    list-style-type:none;
+    display:inline;
+}
+
+#logo {
+    color:  lightgrey;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+    float:left;
+}
+
+#logo span{
+	color:  #5383d3;
+}
+
+.navbar .home{
+    text-align: center;
+}
+
+.navbar .login{
+    text-align:right;
+}
+
+/* Style the links inside the navigation bar */
+.home a {
+    color: lightgrey;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: fresca;
+    font-weight: bolder; 
+    font-size: 20px;
+    border: 1px
+}
+
+.login a {
+    color: lightgrey;
+    margin-right: 3%;
+    text-decoration: none;
+    font-family:fresca;
+    font-size: 25px;
+}
+.login a:hover{
+    color: orange;
+}
+
+/* Change the color of links on hover */
+.home a:hover {
+    color: orange;
+}
+
+#clearer {
+    clear:both;
+}
