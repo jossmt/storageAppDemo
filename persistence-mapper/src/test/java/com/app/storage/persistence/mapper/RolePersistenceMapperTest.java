@@ -8,17 +8,11 @@ import com.app.storage.persistence.model.UserPersistenceModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-
-import java.util.Arrays;
 
 /**
  * Tests for {@link RolePersistenceMapper}
  */
 public class RolePersistenceMapperTest {
-
-    /** {@link ListMapper}. */
-    private ListMapper listMapper;
 
     /** {@link RolePersistenceMapper}. */
     private RolePersistenceMapper rolePersistenceMapper;
@@ -28,8 +22,7 @@ public class RolePersistenceMapperTest {
      */
     @Before
     public void setUp() {
-        listMapper = new ListMapper();
-        rolePersistenceMapper = new RolePersistenceMapperHandler(listMapper);
+        rolePersistenceMapper = new RolePersistenceMapperHandler();
     }
 
     /**

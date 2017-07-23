@@ -12,15 +12,12 @@ public class RolePersistenceModel {
     /** Identifier. */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "role_id")
     private Long id;
 
     /** Name. */
-    @Column(name = "Name")
+    @Column(name = "role")
     private String name;
-
-    /** Users. */
-    @ManyToMany(mappedBy = "roles")
-    private List<UserPersistenceModel> users;
 
     /**
      * Return identifier.
@@ -50,23 +47,15 @@ public class RolePersistenceModel {
         this.name = name;
     }
 
-    /**
-     * Get users with role.
-     *
-     * @return all users with given role.
-     */
-    public List<UserPersistenceModel> getUsers() {
-        return users;
-    }
 
     /**
-     * Set users to role.
+     * Sets new Identifier..
      *
-     * @param users
-     *         list of users to give current role instance.
+     * @param id
+     *         New value of Identifier..
      */
-    public void setUsers(List<UserPersistenceModel> users) {
-        this.users = users;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -81,9 +70,7 @@ public class RolePersistenceModel {
 
         RolePersistenceModel rolePersistenceModel = (RolePersistenceModel) obj;
         return new EqualsBuilder()
-                .append(getId(), rolePersistenceModel.getId())
                 .append(getName(), rolePersistenceModel.getName())
-                .append(getUsers(), rolePersistenceModel.getUsers())
                 .isEquals();
     }
 
@@ -95,7 +82,7 @@ public class RolePersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(name).append(users);
+        stringBuilder.append(id).append(name);
 
         return stringBuilder.toString();
     }

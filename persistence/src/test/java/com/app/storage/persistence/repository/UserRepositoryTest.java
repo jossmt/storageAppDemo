@@ -27,23 +27,25 @@ public class UserRepositoryTest {
 
         //Setup
         final RolePersistenceModel role = new RolePersistenceModel();
-        role.setName("user");
+        role.setId(1L);
+        role.setName("ADMIN");
 
         final UserPersistenceModel user = new UserPersistenceModel();
         user.setFirstName("fname");
         user.setLastName("lname");
-        user.setEmail("email@email.com");
+        user.setEmail("example@email.com");
         user.setPassword("pass");
         user.setRoles(Arrays.asList(role));
-
-        role.setUsers(Arrays.asList(user));
 
         //Test
         final UserPersistenceModel savedUser = userRepository.save(user);
 
-        final UserPersistenceModel userLookup = userRepository.findMostRecent();
+        final UserPersistenceModel updatedUser = userRepository.findMostRecent();
 
         //Assert
-        Assert.assertEquals(savedUser, userLookup);
+        Assert.assertEquals(savedUser.toString(), updatedUser.toString());
+
+        //Cleanup
+        userRepository.delete(updatedUser.getId());
     }
 }

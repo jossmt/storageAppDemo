@@ -15,21 +15,6 @@ public class RolePersistenceMapperHandler implements RolePersistenceMapper, Abst
     /** Logger. */
     private static final Logger LOG = LoggerFactory.getLogger(RolePersistenceMapper.class);
 
-    /** {@link UserPersistenceMapper} */
-    @Autowired
-    private UserPersistenceMapper userPersistenceMapper;
-
-    /** {@link ListMapper}. */
-    private ListMapper listMapper;
-
-    /**
-     * Constructor
-     */
-    @Autowired
-    public RolePersistenceMapperHandler(final ListMapper listMapper) {
-        this.listMapper = listMapper;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -42,8 +27,6 @@ public class RolePersistenceMapperHandler implements RolePersistenceMapper, Abst
         if (role != null) {
             rolePersistenceModel = new RolePersistenceModel();
             rolePersistenceModel.setName(role.getName());
-            rolePersistenceModel.setUsers(listMapper.mapList((AbstractMapper) userPersistenceMapper,
-                                                             true, role.getUsers()));
         }
 
         LOG.debug("Successfully mapped role model to persistence model {}", rolePersistenceModel);
@@ -61,9 +44,8 @@ public class RolePersistenceMapperHandler implements RolePersistenceMapper, Abst
         Role role = null;
         if (rolePersistenceModel != null) {
             role = new Role();
+            role.setId(rolePersistenceModel.getId());
             role.setName(rolePersistenceModel.getName());
-            role.setUsers(listMapper.mapList((AbstractMapper) userPersistenceMapper,
-                                             false, role.getUsers()));
         }
 
         LOG.debug("Successfully mapped role persistence model to domain model {}", role);

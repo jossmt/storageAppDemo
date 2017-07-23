@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.controller.mapper.StorageItemControllerMapperTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-07-22T11:36:29" hostname="Josss-MacBook-Pro.local" time="0.038">
+<testsuite name="com.app.storage.controller.mapper.StorageItemControllerMapperTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-07-23T10:07:21" hostname="Josss-MacBook-Pro.local" time="0.039">
   <properties/>
-  <testcase name="mapToStorageItemTest" classname="com.app.storage.controller.mapper.StorageItemControllerMapperTest" time="0.015"/>
+  <testcase name="mapToStorageItemTest" classname="com.app.storage.controller.mapper.StorageItemControllerMapperTest" time="0.016"/>
   <testcase name="mapFromStorageItemTest" classname="com.app.storage.controller.mapper.StorageItemControllerMapperTest" time="0.001"/>
   <testcase name="checkMapList" classname="com.app.storage.controller.mapper.StorageItemControllerMapperTest" time="0.001"/>
   <testcase name="checkMapEmptyObject" classname="com.app.storage.controller.mapper.StorageItemControllerMapperTest" time="0.0"/>

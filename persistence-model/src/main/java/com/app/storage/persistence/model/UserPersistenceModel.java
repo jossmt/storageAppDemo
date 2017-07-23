@@ -30,28 +30,27 @@ public class UserPersistenceModel {
     /** Identifier. */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Long id;
 
     /** First name. */
-    @Column(name = "FirstName")
+    @Column(name = "first_name")
     private String firstName;
 
     /** Last name. */
-    @Column(name = "LastName")
+    @Column(name = "last_name")
     private String lastName;
 
     /** Email. */
-    @Column(name = "Email", unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     /** Password. */
-    @Column(name = "Password")
-    @Transient
+    @Column(name = "password")
     private String password;
 
     /** User role privileges. */
-    @Transient
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "User_Role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name
             = "role_id"))
     private List<RolePersistenceModel> roles;
@@ -182,7 +181,6 @@ public class UserPersistenceModel {
 
         UserPersistenceModel userPersistenceModel = (UserPersistenceModel) obj;
         return new EqualsBuilder()
-                .append(getId(), userPersistenceModel.getId())
                 .append(getFirstName(), userPersistenceModel.getFirstName())
                 .append(getLastName(), userPersistenceModel.getLastName())
                 .append(getEmail(), userPersistenceModel.getEmail())

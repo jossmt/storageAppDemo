@@ -82,9 +82,6 @@ public class UserPersistenceServiceTest {
         user.setEmail("useremail");
         user.setRoles(Arrays.asList(role));
 
-        role.setUsers(Arrays.asList(user));
-        rolePersistenceModel.setUsers(Arrays.asList(userPersistenceModel));
-
         //Mock
         Mockito.when(userRepository.findByEmail("useremail")).thenReturn(userPersistenceModel);
         Mockito.when(userPersistenceMapper.mapFrom(userPersistenceModel)).thenReturn(user);
@@ -129,9 +126,6 @@ public class UserPersistenceServiceTest {
         user.setPassword("password");
         user.setEmail("useremail");
         user.setRoles(Arrays.asList(role));
-
-        role.setUsers(Arrays.asList(user));
-        rolePersistenceModel.setUsers(Arrays.asList(userPersistenceModel));
 
         //Mock
         Mockito.when(userPersistenceMapper.mapTo(user)).thenReturn(userPersistenceModel);

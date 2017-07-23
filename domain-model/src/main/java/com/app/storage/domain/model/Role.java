@@ -15,9 +15,6 @@ public class Role {
     /** Name. */
     private String name;
 
-    /** Users listed with given role. */
-    private List<User> users;
-
 
     /**
      * Gets Name..
@@ -26,25 +23,6 @@ public class Role {
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * Sets new Users listed with given role..
-     *
-     * @param users
-     *         New value of Users listed with given role..
-     */
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    /**
-     * Gets Users listed with given role..
-     *
-     * @return Value of Users listed with given role..
-     */
-    public List<User> getUsers() {
-        return users;
     }
 
     /**
@@ -66,6 +44,17 @@ public class Role {
         return id;
     }
 
+
+    /**
+     * Sets new Identifier..
+     *
+     * @param id
+     *         New value of Identifier..
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     /**
      * Equals override.
      *
@@ -84,7 +73,6 @@ public class Role {
         return new EqualsBuilder()
                 .append(getId(), role.getId())
                 .append(getName(), role.getName())
-                .append(getUsers(), role.getUsers())
                 .isEquals();
     }
 
@@ -98,8 +86,9 @@ public class Role {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(name).append(users);
+        stringBuilder.append(id).append(name);
 
         return stringBuilder.toString();
     }
+
 }

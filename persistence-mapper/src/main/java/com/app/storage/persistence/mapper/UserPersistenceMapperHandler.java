@@ -67,6 +67,7 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
 
         User user = null;
         if (userPersistenceModel != null) {
+
             user = new User();
             user.setId(userPersistenceModel.getId());
             user.setEmail(userPersistenceModel.getEmail());

@@ -32,12 +32,29 @@ import java.util.List;
 @Component
 public interface UserRepository extends CrudRepository<UserPersistenceModel, Long> {
 
+    /**
+     * Finds user by email.
+     *
+     * @param email
+     *         Unique email identification.
+     * @return {@link UserPersistenceModel}
+     */
     @Query(value = "SELECT * FROM User WHERE User.email = $email", nativeQuery = true)
     UserPersistenceModel findByEmail(String email);
 
-    @Query(value = "SELECT * FROM User ORDER BY id DESC LIMIT 1", nativeQuery = true)
+    /**
+     * Returns most recently added User.
+     *
+     * @return {@link UserPersistenceModel}
+     */
+    @Query(value = "SELECT * FROM User ORDER BY user_id DESC LIMIT 1", nativeQuery = true)
     UserPersistenceModel findMostRecent();
 
+    /**
+     * Returns all Users as list.
+     *
+     * @return list of {@link UserPersistenceModel}
+     */
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "SELECT * FROM User", nativeQuery = true)

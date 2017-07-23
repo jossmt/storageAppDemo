@@ -58,11 +58,9 @@
 //        storageItemPersistenceModel.setName("Name");
 //        storageItemPersistenceModel.setSize("Size");
 //        storageItemPersistenceModel.setId(1l);
-//        storageItemPersistenceModel.setDateStored(new DateTime("2017-03-03"));
 //        storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
 //
 //        final StorageItem storageItem = new StorageItem();
-//        storageItem.setId(storageItemPersistenceModel.getId());
 //        storageItem.setName(storageItemPersistenceModel.getName());
 //        storageItem.setSize(storageItemPersistenceModel.getSize());
 //        storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -84,6 +82,7 @@
 //    /**
 //     * Retrieve all storage items test
 //     */
+//    @Test
 //    public void retrieveAllStorageItemsTest() {
 //
 //        //Setup
@@ -91,11 +90,9 @@
 //        storageItemPersistenceModel.setName("Name");
 //        storageItemPersistenceModel.setSize("Size");
 //        storageItemPersistenceModel.setId(1l);
-//        storageItemPersistenceModel.setDateStored(new DateTime("2017-03-03"));
 //        storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
 //
 //        final StorageItem storageItem = new StorageItem();
-//        storageItem.setId(storageItemPersistenceModel.getId());
 //        storageItem.setName(storageItemPersistenceModel.getName());
 //        storageItem.setSize(storageItemPersistenceModel.getSize());
 //        storageItem.setImage(storageItemPersistenceModel.getImage());
