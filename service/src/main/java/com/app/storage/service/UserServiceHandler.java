@@ -68,11 +68,11 @@ public class UserServiceHandler implements UserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(final String username) {
+    public UserDetails loadUserByUsername(final String useremail) {
 
-        LOG.debug("Loading userdetails my username: ", username);
+        LOG.debug("Loading user details with username: ", useremail);
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(useremail);
 
         LOG.debug("Loaded UserDetails: ", userDetails);
 

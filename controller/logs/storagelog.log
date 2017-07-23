@@ -1,18 +1,49 @@
-2017-07-22 12:17:53 DEBUG c.a.s.controller.LoginController - Signing up with user: nullJosMillerjossmtt123@hotmail.comdollar123dollar123null
-2017-07-22 12:17:53 DEBUG com.app.storage.service.UserService - Loading userdetails my username: 
-2017-07-22 12:17:53 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
-2017-07-22 12:17:53 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model null to domain model.
-2017-07-22 12:17:53 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped persistence model to domain model: null
-2017-07-22 12:17:53 DEBUG c.a.s.p.s.UserPersistenceService - Successfully found user: null
-2017-07-22 12:17:53 DEBUG com.app.storage.service.UserService - Loaded UserDetails: 
-2017-07-22 12:17:53 DEBUG com.app.storage.service.UserService - Saving user 
-2017-07-22 12:17:53 DEBUG c.a.s.p.s.UserPersistenceService - Saving user, nullJosMillerjossmtt123@hotmail.comdollar123dollar123null
-2017-07-22 12:17:53 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user nullJosMillerjossmtt123@hotmail.comdollar123dollar123null to persistence model.
-2017-07-22 12:17:53 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped user to persistence model: nullJosMillerjossmtt123@hotmail.comdollar123null
-2017-07-22 12:17:54 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model 1JosMillerjossmtt123@hotmail.com$2a$11$Wns6tVyoani2DPcyJJrVNeLpxdDXY1fc4/x0jTM7DQQ7T/Er2L/9a[] to domain model.
-2017-07-22 12:17:54 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped persistence model to domain model: 1JosMillerjossmtt123@hotmail.com$2a$11$Wns6tVyoani2DPcyJJrVNeLpxdDXY1fc4/x0jTM7DQQ7T/Er2L/9anull[]
-2017-07-22 12:17:54 DEBUG c.a.s.p.s.UserPersistenceService - Successfully save user, 1JosMillerjossmtt123@hotmail.com$2a$11$Wns6tVyoani2DPcyJJrVNeLpxdDXY1fc4/x0jTM7DQQ7T/Er2L/9anull[]
-2017-07-22 12:17:54 DEBUG com.app.storage.service.UserService - Saved user 
-2017-07-22 12:17:54 DEBUG com.app.storage.service.UserService - Attempting auto login with jossmtt123@hotmail.com, pass: dollar123
-2017-07-22 12:17:54 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
-2017-07-22 12:17:54 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model [FAILED toString()] to domain model.
+2017-07-23 12:41:04 DEBUG c.a.s.controller.LoginController - Signing up with user: nullJossMiller-Toddjossmtt123@hotmail.comdollar123dollar123null
+2017-07-23 12:41:04 DEBUG com.app.storage.service.UserService - Loading userdetails my username: 
+2017-07-23 12:41:04 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
+2017-07-23 12:43:28 DEBUG c.a.s.controller.LoginController - Signing up with user: nullJossMillerjossmtt123@hotmail.comdollar123dollar123null
+2017-07-23 12:43:28 DEBUG com.app.storage.service.UserService - Loading userdetails my username: 
+2017-07-23 12:43:28 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
+2017-07-23 12:50:44 DEBUG c.a.s.controller.LoginController - Signing up with user: nullJossMillerjossmtt123@hotmail.comdollar123dollar123null
+2017-07-23 12:50:44 DEBUG com.app.storage.service.UserService - Loading user details with username: 
+2017-07-23 12:50:44 DEBUG c.a.s.s.s.UserDetailsServiceHandler - Loading user with email: jossmtt123@hotmail.com
+2017-07-23 12:50:44 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
+2017-07-23 12:50:44 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model null to domain model.
+2017-07-23 12:50:44 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped persistence model to domain model: null
+2017-07-23 12:50:44 DEBUG c.a.s.p.s.UserPersistenceService - Successfully found user: null
+2017-07-23 12:50:44 DEBUG c.a.s.s.s.UserDetailsServiceHandler - Successfully loaded user: null
+2017-07-23 12:50:44 DEBUG com.app.storage.service.UserService - Loaded UserDetails: 
+2017-07-23 12:50:44 DEBUG com.app.storage.service.UserService - Saving user 
+2017-07-23 12:50:44 DEBUG c.a.s.p.s.UserPersistenceService - Saving user, nullJossMillerjossmtt123@hotmail.comdollar123dollar123null
+2017-07-23 12:50:44 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user nullJossMillerjossmtt123@hotmail.comdollar123dollar123null to persistence model.
+2017-07-23 12:50:44 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped user to persistence model: nullJossMillerjossmtt123@hotmail.comdollar123null
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xO[1ADMIN, 2USER] to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Mapping role persistence model 1ADMIN to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Successfully mapped role persistence model to domain model 1ADMIN
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Mapping role persistence model 2USER to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Successfully mapped role persistence model to domain model 2USER
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped persistence model to domain model: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG c.a.s.p.s.UserPersistenceService - Successfully save user, 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG com.app.storage.service.UserService - Saved user 
+2017-07-23 12:50:45 DEBUG com.app.storage.service.UserService - Attempting auto login with jossmtt123@hotmail.com, pass: dollar123
+2017-07-23 12:50:45 DEBUG c.a.s.s.s.UserDetailsServiceHandler - Loading user with email: jossmtt123@hotmail.com
+2017-07-23 12:50:45 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xO[1ADMIN, 2USER] to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Mapping role persistence model 1ADMIN to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Successfully mapped role persistence model to domain model 1ADMIN
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Mapping role persistence model 2USER to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Successfully mapped role persistence model to domain model 2USER
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped persistence model to domain model: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG c.a.s.p.s.UserPersistenceService - Successfully found user: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG c.a.s.s.s.UserDetailsServiceHandler - Successfully loaded user: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG c.a.s.s.s.UserDetailsServiceHandler - Loading user with email: jossmtt123@hotmail.com
+2017-07-23 12:50:45 DEBUG c.a.s.p.s.UserPersistenceService - Finding user by email: jossmtt123@hotmail.com
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Mapping user persistence model 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xO[1ADMIN, 2USER] to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Mapping role persistence model 1ADMIN to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Successfully mapped role persistence model to domain model 1ADMIN
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Mapping role persistence model 2USER to domain model.
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.RolePersistenceMapper - Successfully mapped role persistence model to domain model 2USER
+2017-07-23 12:50:45 DEBUG c.a.s.p.mapper.UserPersistenceMapper - Successfully mapped persistence model to domain model: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG c.a.s.p.s.UserPersistenceService - Successfully found user: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG c.a.s.s.s.UserDetailsServiceHandler - Successfully loaded user: 23JossMillerjossmtt123@hotmail.com$2a$11$rlGBHuKzFjHnM.eoj0BYNelNO6UvhMl1XJwancWgxl38EDJpNH9xOnull[1ADMIN, 2USER]
+2017-07-23 12:50:45 DEBUG com.app.storage.service.UserService - Auto login jossmtt123@hotmail.com successfully!

@@ -12,7 +12,8 @@
 
     <import resource="storageapp-security.xml"/>
 
-    <mvc:annotation-driven />
+
+    <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <context:component-scan base-package="com.app.storage.controller"/>
@@ -31,15 +32,15 @@
     </bean>
 
     <bean name="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/storage_app_schema" />
-        <property name="username" value="root" />
-        <property name="password" value="dollar123" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/storage_app_schema"/>
+        <property name="username" value="root"/>
+        <property name="password" value="dollar123"/>
     </bean>
 
     <bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="packagesToScan" value="com.app.storage.persistence.model" />
-        <property name="dataSource" ref="myDataSource" />
+        <property name="packagesToScan" value="com.app.storage.persistence.model"/>
+        <property name="dataSource" ref="myDataSource"/>
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
         <property name="persistenceUnitName" value="app_core"/>
         <property name="jpaProperties">

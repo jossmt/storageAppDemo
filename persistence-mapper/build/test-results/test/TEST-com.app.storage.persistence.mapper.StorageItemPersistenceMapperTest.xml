@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2017-07-23T10:07:26" hostname="Josss-MacBook-Pro.local" time="0.027">
+<testsuite name="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:10" hostname="Josss-MacBook-Pro.local" time="0.03">
   <properties/>
-  <testcase name="checkNullMapTo" classname="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" time="0.0"/>
+  <testcase name="checkNullMapTo" classname="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" time="0.001"/>
   <testcase name="checkFullModelMapFrom" classname="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" time="0.002"/>
   <testcase name="checkFullModelMap" classname="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" time="0.001"/>
   <testcase name="listMapperTest" classname="com.app.storage.persistence.mapper.StorageItemPersistenceMapperTest" time="0.001"/>

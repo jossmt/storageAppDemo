@@ -62,11 +62,19 @@ public class LoginController {
      */
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String renderSignup(final Model model) {
-        model.addAttribute("userForm",new User());
+        model.addAttribute("userForm", new User());
 
         return "login/Signup";
     }
 
+    /**
+     * User registered
+     *
+     * @param userForm
+     * @param bindingResult
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
 
@@ -83,4 +91,21 @@ public class LoginController {
 
         return "about/Home";
     }
+
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String login(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
+//
+//        LOG.debug("Signing up with user: {}", userForm);
+//
+//        validationService.validate(userForm, bindingResult);
+//
+//        if (bindingResult.hasErrors()) {
+//            return "login/Signup";
+//        }
+//
+//        userService.saveUser(userForm);
+//        userService.autologin(userForm.getEmail(), userForm.getPasswordConfirm());
+//
+//        return "about/Home";
+//    }
 }

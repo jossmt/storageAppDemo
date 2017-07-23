@@ -15,6 +15,7 @@
  */
 package com.app.storage.controller.security;
 
+import com.app.storage.controller.security.handlers.UrlAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,43 +24,87 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.data.repository.query.SecurityEvaluationContextExtension;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 
+/**
+ * Spring Web Security Configuration.
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig
         extends WebSecurityConfigurerAdapter {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/signup", "/", "/home", "/about", "/storedItems", "/saveItems")
+                .antMatchers("/resources/**", "/signup", "/", "/home", "/about")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .successHandler(successHandler())
                 .permitAll()
                 .and()
-                .logout()
-                .permitAll();
+                .logout().deleteCookies("JSESSIONID")
+                .permitAll()
+                .and()
+                .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400)
+                .and()
+                .sessionManagement()
+                .sessionFixation().migrateSession()
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .invalidSessionUrl("/invalid_session")
+                .maximumSessions(2)
+                .expiredUrl("/expired_session");
     }
 
+    /**
+     * User login validation configuration.
+     *
+     * @param auth
+     *         {@link AuthenticationManagerBuilder}
+     * @param userDetailsService
+     *         {@link UserDetailsService}
+     * @throws Exception
+     *         {@link Exception}
+     */
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth, UserDetailsService userDetailsService) throws
+    public void configureGlobal(final AuthenticationManagerBuilder auth, final UserDetailsService userDetailsService)
+            throws
             Exception {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
+    /**
+     * Handles login success configuration policy.
+     *
+     * @return {@link AuthenticationSuccessHandler}
+     */
+    private final AuthenticationSuccessHandler successHandler() {
+        return new UrlAuthenticationSuccessHandler();
+    }
+
+    /**
+     * Sets security evaluation context.
+     *
+     * @return {@link SecurityEvaluationContextExtension}
+     */
     @Bean
     public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
         return new SecurityEvaluationContextExtension();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.service.ValidationServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-23T10:07:27" hostname="Josss-MacBook-Pro.local" time="0.001">
+<testsuite name="com.app.storage.service.ValidationServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:11" hostname="Josss-MacBook-Pro.local" time="0.002">
   <properties/>
-  <testcase name="validateUserValidTest" classname="com.app.storage.service.ValidationServiceTest" time="0.001"/>
+  <testcase name="validateUserValidTest" classname="com.app.storage.service.ValidationServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

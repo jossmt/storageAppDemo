@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.persistence.repository.UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-23T10:07:25" hostname="Josss-MacBook-Pro.local" time="0.002">
+<testsuite name="com.app.storage.persistence.repository.UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:09" hostname="Josss-MacBook-Pro.local" time="0.099">
   <properties/>
-  <testcase name="testSaveUser" classname="com.app.storage.persistence.repository.UserRepositoryTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testSaveUser" classname="com.app.storage.persistence.repository.UserRepositoryTest" time="0.099"/>
+  <system-out><![CDATA[Hibernate: insert into User (email, first_name, last_name, password) values (?, ?, ?, ?)
+Hibernate: insert into User_Role (user_id, role_id) values (?, ?)
+Hibernate: SELECT * FROM User ORDER BY user_id DESC LIMIT 1
+Hibernate: select roles0_.user_id as user_id1_3_0_, roles0_.role_id as role_id2_3_0_, rolepersis1_.role_id as role_id1_0_1_, rolepersis1_.role as role2_0_1_ from User_Role roles0_ inner join Role rolepersis1_ on roles0_.role_id=rolepersis1_.role_id where roles0_.user_id=?
+Hibernate: select userpersis0_.user_id as user_id1_2_0_, userpersis0_.email as email2_2_0_, userpersis0_.first_name as first_na3_2_0_, userpersis0_.last_name as last_nam4_2_0_, userpersis0_.password as password5_2_0_, roles1_.user_id as user_id1_3_1_, rolepersis2_.role_id as role_id2_3_1_, rolepersis2_.role_id as role_id1_0_2_, rolepersis2_.role as role2_0_2_ from User userpersis0_ left outer join User_Role roles1_ on userpersis0_.user_id=roles1_.user_id left outer join Role rolepersis2_ on roles1_.role_id=rolepersis2_.role_id where userpersis0_.user_id=?
+Hibernate: delete from User_Role where user_id=?
+Hibernate: delete from User where user_id=?
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

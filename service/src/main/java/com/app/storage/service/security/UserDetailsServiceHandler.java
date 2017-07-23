@@ -3,6 +3,8 @@ package com.app.storage.service.security;
 import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.service.UserPersistenceService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +22,9 @@ import java.util.Set;
 @Service
 public class UserDetailsServiceHandler implements UserDetailsService {
 
+    /** Logger. */
+    private static final Logger LOG = LoggerFactory.getLogger(UserDetailsServiceHandler.class);
+
     @Autowired
     private UserPersistenceService userPersistenceService;
 
@@ -29,10 +34,11 @@ public class UserDetailsServiceHandler implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(final String userEmail) throws UsernameNotFoundException {
 
+        LOG.debug("Loading user with email: {}", userEmail);
+
         CustomUserDetails customUserDetails = null;
 
         final User user = userPersistenceService.findUserByEmail(userEmail);
-
         if (user != null) {
             Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
             for (Role role : user.getRoles()) {
@@ -40,6 +46,8 @@ public class UserDetailsServiceHandler implements UserDetailsService {
             }
             customUserDetails = new CustomUserDetails(user);
         }
+
+        LOG.debug("Successfully loaded user: {}", user);
 
         return customUserDetails;
     }

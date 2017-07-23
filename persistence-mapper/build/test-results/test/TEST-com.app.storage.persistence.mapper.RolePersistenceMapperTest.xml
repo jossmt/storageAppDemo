@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.persistence.mapper.RolePersistenceMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-23T10:07:26" hostname="Josss-MacBook-Pro.local" time="0.013">
+<testsuite name="com.app.storage.persistence.mapper.RolePersistenceMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:10" hostname="Josss-MacBook-Pro.local" time="0.018">
   <properties/>
-  <testcase name="fullMapFromTest" classname="com.app.storage.persistence.mapper.RolePersistenceMapperTest" time="0.012"/>
+  <testcase name="fullMapFromTest" classname="com.app.storage.persistence.mapper.RolePersistenceMapperTest" time="0.017"/>
   <testcase name="fullMapperToTest" classname="com.app.storage.persistence.mapper.RolePersistenceMapperTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".

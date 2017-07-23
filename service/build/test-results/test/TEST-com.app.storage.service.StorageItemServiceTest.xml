@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.service.StorageItemServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-23T10:07:27" hostname="Josss-MacBook-Pro.local" time="0.04">
+<testsuite name="com.app.storage.service.StorageItemServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:11" hostname="Josss-MacBook-Pro.local" time="0.031">
   <properties/>
-  <testcase name="saveStorageItemsTest" classname="com.app.storage.service.StorageItemServiceTest" time="0.03"/>
-  <testcase name="retrieveStorageItemsTest" classname="com.app.storage.service.StorageItemServiceTest" time="0.009"/>
+  <testcase name="saveStorageItemsTest" classname="com.app.storage.service.StorageItemServiceTest" time="0.024"/>
+  <testcase name="retrieveStorageItemsTest" classname="com.app.storage.service.StorageItemServiceTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
