@@ -36,7 +36,7 @@ public final class CustomUserDetails extends User implements UserDetails {
      */
     @Override
     public String getUsername() {
-        return getEmail();
+        return getFirstName();
     }
 
     /**

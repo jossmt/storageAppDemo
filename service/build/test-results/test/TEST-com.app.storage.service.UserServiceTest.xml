@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.service.UserServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:11" hostname="Josss-MacBook-Pro.local" time="0.005">
-  <properties/>
-  <testcase name="loadByUsernameTest" classname="com.app.storage.service.UserServiceTest" time="0.002"/>
-  <testcase name="saveUserTest" classname="com.app.storage.service.UserServiceTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

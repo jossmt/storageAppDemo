@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+import java.security.Principal;
+
 /**
  * Returns views for core UI switching.
  */
@@ -23,6 +26,7 @@ public class ViewsController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String renderTemplate() {
+
         return "about/Home";
     }
 
@@ -32,7 +36,10 @@ public class ViewsController {
      * @return Home.jsp
      */
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String renderHome() {
+    public String renderHome(final HttpSession httpSession, final Principal principal) {
+        LOG.debug("Session details: {}", httpSession.getCreationTime() + " " + httpSession.getMaxInactiveInterval());
+        LOG.debug("Principal details: {}", principal.getName());
+
         return "about/Home";
     }
 

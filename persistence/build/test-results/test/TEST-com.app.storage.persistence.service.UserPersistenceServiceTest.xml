@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.storage.persistence.service.UserPersistenceServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-23T11:56:09" hostname="Josss-MacBook-Pro.local" time="0.027">
-  <properties/>
-  <testcase name="loadByUsernameTest" classname="com.app.storage.persistence.service.UserPersistenceServiceTest" time="0.016"/>
-  <testcase name="saveUserTest" classname="com.app.storage.persistence.service.UserPersistenceServiceTest" time="0.009"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
