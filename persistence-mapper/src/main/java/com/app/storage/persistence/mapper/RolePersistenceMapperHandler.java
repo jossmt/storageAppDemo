@@ -41,7 +41,6 @@ public class RolePersistenceMapperHandler implements RolePersistenceMapper, Abst
         RolePersistenceModel rolePersistenceModel = null;
         if (role != null) {
             rolePersistenceModel = new RolePersistenceModel();
-            rolePersistenceModel.setId(role.getId());
             rolePersistenceModel.setName(role.getName());
             rolePersistenceModel.setUsers(listMapper.mapList((AbstractMapper) userPersistenceMapper,
                                                              true, role.getUsers()));
@@ -62,7 +61,6 @@ public class RolePersistenceMapperHandler implements RolePersistenceMapper, Abst
         Role role = null;
         if (rolePersistenceModel != null) {
             role = new Role();
-            role.setId(rolePersistenceModel.getId());
             role.setName(rolePersistenceModel.getName());
             role.setUsers(listMapper.mapList((AbstractMapper) userPersistenceMapper,
                                              false, role.getUsers()));

@@ -1,18 +1,16 @@
 package com.app.storage.domain.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
-import org.joda.time.DateTime;
+
+import java.util.Date;
 
 /**
  * Storage item.
  */
 public class StorageItem {
 
-    /** Reference identifier. */
-    private Long id;
-
     /** Date item was stored. */
-    private DateTime dateStored;
+    private Date dateStored;
 
     /** Name of item. */
     private String name;
@@ -55,17 +53,8 @@ public class StorageItem {
      *
      * @return Value of Date item was stored..
      */
-    public DateTime getDateStored() {
+    public Date getDateStored() {
         return dateStored;
-    }
-
-    /**
-     * Gets Reference identifier..
-     *
-     * @return Value of Reference identifier..
-     */
-    public Long getId() {
-        return id;
     }
 
     /**
@@ -89,16 +78,6 @@ public class StorageItem {
     }
 
     /**
-     * Sets new Reference identifier..
-     *
-     * @param id
-     *         New value of Reference identifier..
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
      * Sets new Item size..
      *
      * @param size
@@ -114,7 +93,7 @@ public class StorageItem {
      * @param dateStored
      *         New value of Date item was stored..
      */
-    public void setDateStored(DateTime dateStored) {
+    public void setDateStored(Date dateStored) {
         this.dateStored = dateStored;
     }
 
@@ -136,7 +115,6 @@ public class StorageItem {
         StorageItem storageItem = (StorageItem) obj;
         return new EqualsBuilder()
                 .append(getDateStored(), storageItem.getDateStored())
-                .append(getId(), storageItem.getId())
                 .append(getName(), storageItem.getName())
                 .append(getSize(), storageItem.getSize())
                 .append(getImage(), storageItem.getImage())
@@ -153,7 +131,7 @@ public class StorageItem {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(name).append(size).append(dateStored).append(image);
+        stringBuilder.append(name).append(size).append(dateStored).append(image);
 
         return stringBuilder.toString();
     }

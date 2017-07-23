@@ -41,11 +41,9 @@ public class UserPersistenceMapperTest {
     public void fullMapperToTest() {
         //Setup
         final RolePersistenceModel rolePersistenceModel = new RolePersistenceModel();
-        rolePersistenceModel.setId(1L);
         rolePersistenceModel.setName("Name");
 
         final Role role = new Role();
-        role.setId(1L);
         role.setName("Name");
 
         final UserPersistenceModel userPersistenceModel = new UserPersistenceModel();
@@ -76,11 +74,9 @@ public class UserPersistenceMapperTest {
     public void fullMapFromTest() {
         //Setup
         final RolePersistenceModel rolePersistenceModel = new RolePersistenceModel();
-        rolePersistenceModel.setId(1L);
         rolePersistenceModel.setName("Name");
 
         final Role role = new Role();
-        role.setId(1L);
         role.setName("Name");
 
         final UserPersistenceModel userPersistenceModel = new UserPersistenceModel();

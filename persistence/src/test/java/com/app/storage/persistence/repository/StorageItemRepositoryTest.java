@@ -1,22 +1,21 @@
 package com.app.storage.persistence.repository;
 
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
-import org.joda.time.DateTime;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.text.ParseException;
+import java.util.List;
 
 /**
  * Test for {@link StorageItemRepository}
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:JDBCConfig.xml"})
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.app.storage.persistence.repository"})
 public class StorageItemRepositoryTest {
 
     /** {@link StorageItemRepository} */
@@ -26,13 +25,50 @@ public class StorageItemRepositoryTest {
     /**
      * Finds all storage items in db.
      */
-    @Test
-    public void checkFindAllItems(){
+    public void checkFindAllItems() throws InterruptedException {
 
+        //Setup
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setId(1L);
-        storageItemPersistenceModel.setDateStored(new DateTime());
         storageItemPersistenceModel.setName("Name");
         storageItemRepository.save(storageItemPersistenceModel);
+
+        //Test
+        final List<StorageItemPersistenceModel> storageItemPersistenceModels = storageItemRepository
+                .findAllAsList();
+
+        final StorageItemPersistenceModel savedStorageItemPersistenceModel = storageItemRepository.save
+                (storageItemPersistenceModel);
+
+        final List<StorageItemPersistenceModel> updatedStorageItemPersistenceModels = storageItemRepository
+                .findAllAsList();
+
+        System.out.println(storageItemPersistenceModels.size() + ", " + updatedStorageItemPersistenceModels.size());
+        //Assert
+        Assert.assertTrue(storageItemPersistenceModels.size() == updatedStorageItemPersistenceModels.size() + 1);
+        Assert.assertEquals(storageItemPersistenceModel, storageItemRepository.findMostRecent());
+
+        //Clear
+        storageItemRepository.delete(savedStorageItemPersistenceModel.getId());
+    }
+
+    /**
+     * Test save storage item.
+     */
+    @Test
+    public void checkSave() throws ParseException {
+
+        //setup
+        final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+        storageItemPersistenceModel.setName("Name");
+        storageItemRepository.save(storageItemPersistenceModel);
+
+        //Test
+        final StorageItemPersistenceModel savedStorageItemPersistenceModel = storageItemRepository.findMostRecent();
+
+        //Assert
+        Assert.assertEquals(storageItemPersistenceModel, savedStorageItemPersistenceModel);
+
+        //Clear
+        storageItemRepository.delete(savedStorageItemPersistenceModel.getId());
     }
 }

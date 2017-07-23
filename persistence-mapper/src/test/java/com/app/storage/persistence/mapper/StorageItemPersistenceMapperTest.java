@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,12 +46,10 @@ public class StorageItemPersistenceMapperTest {
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
         storageItemPersistenceModel.setName("Name");
         storageItemPersistenceModel.setSize("Size");
-        storageItemPersistenceModel.setId(1L);
-        storageItemPersistenceModel.setDateStored(new DateTime("2017-03-03"));
+        storageItemPersistenceModel.setDateStored(new Date());
         storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
 
         final StorageItem storageItem = new StorageItem();
-        storageItem.setId(storageItemPersistenceModel.getId());
         storageItem.setName(storageItemPersistenceModel.getName());
         storageItem.setSize(storageItemPersistenceModel.getSize());
         storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -71,12 +70,11 @@ public class StorageItemPersistenceMapperTest {
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
         storageItemPersistenceModel.setName("Name");
         storageItemPersistenceModel.setSize("Size");
-        storageItemPersistenceModel.setId(1l);
-        storageItemPersistenceModel.setDateStored(new DateTime("2017-03-03"));
+        storageItemPersistenceModel.setId(1L);
+        storageItemPersistenceModel.setDateStored(new Date());
         storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
 
         final StorageItem storageItem = new StorageItem();
-        storageItem.setId(storageItemPersistenceModel.getId());
         storageItem.setName(storageItemPersistenceModel.getName());
         storageItem.setSize(storageItemPersistenceModel.getSize());
         storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -128,20 +126,16 @@ public class StorageItemPersistenceMapperTest {
 
         //Setup
         final StorageItem storageItem = new StorageItem();
-        storageItem.setId(1L);
         storageItem.setName("name1");
         final StorageItem storageItem2 = new StorageItem();
-        storageItem2.setId(2L);
         storageItem2.setName("name2");
 
         final List<StorageItem> mappingList = Arrays.asList(storageItem, storageItem2);
 
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
         storageItemPersistenceModel.setName("name1");
-        storageItemPersistenceModel.setId(1L);
         final StorageItemPersistenceModel storageItemPersistenceModel2 = new StorageItemPersistenceModel();
         storageItemPersistenceModel2.setName("name2");
-        storageItemPersistenceModel2.setId(2L);
 
         final List<StorageItemPersistenceModel> mappedList = Arrays.asList(storageItemPersistenceModel,
                                                                            storageItemPersistenceModel2);

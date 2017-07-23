@@ -16,9 +16,14 @@
 package com.app.storage.persistence.repository;
 
 import com.app.storage.persistence.model.RolePersistenceModel;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * User repository.
@@ -26,4 +31,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Component
 public interface RoleRepository extends CrudRepository<RolePersistenceModel, Long> {
+
+    @Query(value = "SELECT * FROM Role ORDER BY id DESC LIMIT 1", nativeQuery = true)
+    RolePersistenceModel findMostRecent();
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query(value = "SELECT * FROM Role", nativeQuery = true)
+    List<RolePersistenceModel> findAllAsList();
+
 }

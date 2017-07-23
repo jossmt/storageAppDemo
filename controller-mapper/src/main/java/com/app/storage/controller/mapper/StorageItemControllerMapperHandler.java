@@ -29,7 +29,6 @@ public class StorageItemControllerMapperHandler implements StorageItemController
         if (storageItem != null) {
 
             storageItemControllerModel = new StorageItemControllerModel();
-            storageItemControllerModel.setId(storageItem.getId());
             storageItemControllerModel.setName(storageItem.getName());
             storageItemControllerModel.setSize(storageItem.getSize());
             storageItemControllerModel.setImage(storageItem.getImage());
@@ -51,7 +50,6 @@ public class StorageItemControllerMapperHandler implements StorageItemController
         if (storageItemControllerModel != null) {
 
             storageItem = new StorageItem();
-            storageItem.setId(storageItemControllerModel.getId());
             storageItem.setName(storageItemControllerModel.getName());
             storageItem.setImage(storageItemControllerModel.getImage());
             storageItem.setSize(storageItemControllerModel.getSize());

@@ -50,11 +50,11 @@ public class UserPersistenceModel {
     private String password;
 
     /** User role privileges. */
+    @Transient
     @ManyToMany
     @JoinTable(name = "User_Role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name
             = "role_id"))
     private List<RolePersistenceModel> roles;
-
 
     /**
      * Sets new email.

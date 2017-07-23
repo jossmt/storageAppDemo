@@ -39,16 +39,6 @@ public class Role {
     }
 
     /**
-     * Sets new Identifier..
-     *
-     * @param id
-     *         New value of Identifier..
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
      * Gets Users listed with given role..
      *
      * @return Value of Users listed with given role..

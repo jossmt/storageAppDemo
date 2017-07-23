@@ -44,13 +44,11 @@ public class StorageItemControllerMapperTest {
         final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();
         storageItemControllerModel.setName("Name");
         storageItemControllerModel.setSize("Size");
-        storageItemControllerModel.setId(1L);
         storageItemControllerModel.setImage(new byte[]{1, 0, 1});
 
         final StorageItem storageItem = new StorageItem();
         storageItem.setName("Name");
         storageItem.setSize("Size");
-        storageItem.setId(1L);
         storageItem.setImage(new byte[]{1, 0, 1});
 
         //test
@@ -71,13 +69,11 @@ public class StorageItemControllerMapperTest {
         final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();
         storageItemControllerModel.setName("Name");
         storageItemControllerModel.setSize("Size");
-        storageItemControllerModel.setId(1L);
         storageItemControllerModel.setImage(new byte[]{1, 0, 1});
 
         final StorageItem storageItem = new StorageItem();
         storageItem.setName("Name");
         storageItem.setSize("Size");
-        storageItem.setId(1L);
         storageItem.setImage(new byte[]{1, 0, 1});
 
         //test

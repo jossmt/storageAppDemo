@@ -50,6 +50,7 @@
 //    /**
 //     * Save storage items test.
 //     */
+//    @Test
 //    public void saveStorageItemsTest() {
 //
 //        //Setup

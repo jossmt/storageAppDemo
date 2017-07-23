@@ -41,7 +41,6 @@ public class StorageItemServiceTest {
 
         //Setup
         final StorageItem storageItem = new StorageItem();
-        storageItem.setId(1L);
         storageItem.setImage(new byte[]{1, 0, 1});
         storageItem.setName("StorageTest");
         storageItem.setSize("L");
@@ -61,7 +60,6 @@ public class StorageItemServiceTest {
 
         //Setup
         final StorageItem storageItem = new StorageItem();
-        storageItem.setId(1L);
         storageItem.setImage(new byte[]{1, 0, 1});
         storageItem.setName("StorageTest");
         storageItem.setSize("L");

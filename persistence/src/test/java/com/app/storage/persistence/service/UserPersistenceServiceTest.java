@@ -61,11 +61,9 @@ public class UserPersistenceServiceTest {
 
         //Setup
         final RolePersistenceModel rolePersistenceModel = new RolePersistenceModel();
-        rolePersistenceModel.setId(1L);
         rolePersistenceModel.setName("USER");
 
         final Role role = new Role();
-        role.setId(1L);
         role.setName("USER");
 
         final UserPersistenceModel userPersistenceModel = new UserPersistenceModel();
@@ -111,11 +109,9 @@ public class UserPersistenceServiceTest {
 
         //Setup
         final RolePersistenceModel rolePersistenceModel = new RolePersistenceModel();
-        rolePersistenceModel.setId(1L);
         rolePersistenceModel.setName("USER");
 
         final Role role = new Role();
-        role.setId(1L);
         role.setName("USER");
 
         final UserPersistenceModel userPersistenceModel = new UserPersistenceModel();

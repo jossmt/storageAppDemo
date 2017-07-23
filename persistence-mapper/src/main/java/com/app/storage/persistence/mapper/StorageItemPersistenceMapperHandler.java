@@ -35,7 +35,6 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
 
             storageItem = new StorageItem();
             storageItem.setName(storageItemPersistenceModel.getName());
-            storageItem.setId(storageItemPersistenceModel.getId());
             storageItem.setDateStored(storageItemPersistenceModel.getDateStored());
             storageItem.setImage(storageItemPersistenceModel.getImage());
             storageItem.setSize(storageItemPersistenceModel.getSize());
@@ -51,7 +50,6 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
 
         StorageItemPersistenceModel storageItemPersistenceModel = null;
         if (storageItem != null) {
-
             storageItemPersistenceModel = new StorageItemPersistenceModel();
             storageItemPersistenceModel.setName(storageItem.getName());
             storageItemPersistenceModel.setSize(storageItem.getSize());

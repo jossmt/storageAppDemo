@@ -19,6 +19,7 @@ public class RolePersistenceModel {
     private String name;
 
     /** Users. */
+    @ManyToMany(mappedBy = "roles")
     private List<UserPersistenceModel> users;
 
     /**
@@ -26,20 +27,8 @@ public class RolePersistenceModel {
      *
      * @return id.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
-    }
-
-    /**
-     * Set identifier.
-     *
-     * @param id
-     *         Identifier.
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**
@@ -66,7 +55,6 @@ public class RolePersistenceModel {
      *
      * @return all users with given role.
      */
-    @ManyToMany(mappedBy = "roles")
     public List<UserPersistenceModel> getUsers() {
         return users;
     }

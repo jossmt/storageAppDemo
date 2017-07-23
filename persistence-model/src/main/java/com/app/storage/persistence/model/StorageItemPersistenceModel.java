@@ -4,6 +4,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
@@ -20,7 +21,7 @@ public class StorageItemPersistenceModel {
 
     /** Date item was stored. */
     @Column(name = "DateStored")
-    private DateTime dateStored;
+    private Date dateStored;
 
     /** Name of item. */
     @Column(name = "Name")
@@ -76,7 +77,7 @@ public class StorageItemPersistenceModel {
      *
      * @return Value of Date item was stored..
      */
-    public DateTime getDateStored() {
+    public Date getDateStored() {
         return dateStored;
     }
 
@@ -96,7 +97,7 @@ public class StorageItemPersistenceModel {
      * @param dateStored
      *         New value of Date item was stored..
      */
-    public void setDateStored(DateTime dateStored) {
+    public void setDateStored(Date dateStored) {
         this.dateStored = dateStored;
     }
 
