@@ -51,11 +51,10 @@ public class StorageItemController {
      */
     @Autowired
     public StorageItemController(final StorageItemService storageItemService,
-                                 final StorageItemControllerMapper storageItemControllerMapper,
-                                 final ListMapper listMapper) {
+                                 final StorageItemControllerMapper storageItemControllerMapper) {
+        listMapper = new ListMapper();
         this.storageItemService = storageItemService;
         this.storageItemControllerMapper = storageItemControllerMapper;
-        this.listMapper = listMapper;
     }
 
     /**

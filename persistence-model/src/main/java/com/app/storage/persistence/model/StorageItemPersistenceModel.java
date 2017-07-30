@@ -35,6 +35,10 @@ public class StorageItemPersistenceModel {
     @Column(name = "Image")
     private byte[] image;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private UserPersistenceModel userPersistenceModel;
+
     /**
      * Gets Reference identifier..
      *
@@ -128,6 +132,25 @@ public class StorageItemPersistenceModel {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Gets userPersistenceModel.
+     *
+     * @return Value of userPersistenceModel.
+     */
+    public UserPersistenceModel getUserPersistenceModel() {
+        return userPersistenceModel;
+    }
+
+    /**
+     * Sets new userPersistenceModel.
+     *
+     * @param userPersistenceModel
+     *         New value of userPersistenceModel.
+     */
+    public void setUserPersistenceModel(UserPersistenceModel userPersistenceModel) {
+        this.userPersistenceModel = userPersistenceModel;
     }
 
 

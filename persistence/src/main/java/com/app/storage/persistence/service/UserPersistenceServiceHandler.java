@@ -39,7 +39,7 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
     @Autowired
     public UserPersistenceServiceHandler(final UserRepository userRepository, final RoleRepository roleRepository,
                                          final UserPersistenceMapper userPersistenceMapper,
-                                         final BCryptPasswordEncoder bCryptPasswordEncoder){
+                                         final BCryptPasswordEncoder bCryptPasswordEncoder) {
 
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
@@ -77,8 +77,7 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
      * @throws UsernameNotFoundException
      */
     @Override
-    public User findUserByEmail(final String userEmail)
-            throws UsernameNotFoundException {
+    public User findUserByEmail(final String userEmail) throws UsernameNotFoundException {
 
         LOG.debug("Finding user by email: {}", userEmail);
 
@@ -90,4 +89,5 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
 
         return user;
     }
+
 }

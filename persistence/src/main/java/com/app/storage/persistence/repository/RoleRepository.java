@@ -38,7 +38,7 @@ public interface RoleRepository extends CrudRepository<RolePersistenceModel, Lon
      *
      * @return {@link RolePersistenceModel}
      */
-    @Query(value = "SELECT * FROM Role ORDER BY id DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM Role ORDER BY role_id DESC LIMIT 1", nativeQuery = true)
     RolePersistenceModel findMostRecent();
 
     /**

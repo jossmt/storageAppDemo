@@ -4,5 +4,5 @@
 		http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
        bean-discovery-mode="all">
 
-    <!--<jpa:repositories base-package="com.app.storage.persistence.repository"></jpa:repositories>-->
+    <jpa:repositories base-package="com.app.storage.persistence.repository"></jpa:repositories>
 </beans>

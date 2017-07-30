@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<sec:authentication var="principal" property="principal" />
     
     <!-- Meta info -->

@@ -16,6 +16,7 @@
 package com.app.storage.controller.security;
 
 import com.app.storage.controller.security.handlers.UrlAuthenticationSuccessHandler;
+import com.app.storage.service.security.AuthenticationProviderHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +32,8 @@ import org.springframework.security.data.repository.query.SecurityEvaluationCont
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
+import javax.sql.DataSource;
+
 
 /**
  * Spring Web Security Configuration.
@@ -38,20 +41,25 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfig
-        extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    /** {@link AuthenticationProviderHandler}. */
+    @Autowired
+    private AuthenticationProviderHandler authenticationProviderHandler;
 
     /**
      * {@inheritDoc}
      */
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
 
         http
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/signup", "/", "/home", "/about")
                 .permitAll()
+            .antMatchers("/admin/**")
+                .hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -59,10 +67,15 @@ public class WebSecurityConfig
                 .successHandler(successHandler())
                 .permitAll()
                 .and()
-                .logout().deleteCookies("JSESSIONID")
+                .logout()
+                .deleteCookies("JSESSIONID")
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/home")
                 .permitAll()
                 .and()
-                .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400)
+                .rememberMe()
+                .key("uniqueAndSecret")
+                .tokenValiditySeconds(86400)
                 .and()
                 .sessionManagement()
                 .sessionFixation().migrateSession()
@@ -77,18 +90,15 @@ public class WebSecurityConfig
      *
      * @param auth
      *         {@link AuthenticationManagerBuilder}
-     * @param userDetailsService
-     *         {@link UserDetailsService}
      * @throws Exception
      *         {@link Exception}
      */
     @Autowired
-    public void configureGlobal(final AuthenticationManagerBuilder auth, final UserDetailsService userDetailsService)
+    public void configureGlobal(final AuthenticationManagerBuilder auth)
             throws
             Exception {
         auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(new BCryptPasswordEncoder());
+                .authenticationProvider(authenticationProviderHandler);
     }
 
     /**

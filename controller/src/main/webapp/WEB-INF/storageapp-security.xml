@@ -8,13 +8,12 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
     <authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="userDetailsService">
-            <password-encoder ref="encoder"></password-encoder>
+        <authentication-provider ref="authenticationProviderHandler">
         </authentication-provider>
     </authentication-manager>
 
-    <beans:bean id="userDetailsService"
-                class="com.app.storage.service.security.UserDetailsServiceHandler"></beans:bean>
+    <!--<beans:bean id="userDetailsService"-->
+                <!--class="com.app.storage.service.security.UserDetailsServiceHandler"></beans:bean>-->
 
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">

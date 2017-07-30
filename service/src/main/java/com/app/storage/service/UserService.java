@@ -22,16 +22,9 @@ public interface UserService {
      *
      * @param username
      *         Users email.
-     * @return {@link UserDetails}
+     * @return {@link User}
      */
-    UserDetails loadUserByUsername(final String username);
-
-    /**
-     * Find logged in username.
-     *
-     * @return Current user logged in username.
-     */
-    String findLoggedInUsername();
+    User loadUserByUsername(final String username);
 
     /**
      * Automatic login function.
@@ -42,4 +35,13 @@ public interface UserService {
      *         Password.
      */
     void autologin(String userEmail, String password);
+
+    /**
+     * Loads user information by unique email.
+     *
+     * @param userEmail
+     *         Users email.
+     * @return {@link User}
+     */
+    User loadUserData(String userEmail);
 }

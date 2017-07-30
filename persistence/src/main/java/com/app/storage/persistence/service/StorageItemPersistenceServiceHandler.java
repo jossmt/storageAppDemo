@@ -1,10 +1,13 @@
 package com.app.storage.persistence.service;
 
 import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.StorageItemPersistenceMapper;
+import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
+import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.repository.StorageItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

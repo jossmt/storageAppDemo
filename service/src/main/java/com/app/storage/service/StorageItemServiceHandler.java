@@ -1,7 +1,9 @@
 package com.app.storage.service;
 
 import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.User;
 import com.app.storage.persistence.service.StorageItemPersistenceService;
+import com.app.storage.persistence.service.UserPersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,8 @@ package com.app.storage.controller;
 
 import com.app.storage.domain.model.User;
 import com.app.storage.service.UserService;
-import com.app.storage.service.validation.ValidationService;
+import com.app.storage.service.validation.LoginValidationService;
+import com.app.storage.service.validation.SignUpValidationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,11 @@ public class LoginController {
     /** {@link Logger}. */
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
-    /** {@link ValidationService} */
-    private final ValidationService validationService;
+    /** {@link SignUpValidationService} */
+    private final SignUpValidationService signUpValidationService;
+
+    /** {@link LoginValidationService} */
+    private final LoginValidationService loginValidationService;
 
     /** {@link UserService} */
     private final UserService userService;
@@ -32,15 +36,17 @@ public class LoginController {
     /**
      * Constructor.
      *
-     * @param validationService
-     *         {@link ValidationService}
+     * @param signUpValidationService
+     *         {@link SignUpValidationService}
      * @param userService
      *         {@link UserService}
      */
     @Autowired
-    public LoginController(final ValidationService validationService, final UserService userService) {
+    public LoginController(final SignUpValidationService signUpValidationService,
+                           final LoginValidationService loginValidationService, final UserService userService) {
 
-        this.validationService = validationService;
+        this.signUpValidationService = signUpValidationService;
+        this.loginValidationService = loginValidationService;
         this.userService = userService;
     }
 
@@ -51,7 +57,9 @@ public class LoginController {
      * @return Login.jsp
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String renderLogin() {
+    public String renderLogin(final Model model) {
+        model.addAttribute("userForm", new User());
+
         return "login/Login";
     }
 
@@ -68,44 +76,53 @@ public class LoginController {
     }
 
     /**
-     * User registered
+     * Registering new user
      *
      * @param userForm
+     *         Filled in UserObject form.
      * @param bindingResult
-     * @param model
-     * @return
+     *         Error Handling.
+     * @return redirect URL.
      */
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-
+    public String registration(@ModelAttribute("userForm") final User userForm, final BindingResult bindingResult) {
         LOG.debug("Signing up with user: {}", userForm);
 
-        validationService.validate(userForm, bindingResult);
+        signUpValidationService.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "login/Signup";
         }
 
         userService.saveUser(userForm);
-        userService.autologin(userForm.getEmail(), userForm.getPasswordConfirm());
+        userService.autologin(userForm.getEmail(), userForm.getPassword());
 
         return "about/Home";
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String login(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-//
-//        LOG.debug("Signing up with user: {}", userForm);
-//
-//        validationService.validate(userForm, bindingResult);
-//
-//        if (bindingResult.hasErrors()) {
-//            return "login/Signup";
-//        }
-//
-//        userService.saveUser(userForm);
-//        userService.autologin(userForm.getEmail(), userForm.getPasswordConfirm());
-//
-//        return "about/Home";
-//    }
+    /**
+     * Login service.
+     *
+     * @param userForm
+     *         {@link User}
+     * @param bindingResult
+     *         {@link BindingResult}
+     * @return Redirect success/failure page.
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute("userForm") final User userForm, final BindingResult bindingResult) {
+        LOG.debug("Logging in with user: {}", userForm);
+
+        loginValidationService.validate(userForm, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "login/Login";
+        }
+
+        userService.autologin(userForm.getEmail(), userForm.getPassword());
+
+        LOG.debug("Successfully logged in with user: {}", userForm.getFirstName());
+
+        return "about/Home";
+    }
 }

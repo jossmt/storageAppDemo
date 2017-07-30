@@ -1,6 +1,9 @@
 package com.app.storage.persistence.repository;
 
+import com.app.storage.domain.model.User;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
+import com.app.storage.persistence.model.UserPersistenceModel;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.List;
 
@@ -21,6 +31,11 @@ public class StorageItemRepositoryTest {
     /** {@link StorageItemRepository} */
     @Autowired
     private StorageItemRepository storageItemRepository;
+
+    /** {@link UserRepository} */
+    @Autowired
+    private UserRepository userRepository;
+
 
     /**
      * Finds all storage items in db.
@@ -58,8 +73,11 @@ public class StorageItemRepositoryTest {
     public void checkSave() throws ParseException {
 
         //setup
+        final UserPersistenceModel userPersistenceModel = userRepository.findMostRecent();
+
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
         storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
         storageItemRepository.save(storageItemPersistenceModel);
 
         //Test
@@ -70,5 +88,24 @@ public class StorageItemRepositoryTest {
 
         //Clear
         storageItemRepository.delete(savedStorageItemPersistenceModel.getId());
+    }
+
+//    @Test
+    public void saveExampleData() throws IOException {
+
+        //setup
+        final UserPersistenceModel userPersistenceModel = userRepository.findMostRecent();
+
+        final File image = new File("src/test/resources/example.jpg");
+        final byte[] imageBytes = FileUtils.readFileToByteArray(image);
+
+
+        final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+        storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setSize("L");
+        storageItemPersistenceModel.setImage(imageBytes);
+
+        storageItemRepository.save(storageItemPersistenceModel);
+
     }
 }

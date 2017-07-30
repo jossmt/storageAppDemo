@@ -2,8 +2,6 @@ package com.app.storage.service;
 
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.service.UserPersistenceService;
-import com.app.storage.service.security.CustomUserDetails;
-import com.app.storage.service.security.UserDetailsServiceHandler;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * Test for {@link UserService}
@@ -24,10 +20,6 @@ public class UserServiceTest {
     /** {@link AuthenticationManager}. */
     @Mock
     private AuthenticationManager authenticationManager;
-
-    /** {@link UserDetailsService}. */
-    @Mock
-    private UserDetailsService userDetailsService;
 
     /** {@link UserPersistenceService}. */
     @Mock
@@ -42,7 +34,7 @@ public class UserServiceTest {
      */
     @Before
     public void setUp() {
-        userService = new UserServiceHandler(userPersistenceService, authenticationManager, userDetailsService);
+        userService = new UserServiceHandler(userPersistenceService);
     }
 
     /**
@@ -86,19 +78,17 @@ public class UserServiceTest {
         user.setPassword("pass");
         user.setPasswordConfirm("pass");
 
-        final UserDetails userDetails = new CustomUserDetails(user);
-
         //Mock
-        Mockito.when(userDetailsService.loadUserByUsername("email")).thenReturn(userDetails);
+        Mockito.when(userPersistenceService.findUserByEmail("email")).thenReturn(user);
 
         //Test
-        final UserDetails actualUserDetails = userService.loadUserByUsername("email");
+        final User actualUserDetails = userService.loadUserByUsername("email");
 
         //Verify
-        Mockito.verify(userDetailsService).loadUserByUsername("email");
+        Mockito.verify(userPersistenceService).findUserByEmail("email");
 
         //Assert
-        Assert.assertEquals(userDetails, actualUserDetails);
+        Assert.assertEquals(user, actualUserDetails);
     }
 
 }

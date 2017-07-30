@@ -16,6 +16,7 @@
 package com.app.storage.persistence.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.List;
@@ -54,6 +55,10 @@ public class UserPersistenceModel {
     @JoinTable(name = "User_Role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name
             = "role_id"))
     private List<RolePersistenceModel> roles;
+
+    /** List of users items. */
+    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<StorageItemPersistenceModel> storageItemPersistenceModelList;
 
     /**
      * Sets new email.
@@ -170,6 +175,25 @@ public class UserPersistenceModel {
     }
 
     /**
+     * Gets List of users items..
+     *
+     * @return Value of List of users items..
+     */
+    public List<StorageItemPersistenceModel> getStorageItemPersistenceModelList() {
+        return storageItemPersistenceModelList;
+    }
+
+    /**
+     * Sets new List of users items..
+     *
+     * @param storageItemPersistenceModelList
+     *         New value of List of users items..
+     */
+    public void setStorageItemPersistenceModelList(List<StorageItemPersistenceModel> storageItemPersistenceModelList) {
+        this.storageItemPersistenceModelList = storageItemPersistenceModelList;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -186,6 +210,7 @@ public class UserPersistenceModel {
                 .append(getEmail(), userPersistenceModel.getEmail())
                 .append(getPassword(), userPersistenceModel.getPassword())
                 .append(getRoles(), userPersistenceModel.getRoles())
+                .append(getStorageItemPersistenceModelList(), userPersistenceModel.getStorageItemPersistenceModelList())
                 .isEquals();
     }
 

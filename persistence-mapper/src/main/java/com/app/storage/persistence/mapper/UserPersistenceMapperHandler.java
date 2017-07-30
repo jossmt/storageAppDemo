@@ -22,6 +22,10 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     @Autowired
     private RolePersistenceMapper rolePersistenceMapper;
 
+    /** {@link RolePersistenceMapper} */
+    @Autowired
+    private StorageItemPersistenceMapper storageItemPersistenceMapper;
+
     /** {@link ListMapper}. */
     private ListMapper listMapper;
 

@@ -41,8 +41,12 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication
             authentication) throws IOException, ServletException {
 
+        LOG.debug("Executing successful authentication behaviour.");
+
         handleRequest(request, response, authentication);
         clearAuthenticationAttributes(request);
+
+        LOG.debug("Successfully executed post authentication behaviour.");
     }
 
     /**
@@ -81,11 +85,15 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
         boolean isUser = false;
         boolean isAdmin = false;
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+
+        LOG.debug("Granted authorities size: {}", authorities.size());
         for (final GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals("USER")) {
+
+            LOG.debug("Authorities granted: {}", grantedAuthority.getAuthority());
+            if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
                 isUser = true;
                 break;
-            } else if (grantedAuthority.getAuthority().equals("ADMIN")) {
+            } else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
                 isAdmin = true;
                 break;
             }
@@ -94,7 +102,7 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
         if (isUser) {
             return "/home";
         } else if (isAdmin) {
-            return "/console";
+            return "/home";
         } else {
             throw new IllegalStateException();
         }

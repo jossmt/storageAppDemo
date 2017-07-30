@@ -1,6 +1,8 @@
 package com.app.storage.persistence.repository;
 
+import com.app.storage.persistence.mapper.StorageItemPersistenceMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
+import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import org.junit.Assert;
 import org.junit.Test;
@@ -33,7 +35,7 @@ public class UserRepositoryTest {
         final UserPersistenceModel user = new UserPersistenceModel();
         user.setFirstName("fname");
         user.setLastName("lname");
-        user.setEmail("example@email.com");
+        user.setEmail("example3@email.com");
         user.setPassword("pass");
         user.setRoles(Arrays.asList(role));
 

@@ -3,6 +3,7 @@
 
 <sec:authentication var="principal" property="principal" />
 
+
 <div class="navbar">
 
     <h3 id="logo">Company<span>logo</span></h3>
@@ -10,9 +11,9 @@
     <div class="login">
         <ul>
             <c:choose>
-                <c:when test="${principal.username != null}">
-                    <a href="/profile">${principal.username}</a>
-                    <a href="/logout">Logout</a>
+                <c:when test="${principal != null}">
+                    <a href="${pageContext.servletContext.contextPath}/profile">${principal}</a>
+                    <a href="${pageContext.servletContext.contextPath}/logout">Logout</a>
                 </c:when>
                 <c:otherwise>
                     <a href="${pageContext.servletContext.contextPath}/login">Login</a>

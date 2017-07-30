@@ -47,10 +47,15 @@ public class User implements Serializable {
     @NotEmpty(message = "Password is required.")
     private String password;
 
+    /** Confirmation password. */
     @NotEmpty(message = "Password is required.")
     private String passwordConfirm;
 
+    /** List of {@Role}. */
     private List<Role> roles;
+
+    /** list of {@link StorageItem}. */
+    private List<StorageItem> storageItems;
 
 
     /**
@@ -205,6 +210,26 @@ public class User implements Serializable {
 
 
     /**
+     * Gets all user storage items.
+     *
+     * @return {@link StorageItem}
+     */
+    public List<StorageItem> getStorageItems() {
+        return storageItems;
+    }
+
+    /**
+     * Sets storage items.
+     *
+     * @param storageItems
+     *         list of {@link StorageItem}
+     */
+    public void setStorageItems(List<StorageItem> storageItems) {
+        this.storageItems = storageItems;
+    }
+
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -227,6 +252,7 @@ public class User implements Serializable {
                 .append(password, user.getPassword())
                 .append(passwordConfirm, user.getPasswordConfirm())
                 .append(roles, user.getRoles())
+                .append(storageItems, user.getStorageItems())
                 .isEquals();
     }
 
