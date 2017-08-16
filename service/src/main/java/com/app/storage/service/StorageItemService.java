@@ -19,8 +19,8 @@ public interface StorageItemService {
     /**
      * Saves a list of storage items.
      *
-     * @param storageItems
+     * @param storageItem
      *         Storage item list.
      */
-    void saveStorageItems(List<StorageItem> storageItems);
+    void saveStorageItem(StorageItem storageItem);
 }

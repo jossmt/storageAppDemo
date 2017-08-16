@@ -1,5 +1,6 @@
 package com.app.storage.controller.model;
 
+import com.app.storage.domain.model.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
@@ -12,17 +13,28 @@ public class StorageItemControllerModel {
     @JsonProperty("id")
     private Long id;
 
-    /** Name of item. */
-    @JsonProperty("Name")
-    private String name;
-
     /** Item size. */
     @JsonProperty("Size")
     private String size;
 
+    /** Description. */
+    @JsonProperty("Description")
+    private String description;
+
+    /** Brand. */
+    @JsonProperty("Brand")
+    private String brand;
+
+    /** Grade. */
+    @JsonProperty("Grade")
+    private String grade;
+
     /** Image taken of item. */
     @JsonProperty("Image")
     private byte[] image;
+
+    /** Owner. */
+    private User user;
 
 
     /**
@@ -32,15 +44,6 @@ public class StorageItemControllerModel {
      */
     public byte[] getImage() {
         return image;
-    }
-
-    /**
-     * Gets Name of item..
-     *
-     * @return Value of Name of item..
-     */
-    public String getName() {
-        return name;
     }
 
     /**
@@ -73,16 +76,6 @@ public class StorageItemControllerModel {
     }
 
     /**
-     * Sets new Name of item..
-     *
-     * @param name
-     *         New value of Name of item..
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * Gets Reference identifier..
      *
      * @return Value of Reference identifier..
@@ -102,6 +95,82 @@ public class StorageItemControllerModel {
     }
 
     /**
+     * Gets Brand..
+     *
+     * @return Value of Brand..
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * Gets Grade..
+     *
+     * @return Value of Grade..
+     */
+    public String getGrade() {
+        return grade;
+    }
+
+    /**
+     * Gets Description..
+     *
+     * @return Value of Description..
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets new Brand..
+     *
+     * @param brand
+     *         New value of Brand..
+     */
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    /**
+     * Sets new Description..
+     *
+     * @param description
+     *         New value of Description..
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * Sets new Grade..
+     *
+     * @param grade
+     *         New value of Grade..
+     */
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    /**
+     * Gets Owner..
+     *
+     * @return Value of Owner..
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets new Owner..
+     *
+     * @param user
+     *         New value of Owner..
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -116,12 +185,15 @@ public class StorageItemControllerModel {
             return true;
 
         StorageItemControllerModel storageItemControllerModel = (StorageItemControllerModel) obj;
-        return new EqualsBuilder().
-                append(getId(), storageItemControllerModel.getId()).
-                append(getName(), storageItemControllerModel.getName()).
-                append(getSize(), storageItemControllerModel.getSize()).
-                append(getImage(), storageItemControllerModel.getImage()).
-                isEquals();
+        return new EqualsBuilder()
+                .append(getId(), storageItemControllerModel.getId())
+                .append(getSize(), storageItemControllerModel.getSize())
+                .append(getImage(), storageItemControllerModel.getImage())
+                .append(getBrand(), storageItemControllerModel.getBrand())
+                .append(getDescription(), storageItemControllerModel.getDescription())
+                .append(getGrade(), storageItemControllerModel.getGrade())
+                .append(getUser(), storageItemControllerModel.getUser())
+                .isEquals();
     }
 
     /**
@@ -134,7 +206,7 @@ public class StorageItemControllerModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(name).append(size);
+        stringBuilder.append(id).append(size).append(brand).append(description).append(grade);
 
         return stringBuilder.toString();
     }

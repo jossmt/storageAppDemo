@@ -8,22 +8,71 @@
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
-        <div id="home">
+        <div class="homecontainer">
+            <div class="info">
+                <img height=500px width=100%
+                     src="${pageContext.request.contextPath}/resources/img/handimage.jpeg"/>
 
-            <div class="section-1">
-                <h2 id="sect-1-text">Storage made <br/> smarter...</h2>
-                <img id="sect-1-img" src="https://static.pexels.com/photos/334979/pexels-photo-334979.jpeg"/>
+                <div class="description">
+                    <p class="description_content">Use the <span style="color:#c17cdb">discover</span> option to
+                        see what we have to offer.
+                        <br/><br/><br/>
+                        Or make use of any of our services: <span style="color:#00fa9a">We collect. </span>
+                        <span style="color:#c17cdb">We sell.</span>
+                        <span style="color:deepskyblue">You earn.</span>
+                    </p>
+                </div>
             </div>
 
-            <div class="section-2">
+            <div id="mission" class="mission">
 
-                <div id=sect-2-text-container>
-                    <h2 id=sect-2-text>Store your clothing at the click of a button.<br/><br/> It's Simple. Send in your
-                        items... <br/><br/>We'll take a picture of each of your individually stored items. <br/><br/>Once
-                        uploaded, you will be able to visualise your wardrobe. <br/><br/> Design your own outfits, sell
-                        your outdated clothing or order items home with same day delivery.</h2>
+                <img height=600px width=100% src="${pageContext.request.contextPath}/resources/img/BrickWall.jpg"/>
+
+                <div class="mission_content">
+                    <h1><span class="fade">- Our Mission -</span></h1>
+                    <p>
+                        <span class="fade">Here at description our aim is to make buying and selling that bit easier by doing
+                        the hard work for you. By collecting, valuing and listing your items for you, we take all the
+                        strain off your hands - so you can focus on more important things. </span>
+                        <br/>-------<br/>
+                        <span class="fade">Not here to sell?<br/>Discover what items we have listed. </span>
+                        <br/>-------<br/>
+                        <span class="fade">After all, one man's junk is another man'streasure.</span></p>
                 </div>
-                <img id="sect-2-img" src="http://68.media.tumblr.com/tumblr_mdaiedNw8n1r5rtmy.jpg"/>
+            </div>
+
+            <div id="howitworks" class="howitworks">
+
+                <div class="gride">
+                    <p>1. Book a collection<br/>date online</p>
+                </div>
+                <div class="grida">
+                    <img height=70% width=70% src="${pageContext.request.contextPath}/resources/img/VanIcon.png"/>
+                </div>
+                <div class="gridg">
+                    <p>3.<br/> Login with your user<br/> details and see<br/> your items listed</p>
+                </div>
+                <div class="gridf">
+                    <img height=70% width=70%
+                         src="${pageContext.request.contextPath}/resources/img/CameraIcon.png"/>
+                </div>
+                <div></div>
+                <div class="gridj">
+
+                    <p>2.<br/> We'll capture, upload<br/>and safely store your<br/>items</p>
+                </div>
+                <div class="gridc">
+                    <img height=70% width=70%
+                         src="${pageContext.request.contextPath}/resources/img/LaptopIcon.png"/>
+                </div>
+                <div class="gridl">
+                    <p>4. Sit back and relax<br/>while we sell<br/>your items</p>
+                </div>
+                <div class="gridh">
+                    <img height=70% width=70%
+                         src="${pageContext.request.contextPath}/resources/img/MoneyBagIcon.png"/>
+                </div>
+
             </div>
         </div>
     </tiles:putAttribute>

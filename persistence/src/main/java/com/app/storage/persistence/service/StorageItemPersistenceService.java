@@ -22,8 +22,8 @@ public interface StorageItemPersistenceService {
     /**
      * Saves all storage items in database.
      *
-     * @param storageItems
-     *         Storage items.
+     * @param storageItem
+     *         Storage item.
      */
-    void saveStorageItems(final List<StorageItem> storageItems);
+    void saveStorageItem(StorageItem storageItem);
 }

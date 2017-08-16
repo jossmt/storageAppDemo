@@ -7,6 +7,7 @@ import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
 import org.apache.commons.collections4.IterableUtils;
+import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementation of {@link UserPersistenceService}
  */
 @Service
+@Transactional
 public class UserPersistenceServiceHandler implements UserPersistenceService {
 
     /** Logger. */
@@ -82,6 +85,33 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         LOG.debug("Finding user by email: {}", userEmail);
 
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        final User user = userPersistenceMapper.mapFrom(userPersistenceModel);
+
+        LOG.debug("Successfully found user: {}", user);
+
+        return user;
+    }
+
+    /**
+     * Load user by username from repo.
+     *
+     * @param userEmail
+     *         Users email.
+     * @return {@link UserDetails}
+     * @throws UsernameNotFoundException
+     */
+    @Override
+    @Transactional
+    public User findUserByEmailLoadStorage(final String userEmail) throws UsernameNotFoundException {
+
+        LOG.debug("Finding user by email: {}", userEmail);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        Hibernate.initialize(userPersistenceModel.getStorageItemPersistenceModelList());
+
+        LOG.debug("User stored items: {}", userPersistenceModel.getStorageItemPersistenceModelList());
 
         final User user = userPersistenceMapper.mapFrom(userPersistenceModel);
 

@@ -107,7 +107,7 @@ public class UserServiceHandler implements UserService {
 
         LOG.debug("Loading user by email: {}", userEmail);
 
-        final User user = userPersistenceService.findUserByEmail(userEmail);
+        final User user = userPersistenceService.findUserByEmailLoadStorage(userEmail);
 
         LOG.debug("Successfully found user: {}", user);
 

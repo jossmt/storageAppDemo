@@ -97,7 +97,7 @@ public class LoginController {
         userService.saveUser(userForm);
         userService.autologin(userForm.getEmail(), userForm.getPassword());
 
-        return "about/Home";
+        return "about/About";
     }
 
     /**
@@ -123,6 +123,6 @@ public class LoginController {
 
         LOG.debug("Successfully logged in with user: {}", userForm.getFirstName());
 
-        return "about/Home";
+        return "about/About";
     }
 }

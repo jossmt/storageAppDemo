@@ -1,6 +1,5 @@
 package com.app.storage.persistence.repository;
 
-import com.app.storage.domain.model.User;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import org.apache.commons.io.FileUtils;
@@ -11,13 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.List;
 
@@ -44,7 +38,7 @@ public class StorageItemRepositoryTest {
 
         //Setup
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setDescription("Name");
         storageItemRepository.save(storageItemPersistenceModel);
 
         //Test
@@ -76,8 +70,10 @@ public class StorageItemRepositoryTest {
         final UserPersistenceModel userPersistenceModel = userRepository.findMostRecent();
 
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setDescription("Name");
         storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+        storageItemPersistenceModel.setBrand("Brand");
+        storageItemPersistenceModel.setGrade("A");
         storageItemRepository.save(storageItemPersistenceModel);
 
         //Test
@@ -101,9 +97,10 @@ public class StorageItemRepositoryTest {
 
 
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setDescription("Name");
         storageItemPersistenceModel.setSize("L");
         storageItemPersistenceModel.setImage(imageBytes);
+        storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
 
         storageItemRepository.save(storageItemPersistenceModel);
 

@@ -1,46 +1,48 @@
 li {
-    list-style-type:none;
-    display:inline;
+    list-style-type: none;
+    display: inline;
 }
 
 #logo {
-    color:  lightgrey;
-	font: normal 36px 'Cookie', cursive;
-	margin: 0;
-    float:left;
+    color: lightgrey;
+    font: normal 36px 'Advent Pro', cursive;
+    margin: 0;
+    float: left;
 }
 
-#logo span{
-	color:  #5383d3;
+#logo span {
+    color: #5383d3;
 }
 
-.navbar .home{
-    text-align: center;
+.navbar .home {
+    text-align:right;
 }
 
-.navbar .login{
+.navbar .login {
     text-align:right;
 }
 
 /* Style the links inside the navigation bar */
 .home a {
     color: lightgrey;
-    padding: 14px 16px;
+    padding: 0px 12px;
     text-decoration: none;
-    font-family: fresca;
-    font-weight: bolder; 
-    font-size: 20px;
+    font-weight: bolder;
+    font-family: Poppins;
+    font-size: 16px;
     border: 1px
 }
 
 .login a {
     color: lightgrey;
-    margin-right: 3%;
+    padding: 0px 12px;
     text-decoration: none;
-    font-family:fresca;
-    font-size: 25px;
+    font-weight: bolder;
+    font-family: Poppins;
+    font-size: 16px;
 }
-.login a:hover{
+
+.login a:hover {
     color: orange;
 }
 
@@ -50,5 +52,5 @@ li {
 }
 
 #clearer {
-    clear:both;
+    clear: both;
 }

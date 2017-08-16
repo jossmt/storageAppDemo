@@ -9,10 +9,12 @@ import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.repository.StorageItemRepository;
+import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -53,6 +55,7 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
     /**
      * {@inheritDoc}
      */
+    @Transactional
     public List<StorageItem> retrieveAllStorageItems() {
 
         LOG.debug("Retrieving all storage items.");
@@ -73,14 +76,14 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
     /**
      * {@inheritDoc}
      */
-    public void saveStorageItems(final List<StorageItem> storageItems) {
+    public void saveStorageItem(final StorageItem storageItem) {
 
-        LOG.debug("Saving storage items to database: {}", storageItems);
+        LOG.debug("Saving storage item to database: {}", storageItem);
 
-        final List<StorageItemPersistenceModel> storageItemPersistenceModels = listMapper.mapList
-                ((AbstractMapper) storageItemPersistenceMapper, true, storageItems);
+        final StorageItemPersistenceModel storageItemPersistenceModel = storageItemPersistenceMapper.mapTo
+                (storageItem);
 
-        storageItemRepository.save(storageItemPersistenceModels);
+        storageItemRepository.save(storageItemPersistenceModel);
 
         LOG.debug("Saved storage items to database.");
     }

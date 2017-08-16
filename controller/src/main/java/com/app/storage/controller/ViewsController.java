@@ -8,6 +8,7 @@ import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.service.StorageItemService;
 import com.app.storage.service.UserService;
+import com.app.storage.service.security.CustomUserDetails;
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,13 +77,12 @@ public class ViewsController {
     }
 
     /**
-     * Renders home view to container.
+     * Renders About view to container.
      *
-     * @return Home.jsp
+     * @return About.jsp
      */
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String renderHome() {
-
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String renderAbout() {
         return "about/Home";
     }
 
@@ -91,20 +91,20 @@ public class ViewsController {
      *
      * @return About.jsp
      */
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
-    public String renderAbout() {
-        return "about/About";
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public String renderInfo() {
+        return "about/Home";
     }
 
     /**
      * Renders requests view to container.
      *
-     * @return Requests.jsp
+     * @return Collection.jsp
      */
-    @RequestMapping(value = "/myrequests", method = RequestMethod.GET)
+    @RequestMapping(value = "/collection", method = RequestMethod.GET)
     public String renderRequests() {
 
-        return "core/Requests";
+        return "core/Collection";
     }
 
     /**
@@ -112,7 +112,7 @@ public class ViewsController {
      *
      * @return Storage.jsp
      */
-    @RequestMapping(value = "/mystorage", method = RequestMethod.GET)
+    @RequestMapping(value = "/discover", method = RequestMethod.GET)
     public ModelAndView renderStorage() {
         LOG.debug("Getting all stored items.");
 
@@ -120,13 +120,10 @@ public class ViewsController {
 
         final List<StorageItem> storageItems = storageItemService.retrieveAllStorageItems();
 
-        final List<StorageItemControllerModel> storageItemControllerModels = listMapper.mapList
-                ((AbstractMapper) storageItemControllerMapper, false, storageItems);
-
-        LOG.debug("Successfully returned all stored items: {}.", storageItemControllerModels);
+        LOG.debug("Successfully returned all stored items: {}.", storageItems);
 
         modelAndView.setViewName("core/Storage");
-        modelAndView.addObject("storageItems", storageItemControllerModels);
+        modelAndView.addObject("storageItems", storageItems);
 
         return modelAndView;
     }

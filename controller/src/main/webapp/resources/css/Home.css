@@ -1,38 +1,100 @@
-#sect-1-img {
+.info img {
     position: relative;
-    width: 100%;
-    height: 400px;
-    float:right;
 }
 
-#sect-1-text {
-    z-index:100;
-    position: absolute;
-    top: 150px;
-    left: 30px;
+.info .description {
+    top: 200px;
+    position: absolute; /* absolute position (so we can position it where we want)*/
     width: 100%;
-    font-family: bellefair;
-    font-weight: normal;
-    font-size: 40px;
-    color: lightgrey;
-}
-
-#sect-2-text {
-    font-family: bellefair;
     color: orange;
-    margin-top:100px;
+    opacity: 0.6; /* transparency */
+    filter: alpha(opacity=60); /* IE transparency */
 }
 
-#sect-2-img {
-    float:left;
-    margin-top: 50px;
-    width: 50%;
-    height: 500px;
-    margin-left: 30px;
+.info p.description_content {
+    padding: 10px;
+    margin: 0px;
+    font-size: 25px;
+    font-family: Poppins;
 }
 
-#sect-2-text-container {
-    float:right;
-    width: 45%;
-    word-wrap: break-word;
+.mission_content {
+    position:absolute;
+    width:100%;
+    text-align: center;
+    top:600px;
+}
+
+.mission_content h1{
+    font-family:Roboto;
+    font-size:50px;
+    color: #454545;
+}
+
+.mission_content p{
+    font-family:Roboto;
+    font-size:30px;
+    color: #454545;
+}
+
+.mission img {
+    opacity: 0.5;
+}
+
+.howitworks {
+    display:grid;
+    justify-content: center;
+    grid-template-columns: 220px 220px 220px 220px;
+    grid-template-rows: 160px 160px 160px;
+    grid-template-areas: "a b c d"
+    "e f g h"
+    "i j k l";
+    background: #ffc103;
+    text-align: center;
+}
+
+.howitworks p {
+    text-align:center;
+    font-family:Advent Pro;
+    font-size:20px;
+    font-weight: bold;
+    color: white;
+    text-shadow:1px;
+}
+
+.howitworks img{
+    margin-left:15%;
+    margin-top:15%;
+}
+
+.gride {
+    grid-area: e;
+}
+
+.grida {
+    grid-area: a;
+}
+
+.gridf {
+    grid-area: f;
+}
+
+.gridc {
+    grid-area: c;
+}
+
+.gridh {
+    grid-area: h;
+}
+
+.gridg {
+    grid-area: g;
+}
+
+.gridj {
+    grid-area: j;
+}
+
+.gridl {
+    grid-area: l;
 }

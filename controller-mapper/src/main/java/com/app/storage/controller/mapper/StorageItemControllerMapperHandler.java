@@ -1,6 +1,7 @@
 package com.app.storage.controller.mapper;
 
 import com.app.storage.controller.model.StorageItemControllerModel;
+import com.app.storage.domain.model.Grade;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import org.slf4j.Logger;
@@ -29,9 +30,13 @@ public class StorageItemControllerMapperHandler implements StorageItemController
         if (storageItem != null) {
 
             storageItemControllerModel = new StorageItemControllerModel();
-            storageItemControllerModel.setName(storageItem.getName());
+            storageItemControllerModel.setDescription(storageItem.getDescription());
             storageItemControllerModel.setSize(storageItem.getSize());
             storageItemControllerModel.setImage(storageItem.getImage());
+            storageItemControllerModel.setBrand(storageItem.getBrand());
+            if (storageItem.getGrade() != null) {
+                storageItemControllerModel.setGrade(storageItem.getGrade().name());
+            }
         }
 
         LOG.debug("Successfully mapped storage item to controller model {}.", storageItemControllerModel);
@@ -50,9 +55,12 @@ public class StorageItemControllerMapperHandler implements StorageItemController
         if (storageItemControllerModel != null) {
 
             storageItem = new StorageItem();
-            storageItem.setName(storageItemControllerModel.getName());
+            storageItem.setDescription(storageItemControllerModel.getDescription());
             storageItem.setImage(storageItemControllerModel.getImage());
             storageItem.setSize(storageItemControllerModel.getSize());
+            storageItem.setBrand(storageItemControllerModel.getBrand());
+            storageItem.setOwner(storageItemControllerModel.getUser());
+            storageItem.setGrade(Grade.getGrade(storageItemControllerModel.getGrade()));
 
         }
 

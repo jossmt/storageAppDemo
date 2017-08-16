@@ -1,7 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2498f5c8-19d2-43c1-b468-f0d3f05d556d" name="Default" comment="" />
+    <list default="true" id="2498f5c8-19d2-43c1-b468-f0d3f05d556d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/img/BrickWall.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/img/CameraIcon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/img/LaptopIcon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/img/MoneyBagIcon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/img/VanIcon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/img/handimage.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/faq.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_fileupload_commons_fileupload_1_3_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/admin/AdminViewsController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/admin/Console.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/Grade.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/CustomUserDetails.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/storageAppDemo.war" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-mapper/build/classes/main/com/app/storage/controller/mapper/StorageItemControllerMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-mapper/build/classes/main/com/app/storage/controller/mapper/StorageItemControllerMapperHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-mapper/build/libs/controller-mapper-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-mapper/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-mapper/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-model/build/classes/main/com/app/storage/controller/model/StorageItemControllerModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-model/build/libs/controller-model-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-model/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller-model/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/classes/main/com/app/storage/controller/LoginController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/classes/main/com/app/storage/controller/StorageItemController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/classes/main/com/app/storage/controller/UserController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/classes/main/com/app/storage/controller/ViewsController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/classes/main/com/app/storage/controller/security/WebSecurityConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/classes/main/com/app/storage/controller/security/annotations/CurrentUser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/libs/storageAppDemo.war" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/resources/main/META-INF/persistence.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/resources/main/UserRoleScript.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/resources/main/spring/context-base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/resources/main/spring/validation.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/build/tmp/war/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/UserController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/About.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/domain-model/build/classes/main/com/app/storage/domain/model/Role.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/domain-model/build/classes/main/com/app/storage/domain/model/StorageItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/domain-model/build/classes/main/com/app/storage/domain/model/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/domain-model/build/libs/domain-model-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/domain-model/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/domain-model/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/RolePersistenceMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/RolePersistenceMapperHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/StorageItemPersistenceMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/StorageItemPersistenceMapperHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/UserPersistenceMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/constants/AbstractMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/classes/main/com/app/storage/persistence/mapper/constants/ListMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/libs/persistence-mapper-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-mapper/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-model/build/classes/main/com/app/storage/persistence/model/RolePersistenceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-model/build/classes/main/com/app/storage/persistence/model/StorageItemPersistenceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-model/build/classes/main/com/app/storage/persistence/model/UserPersistenceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-model/build/libs/persistence-model-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-model/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence-model/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/repository/RoleRepository.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/repository/StorageItemRepository.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/repository/UserRepository.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/service/StorageItemPersistenceService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/service/StorageItemPersistenceServiceHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/service/UserPersistenceService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/classes/main/com/app/storage/persistence/service/UserPersistenceServiceHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/libs/persistence-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/persistence/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/classes/main/com/app/storage/service/StorageItemService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/classes/main/com/app/storage/service/StorageItemServiceHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/classes/main/com/app/storage/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/classes/main/com/app/storage/service/UserServiceHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/libs/service-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/resources/main/META-INF/beans.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Requests.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Collection.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/fileContent/annotation-processors.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/fileContent/annotation-processors.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/3.4/fileContent/fileContent.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/jvmClassSignatures.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/jvmClassSignatures.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/controller-model/controller-model_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/controller-model/controller-model_main.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/controller-model/controller-model_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/controller-model/controller-model_test.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/controller/controller_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/controller/controller_main.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/controller/controller_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/controller/controller_test.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/persistence/persistence_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/persistence/persistence_test.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller-mapper/src/main/java/com/app/storage/controller/mapper/StorageItemControllerMapperHandler.java" afterPath="$PROJECT_DIR$/controller-mapper/src/main/java/com/app/storage/controller/mapper/StorageItemControllerMapperHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller-mapper/src/test/java/com/app/storage/controller/mapper/StorageItemControllerMapperTest.java" afterPath="$PROJECT_DIR$/controller-mapper/src/test/java/com/app/storage/controller/mapper/StorageItemControllerMapperTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller-model/build.gradle" afterPath="$PROJECT_DIR$/controller-model/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller-model/src/main/java/com/app/storage/controller/model/StorageItemControllerModel.java" afterPath="$PROJECT_DIR$/controller-model/src/main/java/com/app/storage/controller/model/StorageItemControllerModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/build.gradle" afterPath="$PROJECT_DIR$/controller/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/logs/storagelog.log" afterPath="$PROJECT_DIR$/controller/logs/storagelog.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/LoginController.java" afterPath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/StorageItemController.java" afterPath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/StorageItemController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/ViewsController.java" afterPath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/ViewsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/WebSecurityConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/handlers/UrlAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/handlers/UrlAuthenticationSuccessHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/controller/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/classes/logback.xml" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/classes/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-servlet.xml" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/template/defaultTemplate.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/template/defaultTemplate.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/Home.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/Home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Storage.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Storage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/ActionBar.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/ActionBar.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Footer.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Footer.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Template.jsp" afterPath="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Template.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Footer.css" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Footer.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Home.css" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/NavStyle.css" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/NavStyle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Storage.css" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Storage.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/main/webapp/resources/js/main.js" afterPath="$PROJECT_DIR$/controller/src/main/webapp/resources/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/src/test/java/com/app/storage/controller/StorageItemControllerTest.java" afterPath="$PROJECT_DIR$/controller/src/test/java/com/app/storage/controller/StorageItemControllerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/StorageItem.java" afterPath="$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/StorageItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapper.java" afterPath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperHandler.java" afterPath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapper.java" afterPath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.java" afterPath="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperTest.java" afterPath="$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/UserPersistenceMapperTest.java" afterPath="$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/UserPersistenceMapperTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/StorageItemPersistenceModel.java" afterPath="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/StorageItemPersistenceModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/UserPersistenceModel.java" afterPath="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/UserPersistenceModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/UserRepository.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/UserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceService.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceServiceHandler.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceService.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceServiceHandler.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/StorageItemRepositoryTest.java" afterPath="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/StorageItemRepositoryTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/UserRepositoryTest.java" afterPath="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/UserRepositoryTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/service/StorageItemPersistenceServiceTest.java" afterPath="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/service/StorageItemPersistenceServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemService.java" afterPath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemServiceHandler.java" afterPath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserServiceHandler.java" afterPath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/AuthenticationProviderHandler.java" afterPath="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/AuthenticationProviderHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/src/test/java/com/app/storage/service/StorageItemServiceTest.java" afterPath="$PROJECT_DIR$/service/src/test/java/com/app/storage/service/StorageItemServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storageAppDemo.iml" afterPath="$PROJECT_DIR$/storageAppDemo.iml" />
+    </list>
     <ignored path="$PROJECT_DIR$/controller/.gradle/" />
     <ignored path="$PROJECT_DIR$/controller/build/" />
     <ignored path="$PROJECT_DIR$/persistence-model/.gradle/" />
@@ -76,100 +221,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ActionBar.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/ActionBar.jsp">
+      <file leaf-file-name="Storage.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/css/Storage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="91" lean-forward="false" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
+            <state relative-caret-position="310">
+              <caret line="52" column="1" lean-forward="false" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthenticationProviderHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/AuthenticationProviderHandler.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/User.java">
+      <file leaf-file-name="Storage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Storage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="132" column="11" lean-forward="false" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="11" />
+            <state relative-caret-position="310">
+              <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+              <folding>
+                <element signature="e#1211#1246#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavStyle.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/css/NavStyle.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Home.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/css/Home.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1100">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="example.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/persistence/src/test/resources/example.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorageItemControllerModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller-model/src/main/java/com/app/storage/controller/model/StorageItemControllerModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="194" column="71" lean-forward="false" selection-start-line="194" selection-start-column="71" selection-end-line="194" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorageItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/StorageItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2781">
+              <caret line="228" column="5" lean-forward="false" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UrlAuthenticationSuccessHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/handlers/UrlAuthenticationSuccessHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/WebSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="100" column="71" lean-forward="false" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/ViewsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="83" column="29" lean-forward="false" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Template.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Template.jsp">
+        <entry file="file://$PROJECT_DIR$/controller-model/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="About.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/About.jsp">
+      <file leaf-file-name="Collection.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Collection.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Home.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/Home.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -181,8 +325,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -200,10 +344,14 @@
       <find>somethings happening</find>
       <find>Loading user with email:</find>
       <find>granted authorities</find>
-      <find>userdetailsservice</find>
       <find>authorities granted</find>
       <find>is logged in</find>
       <find>is logged</find>
+      <find>userdetailsservice</find>
+      <find>Custom user details are stored</find>
+      <find>email</find>
+      <find>file</find>
+      <find>file uploaded</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -211,6 +359,9 @@
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -1695,11 +1846,11 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="19496761385000" />
+        <entry key="$PROJECT_DIR$" value="19500754334000" />
         <entry key="$PROJECT_DIR$/build.gradle" value="757862844" />
         <entry key="$PROJECT_DIR$/controller-mapper/build.gradle" value="4117365301" />
-        <entry key="$PROJECT_DIR$/controller-model/build.gradle" value="894525331" />
-        <entry key="$PROJECT_DIR$/controller/build.gradle" value="1474060341" />
+        <entry key="$PROJECT_DIR$/controller-model/build.gradle" value="3479632759" />
+        <entry key="$PROJECT_DIR$/controller/build.gradle" value="153799395" />
         <entry key="$PROJECT_DIR$/domain-model/build.gradle" value="2853457177" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="528695444" />
         <entry key="$PROJECT_DIR$/persistence-mapper/build.gradle" value="612507654" />
@@ -1953,57 +2104,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/ValidationServiceHandler.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/ValidationService.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/ValidateSchemas.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/ValidationServiceRouter.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/ValidationServiceRouterHandler.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/SignUpValidationService.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/SignUpValidationServiceHandler.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/LoginValidationService.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/resources/spring/validation.properties" />
-        <option value="$PROJECT_DIR$/service/src/test/java/com/app/storage/service/SignUpValidationServiceTest.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/resources/js/main.js" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/ActionBar.jsp" />
+        <option value="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/StorageItemRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/persistence/src/test/resources/JDBCConfig.xml" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Collection.jsp" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/Home.jsp" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/login/Signup.jsp" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Template.jsp" />
+        <option value="$PROJECT_DIR$/controller/build.gradle" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-security.xml" />
+        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/handlers/FileUploadHandler.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/login/Login.jsp" />
-        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/StorageItemController.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Requests.jsp" />
-        <option value="$PROJECT_DIR$/persistence/build.gradle" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Storage.jsp" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Storage.css" />
-        <option value="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/RoleRepositoryTest.java" />
-        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/RoleRepository.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/tiles/tiles-definitions.xml" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/admin/Console.jsp" />
         <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceService.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemService.java" />
-        <option value="$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/User.java" />
-        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceServiceHandler.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/admin/AdminViewsController.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemServiceHandler.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/StorageItemController.java" />
+        <option value="$PROJECT_DIR$/service/src/test/java/com/app/storage/service/StorageItemServiceTest.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/classes/logback.xml" />
+        <option value="$PROJECT_DIR$/controller-model/build.gradle" />
+        <option value="$PROJECT_DIR$/controller-model/src/main/java/com/app/storage/controller/model/StorageItemControllerModel.java" />
+        <option value="$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/Grade.java" />
+        <option value="$PROJECT_DIR$/controller-mapper/src/test/java/com/app/storage/controller/mapper/StorageItemControllerMapperTest.java" />
+        <option value="$PROJECT_DIR$/controller-mapper/src/main/java/com/app/storage/controller/mapper/StorageItemControllerMapperHandler.java" />
+        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceService.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserServiceHandler.java" />
+        <option value="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/UserPersistenceModel.java" />
+        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/UserRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/persistence/src/test/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-servlet.xml" />
+        <option value="$PROJECT_DIR$/controller/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceServiceHandler.java" />
+        <option value="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapper.java" />
         <option value="$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/UserPersistenceMapperTest.java" />
         <option value="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/StorageItemPersistenceModel.java" />
-        <option value="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/UserRepositoryTest.java" />
-        <option value="$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/StorageItemRepositoryTest.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-security.xml" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/classes/logback.xml" />
-        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/constants/ListMapper.java" />
-        <option value="$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/UserPersistenceModel.java" />
-        <option value="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/CustomUserDetails.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/UserDetailsServiceHandler.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/handlers/UrlAuthenticationSuccessHandler.java" />
-        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceServiceHandler.java" />
-        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceService.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserService.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/LoginValidationServiceHandler.java" />
-        <option value="$PROJECT_DIR$/service/src/test/java/com/app/storage/service/UserServiceTest.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserServiceHandler.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/AuthenticationProviderHandler.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Template.jsp" />
+        <option value="$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/StorageItem.java" />
+        <option value="$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperTest.java" />
         <option value="$PROJECT_DIR$/controller/logs/storagelog.log" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/resources/js/main.js" />
         <option value="$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/ViewsController.java" />
-        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/ActionBar.jsp" />
+        <option value="$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceServiceHandler.java" />
+        <option value="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperHandler.java" />
+        <option value="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapper.java" />
+        <option value="$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.java" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Storage.jsp" />
+        <option value="$PROJECT_DIR$/controller/src/main/webapp/resources/css/Storage.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -2016,8 +2167,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="1" />
     <option name="y" value="23" />
-    <option name="width" value="1272" />
-    <option name="height" value="681" />
+    <option name="width" value="1275" />
+    <option name="height" value="719" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -2077,7 +2228,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="persistence-model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2091,7 +2242,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="persistence-model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence-model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence-model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence-mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence-mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2107,7 +2342,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2121,7 +2356,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="persistence-mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2151,242 +2386,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="validation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence-mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="persistence-mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2404,6 +2403,86 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2690,6 +2769,18 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2797,7 +2888,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storageAppDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2869,11 +3002,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tiles" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2907,37 +3036,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2994,78 +3093,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storageAppDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3098,16 +3125,16 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="instant.run" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="full.screen.before.presentation.mode" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/controller/src/main/webapp/resources/img" />
+      <recent name="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/admin" />
       <recent name="$PROJECT_DIR$/persistence/src/test/resources" />
       <recent name="$PROJECT_DIR$/persistence/src/test/resources/META-INF" />
       <recent name="$PROJECT_DIR$/src/main/java/com.app.storage.main/sharedmapper" />
-      <recent name="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/lib" />
-      <recent name="$PROJECT_DIR$/controller/src/main/webapp/WEB-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.app.storage.persistence.repository" />
@@ -3136,34 +3163,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.loadByUsernameTest">
-    <configuration default="false" name="UserPersistenceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.app.storage.persistence.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="persistence_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.app.storage.persistence.service" />
-      <option name="MAIN_CLASS_NAME" value="com.app.storage.persistence.service.UserPersistenceServiceTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/persistence" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="UserRepositoryTest.testSaveUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserPersistenceMapperTest.fullMapperToTest">
+    <configuration default="false" name="UserRepositoryTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.app.storage.persistence.repository.*" />
@@ -3175,7 +3176,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.app.storage.persistence.repository" />
       <option name="MAIN_CLASS_NAME" value="com.app.storage.persistence.repository.UserRepositoryTest" />
-      <option name="METHOD_NAME" value="testSaveUser" />
+      <option name="METHOD_NAME" value="getUser" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -3189,23 +3190,23 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="UserRepositoryTest.temp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="StorageItemControllerMapperTest.mapToStorageItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.app.storage.persistence.repository.*" />
+          <option name="PATTERN" value="com.app.storage.controller.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="persistence_test" />
+      <module name="controller-mapper_test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.app.storage.persistence.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.app.storage.persistence.repository.UserRepositoryTest" />
-      <option name="METHOD_NAME" value="temp" />
+      <option name="PACKAGE_NAME" value="com.app.storage.controller.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.app.storage.controller.mapper.StorageItemControllerMapperTest" />
+      <option name="METHOD_NAME" value="mapToStorageItemTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/persistence" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/controller-mapper" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -3215,23 +3216,23 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="StorageItemRepositoryTest.checkSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="StorageItemControllerMapperTest.checkMapList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.app.storage.persistence.repository.*" />
+          <option name="PATTERN" value="com.app.storage.controller.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="persistence_test" />
+      <module name="controller-mapper_test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.app.storage.persistence.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.app.storage.persistence.repository.StorageItemRepositoryTest" />
-      <option name="METHOD_NAME" value="checkSave" />
+      <option name="PACKAGE_NAME" value="com.app.storage.controller.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.app.storage.controller.mapper.StorageItemControllerMapperTest" />
+      <option name="METHOD_NAME" value="checkMapList" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/persistence" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/controller-mapper" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -3241,23 +3242,49 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="UserServiceTest.loadByUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="StorageItemControllerMapperTest.mapFromStorageItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.app.storage.service.*" />
+          <option name="PATTERN" value="com.app.storage.controller.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="service_test" />
+      <module name="controller-mapper_test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.app.storage.service" />
-      <option name="MAIN_CLASS_NAME" value="com.app.storage.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="loadByUsernameTest" />
+      <option name="PACKAGE_NAME" value="com.app.storage.controller.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.app.storage.controller.mapper.StorageItemControllerMapperTest" />
+      <option name="METHOD_NAME" value="mapFromStorageItemTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/service" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/controller-mapper" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserPersistenceMapperTest.fullMapperToTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.app.storage.persistence.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="persistence-mapper_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.app.storage.persistence.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.app.storage.persistence.mapper.UserPersistenceMapperTest" />
+      <option name="METHOD_NAME" value="fullMapperToTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/persistence-mapper" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -3739,19 +3766,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.UserPersistenceServiceTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.testSaveUser" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.temp" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.StorageItemRepositoryTest.checkSave" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.UserServiceTest.loadByUsernameTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.getUser" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StorageItemControllerMapperTest.mapToStorageItemTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StorageItemControllerMapperTest.checkMapList" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.StorageItemControllerMapperTest.mapFromStorageItemTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.UserPersistenceMapperTest.fullMapperToTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserServiceTest.loadByUsernameTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.StorageItemRepositoryTest.checkSave" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.testSaveUser" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.temp" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UserPersistenceServiceTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UserPersistenceMapperTest.fullMapperToTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.getUser" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StorageItemControllerMapperTest.mapFromStorageItemTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.StorageItemControllerMapperTest.checkMapList" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StorageItemControllerMapperTest.mapToStorageItemTest" />
       </list>
     </recent_temporary>
   </component>
@@ -3783,44 +3810,46 @@
       <workItem from="1499955648443" duration="1750000" />
       <workItem from="1499974359527" duration="14408000" />
       <workItem from="1500238095603" duration="1008000" />
-      <workItem from="1500310963583" duration="73919000" />
+      <workItem from="1500310963583" duration="107979000" />
+      <workItem from="1502303169004" duration="9395000" />
+      <workItem from="1502545392146" duration="9129000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StorageItemRepositoryTest_checkSave - 2017.07.29 at 17h 28m 35s.xml">
-      <configuration name="StorageItemRepositoryTest.checkSave" configurationId="JUnit" />
+    <history-entry file="UserPersistenceMapperTest_fullMapperToTest - 2017.08.12 at 15h 46m 51s.xml">
+      <configuration name="UserPersistenceMapperTest.fullMapperToTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StorageItemRepositoryTest_checkSave - 2017.07.29 at 17h 31m 10s.xml">
-      <configuration name="StorageItemRepositoryTest.checkSave" configurationId="JUnit" />
+    <history-entry file="UserPersistenceMapperTest_fullMapperToTest - 2017.08.12 at 15h 48m 25s.xml">
+      <configuration name="UserPersistenceMapperTest.fullMapperToTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StorageItemRepositoryTest_checkSave - 2017.07.29 at 17h 31m 54s.xml">
-      <configuration name="StorageItemRepositoryTest.checkSave" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.10 at 19h 25m 44s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 08m 23s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.10 at 19h 26m 17s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 12m 34s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.12 at 13h 08m 54s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 22m 05s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.12 at 13h 18m 00s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 23m 36s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.12 at 13h 19m 00s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 24m 00s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.12 at 13h 21m 42s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 26m 17s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.12 at 13h 27m 34s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest_testSaveUser - 2017.07.29 at 17h 26m 38s.xml">
-      <configuration name="UserRepositoryTest.testSaveUser" configurationId="JUnit" />
+    <history-entry file="UserRepositoryTest_getUser - 2017.08.12 at 13h 33m 11s.xml">
+      <configuration name="UserRepositoryTest.getUser" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197756000" />
+    <option name="totallyTimeSpent" value="250340000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3832,8 +3861,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="23" width="1272" height="681" extended-state="0" />
-    <editor active="true" />
+    <frame x="1" y="23" width="1275" height="719" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3850,20 +3878,19 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39898133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1646859" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16427432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28183362" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35725677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17996605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21674877" sideWeight="0.509901" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.199187" sideWeight="0.490099" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41945773" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19545823" sideWeight="0.516696" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19870235" sideWeight="0.48330405" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922825" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3874,6 +3901,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3928,7 +3956,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3937,10 +3965,89 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/service/UserPersistenceServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/Grade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="95">
+          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller-mapper/src/test/java/com/app/storage/controller/mapper/StorageItemControllerMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="59" column="106" lean-forward="false" selection-start-line="59" selection-start-column="106" selection-end-line="59" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller-mapper/src/main/java/com/app/storage/controller/mapper/StorageItemControllerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/RolePersistenceModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/UserRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="43" column="86" lean-forward="false" selection-start-line="43" selection-start-column="86" selection-end-line="43" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="72" column="67" lean-forward="false" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/login/Signup.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/login/Login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="18" column="89" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="18" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/classes/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -3953,408 +4060,320 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/resources/UserRoleScript.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="42" column="96" lean-forward="false" selection-start-line="42" selection-start-column="96" selection-end-line="42" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/StorageItemPersistenceModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/UserRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller-mapper/src/main/java/com/app/storage/controller/mapper/StorageItemControllerMapperHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-security.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/classes/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.3.RELEASE/9e3741f7cb7db06829fc818e38f58bbe9f5a0b94/spring-security-config-4.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/FormLoginConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="228" column="34" lean-forward="false" selection-start-line="228" selection-start-column="34" selection-end-line="228" selection-end-column="34" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-servlet.xml">
+    <entry file="file://$PROJECT_DIR$/controller/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+        <state relative-caret-position="75">
+          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/persistence/src/test/java/com/app/storage/persistence/repository/StorageItemRepositoryTest.java">
+    <entry file="file://$PROJECT_DIR$/persistence/src/test/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="93" column="11" lean-forward="false" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
+        <state relative-caret-position="75">
+          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/constants/ListMapper.java">
+    <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/StorageItemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="42" column="86" lean-forward="false" selection-start-line="42" selection-start-column="86" selection-end-line="42" selection-end-column="86" />
-          <folding>
-            <marker date="1501349712000" expanded="true" signature="1460:1504" ph="SELECT * FRO... User" />
-            <marker date="1501349712000" expanded="true" signature="1724:1772" ph="SELECT * FRO... User" />
-            <marker date="1501349712000" expanded="true" signature="2029:2047" ph="SELECT * FRO... User" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/UserPersistenceModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="180" column="7" lean-forward="false" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="56" column="85" lean-forward="false" selection-start-line="56" selection-start-column="85" selection-end-line="56" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/logs/storagelog.2017-07-27.0.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/authority/SimpleGrantedAuthority.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/authentication/AuthenticationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.3.RELEASE/9e3741f7cb7db06829fc818e38f58bbe9f5a0b94/spring-security-config-4.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-332">
-          <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/Authentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="937">
-          <caret line="122" column="22" lean-forward="false" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
-          <folding>
-            <element signature="e#5179#5180#0" expanded="false" />
-            <element signature="e#5204#5205#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#3350#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="28" column="2" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/SignUpValidationServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/UserDetailsServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/CustomUserDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/validation/LoginValidationServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/test/java/com/app/storage/service/UserServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="73" lean-forward="false" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/test/java/com/app/storage/service/StorageItemServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="70" column="11" lean-forward="false" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="96" column="24" lean-forward="false" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+        <state relative-caret-position="444">
+          <caret line="80" column="5" lean-forward="false" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="359">
+          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/UserServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="57" column="57" lean-forward="false" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="1290">
+          <caret line="109" column="59" lean-forward="false" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="510">
+          <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/UserPersistenceServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        <state relative-caret-position="1500">
+          <caret line="115" column="53" lean-forward="false" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/RolePersistenceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller-mapper/src/main/java/com/app/storage/controller/mapper/StorageItemControllerMapperHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c620ead93220cae89562bd3eda6ec875c43e1db/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder.java">
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/RolePersistenceMapperHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="82" column="19" lean-forward="false" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+        <state relative-caret-position="345">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/Temp.jsp">
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/storageapp-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/constants/ListMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/UserPersistenceMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/logs/storagelog.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="1587" column="137" lean-forward="true" selection-start-line="1587" selection-start-column="137" selection-end-line="1587" selection-end-column="137" />
+        <state relative-caret-position="2449">
+          <caret line="9888" column="89" lean-forward="false" selection-start-line="9888" selection-start-column="89" selection-end-line="9888" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/js/main.js">
+    <entry file="file://$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/StorageItemPersistenceModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+        <state relative-caret-position="222">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/build.gradle">
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/test/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="373">
+          <caret line="95" column="32" lean-forward="false" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/handlers/UrlAuthenticationSuccessHandler.java">
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/security/WebSecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/StorageItemServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="100" column="71" lean-forward="false" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
+        <state relative-caret-position="211">
+          <caret line="43" column="84" lean-forward="false" selection-start-line="43" selection-start-column="84" selection-end-line="43" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/About.jsp">
+    <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/about/Home.jsp">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.13.4.RELEASE/7f16aa025354c4c8d03a9f3ad18c4524dc8b8f2e/spring-data-commons-1.13.4.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="508">
+          <caret line="69" column="16" lean-forward="false" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/Template.jsp">
+    <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/app/storage/persistence/service/StorageItemPersistenceServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="151">
+          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/User.java">
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="132" column="11" lean-forward="false" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="11" />
+        <state relative-caret-position="-29">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/src/main/java/com/app/storage/controller/ViewsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="83" column="29" lean-forward="false" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
+        <state relative-caret-position="222">
+          <caret line="120" column="77" lean-forward="false" selection-start-line="120" selection-start-column="77" selection-end-line="120" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/template/ActionBar.jsp">
+    <entry file="file://$PROJECT_DIR$/persistence-model/src/main/java/com/app/storage/persistence/model/UserPersistenceModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="91" lean-forward="false" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
+        <state relative-caret-position="150">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/app/storage/service/security/AuthenticationProviderHandler.java">
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+        <state relative-caret-position="335">
+          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/UserPersistenceMapperHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="139" column="5" lean-forward="false" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence-mapper/src/main/java/com/app/storage/persistence/mapper/StorageItemPersistenceMapperHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="86" column="31" lean-forward="false" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Collection.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller-model/src/main/java/com/app/storage/controller/model/StorageItemControllerModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="194" column="71" lean-forward="false" selection-start-line="194" selection-start-column="71" selection-end-line="194" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domain-model/src/main/java/com/app/storage/domain/model/StorageItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2781">
+          <caret line="228" column="5" lean-forward="false" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller-model/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence/src/test/resources/example.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/css/Home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1100">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/css/NavStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/WEB-INF/views/jsp/core/Storage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding>
+            <element signature="e#1211#1246#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/src/main/webapp/resources/css/Storage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="52" column="1" lean-forward="false" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding />
         </state>
       </provider>

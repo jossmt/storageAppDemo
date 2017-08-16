@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<sec:authentication var="principal" property="principal" />
+<sec:authentication var="principal" property="principal"/>
+<sec:authorize var="loggedIn" access="isAuthenticated()"/>
 
 
 <div class="navbar">
@@ -11,8 +12,8 @@
     <div class="login">
         <ul>
             <c:choose>
-                <c:when test="${principal != null}">
-                    <a href="${pageContext.servletContext.contextPath}/profile">${principal}</a>
+                <c:when test="${loggedIn}">
+                    <a href="${pageContext.servletContext.contextPath}/profile">${principal.firstName}</a>
                     <a href="${pageContext.servletContext.contextPath}/logout">Logout</a>
                 </c:when>
                 <c:otherwise>
@@ -24,10 +25,15 @@
     </div>
     <div class="home">
         <ul>
-            <a href="${pageContext.servletContext.contextPath}/home">Home</a>
-            <a href="${pageContext.servletContext.contextPath}/about">About</a>
-            <a href="${pageContext.servletContext.contextPath}/mystorage">My Storage</a>
-            <a href="${pageContext.servletContext.contextPath}/myrequests">My Requests</a>
+            <a id="aboutnav" href="${pageContext.servletContext.contextPath}#mission">About</a>
+            <a id="howitworksnav" href="${pageContext.servletContext.contextPath}#howitworks">How it works</a>
+            <a id=" discovernav" href="${pageContext.servletContext.contextPath}/discover">Discover</a>
+            <a id="collectionnav" href="${pageContext.servletContext.contextPath}/collection">Organise a collection</a>
+            <c:choose>
+                <c:when test="${loggedIn}">
+                    <a href="${pageContext.servletContext.contextPath}/myItems">My Items</a>
+                </c:when>
+            </c:choose>
         </ul>
     </div>
 </div>

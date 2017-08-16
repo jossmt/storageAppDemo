@@ -9,7 +9,7 @@
     <title>GeoMonitor Default Title</title>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta description="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Header style set -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -33,9 +33,9 @@
 </head>
 
 <body>
-    <tiles:insertAttribute name="header"/>
-    <tiles:insertAttribute name="body"/>
-    <tiles:insertAttribute name="footer"/>
+    <tiles:insertAttribute description="header"/>
+    <tiles:insertAttribute description="body"/>
+    <tiles:insertAttribute description="footer"/>
 
 </body>
 

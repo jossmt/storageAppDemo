@@ -12,14 +12,26 @@ public class StorageItem {
     /** Date item was stored. */
     private Date dateStored;
 
-    /** Name of item. */
-    private String name;
+    /** Description of item. */
+    private String description;
 
     /** Item size. */
     private String size;
 
+    /** Brand of product. */
+    private String brand;
+
+    /** Quality of product. */
+    private Grade grade;
+
+    /** Price. */
+    private Double price;
+
     /** Image taken of item. */
     private byte[] image;
+
+    /** Owner of item. */
+    private User owner;
 
     /**
      * Gets Image taken of item..
@@ -35,8 +47,8 @@ public class StorageItem {
      *
      * @return Value of Name of item..
      */
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
     /**
@@ -60,11 +72,11 @@ public class StorageItem {
     /**
      * Sets new Name of item..
      *
-     * @param name
+     * @param description
      *         New value of Name of item..
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**
@@ -97,6 +109,81 @@ public class StorageItem {
         this.dateStored = dateStored;
     }
 
+    /**
+     * Gets Brand of product..
+     *
+     * @return Value of Brand of product..
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * Sets new Brand of product..
+     *
+     * @param brand
+     *         New value of Brand of product..
+     */
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    /**
+     * Sets new Quality of product..
+     *
+     * @param grade
+     *         New value of Quality of product..
+     */
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
+    /**
+     * Gets Quality of product..
+     *
+     * @return Value of Quality of product..
+     */
+    public Grade getGrade() {
+        return grade;
+    }
+
+    /**
+     * Gets Owner of item..
+     *
+     * @return Value of Owner of item..
+     */
+    public User getOwner() {
+        return owner;
+    }
+
+    /**
+     * Sets new Owner of item..
+     *
+     * @param owner
+     *         New value of Owner of item..
+     */
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    /**
+     * Gets Price..
+     *
+     * @return Value of Price..
+     */
+    public Double getPrice() {
+        return price;
+    }
+
+    /**
+     * Sets new Price..
+     *
+     * @param price
+     *         New value of Price..
+     */
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     /**
      * Equals override.
@@ -115,9 +202,13 @@ public class StorageItem {
         StorageItem storageItem = (StorageItem) obj;
         return new EqualsBuilder()
                 .append(getDateStored(), storageItem.getDateStored())
-                .append(getName(), storageItem.getName())
+                .append(getDescription(), storageItem.getDescription())
                 .append(getSize(), storageItem.getSize())
                 .append(getImage(), storageItem.getImage())
+                .append(getBrand(), storageItem.getBrand())
+                .append(getGrade(), storageItem.getGrade())
+                .append(getOwner(), storageItem.getOwner())
+                .append(getPrice(), storageItem.getPrice())
                 .isEquals();
     }
 
@@ -131,7 +222,8 @@ public class StorageItem {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(name).append(size).append(dateStored).append(image);
+        stringBuilder.append(description).append(size).append(dateStored).append(image).append(brand).append(grade)
+                .append(owner).append(price);
 
         return stringBuilder.toString();
     }

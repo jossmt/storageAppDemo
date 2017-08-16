@@ -63,7 +63,10 @@ public class AuthenticationProviderHandler implements AuthenticationProvider {
             if (bCryptPasswordEncoder.matches(password, user.getPassword())) {
                 throw new InvalidParameterException("Invalid password");
             }
-            return new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword(), getAuthorities(user.getRoles()));
+
+            final CustomUserDetails customUserDetails = new CustomUserDetails(user);
+            customUserDetails.setGrantedAuthorities(getAuthorities(user.getRoles()));
+            return new UsernamePasswordAuthenticationToken(customUserDetails, user.getPassword(), getAuthorities(user.getRoles()));
 
         } else {
             throw new UsernameNotFoundException("No user with name: " + username);

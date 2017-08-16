@@ -31,6 +31,7 @@ import java.util.List;
  */
 @Repository
 @Component
+@Transactional
 public interface UserRepository extends CrudRepository<UserPersistenceModel, Long> {
 
     /**
@@ -41,6 +42,7 @@ public interface UserRepository extends CrudRepository<UserPersistenceModel, Lon
      * @return {@link UserPersistenceModel}
      */
     @Query(value = "SELECT * FROM User WHERE User.email = :email", nativeQuery = true)
+    @Transactional
     UserPersistenceModel findByEmail(@Param("email") String email);
 
     /**

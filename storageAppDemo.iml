@@ -17,6 +17,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="app_core" value="76de1eee-40d7-4370-92ca-0a3f4abcdf49" />
+          <factory-entry name="noname-persistence.xml@326" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/controller/src/main/resources/META-INF/persistence.xml" />
       </configuration>

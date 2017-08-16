@@ -1,7 +1,6 @@
 package com.app.storage.persistence.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
-import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,12 +23,24 @@ public class StorageItemPersistenceModel {
     private Date dateStored;
 
     /** Name of item. */
-    @Column(name = "Name")
-    private String name;
+    @Column(name = "Description")
+    private String description;
+
+    /** Grade of item. */
+    @Column(name = "Grade")
+    private String grade;
+
+    /** Brand of item. */
+    @Column(name = "Brand")
+    private String brand;
 
     /** Item size. */
     @Column(name = "Size")
     private String size;
+
+    /** Price. */
+    @Column(name = "Price")
+    private Double price;
 
     /** Image taken of item. */
     @Column(name = "Image")
@@ -72,8 +83,8 @@ public class StorageItemPersistenceModel {
      *
      * @return Value of Name of item..
      */
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
     /**
@@ -127,11 +138,49 @@ public class StorageItemPersistenceModel {
     /**
      * Sets new Name of item..
      *
-     * @param name
+     * @param description
      *         New value of Name of item..
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * Gets Brand of item..
+     *
+     * @return Value of Brand of item..
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * Sets new Brand of item..
+     *
+     * @param brand
+     *         New value of Brand of item..
+     */
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    /**
+     * Gets Grade of item..
+     *
+     * @return Value of Grade of item..
+     */
+    public String getGrade() {
+        return grade;
+    }
+
+    /**
+     * Sets new Grade of item..
+     *
+     * @param grade
+     *         New value of Grade of item..
+     */
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     /**
@@ -155,6 +204,25 @@ public class StorageItemPersistenceModel {
 
 
     /**
+     * Gets Price..
+     *
+     * @return Value of Price..
+     */
+    public Double getPrice() {
+        return price;
+    }
+
+    /**
+     * Sets new Price..
+     *
+     * @param price
+     *         New value of Price..
+     */
+    public void setPrice(final Double price) {
+        this.price = price;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -172,9 +240,12 @@ public class StorageItemPersistenceModel {
         return new EqualsBuilder()
                 .append(getDateStored(), storageItemControllerModel.getDateStored())
                 .append(getId(), storageItemControllerModel.getId())
-                .append(getName(), storageItemControllerModel.getName())
+                .append(getDescription(), storageItemControllerModel.getDescription())
                 .append(getSize(), storageItemControllerModel.getSize())
                 .append(getImage(), storageItemControllerModel.getImage())
+                .append(getBrand(), storageItemControllerModel.getBrand())
+                .append(getGrade(), storageItemControllerModel.getGrade())
+                .append(getPrice(), storageItemControllerModel.getPrice())
                 .isEquals();
     }
 
@@ -188,7 +259,8 @@ public class StorageItemPersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(name).append(size).append(dateStored).append(image);
+        stringBuilder.append(id).append(description).append(size).append(dateStored).append(image).append(brand)
+                .append(grade).append(price);
 
         return stringBuilder.toString();
     }

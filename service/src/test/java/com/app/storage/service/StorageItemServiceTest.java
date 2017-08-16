@@ -42,14 +42,14 @@ public class StorageItemServiceTest {
         //Setup
         final StorageItem storageItem = new StorageItem();
         storageItem.setImage(new byte[]{1, 0, 1});
-        storageItem.setName("StorageTest");
+        storageItem.setDescription("StorageTest");
         storageItem.setSize("L");
 
         //Test
-        storageItemService.saveStorageItems(Arrays.asList(storageItem));
+        storageItemService.saveStorageItem(storageItem);
 
         //Verify
-        Mockito.verify(storageItemPersistenceService).saveStorageItems(Arrays.asList(storageItem));
+        Mockito.verify(storageItemPersistenceService).saveStorageItem(storageItem);
     }
 
     /**
@@ -61,7 +61,7 @@ public class StorageItemServiceTest {
         //Setup
         final StorageItem storageItem = new StorageItem();
         storageItem.setImage(new byte[]{1, 0, 1});
-        storageItem.setName("StorageTest");
+        storageItem.setDescription("StorageTest");
         storageItem.setSize("L");
 
         //Mock

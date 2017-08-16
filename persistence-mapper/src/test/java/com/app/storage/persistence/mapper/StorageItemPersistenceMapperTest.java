@@ -1,10 +1,12 @@
 package com.app.storage.persistence.mapper;
 
+import com.app.storage.domain.model.Grade;
 import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
-import org.joda.time.DateTime;
+import com.app.storage.persistence.model.UserPersistenceModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +35,7 @@ public class StorageItemPersistenceMapperTest {
     @Before
     public void setUp() {
         listMapper = new ListMapper();
-        storageItemPersistenceMapper = new StorageItemPersistenceMapperHandler(listMapper);
+        storageItemPersistenceMapper = new StorageItemPersistenceMapperHandler();
     }
 
     /**
@@ -43,17 +45,24 @@ public class StorageItemPersistenceMapperTest {
     public void checkFullModelMap() {
 
         //Setup
+
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setDescription("Name");
         storageItemPersistenceModel.setSize("Size");
         storageItemPersistenceModel.setDateStored(new Date());
         storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
+        storageItemPersistenceModel.setGrade("A");
+        storageItemPersistenceModel.setBrand("Brand");
+        storageItemPersistenceModel.setPrice(1.2);
 
         final StorageItem storageItem = new StorageItem();
-        storageItem.setName(storageItemPersistenceModel.getName());
+        storageItem.setDescription(storageItemPersistenceModel.getDescription());
         storageItem.setSize(storageItemPersistenceModel.getSize());
         storageItem.setImage(storageItemPersistenceModel.getImage());
         storageItem.setDateStored(storageItemPersistenceModel.getDateStored());
+        storageItem.setPrice(1.2);
+        storageItem.setGrade(Grade.A);
+        storageItem.setBrand("Brand");
 
         //Test
         final StorageItemPersistenceModel actualStorageItemPersistenceModel = storageItemPersistenceMapper.mapTo
@@ -68,17 +77,23 @@ public class StorageItemPersistenceMapperTest {
 
         //Setup
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setName("Name");
+        storageItemPersistenceModel.setDescription("Name");
         storageItemPersistenceModel.setSize("Size");
         storageItemPersistenceModel.setId(1L);
         storageItemPersistenceModel.setDateStored(new Date());
         storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
+        storageItemPersistenceModel.setGrade("A");
+        storageItemPersistenceModel.setBrand("Brand");
+        storageItemPersistenceModel.setPrice(1.2);
 
         final StorageItem storageItem = new StorageItem();
-        storageItem.setName(storageItemPersistenceModel.getName());
+        storageItem.setDescription(storageItemPersistenceModel.getDescription());
         storageItem.setSize(storageItemPersistenceModel.getSize());
         storageItem.setImage(storageItemPersistenceModel.getImage());
         storageItem.setDateStored(storageItemPersistenceModel.getDateStored());
+        storageItem.setGrade(Grade.A);
+        storageItem.setBrand("Brand");
+        storageItem.setPrice(1.2);
 
         //Test
         final StorageItem actualStorageItem = storageItemPersistenceMapper.mapFrom(storageItemPersistenceModel);
@@ -126,16 +141,16 @@ public class StorageItemPersistenceMapperTest {
 
         //Setup
         final StorageItem storageItem = new StorageItem();
-        storageItem.setName("name1");
+        storageItem.setDescription("name1");
         final StorageItem storageItem2 = new StorageItem();
-        storageItem2.setName("name2");
+        storageItem2.setDescription("name2");
 
         final List<StorageItem> mappingList = Arrays.asList(storageItem, storageItem2);
 
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setName("name1");
+        storageItemPersistenceModel.setDescription("name1");
         final StorageItemPersistenceModel storageItemPersistenceModel2 = new StorageItemPersistenceModel();
-        storageItemPersistenceModel2.setName("name2");
+        storageItemPersistenceModel2.setDescription("name2");
 
         final List<StorageItemPersistenceModel> mappedList = Arrays.asList(storageItemPersistenceModel,
                                                                            storageItemPersistenceModel2);

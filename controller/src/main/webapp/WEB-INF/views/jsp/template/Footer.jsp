@@ -11,7 +11,7 @@
 			<a href="#">Contact</a>
 		</p>
 
-		<p class="footer-company-name">Narnia Storage &copy; 2017</p>
+		<p class="footer-company-description">Narnia Storage &copy; 2017</p>
 	</div>
 
 	<div class="footer-center">

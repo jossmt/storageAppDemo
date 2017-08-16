@@ -56,7 +56,7 @@
 //        //Setup
 //        final StorageItem storageItem = new StorageItem();
 //        storageItem.setId(1L);
-//        storageItem.setName("T-Shirt");
+//        storageItem.setDescription("T-Shirt");
 //        storageItem.setSize("L");
 //
 //        final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();
@@ -82,7 +82,7 @@
 //        //Setup
 //        final StorageItem storageItem = new StorageItem();
 //        storageItem.setId(1L);
-//        storageItem.setName("T-Shirt");
+//        storageItem.setDescription("T-Shirt");
 //        storageItem.setSize("L");
 //
 //        final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();

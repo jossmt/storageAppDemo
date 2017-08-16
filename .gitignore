@@ -13,3 +13,7 @@ hs_err_pid*
 
 #build files #
 build/*
+/*/build/*
+/*/build
+/controller/logs
+.gradle/

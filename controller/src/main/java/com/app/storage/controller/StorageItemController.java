@@ -81,26 +81,6 @@ public class StorageItemController {
     }
 
     /**
-     * Saves storage item objects from JSON data.
-     */
-    @RequestMapping(value = "/saveItems", method = RequestMethod.POST)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response saveStorageItems(@RequestBody final List<StorageItemControllerModel> storageItemControllerModels) {
-
-        LOG.debug("Saving storage items... {}", storageItemControllerModels);
-
-        final List<StorageItem> storageItems = listMapper.mapList
-                ((AbstractMapper) storageItemControllerMapper, true, storageItemControllerModels);
-
-        storageItemService.saveStorageItems(storageItems);
-
-        LOG.debug("Successfully saved storage items.");
-
-        return Response.ok().build();
-    }
-
-
-    /**
      * Quick server uptime check test
      *
      * @return

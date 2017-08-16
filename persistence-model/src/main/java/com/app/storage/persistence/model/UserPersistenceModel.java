@@ -51,9 +51,9 @@ public class UserPersistenceModel {
     private String password;
 
     /** User role privileges. */
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "User_Role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name
             = "role_id"))
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<RolePersistenceModel> roles;
 
     /** List of users items. */

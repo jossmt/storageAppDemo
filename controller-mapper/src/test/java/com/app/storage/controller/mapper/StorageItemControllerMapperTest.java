@@ -1,6 +1,7 @@
 package com.app.storage.controller.mapper;
 
 import com.app.storage.controller.model.StorageItemControllerModel;
+import com.app.storage.domain.model.Grade;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
@@ -42,12 +43,16 @@ public class StorageItemControllerMapperTest {
 
         //Setup
         final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();
-        storageItemControllerModel.setName("Name");
+        storageItemControllerModel.setDescription("Description");
+        storageItemControllerModel.setGrade("A");
+        storageItemControllerModel.setBrand("Brand");
         storageItemControllerModel.setSize("Size");
         storageItemControllerModel.setImage(new byte[]{1, 0, 1});
 
         final StorageItem storageItem = new StorageItem();
-        storageItem.setName("Name");
+        storageItem.setDescription("Description");
+        storageItem.setBrand("Brand");
+        storageItem.setGrade(Grade.A);
         storageItem.setSize("Size");
         storageItem.setImage(new byte[]{1, 0, 1});
 
@@ -67,13 +72,14 @@ public class StorageItemControllerMapperTest {
 
         //Setup
         final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();
-        storageItemControllerModel.setName("Name");
+        storageItemControllerModel.setDescription("Description");
         storageItemControllerModel.setSize("Size");
         storageItemControllerModel.setImage(new byte[]{1, 0, 1});
 
         final StorageItem storageItem = new StorageItem();
-        storageItem.setName("Name");
+        storageItem.setDescription("Description");
         storageItem.setSize("Size");
+        storageItem.setGrade(Grade.UNKNOWN);
         storageItem.setImage(new byte[]{1, 0, 1});
 
         //test
@@ -107,10 +113,10 @@ public class StorageItemControllerMapperTest {
 
         //Setup
         final StorageItem storageItem = new StorageItem();
-        storageItem.setName("TestName");
+        storageItem.setDescription("TestName");
 
         final StorageItemControllerModel storageItemControllerModel = new StorageItemControllerModel();
-        storageItemControllerModel.setName("TestName");
+        storageItemControllerModel.setDescription("TestName");
 
         //Test
         final List<StorageItemControllerModel> actualList = listMapper.mapList((AbstractMapper)

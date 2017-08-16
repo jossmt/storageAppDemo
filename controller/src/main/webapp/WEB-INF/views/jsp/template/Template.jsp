@@ -12,8 +12,8 @@
     <!-- Meta info -->
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="footer, address, phone, icons" />
+	<meta description="viewport" content="width=device-width, initial-scale=1">
+	<meta description="keywords" content="footer, address, phone, icons" />
     
     <!-- StyleSheets -->
 	<link href="<spring:url value="/resources/css/Footer.css" />" rel="stylesheet">
@@ -22,6 +22,8 @@
 	<!-- Fonts -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fresca">
 

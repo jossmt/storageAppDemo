@@ -100,9 +100,9 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
         }
 
         if (isUser) {
-            return "/home";
+            return "/about";
         } else if (isAdmin) {
-            return "/home";
+            return "/about";
         } else {
             throw new IllegalStateException();
         }

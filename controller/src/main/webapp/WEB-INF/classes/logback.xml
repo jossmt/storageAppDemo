@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!--<property name="DEV_HOME" value="/users/jossmillertodd/desktop/storageappdemo/controller/logs/storagelog"></property>-->
-
     <appender name="FILE-AUDIT"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>/users/jossmillertodd/desktop/storageappdemo/controller/logs/storagelog.log</file>
@@ -29,7 +27,7 @@
         <appender-ref ref="FILE-AUDIT" />
     </logger>
 
-    <logger name="org.springframework" level="debug"
+    <logger name="org.springframework" level="ERROR"
             additivity="false">
         <appender-ref ref="FILE-AUDIT" />
     </logger>
