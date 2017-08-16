@@ -18,18 +18,16 @@
                                 <div class="front">
                                     <!-- front content -->
                                     <span class="logoWrapper">
-                    <img id="img" height="200px" width="150px"
-                         <%--src="http://www.mountain-equipment.co.uk/pub/media/catalog/product/cache/75eed2686e01eb22cb4050b2f40ddf97/m/e/me_frontier_hooded_jacket_mens_marine_1.jpg"--%>
-                        src="data:image/jpg; ${item.image}"
+                    <img id="img" height="200px" width="150px" src="${item.imageUrl}"
                          alt='icon'></span>
                                 </div>
                                 <div class="back">
-                                    <p><c:out value="Brand: ${item.brand}"/></p><br/>
-                                    <p><c:out value="Size: ${item.size}"/></p><br/>
-                                    <p><c:out value="Description: ${item.description}"/></p><br/>
-                                    <p id="price"><c:out value="Price: ${item.price}"/></p><br/>
-                                    <p><c:out value="Grade: ${item.grade}"/></p><br/>
                                     <!-- back content -->
+                                    <p><c:out value="Brand: ${item.brand}"/></p>
+                                    <p><c:out value="Size: ${item.size}"/></p>
+                                    <p><c:out value="Description: ${item.description}"/></p>
+                                    <p id="price"><c:out value="Price: ${item.price}"/></p>
+                                    <p><c:out value="Grade: ${item.grade}"/></p>
                                 </div>
                             </div>
                         </div>

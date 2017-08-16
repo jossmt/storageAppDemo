@@ -33,6 +33,9 @@ public class StorageItemControllerModel {
     @JsonProperty("Image")
     private byte[] image;
 
+    /** Url image. */
+    private String imageUrl;
+
     /** Owner. */
     private User user;
 

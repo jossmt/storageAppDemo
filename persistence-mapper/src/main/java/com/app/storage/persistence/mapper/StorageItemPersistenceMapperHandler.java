@@ -4,6 +4,7 @@ import com.app.storage.domain.model.Grade;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
+import com.app.storage.persistence.mapper.constants.Base64ImageEncoder;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
@@ -45,6 +46,7 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
             storageItem.setDescription(storageItemPersistenceModel.getDescription());
             storageItem.setDateStored(storageItemPersistenceModel.getDateStored());
             storageItem.setImage(storageItemPersistenceModel.getImage());
+            storageItem.setImageUrl(Base64ImageEncoder.encodeImageUrl(storageItemPersistenceModel.getImage()));
             storageItem.setSize(storageItemPersistenceModel.getSize());
             storageItem.setBrand(storageItemPersistenceModel.getBrand());
             storageItem.setGrade(Grade.valueOf(storageItemPersistenceModel.getGrade()));

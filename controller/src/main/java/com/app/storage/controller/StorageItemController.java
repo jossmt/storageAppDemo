@@ -58,29 +58,6 @@ public class StorageItemController {
     }
 
     /**
-     * Returns all users stored items.
-     *
-     * @return JSON response including all stored items.
-     */
-    @RequestMapping(value = "/storedItems", method = RequestMethod.GET)
-    @Produces(MediaType.APPLICATION_JSON)
-    public @ResponseBody
-    List<StorageItemControllerModel> getStoredItems() {
-
-        LOG.debug("Getting all stored items.");
-
-        final List<StorageItem> storageItems = storageItemService.retrieveAllStorageItems();
-
-        final List<StorageItemControllerModel> storageItemControllerModels = listMapper.mapList
-                ((AbstractMapper) storageItemControllerMapper, false, storageItems);
-
-        LOG.debug("Successfully returned all stored items: {}.", storageItemControllerModels);
-
-        return storageItemControllerModels;
-
-    }
-
-    /**
      * Quick server uptime check test
      *
      * @return

@@ -30,6 +30,9 @@ public class StorageItem {
     /** Image taken of item. */
     private byte[] image;
 
+    /** URl represenation of image. */
+    private String imageUrl;
+
     /** Owner of item. */
     private User owner;
 
@@ -186,6 +189,25 @@ public class StorageItem {
     }
 
     /**
+     * Sets new URl represenation of image..
+     *
+     * @param imageUrl
+     *         New value of URl represenation of image..
+     */
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    /**
+     * Gets URl representation of image..
+     *
+     * @return Value of URl representation of image..
+     */
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -205,6 +227,7 @@ public class StorageItem {
                 .append(getDescription(), storageItem.getDescription())
                 .append(getSize(), storageItem.getSize())
                 .append(getImage(), storageItem.getImage())
+                .append(getImageUrl(), storageItem.getImageUrl())
                 .append(getBrand(), storageItem.getBrand())
                 .append(getGrade(), storageItem.getGrade())
                 .append(getOwner(), storageItem.getOwner())
@@ -222,8 +245,8 @@ public class StorageItem {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(description).append(size).append(dateStored).append(image).append(brand).append(grade)
-                .append(owner).append(price);
+        stringBuilder.append(description).append(size).append(dateStored).append(image).append(imageUrl)
+                .append(brand).append(grade).append(owner).append(price);
 
         return stringBuilder.toString();
     }

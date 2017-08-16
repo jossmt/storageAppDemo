@@ -4,6 +4,7 @@ import com.app.storage.domain.model.Grade;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
+import com.app.storage.persistence.mapper.constants.Base64ImageEncoder;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
@@ -22,6 +23,9 @@ import java.util.List;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class StorageItemPersistenceMapperTest {
+
+    /** Encoded file url. */
+    private String encodedFileUrl = "data:image/png;base64,AQAB";
 
     /** {@link ListMapper}. */
     private ListMapper listMapper;
@@ -90,6 +94,7 @@ public class StorageItemPersistenceMapperTest {
         storageItem.setDescription(storageItemPersistenceModel.getDescription());
         storageItem.setSize(storageItemPersistenceModel.getSize());
         storageItem.setImage(storageItemPersistenceModel.getImage());
+        storageItem.setImageUrl(encodedFileUrl);
         storageItem.setDateStored(storageItemPersistenceModel.getDateStored());
         storageItem.setGrade(Grade.A);
         storageItem.setBrand("Brand");
@@ -161,6 +166,17 @@ public class StorageItemPersistenceMapperTest {
 
         //Assert
         Assert.assertEquals(mappedList, storageItemPersistenceModels);
+    }
+
+    /**
+     * Base64 encoding image test
+     */
+    @Test
+    public void base64encodeTest() {
+
+        final String encodedFile = Base64ImageEncoder.encodeImageUrl(new byte[]{1, 0, 1});
+
+        Assert.assertEquals(encodedFile, encodedFileUrl);
     }
 
     /**
