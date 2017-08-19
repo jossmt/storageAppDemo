@@ -4,7 +4,7 @@ $(document).ready(function () {
         // Animation complete
     });
 
-    $("#aboutnav", "#howitworksnav").click(function() {
+    $("#aboutnav", "#howitworksnav").click(function () {
         $('html, body').animate({
             scrollTop: $(window.location.hash).offset().top
         }, 2000);
@@ -26,4 +26,19 @@ $(document).ready(function () {
     //         });
     //     }).scroll(); //invoke scroll-handler on page-load
     // });
+
 });
+
+/**
+ * Redirects to item page.
+ *
+ * @param item Item page
+ */
+function redirectToItemPage(itemid) {
+    var pathArray = window.location.pathname.split( '/' );
+    var baseurl = window.location.host + "/" + pathArray[1];
+
+    alert(baseurl + "/item?" + itemid);
+    window.location.href = baseurl + "/item?" + itemid;
+    return false;
+};

@@ -14,12 +14,13 @@
                 <c:forEach items="${storageItems}" var="item" varStatus="theCount">
                     <div class="list-container">
                         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                            <div class="flipper">
+                            <div class="flipper"
+                                 onclick="redirectToItemPage(${item.reference})">
                                 <div class="front">
                                     <!-- front content -->
                                     <span class="logoWrapper">
-                    <img id="img" height="200px" width="150px" src="${item.imageUrl}"
-                         alt='icon'></span>
+                                     <img id="img" height="200px" width="150px" src="${item.imageUrl}"
+                                          alt='icon'></span>
                                 </div>
                                 <div class="back">
                                     <!-- back content -->

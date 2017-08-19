@@ -51,6 +51,7 @@ public class StorageItemPersistenceMapperTest {
         //Setup
 
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+        storageItemPersistenceModel.setReference("reference");
         storageItemPersistenceModel.setDescription("Name");
         storageItemPersistenceModel.setSize("Size");
         storageItemPersistenceModel.setDateStored(new Date());
@@ -72,6 +73,8 @@ public class StorageItemPersistenceMapperTest {
         final StorageItemPersistenceModel actualStorageItemPersistenceModel = storageItemPersistenceMapper.mapTo
                 (storageItem);
 
+        actualStorageItemPersistenceModel.setReference("reference");
+
         //Assert
         Assert.assertEquals(storageItemPersistenceModel, actualStorageItemPersistenceModel);
     }
@@ -81,6 +84,8 @@ public class StorageItemPersistenceMapperTest {
 
         //Setup
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+        storageItemPersistenceModel.setId(1L);
+        storageItemPersistenceModel.setReference("reference");
         storageItemPersistenceModel.setDescription("Name");
         storageItemPersistenceModel.setSize("Size");
         storageItemPersistenceModel.setId(1L);
@@ -91,6 +96,7 @@ public class StorageItemPersistenceMapperTest {
         storageItemPersistenceModel.setPrice(1.2);
 
         final StorageItem storageItem = new StorageItem();
+        storageItem.setReference("reference");
         storageItem.setDescription(storageItemPersistenceModel.getDescription());
         storageItem.setSize(storageItemPersistenceModel.getSize());
         storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -146,15 +152,19 @@ public class StorageItemPersistenceMapperTest {
 
         //Setup
         final StorageItem storageItem = new StorageItem();
+        storageItem.setReference("reference");
         storageItem.setDescription("name1");
         final StorageItem storageItem2 = new StorageItem();
+        storageItem2.setReference("reference");
         storageItem2.setDescription("name2");
 
         final List<StorageItem> mappingList = Arrays.asList(storageItem, storageItem2);
 
         final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+        storageItemPersistenceModel.setReference("reference");
         storageItemPersistenceModel.setDescription("name1");
         final StorageItemPersistenceModel storageItemPersistenceModel2 = new StorageItemPersistenceModel();
+        storageItemPersistenceModel2.setReference("reference");
         storageItemPersistenceModel2.setDescription("name2");
 
         final List<StorageItemPersistenceModel> mappedList = Arrays.asList(storageItemPersistenceModel,

@@ -1,6 +1,7 @@
 package com.app.storage.domain.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.util.Date;
 
@@ -8,6 +9,9 @@ import java.util.Date;
  * Storage item.
  */
 public class StorageItem {
+
+    /** Unique reference code. */
+    private String reference;
 
     /** Date item was stored. */
     private Date dateStored;
@@ -165,7 +169,7 @@ public class StorageItem {
      * @param owner
      *         New value of Owner of item..
      */
-    public void setOwner(User owner) {
+    public void setOwner(final User owner) {
         this.owner = owner;
     }
 
@@ -194,7 +198,7 @@ public class StorageItem {
      * @param imageUrl
      *         New value of URl represenation of image..
      */
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(final String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
@@ -205,6 +209,33 @@ public class StorageItem {
      */
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    /**
+     * Gets Unique reference code..
+     *
+     * @return Value of Unique reference code..
+     */
+    public String getReference() {
+        return reference;
+    }
+
+    /**
+     * Sets new Unique reference code..
+     *
+     * @param reference
+     *         New value of Unique reference code..
+     */
+    public void setReference(final String reference) {
+        this.reference = reference;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(reference).append(description).append(size).append(dateStored)
+                .append(brand).append(grade).append(owner).append(price)
+                .toHashCode();
     }
 
     /**
@@ -223,6 +254,7 @@ public class StorageItem {
 
         StorageItem storageItem = (StorageItem) obj;
         return new EqualsBuilder()
+                .append(getReference(), storageItem.getReference())
                 .append(getDateStored(), storageItem.getDateStored())
                 .append(getDescription(), storageItem.getDescription())
                 .append(getSize(), storageItem.getSize())
@@ -245,7 +277,7 @@ public class StorageItem {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(description).append(size).append(dateStored).append(image).append(imageUrl)
+        stringBuilder.append(reference).append(description).append(size).append(dateStored)
                 .append(brand).append(grade).append(owner).append(price);
 
         return stringBuilder.toString();

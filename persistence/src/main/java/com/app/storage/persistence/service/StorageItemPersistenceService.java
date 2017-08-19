@@ -26,4 +26,13 @@ public interface StorageItemPersistenceService {
      *         Storage item.
      */
     void saveStorageItem(StorageItem storageItem);
+
+    /**
+     * Returns storage item by unique reference code
+     *
+     * @param reference
+     *         Unique reference.
+     * @return {@link StorageItem}
+     */
+    StorageItem retrieveStorageItemByRef(String reference);
 }

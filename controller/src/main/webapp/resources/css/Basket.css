@@ -1,0 +1,19 @@
+.singleitem-container {
+    text-align: center;
+}
+
+.detailsholder, .imageholder {
+    display: inline-block;
+}
+
+.detailsholder p{
+    font-family:Advent Pro;
+}
+
+#price {
+    color: red;
+}
+
+.checkout {
+    float:right;
+}

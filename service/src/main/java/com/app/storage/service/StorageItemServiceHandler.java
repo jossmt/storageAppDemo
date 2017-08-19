@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Implementation of {@link StorageItemService}
@@ -58,5 +59,37 @@ public class StorageItemServiceHandler implements StorageItemService {
         storageItemPersistenceService.saveStorageItem(storageItem);
 
         LOG.debug("Success saving storage items.");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public StorageItem findStorageItemByReference(final String reference) {
+
+        LOG.debug("Finding storage item by ref: {}", reference);
+
+        final StorageItem storageItem = storageItemPersistenceService.retrieveStorageItemByRef(reference);
+
+        LOG.debug("Successfully found storage item. ");
+
+        return storageItem;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Double calculateTotalPrice(final Set<StorageItem> basketItems) {
+
+        LOG.debug("Calculating total basket price");
+
+        Double price = 0.0;
+        for (StorageItem storageItem : basketItems) {
+            price += storageItem.getPrice();
+        }
+
+        LOG.debug("Returning total price of: {}", price);
+        return price;
     }
 }

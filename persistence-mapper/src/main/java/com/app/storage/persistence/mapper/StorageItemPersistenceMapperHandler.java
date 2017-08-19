@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 /**
  * Implementation of {@link StorageItemPersistenceMapper}
  */
@@ -43,6 +45,7 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
         if (storageItemPersistenceModel != null) {
 
             storageItem = new StorageItem();
+            storageItem.setReference(storageItemPersistenceModel.getReference());
             storageItem.setDescription(storageItemPersistenceModel.getDescription());
             storageItem.setDateStored(storageItemPersistenceModel.getDateStored());
             storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -76,6 +79,11 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
         StorageItemPersistenceModel storageItemPersistenceModel = null;
         if (storageItem != null) {
             storageItemPersistenceModel = new StorageItemPersistenceModel();
+            if(storageItem.getReference() != null){
+                storageItemPersistenceModel.setReference(storageItem.getReference());
+            }else{
+                storageItemPersistenceModel.setReference(UUID.randomUUID().toString());
+            }
             storageItemPersistenceModel.setDescription(storageItem.getDescription());
             storageItemPersistenceModel.setSize(storageItem.getSize());
             storageItemPersistenceModel.setDateStored(storageItem.getDateStored());

@@ -1,26 +1,24 @@
 package com.app.storage.controller;
 
-import com.app.storage.controller.mapper.StorageItemControllerMapper;
-import com.app.storage.controller.model.StorageItemControllerModel;
 import com.app.storage.domain.model.StorageItem;
-import com.app.storage.persistence.mapper.constants.AbstractMapper;
-import com.app.storage.persistence.mapper.constants.ListMapper;
+import com.app.storage.domain.model.User;
 import com.app.storage.service.StorageItemService;
+import com.app.storage.service.UserService;
+import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Controller for storage item requests.
@@ -35,73 +33,103 @@ public class StorageItemController {
     /** {@link StorageItemService} */
     private final StorageItemService storageItemService;
 
-    /** {@link StorageItemControllerMapper} */
-    private final StorageItemControllerMapper storageItemControllerMapper;
+    /** {@link UserService} */
+    private final UserService userService;
 
-    /** {@link ListMapper} */
-    private final ListMapper listMapper;
+    /** List of {@link StorageItem} added to basket. */
+    private final Set<StorageItem> basketList = new LinkedHashSet<>();
 
     /**
      * Constructor.
      *
      * @param storageItemService
      *         Storage item service.
-     * @param storageItemControllerMapper
-     *         Storage Item Controller Mapper.
+     * @param userService
+     *         User service.
      */
     @Autowired
     public StorageItemController(final StorageItemService storageItemService,
-                                 final StorageItemControllerMapper storageItemControllerMapper) {
-        listMapper = new ListMapper();
+                                 final UserService userService) {
         this.storageItemService = storageItemService;
-        this.storageItemControllerMapper = storageItemControllerMapper;
+        this.userService = userService;
     }
 
     /**
-     * Quick server uptime check test
+     * Renders storage view to container.
      *
-     * @return
+     * @return Storage.jsp
      */
-    @RequestMapping(value = "/temp", method = RequestMethod.GET)
-    public @ResponseBody
-    String getTemp() {
-
-        LOG.debug("Test temp");
-
-        return "test";
-    }
-
-    /**
-     * Generic view response - only seems to work with jsp atm needs review
-     *
-     * @return
-     */
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public ModelAndView returnPage() {
+    @RequestMapping(value = "/item/{reference}", method = RequestMethod.GET)
+    public ModelAndView renderStorage(@PathVariable final String reference) {
+        LOG.debug("Getting stored items with ref: {}", reference);
 
         final ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("Temp");
+
+        final StorageItem storageItem = storageItemService.findStorageItemByReference(reference);
+
+        LOG.debug("Successfully returned storage item {} with reference {}.", storageItem, reference);
+
+        modelAndView.setViewName("core/StorageSingle");
+        modelAndView.addObject("storageItem", storageItem);
 
         return modelAndView;
-
     }
 
     /**
-     * Info saved - incase want to return full response including error responses etc.
-     * Currently looks like too much info is returned including model class package etc. so needs reviewing
+     * Renders storage view to container.
      *
-     * @return
+     * @return Storage.jsp
      */
-    @RequestMapping(value = "/json", method = RequestMethod.GET)
-    @Produces(MediaType.APPLICATION_JSON)
-    public @ResponseBody
-    Response returnJson() {
+    @RequestMapping(value = "/discover", method = RequestMethod.GET)
+    public ModelAndView renderStorage() {
+        LOG.debug("Getting all stored items.");
 
-        LOG.debug("Testing logs");
+        final ModelAndView modelAndView = new ModelAndView();
 
-        final String objectToReturn = "{ key1: 'value1', key2: 'value2' }";
+        final List<StorageItem> storageItems = storageItemService.retrieveAllStorageItems();
 
-        return Response.ok().entity(objectToReturn).build();
+        LOG.debug("Successfully returned all stored items: {}.", storageItems);
 
+        modelAndView.setViewName("core/Storage");
+        modelAndView.addObject("storageItems", storageItems);
+
+        return modelAndView;
+    }
+
+    /**
+     * Renders storage view to container.
+     *
+     * @return Storage.jsp
+     */
+    @RequestMapping(value = "/myItems", method = RequestMethod.GET)
+    public ModelAndView renderStorage(final Authentication authentication) {
+
+        Validate.isTrue(authentication.getPrincipal() != null);
+        Validate.isTrue(authentication.isAuthenticated());
+
+        final UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        LOG.debug("Getting all stored items for user: {}", userDetails.getUsername());
+
+        final ModelAndView modelAndView = new ModelAndView();
+
+        final User user = userService.loadUserData(userDetails.getUsername());
+
+        LOG.debug("Successfully returned all stored items: {} for user: {}.", user.getStorageItems(), user
+                .getFirstName());
+
+        modelAndView.setViewName("core/Storage");
+        modelAndView.addObject("storageItems", user.getStorageItems());
+
+        return modelAndView;
+    }
+
+    /**
+     * Gets List of {@link StorageItem} added to basket..
+     *
+     * @return Value of List of {@link StorageItem} added to basket..
+     */
+    public Set<StorageItem> getBasketList() {
+        return basketList;
     }
 }

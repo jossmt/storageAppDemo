@@ -18,6 +18,10 @@ public class StorageItemPersistenceModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    /** Unique reference id. */
+    @Column(name = "Reference")
+    private String reference;
+
     /** Date item was stored. */
     @Column(name = "DateStored")
     private Date dateStored;
@@ -223,6 +227,25 @@ public class StorageItemPersistenceModel {
     }
 
     /**
+     * Sets new Unique reference id..
+     *
+     * @param reference
+     *         New value of Unique reference id..
+     */
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    /**
+     * Gets Unique reference id..
+     *
+     * @return Value of Unique reference id..
+     */
+    public String getReference() {
+        return reference;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -240,6 +263,7 @@ public class StorageItemPersistenceModel {
         return new EqualsBuilder()
                 .append(getDateStored(), storageItemControllerModel.getDateStored())
                 .append(getId(), storageItemControllerModel.getId())
+                .append(getReference(), storageItemControllerModel.getReference())
                 .append(getDescription(), storageItemControllerModel.getDescription())
                 .append(getSize(), storageItemControllerModel.getSize())
                 .append(getImage(), storageItemControllerModel.getImage())
@@ -259,8 +283,8 @@ public class StorageItemPersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(description).append(size).append(dateStored).append(image).append(brand)
-                .append(grade).append(price);
+        stringBuilder.append(id).append(reference).append(description).append(size).append(dateStored).append(image)
+                .append(brand).append(grade).append(price);
 
         return stringBuilder.toString();
     }

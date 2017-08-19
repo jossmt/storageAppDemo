@@ -86,7 +86,36 @@ public class StorageItemRepositoryTest {
         storageItemRepository.delete(savedStorageItemPersistenceModel.getId());
     }
 
-//    @Test
+    /**
+     * Check find storage item by unique reference.
+     *
+     * @throws IOException
+     */
+    @Test
+    public void findByReferenceTest() {
+        //setup
+        final UserPersistenceModel userPersistenceModel = userRepository.findMostRecent();
+
+        final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+        storageItemPersistenceModel.setReference("uniqueReferenceTest123");
+        storageItemPersistenceModel.setDescription("Name");
+        storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+        storageItemPersistenceModel.setBrand("Brand");
+        storageItemPersistenceModel.setGrade("A");
+        storageItemRepository.save(storageItemPersistenceModel);
+
+        //Test
+        final StorageItemPersistenceModel actualStorageItemPersistenceModel = storageItemRepository.findByReference
+                ("uniqueReferenceTest123");
+
+        //Assert
+        Assert.assertEquals(actualStorageItemPersistenceModel, storageItemPersistenceModel);
+
+        //Clear
+        storageItemRepository.delete(actualStorageItemPersistenceModel.getId());
+    }
+
+    //    @Test
     public void saveExampleData() throws IOException {
 
         //setup

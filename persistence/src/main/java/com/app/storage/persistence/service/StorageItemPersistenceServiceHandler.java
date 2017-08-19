@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.ws.rs.NotFoundException;
 import java.util.List;
 
 /**
@@ -56,6 +57,7 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
      * {@inheritDoc}
      */
     @Transactional
+    @Override
     public List<StorageItem> retrieveAllStorageItems() {
 
         LOG.debug("Retrieving all storage items.");
@@ -76,6 +78,7 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
     /**
      * {@inheritDoc}
      */
+    @Override
     public void saveStorageItem(final StorageItem storageItem) {
 
         LOG.debug("Saving storage item to database: {}", storageItem);
@@ -86,6 +89,31 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
         storageItemRepository.save(storageItemPersistenceModel);
 
         LOG.debug("Saved storage items to database.");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional
+    public StorageItem retrieveStorageItemByRef(final String reference) {
+
+        LOG.debug("Fetching storage item by ref");
+
+        final StorageItemPersistenceModel storageItemPersistenceModel = storageItemRepository.findByReference
+                (reference);
+
+        StorageItem storageItem;
+        if (storageItemPersistenceModel != null) {
+
+            storageItem = storageItemPersistenceMapper.mapFrom(storageItemPersistenceModel);
+        } else {
+            throw new NotFoundException("Unable to find storage item by reference given");
+        }
+
+        LOG.debug("Returning storage item");
+
+        return storageItem;
     }
 
 
