@@ -41,14 +41,20 @@
     transform: rotateY(180deg);
 }
 
-.back p{
+.back p,.back a{
     font-family: Advent Pro;
     text-align:center;
+    color: #000000;
     margin-top:0;
 }
 
 #price {
     color: red;
+}
+
+#selector {
+    font-style: italic;
+    margin: 0 auto;
 }
 
 .list-container {

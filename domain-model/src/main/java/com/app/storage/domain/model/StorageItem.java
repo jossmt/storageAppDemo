@@ -1,7 +1,6 @@
 package com.app.storage.domain.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.util.Date;
 
@@ -230,14 +229,6 @@ public class StorageItem {
         this.reference = reference;
     }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(reference).append(description).append(size).append(dateStored)
-                .append(brand).append(grade).append(owner).append(price)
-                .toHashCode();
-    }
-
     /**
      * Equals override.
      *
@@ -277,7 +268,8 @@ public class StorageItem {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(reference).append(description).append(size).append(dateStored)
+        stringBuilder.append(reference).append(description).append(size).append(dateStored).append(image).append
+                (imageUrl)
                 .append(brand).append(grade).append(owner).append(price);
 
         return stringBuilder.toString();

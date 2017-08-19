@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Set;
 
@@ -84,12 +86,19 @@ public class StorageItemServiceHandler implements StorageItemService {
 
         LOG.debug("Calculating total basket price");
 
-        Double price = 0.0;
+        final DecimalFormat df = new DecimalFormat("#.00");
+
+        Double price = 0.00;
         for (StorageItem storageItem : basketItems) {
-            price += storageItem.getPrice();
+            if (storageItem.getPrice() != null) {
+                price += storageItem.getPrice();
+            }
         }
 
-        LOG.debug("Returning total price of: {}", price);
-        return price;
+        final String priceFormatted = df.format(price);
+        final Double priceFormattedDouble = Double.valueOf(priceFormatted);
+
+        LOG.debug("Returning total price of: {}", priceFormattedDouble);
+        return priceFormattedDouble;
     }
 }

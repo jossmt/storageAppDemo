@@ -10,8 +10,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Arrays;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * Test for {@link StorageItemService}
@@ -75,5 +75,64 @@ public class StorageItemServiceTest {
 
         //Assert
         Assert.assertEquals(actualResponse, Arrays.asList(storageItem));
+    }
+
+    /**
+     * Find storage item by ref test.
+     */
+    @Test
+    public void findStorageItemByReferenceTest() {
+
+        //Setup
+        final StorageItem storageItem = new StorageItem();
+        storageItem.setReference("reference");
+        storageItem.setImage(new byte[]{1, 0, 1});
+        storageItem.setDescription("StorageTest");
+        storageItem.setSize("L");
+
+        //Mock
+        Mockito.when(storageItemPersistenceService.retrieveStorageItemByRef("reference")).thenReturn(storageItem);
+
+        //Test
+        final StorageItem storageItemActual = storageItemPersistenceService.retrieveStorageItemByRef("reference");
+
+        //Verify
+        Mockito.verify(storageItemPersistenceService).retrieveStorageItemByRef("reference");
+
+        //Assert
+        Assert.assertEquals(storageItemActual, storageItem);
+    }
+
+
+    /**
+     * Price calculation test.
+     */
+    @Test
+    public void priceCalculationTest() {
+
+        //Setup
+        final Double price = 3.60;
+
+        final StorageItem storageItem = new StorageItem();
+        storageItem.setReference("item1");
+        storageItem.setPrice(1.2);
+        final StorageItem storageItem2 = new StorageItem();
+        storageItem2.setReference("item2");
+        storageItem2.setPrice(1.2);
+        final StorageItem storageItem3 = new StorageItem();
+        storageItem3.setReference("item3");
+        storageItem3.setPrice(1.2);
+
+        final Set<StorageItem> storageItems = new LinkedHashSet<>();
+        storageItems.add(storageItem);
+        storageItems.add(storageItem2);
+        storageItems.add(storageItem3);
+
+        //Test
+        final Double priceActual = storageItemService.calculateTotalPrice(storageItems);
+
+        //Assert
+        Assert.assertEquals(priceActual, price);
+
     }
 }

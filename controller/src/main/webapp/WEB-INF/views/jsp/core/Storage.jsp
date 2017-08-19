@@ -14,8 +14,7 @@
                 <c:forEach items="${storageItems}" var="item" varStatus="theCount">
                     <div class="list-container">
                         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                            <div class="flipper"
-                                 onclick="redirectToItemPage(${item.reference})">
+                            <div class="flipper">
                                 <div class="front">
                                     <!-- front content -->
                                     <span class="logoWrapper">
@@ -29,6 +28,9 @@
                                     <p><c:out value="Description: ${item.description}"/></p>
                                     <p id="price"><c:out value="Price: ${item.price}"/></p>
                                     <p><c:out value="Grade: ${item.grade}"/></p>
+                                    <a id="selector"
+                                       href="${pageContext.servletContext.contextPath}/item/${item.reference}">View
+                                        Item</a>
                                 </div>
                             </div>
                         </div>

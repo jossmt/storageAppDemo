@@ -38,7 +38,7 @@ function redirectToItemPage(itemid) {
     var pathArray = window.location.pathname.split( '/' );
     var baseurl = window.location.host + "/" + pathArray[1];
 
-    alert(baseurl + "/item?" + itemid);
+    alert(baseurl + "/item/" + itemid);
     window.location.href = baseurl + "/item?" + itemid;
-    return false;
+    return;
 };
