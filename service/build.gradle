@@ -19,4 +19,6 @@ dependencies {
     //spring
     compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.3.RELEASE'
 
+    //braintree
+    compile group: 'com.braintreepayments.gateway', name: 'braintree-java', version:'2.72.1'
 }

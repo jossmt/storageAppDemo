@@ -1,12 +1,18 @@
 package com.app.storage.controller;
 
+import com.app.storage.domain.model.payment.PaymentTransaction;
 import com.app.storage.service.StorageItemService;
+import com.app.storage.service.payment.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 /**
  * Checkout and buy items controller.
@@ -24,6 +30,9 @@ public class CheckoutController {
     /** {@link StorageItemService}. */
     private final StorageItemService storageItemService;
 
+    /** {@link PaymentService}. */
+    private final PaymentService paymentService;
+
     /**
      * Controller
      *
@@ -33,9 +42,11 @@ public class CheckoutController {
      *         {@link BasketController}
      */
     public CheckoutController(final BasketController basketController,
-                              final StorageItemService storageItemService) {
+                              final StorageItemService storageItemService,
+                              final PaymentService paymentService) {
         this.basketController = basketController;
         this.storageItemService = storageItemService;
+        this.paymentService = paymentService;
     }
 
     /**
@@ -44,7 +55,9 @@ public class CheckoutController {
      * @return Checkout.jsp
      */
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
-    public ModelAndView renderAbout() {
+    public ModelAndView renderCheckout() {
+
+        paymentService.initialiseGateway();
 
         final Double totalPrice = storageItemService.calculateTotalPrice(basketController.getBasketSet());
 
@@ -53,15 +66,42 @@ public class CheckoutController {
         modelAndView.setViewName("payment/Checkout");
         modelAndView.addObject("totalPrice", totalPrice);
         modelAndView.addObject("basketItems", basketController.getBasketSet());
+        modelAndView.addObject("userToken", paymentService.generateClientToken());
+        modelAndView.addObject("paymentTransaction", new PaymentTransaction());
 
         LOG.debug("Rendering checkout jsp");
 
         return modelAndView;
     }
 
-    @RequestMapping(value = "/cardData", method = RequestMethod.GET)
-    public String getCardData(){
+    /**
+     * Handles checkout payment and success/failure view redirect.
+     *
+     * @return {@link ModelAndView}
+     */
+    @RequestMapping(value = "/checkout", method = RequestMethod.POST)
+    public ModelAndView handleCheckout(@ModelAttribute("paymentInformation") final PaymentTransaction
+                                                   paymentTransaction,
+                                       final Principal principal) {
 
-        return "payment/CardPayment.html";
+        LOG.debug("Returning payment details: {}", paymentTransaction.toString());
+
+        paymentTransaction.setCustomerRef(principal.getName());
+        paymentTransaction.setPaymentNonce("fake-valid-debit-nonce");
+
+        final boolean transactionResponse = paymentService.executeTransaction(paymentTransaction);
+
+        final ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("paymentTransaction", paymentTransaction);
+
+        if (transactionResponse) {
+            modelAndView.setViewName("payment/CheckoutSuccess");
+        } else {
+            modelAndView.setViewName("payment/CheckoutFailure");
+        }
+
+        LOG.debug("Returning model and view objects for {} transaction response", transactionResponse);
+
+        return modelAndView;
     }
 }

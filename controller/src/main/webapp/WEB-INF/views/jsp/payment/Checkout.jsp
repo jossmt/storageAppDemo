@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 <link href="<c:url value="/resources/css/Basket.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/Checkout.css" />" rel="stylesheet">
@@ -43,51 +45,80 @@
             </c:choose>
         </div>
 
-        <div class="checkout">
+        <form:form method="post" modelAttribute="paymentTransaction" cssClass="credit-card">
 
-            <h3>Total price: ${totalPrice}</h3>
+            <div class="checkout">
 
-            <form:form method="get" action="${pageContext.servletContext.contextPath}/checkout">
-                <button type="submit">Check Out</button>
-            </form:form>
-        </div>
+                <h3>Total price: ${totalPrice}</h3>
 
-        <div id="paymentInformation">
-            <form class="credit-card">
+                <form:hidden path="transactionAmount" value="${totalPrice}"/>
+            </div>
+
+            <div id="billingAddressInformation">
+                <h3>Billing Information</h3>
+
+                <form:input type="text" path="billingAddress.streetAddress"
+                            placeholder="Full Street Address Details"/>
+                <form:input type="text" path="billingAddress.region"
+                            placeholder="Region"/>
+                <form:input type="text" path="billingAddress.postcode"
+                            placeholder="Postcode"/>
+                <form:input type="text" path="billingAddress.countryName"
+                            placeholder="Country"/>
+            </div>
+
+            <div id="paymentInformation">
+
+                <h3>Payment Information</h3>
                 <div class="form-header">
                     <h4 class="title">Credit card detail</h4>
                 </div>
 
                 <div class="form-body">
                     <!-- Card Number -->
-                    <input type="text" class="card-number" placeholder="Card Number">
-
+                    <form:input type="text" class="card-number" path="cardInformation.cardHolderName"
+                                placeholder="Card Holder Full Name"/>
+                    <spring:bind path="cardInformation.cardNumber">
+                        <form:input type="text" class="card-number" path="cardInformation.cardNumber"
+                                    placeholder="Card Number"/>
+                    </spring:bind>
                     <!-- Date Field -->
                     <div class="date-field">
                         <div class="month">
-                            <input type="text" class="month" placeholder="Month">
+                            <spring:bind path="cardInformation.expirationMonth">
+                                <form:input type="text" class="month" placeholder="Month"
+                                            path="cardInformation.expirationMonth"/>
+                            </spring:bind>
                         </div>
                         <div class="year">
-                            <input type="text" class="year" placeholder="Year">
+                            <form:input type="text" class="year" placeholder="Year"
+                                        path="cardInformation.expirationYear"/>
                         </div>
                     </div>
 
                     <!-- Card Verification Field -->
                     <div class="card-verification">
-                        <div class="cvv-input">
-                            <input type="text" placeholder="CVV">
-                        </div>
+                        <spring:bind path="cardInformation.cvvValue">
+
+                            <div class="cvv-input">
+                                <form:input type="text" path="cardInformation.cvvValue"
+                                            placeholder="CVV"/>
+                            </div>
+                        </spring:bind>
+
                         <div class="cvv-details">
                             <p>3 or 4 digits usually found <br> on the signature strip</p>
                         </div>
                     </div>
 
                     <!-- Buttons -->
-                    <button type="submit" class="proceed-btn"><a href="#">Proceed</a></button>
+                    <form:form method="post" action="${pageContext.servletContext.contextPath}/checkout">
+                        <button type="submit" class="proceed-btn">Proceed</button>
+                    </form:form>
                     <button type="submit" class="paypal-btn"><a href="#">Pay With Paypal</a></button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form:form>
 
     </tiles:putAttribute>
 </tiles:insertDefinition>

@@ -33,15 +33,18 @@
     <logger name="com.app.storage" level="debug"
             additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <logger name="org.springframework" level="ERROR"
             additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="error">
         <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="STDOUT"/>
     </root>
 
 </configuration>
