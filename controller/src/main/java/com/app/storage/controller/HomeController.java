@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/")
-public class ViewsController {
+public class HomeController {
 
     /** Logger. */
     private static final Logger LOG = LoggerFactory.getLogger(StorageItemController.class);
@@ -36,14 +36,14 @@ public class ViewsController {
     public String renderAbout() {
         return "about/Home";
     }
-
-    /**
-     * Renders About view to container.
-     *
-     * @return About.jsp
-     */
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public String renderInfo() {
-        return "about/Home";
-    }
+//
+//    /**
+//     * Renders About view to container.
+//     *
+//     * @return About.jsp
+//     */
+//    @RequestMapping(value = "/info", method = RequestMethod.GET)
+//    public String renderInfo() {
+//        return "about/Home";
+//    }
 }

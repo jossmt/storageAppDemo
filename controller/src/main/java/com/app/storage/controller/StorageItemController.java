@@ -36,9 +36,6 @@ public class StorageItemController {
     /** {@link UserService} */
     private final UserService userService;
 
-    /** List of {@link StorageItem} added to basket. */
-    private final Set<StorageItem> basketList = new LinkedHashSet<>();
-
     /**
      * Constructor.
      *
@@ -122,14 +119,5 @@ public class StorageItemController {
         modelAndView.addObject("storageItems", user.getStorageItems());
 
         return modelAndView;
-    }
-
-    /**
-     * Gets List of {@link StorageItem} added to basket..
-     *
-     * @return Value of List of {@link StorageItem} added to basket..
-     */
-    public Set<StorageItem> getBasketList() {
-        return basketList;
     }
 }

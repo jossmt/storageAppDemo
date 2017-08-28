@@ -72,4 +72,7 @@ dependencies {
     compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.3.3'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
 
+    //braintree
+    compile group: 'com.braintreepayments.gateway', name: 'braintree-java', version:'2.72.1'
+
 }
