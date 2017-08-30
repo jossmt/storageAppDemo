@@ -19,18 +19,23 @@ public class CardInformationPersistenceModel {
     private Long id;
 
     /** Card Holder Full Name. */
+    @Column(name = "Card Holder Name")
     private String cardHolderName;
 
     /** Card Number. */
+    @Column(name = "Card Number")
     private Long cardNumber;
 
     /** Cvv. */
+    @Column(name = "CVV")
     private Integer cvv;
 
     /** Expiration Month. */
+    @Column(name = "Expiration Month")
     private Integer expirationMonth;
 
     /** Expiration year. */
+    @Column(name = "Expiration Year")
     private Integer expirationYear;
 
     /**

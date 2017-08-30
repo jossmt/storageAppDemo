@@ -3,32 +3,21 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<link href="<c:url value="/resources/css/Login.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/SignupNew.css" />" rel="stylesheet">
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <form:form method="POST">
-            <div class="imgcontainer">
-                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
+        <form:form id="msform" method="post" modelAttribute="userForm"
+                   action="${pageContext.servletContext.contextPath}/login">
 
-            <div class="container">
-
-                <label><b>Email</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Log in</button>
-                <input type="checkbox" checked="checked"> Remember me
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
+            <fieldset>
+                <h2 class="fs-title">ENTER LOGIN DETAILS</h2>
+                <h3 class="fs-subtitle">Or sign up now</h3>
+                <form:input path="email" type="text" name="email" placeholder="Email" />
+                <form:input path="password" type="password" name="pass" placeholder="Password" />
+                <input type="submit" name="submit" class="submit action-button" value="Submit" />
+            </fieldset>
         </form:form>
     </tiles:putAttribute>
 </tiles:insertDefinition>

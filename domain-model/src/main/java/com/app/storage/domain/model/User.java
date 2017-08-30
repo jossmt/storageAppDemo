@@ -313,7 +313,7 @@ public class User implements Serializable {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(firstName).append(lastName).append(email).append(password).append
+        stringBuilder.append(firstName).append(lastName).append(email).append(password).append
                 (passwordConfirm).append(roles).append(billingAddress).append(paymentDetails);
 
         return stringBuilder.toString();

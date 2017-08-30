@@ -3,72 +3,68 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<link href="<c:url value="/resources/css/Signup.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/SignupNew.css" />" rel="stylesheet">
+
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <form:form method="POST" modelAttribute="userForm">
-            <div class="imgcontainer">
-                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
+        <!-- multistep form -->
+        <form:form id="msform" method="post" modelAttribute="userForm"
+                   action="${pageContext.servletContext.contextPath}/signup">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Account Setup</li>
+                <li>Social Profiles</li>
+                <li>Personal Details</li>
+                <li>Payment</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Create your account</h2>
+                <h3 class="fs-subtitle">This is step 1</h3>
 
-            <div class="container">
-
-                <label><b>First Name</b></label>
-                <spring:bind path="firstName">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="firstName" class="form-control" placeholder="Enter First Name"
-                                    autofocus="true"></form:input>
-                        <form:errors path="firstName"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <label><b>Last Name</b></label>
-                <spring:bind path="lastName">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="lastName" class="form-control" placeholder="Enter Last Name"
-                                    autofocus="true"></form:input>
-                        <form:errors path="lastName"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <label><b>Email</b></label>
-                <spring:bind path="email">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="email" class="form-control" placeholder="Enter Email"
-                                    autofocus="true"></form:input>
-                        <form:errors path="email"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <label><b>Password</b></label>
-                <spring:bind path="password">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="password" path="password" class="form-control" placeholder="Enter Password"
-                                    autofocus="true"></form:input>
-                        <form:errors path="password"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <label><b>Re-Enter Password</b></label>
-                <spring:bind path="passwordConfirm">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="password" path="passwordConfirm" class="form-control"
-                                    placeholder="Re-Enter Password"
-                                    autofocus="true"></form:input>
-                        <form:errors path="passwordConfirm"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <button type="submit">Sign Up</button>
-                <input type="checkbox" checked="checked"> Remember me
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
+                <form:input path="email" type="text" name="email" placeholder="Email"/>
+                <form:input path="password" type="password" name="pass" placeholder="Password"/>
+                <form:input path="passwordConfirm" type="password" name="cpass" placeholder="Confirm Password"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Trading Accounts</h2>
+                <h3 class="fs-subtitle">Add your intended selling platforms</h3>
+                <input type="text" name="amazon" placeholder="Amazon Account Name"/>
+                <input type="text" name="ebay" placeholder="Ebay Account Name"/>
+                <input type="text" name="craigslist" placeholder="Craigslist Account Name"/>
+                <input type="button" name="previous" class="previous action-button" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Personal Details</h2>
+                <h3 class="fs-subtitle">We will never sell it</h3>
+                <form:input path="firstName" type="text" name="fname" placeholder="First Name"/>
+                <form:input path="lastName" type="text" name="lname" placeholder="Last Name"/>
+                <form:textarea path="billingAddress.streetAddress" name="address" placeholder="Address"/>
+                <form:input path="billingAddress.region" type="text" name="region" placeholder="Region"/>
+                <form:input path="billingAddress.postcode" type="text" name="postcode" placeholder="Postcode"/>
+                <form:input path="billingAddress.countryName" type="text" name="country" placeholder="Country"/>
+                <input type="button" name="previous" class="previous action-button" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Payment Information</h2>
+                <h3 class="fs-subtitle">For payments and subscriptions</h3>
+                <form:input path="paymentDetails[0].cardHolderName" type="text" name="cardholdername"
+                            placeholder="Card Holder Name"/>
+                <form:input path="paymentDetails[0].cardNumber" type="text" name="cardnumber"
+                            placeholder="Card Number"/>
+                <form:input path="paymentDetails[0].cvvValue" type="text" name="cvv" placeholder="CVV"/>
+                <form:input path="paymentDetails[0].expirationMonth" type="text" name="expmonth"
+                            placeholder="Expiration Month e.g. Feb"/>
+                <form:input path="paymentDetails[0].expirationYear" type="text" name="expyear"
+                            placeholder="Expiration year e.g. 2019"/>
+                <input type="button" name="previous" class="previous action-button" value="Previous"/>
+                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+            </fieldset>
         </form:form>
     </tiles:putAttribute>
 </tiles:insertDefinition>

@@ -126,7 +126,7 @@ public class UserInfoController {
 
         LOG.debug("Successfully logged in with user: {}", userForm.getFirstName());
 
-        return "about/About";
+        return "about/Home";
     }
 
     /**
