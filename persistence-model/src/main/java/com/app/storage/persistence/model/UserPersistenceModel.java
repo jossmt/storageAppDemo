@@ -15,6 +15,8 @@
  */
 package com.app.storage.persistence.model;
 
+import com.app.storage.persistence.model.payment.BillingAddressPersistenceModel;
+import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,6 +61,13 @@ public class UserPersistenceModel {
     /** List of users items. */
     @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<StorageItemPersistenceModel> storageItemPersistenceModelList;
+
+    /** List of users payment options. */
+    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CardInformationPersistenceModel> cardInformationPersistenceModels;
+
+    @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private BillingAddressPersistenceModel billingAddressPersistenceModel;
 
     /**
      * Sets new email.
@@ -194,6 +203,45 @@ public class UserPersistenceModel {
     }
 
     /**
+     * Gets List of users payment options..
+     *
+     * @return Value of List of users payment options..
+     */
+    public List<CardInformationPersistenceModel> getCardInformationPersistenceModels() {
+        return cardInformationPersistenceModels;
+    }
+
+    /**
+     * Sets new List of users payment options..
+     *
+     * @param cardInformationPersistenceModels
+     *         New value of List of users payment options..
+     */
+    public void setCardInformationPersistenceModels(List<CardInformationPersistenceModel>
+                                                            cardInformationPersistenceModels) {
+        this.cardInformationPersistenceModels = cardInformationPersistenceModels;
+    }
+
+    /**
+     * Sets new billingAddressPersistenceModel.
+     *
+     * @param billingAddressPersistenceModel
+     *         New value of billingAddressPersistenceModel.
+     */
+    public void setBillingAddressPersistenceModel(BillingAddressPersistenceModel billingAddressPersistenceModel) {
+        this.billingAddressPersistenceModel = billingAddressPersistenceModel;
+    }
+
+    /**
+     * Gets billingAddressPersistenceModel.
+     *
+     * @return Value of billingAddressPersistenceModel.
+     */
+    public BillingAddressPersistenceModel getBillingAddressPersistenceModel() {
+        return billingAddressPersistenceModel;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -209,8 +257,6 @@ public class UserPersistenceModel {
                 .append(getLastName(), userPersistenceModel.getLastName())
                 .append(getEmail(), userPersistenceModel.getEmail())
                 .append(getPassword(), userPersistenceModel.getPassword())
-                .append(getRoles(), userPersistenceModel.getRoles())
-                .append(getStorageItemPersistenceModelList(), userPersistenceModel.getStorageItemPersistenceModelList())
                 .isEquals();
     }
 

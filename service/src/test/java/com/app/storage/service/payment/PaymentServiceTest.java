@@ -54,7 +54,8 @@ public class PaymentServiceTest {
         cardInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
         cardInformation.setCardNumber(1234567891011L);
         cardInformation.setCvvValue(123);
-        cardInformation.setExpirationYear("2019");
+        cardInformation.setExpirationMonth(02);
+        cardInformation.setExpirationYear(2019);
 
         final PaymentTransaction paymentTransaction = new PaymentTransaction();
         paymentTransaction.setCardInformation(cardInformation);
@@ -86,7 +87,8 @@ public class PaymentServiceTest {
         cardInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
         cardInformation.setCardNumber(1234567891011L);
         cardInformation.setCvvValue(123);
-        cardInformation.setExpirationYear("2019");
+        cardInformation.setExpirationMonth(02);
+        cardInformation.setExpirationYear(2019);
 
         final PaymentTransaction paymentTransaction = new PaymentTransaction();
         paymentTransaction.setCardInformation(cardInformation);

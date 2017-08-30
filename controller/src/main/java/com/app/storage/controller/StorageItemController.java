@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Controller for storage item requests.
@@ -110,7 +108,7 @@ public class StorageItemController {
 
         final ModelAndView modelAndView = new ModelAndView();
 
-        final User user = userService.loadUserData(userDetails.getUsername());
+        final User user = userService.loadUserStorage(userDetails.getUsername());
 
         LOG.debug("Successfully returned all stored items: {} for user: {}.", user.getStorageItems(), user
                 .getFirstName());

@@ -50,6 +50,7 @@ public class StorageItemPersistenceModel {
     @Column(name = "Image")
     private byte[] image;
 
+    /** Owner foreign key reference. */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", nullable = false)
     private UserPersistenceModel userPersistenceModel;
@@ -262,7 +263,6 @@ public class StorageItemPersistenceModel {
         StorageItemPersistenceModel storageItemControllerModel = (StorageItemPersistenceModel) obj;
         return new EqualsBuilder()
                 .append(getDateStored(), storageItemControllerModel.getDateStored())
-                .append(getId(), storageItemControllerModel.getId())
                 .append(getReference(), storageItemControllerModel.getReference())
                 .append(getDescription(), storageItemControllerModel.getDescription())
                 .append(getSize(), storageItemControllerModel.getSize())

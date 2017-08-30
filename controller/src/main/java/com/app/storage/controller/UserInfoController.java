@@ -13,16 +13,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 /**
  * Controller for all user login/signup interaction.
  */
 @Controller
 @RequestMapping("/")
-public class LoginController {
+public class UserInfoController {
 
     /** {@link Logger}. */
-    private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserInfoController.class);
 
     /** {@link SignUpValidationService} */
     private final SignUpValidationService signUpValidationService;
@@ -42,8 +45,8 @@ public class LoginController {
      *         {@link UserService}
      */
     @Autowired
-    public LoginController(final SignUpValidationService signUpValidationService,
-                           final LoginValidationService loginValidationService, final UserService userService) {
+    public UserInfoController(final SignUpValidationService signUpValidationService,
+                              final LoginValidationService loginValidationService, final UserService userService) {
 
         this.signUpValidationService = signUpValidationService;
         this.loginValidationService = loginValidationService;
@@ -124,5 +127,27 @@ public class LoginController {
         LOG.debug("Successfully logged in with user: {}", userForm.getFirstName());
 
         return "about/About";
+    }
+
+    /**
+     * Renders sign up view to container.
+     *
+     * @return Profile.jsp
+     */
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public ModelAndView renderProfile(final Principal principal) {
+
+        LOG.debug("Loading user profile");
+
+        final ModelAndView modelAndView = new ModelAndView();
+
+        final User userDetails = userService.loadUserProfile(principal.getName());
+
+        modelAndView.setViewName("profile/Profile");
+        modelAndView.addObject("userModel", userDetails);
+
+        LOG.debug("Successfully loaded user: {}", userDetails);
+
+        return modelAndView;
     }
 }

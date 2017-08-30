@@ -1,0 +1,62 @@
+.profile-data h3 {
+    font-size: 30px;
+    font-family: Advent Pro;
+}
+
+.profile-data {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto 100px;
+    grid-template-rows: 30px;
+    grid-template-areas: "a b" "c d" "e f" "g h" "i j";
+    background: #ffbc0e;
+    text-align: center;
+}
+
+.grida {
+    grid-area: a;
+}
+
+.gridb {
+    grid-area: b;
+}
+
+.gridc {
+    grid-area: c;
+}
+
+.gridd {
+    grid-area: d;
+}
+
+.gride {
+    grid-area: e;
+}
+
+.gridf {
+    grid-area: f;
+}
+
+.gridg {
+    grid-area: g;
+}
+
+.gridh {
+    grid-area: h;
+}
+
+.gridi {
+    grid-area: i;
+}
+
+.gridj {
+    grid-area: j;
+}
+
+.gridk {
+    grid-area: k;
+}
+
+.gridl {
+    grid-area: l;
+}

@@ -4,6 +4,8 @@ import com.app.storage.persistence.mapper.StorageItemPersistenceMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
+import com.app.storage.persistence.model.payment.BillingAddressPersistenceModel;
+import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import org.hibernate.Hibernate;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,6 +28,9 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Test save user functionality.
+     */
     @Test
     public void testSaveUser() {
 
@@ -47,7 +52,7 @@ public class UserRepositoryTest {
         final UserPersistenceModel updatedUser = userRepository.findMostRecent();
 
         //Assert
-        Assert.assertEquals(savedUser.toString(), updatedUser.toString());
+        Assert.assertEquals(savedUser, updatedUser);
 
         //Cleanup
         userRepository.delete(updatedUser.getId());

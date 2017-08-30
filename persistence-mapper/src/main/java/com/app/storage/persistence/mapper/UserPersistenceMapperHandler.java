@@ -4,9 +4,10 @@ import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
+import com.app.storage.persistence.mapper.payment.BillingAddressPersistenceMapper;
+import com.app.storage.persistence.mapper.payment.CardInformationPersistenceMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
-import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,12 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
 
     /** {@link StorageItemPersistenceMapper} */
     private StorageItemPersistenceMapper storageItemPersistenceMapper;
+
+    /** {@link BillingAddressPersistenceMapper}. */
+    private BillingAddressPersistenceMapper billingAddressPersistenceMapper;
+
+    /** {@link CardInformationPersistenceMapper}. */
+    private CardInformationPersistenceMapper cardInformationPersistenceMapper;
 
     /** {@link ListMapper}. */
     private ListMapper listMapper;
@@ -77,6 +84,17 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
                                                                                        storageItemPersistenceMapper,
                                                                                true, user.getStorageItems()));
             }
+
+            if (user.getBillingAddress() != null) {
+                userPersistenceModel.setBillingAddressPersistenceModel(billingAddressPersistenceMapper
+                                                                               .mapTo(user.getBillingAddress()));
+            }
+            if (user.getPaymentDetails() != null) {
+                userPersistenceModel.setCardInformationPersistenceModels(listMapper.mapList((AbstractMapper)
+                                                                                                    cardInformationPersistenceMapper,
+                                                                                            true, user
+                                                                                                    .getPaymentDetails()));
+            }
         }
 
         LOG.debug("Successfully mapped user to persistence model");
@@ -110,6 +128,15 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
                 user.setStorageItems(listMapper.mapList((AbstractMapper) storageItemPersistenceMapper, false,
                                                         userPersistenceModel.getStorageItemPersistenceModelList()));
             }
+
+            if (userPersistenceModel.getBillingAddressPersistenceModel() != null) {
+                user.setBillingAddress(billingAddressPersistenceMapper.mapFrom(userPersistenceModel
+                                                                                       .getBillingAddressPersistenceModel()));
+            }
+            if (userPersistenceModel.getCardInformationPersistenceModels() != null) {
+                user.setPaymentDetails(listMapper.mapList((AbstractMapper) cardInformationPersistenceMapper, false,
+                                                          userPersistenceModel.getCardInformationPersistenceModels()));
+            }
         }
 
         LOG.debug("Successfully mapped persistence model to domain model.");
@@ -137,5 +164,27 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     @Autowired
     public void setRolePersistenceMapper(RolePersistenceMapper rolePersistenceMapper) {
         this.rolePersistenceMapper = rolePersistenceMapper;
+    }
+
+    /**
+     * Sets new {@link BillingAddressPersistenceMapper}..
+     *
+     * @param billingAddressPersistenceMapper
+     *         New value of {@link BillingAddressPersistenceMapper}..
+     */
+    @Autowired
+    public void setBillingAddressPersistenceMapper(BillingAddressPersistenceMapper billingAddressPersistenceMapper) {
+        this.billingAddressPersistenceMapper = billingAddressPersistenceMapper;
+    }
+
+    /**
+     * Sets new {@link CardInformationPersistenceMapper}..
+     *
+     * @param cardInformationPersistenceMapper
+     *         New value of {@link CardInformationPersistenceMapper}..
+     */
+    @Autowired
+    public void setCardInformationPersistenceMapper(CardInformationPersistenceMapper cardInformationPersistenceMapper) {
+        this.cardInformationPersistenceMapper = cardInformationPersistenceMapper;
     }
 }

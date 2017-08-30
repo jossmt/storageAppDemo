@@ -19,12 +19,23 @@ public class HomeController {
     /**
      * Renders default view to container as home.
      *
-     * @return Home.jsp
+     * @return Storage.jsp
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String renderTemplate() {
+    public String renderHome() {
 
-        return "about/Home";
+        return "redirect:/discover";
+    }
+
+    /**
+     * Renders default view to container as home.
+     *
+     * @return Storage.jsp
+     */
+    @RequestMapping(value = "/temp", method = RequestMethod.GET)
+    public String renderTemp() {
+
+        return "Temp";
     }
 
     /**
@@ -36,14 +47,4 @@ public class HomeController {
     public String renderAbout() {
         return "about/Home";
     }
-//
-//    /**
-//     * Renders About view to container.
-//     *
-//     * @return About.jsp
-//     */
-//    @RequestMapping(value = "/info", method = RequestMethod.GET)
-//    public String renderInfo() {
-//        return "about/Home";
-//    }
 }

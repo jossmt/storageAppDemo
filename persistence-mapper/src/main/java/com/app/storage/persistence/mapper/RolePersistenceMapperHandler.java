@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of {@link RolePersistenceMapper}
+ */
 @Component
 public class RolePersistenceMapperHandler implements RolePersistenceMapper, AbstractMapper<RolePersistenceModel, Role> {
 

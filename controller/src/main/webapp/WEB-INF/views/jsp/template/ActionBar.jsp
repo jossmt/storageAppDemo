@@ -25,10 +25,8 @@
     </div>
     <div class="home">
         <ul>
-            <a id="aboutnav" href="${pageContext.servletContext.contextPath}#mission">About</a>
-            <a id="howitworksnav" href="${pageContext.servletContext.contextPath}#howitworks">How it works?</a>
             <a id="discovernav" href="${pageContext.servletContext.contextPath}/discover">Discover</a>
-            <a id="collectionnav" href="${pageContext.servletContext.contextPath}/collection">Organise a collection</a>
+            <a id="howitworksnav" href="${pageContext.servletContext.contextPath}/about">How selling works?</a>
             <c:choose>
                 <c:when test="${loggedIn}">
                     <a href="${pageContext.servletContext.contextPath}/myItems">My Items</a>

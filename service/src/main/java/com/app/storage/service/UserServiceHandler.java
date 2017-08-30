@@ -103,11 +103,26 @@ public class UserServiceHandler implements UserService {
      * {@inheritDoc}
      */
     @Override
-    public User loadUserData(final String userEmail) {
+    public User loadUserStorage(final String userEmail) {
 
         LOG.debug("Loading user by email: {}", userEmail);
 
         final User user = userPersistenceService.findUserByEmailLoadStorage(userEmail);
+
+        LOG.debug("Successfully found user: {}", user);
+
+        return user;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public User loadUserProfile(final String userEmail) {
+
+        LOG.debug("Loading user by email: {}", userEmail);
+
+        final User user = userPersistenceService.findUserByEmailLoadProfile(userEmail);
 
         LOG.debug("Successfully found user: {}", user);
 

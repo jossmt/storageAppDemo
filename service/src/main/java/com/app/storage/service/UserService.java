@@ -43,5 +43,14 @@ public interface UserService {
      *         Users email.
      * @return {@link User}
      */
-    User loadUserData(String userEmail);
+    User loadUserStorage(String userEmail);
+
+    /**
+     * Loads user information by unique email.
+     *
+     * @param userEmail
+     *         Users email.
+     * @return {@link User}
+     */
+    User loadUserProfile(String userEmail);
 }

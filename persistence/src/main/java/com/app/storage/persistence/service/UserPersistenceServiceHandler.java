@@ -17,6 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.OneToOne;
+
 /**
  * Implementation of {@link UserPersistenceService}
  */
@@ -110,6 +112,33 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
 
         Hibernate.initialize(userPersistenceModel.getStorageItemPersistenceModelList());
+
+        LOG.debug("User stored items: {}", userPersistenceModel.getStorageItemPersistenceModelList());
+
+        final User user = userPersistenceMapper.mapFrom(userPersistenceModel);
+
+        LOG.debug("Successfully found user: {}", user);
+
+        return user;
+    }
+
+    /**
+     * Find user by email - load profile info.
+     *
+     * @param userEmail
+     *         Users unique ref.
+     * @return {@link User}
+     * @throws UsernameNotFoundException
+     */
+    @Transactional
+    @Override
+    public User findUserByEmailLoadProfile(final String userEmail) throws UsernameNotFoundException {
+        LOG.debug("Finding user by email: {}", userEmail);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        Hibernate.initialize(userPersistenceModel.getBillingAddressPersistenceModel());
+        Hibernate.initialize(userPersistenceModel.getCardInformationPersistenceModels());
 
         LOG.debug("User stored items: {}", userPersistenceModel.getStorageItemPersistenceModelList());
 

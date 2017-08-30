@@ -15,6 +15,8 @@
  */
 package com.app.storage.domain.model;
 
+import com.app.storage.domain.model.payment.BillingAddress;
+import com.app.storage.domain.model.payment.CardInformation;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -56,6 +58,12 @@ public class User implements Serializable {
 
     /** list of {@link StorageItem}. */
     private List<StorageItem> storageItems;
+
+    /** List of {@link CardInformation}. */
+    private List<CardInformation> paymentDetails;
+
+    /** List of {@link BillingAddress}. */
+    private BillingAddress billingAddress;
 
 
     /**
@@ -228,6 +236,43 @@ public class User implements Serializable {
         this.storageItems = storageItems;
     }
 
+    /**
+     * Gets List of {@link CardInformation}..
+     *
+     * @return Value of List of {@link CardInformation}..
+     */
+    public List<CardInformation> getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    /**
+     * Sets new List of {@link CardInformation}..
+     *
+     * @param paymentDetails
+     *         New value of List of {@link CardInformation}..
+     */
+    public void setPaymentDetails(List<CardInformation> paymentDetails) {
+        this.paymentDetails = paymentDetails;
+    }
+
+    /**
+     * Gets List of {@link BillingAddress}..
+     *
+     * @return Value of List of {@link BillingAddress}..
+     */
+    public BillingAddress getBillingAddress() {
+        return billingAddress;
+    }
+
+    /**
+     * Sets new List of {@link BillingAddress}..
+     *
+     * @param billingAddress
+     *         New value of List of {@link BillingAddress}..
+     */
+    public void setBillingAddress(BillingAddress billingAddress) {
+        this.billingAddress = billingAddress;
+    }
 
     /**
      * Equals override.
@@ -245,14 +290,16 @@ public class User implements Serializable {
 
         User user = (User) obj;
         return new EqualsBuilder()
-                .append(id, user.getId())
-                .append(email, user.getEmail())
-                .append(firstName, user.getFirstName())
-                .append(lastName, user.getLastName())
-                .append(password, user.getPassword())
-                .append(passwordConfirm, user.getPasswordConfirm())
-                .append(roles, user.getRoles())
-                .append(storageItems, user.getStorageItems())
+                .append(getId(), user.getId())
+                .append(getEmail(), user.getEmail())
+                .append(getFirstName(), user.getFirstName())
+                .append(getLastName(), user.getLastName())
+                .append(getPassword(), user.getPassword())
+                .append(getPasswordConfirm(), user.getPasswordConfirm())
+                .append(getRoles(), user.getRoles())
+                .append(getStorageItems(), user.getStorageItems())
+                .append(getPaymentDetails(), user.getPaymentDetails())
+                .append(getBillingAddress(), user.getBillingAddress())
                 .isEquals();
     }
 
@@ -267,7 +314,7 @@ public class User implements Serializable {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(id).append(firstName).append(lastName).append(email).append(password).append
-                (passwordConfirm).append(roles);
+                (passwordConfirm).append(roles).append(billingAddress).append(paymentDetails);
 
         return stringBuilder.toString();
     }

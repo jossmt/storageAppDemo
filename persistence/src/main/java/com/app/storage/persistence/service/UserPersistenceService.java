@@ -34,4 +34,13 @@ public interface UserPersistenceService {
      * @return {@link UserDetails}
      */
     User findUserByEmailLoadStorage(final String username);
+
+    /**
+     * Loads userdetails object by username with profile info.
+     *
+     * @param username
+     *         Users email.
+     * @return {@link UserDetails}
+     */
+    User findUserByEmailLoadProfile(final String username);
 }

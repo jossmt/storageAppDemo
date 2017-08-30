@@ -14,10 +14,10 @@ public class CardInformation {
     private Integer cvvValue;
 
     /** Expiration month of card. */
-    private String expirationMonth;
+    private Integer expirationMonth;
 
     /** Expiration year of card. */
-    private String expirationYear;
+    private Integer expirationYear;
 
     /** Card holder name. */
     private String cardHolderName;
@@ -67,7 +67,7 @@ public class CardInformation {
      * @param cardHolderName
      *         New value of cardHolderName.
      */
-    public void setCardHolderName(String cardHolderName) {
+    public void setCardHolderName(final String cardHolderName) {
         this.cardHolderName = cardHolderName;
     }
 
@@ -76,7 +76,7 @@ public class CardInformation {
      *
      * @return Value of expirationYear.
      */
-    public String getExpirationYear() {
+    public Integer getExpirationYear() {
         return expirationYear;
     }
 
@@ -95,7 +95,7 @@ public class CardInformation {
      * @param expirationYear
      *         New value of expirationYear.
      */
-    public void setExpirationYear(String expirationYear) {
+    public void setExpirationYear(final Integer expirationYear) {
         this.expirationYear = expirationYear;
     }
 
@@ -104,7 +104,7 @@ public class CardInformation {
      *
      * @return Value of Expiration month of card..
      */
-    public String getExpirationMonth() {
+    public Integer getExpirationMonth() {
         return expirationMonth;
     }
 
@@ -114,7 +114,7 @@ public class CardInformation {
      * @param expirationMonth
      *         New value of Expiration month of card..
      */
-    public void setExpirationMonth(String expirationMonth) {
+    public void setExpirationMonth(final Integer expirationMonth) {
         this.expirationMonth = expirationMonth;
     }
 
