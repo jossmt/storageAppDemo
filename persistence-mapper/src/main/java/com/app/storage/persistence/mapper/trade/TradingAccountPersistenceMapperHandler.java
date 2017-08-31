@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
  * Implementation of {@link TradingAccountPersistenceMapper}
  */
 @Component
-public class TradingAccountPersistenceMapperHandler implements TradingAccountPersistenceMapper {
+public class TradingAccountPersistenceMapperHandler implements TradingAccountPersistenceMapper,
+        AbstractMapper<TradingAccountPersistenceModel, TradingAccount> {
 
     /** Logger. */
     private static final Logger LOG = LoggerFactory.getLogger(TradingAccountPersistenceMapper.class);

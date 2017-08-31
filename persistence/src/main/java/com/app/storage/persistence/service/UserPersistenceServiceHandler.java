@@ -2,8 +2,8 @@ package com.app.storage.persistence.service;
 
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
-import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.model.UserPersistenceModel;
+import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -16,8 +16,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.OneToOne;
 
 /**
  * Implementation of {@link UserPersistenceService}
@@ -56,13 +54,16 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
      * {@inheritDoc}
      */
     @Override
+    @Transactional
     public User saveUser(final User user) {
 
         LOG.debug("Saving user, {}", user);
 
-        final UserPersistenceModel userPersistenceModel = userPersistenceMapper.mapTo(user);
+        UserPersistenceModel userPersistenceModel = userPersistenceMapper.mapTo(user);
         userPersistenceModel.setPassword(bCryptPasswordEncoder.encode(userPersistenceModel.getPassword()));
         userPersistenceModel.setRoles(IterableUtils.toList(roleRepository.findAll()));
+
+        userPersistenceModel = updateChildObjectReferences(userPersistenceModel);
 
         final UserPersistenceModel userPersistenceModelSaved = userRepository.save(userPersistenceModel);
 
@@ -147,6 +148,25 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         LOG.debug("Successfully found user: {}", user);
 
         return user;
+    }
+
+    /**
+     * Sets reference relationships where hibernate/jpa won't automatically before persistence.
+     *
+     * @param userPersistenceModel
+     *         {@link UserPersistenceModel}
+     * @return {@link UserPersistenceModel}
+     */
+    private UserPersistenceModel updateChildObjectReferences(final UserPersistenceModel userPersistenceModel) {
+
+        userPersistenceModel.getBillingAddressPersistenceModel().setUserPersistenceModel(userPersistenceModel);
+
+        for (final CardInformationPersistenceModel cardInformationPersistenceModel : userPersistenceModel
+                .getCardInformationPersistenceModels()) {
+            cardInformationPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+        }
+
+        return userPersistenceModel;
     }
 
 }

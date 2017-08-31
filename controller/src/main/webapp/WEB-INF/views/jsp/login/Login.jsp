@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<link href="<c:url value="/resources/css/SignupNew.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/Signup.css" />" rel="stylesheet">
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">

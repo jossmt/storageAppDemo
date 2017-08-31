@@ -71,6 +71,7 @@ public class UserPersistenceModel {
     @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CardInformationPersistenceModel> cardInformationPersistenceModels;
 
+    /** Billing Address. */
     @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private BillingAddressPersistenceModel billingAddressPersistenceModel;
 

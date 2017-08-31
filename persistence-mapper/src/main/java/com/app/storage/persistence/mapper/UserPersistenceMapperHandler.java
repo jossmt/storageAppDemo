@@ -9,6 +9,7 @@ import com.app.storage.persistence.mapper.payment.CardInformationPersistenceMapp
 import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
+import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

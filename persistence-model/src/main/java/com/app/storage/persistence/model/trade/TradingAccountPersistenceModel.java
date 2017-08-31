@@ -40,7 +40,7 @@ public class TradingAccountPersistenceModel {
 
     /** Owner foreign key reference. */
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "owner_id", nullable = false)
+    @JoinColumn(name = "owner_id")
     private UserPersistenceModel userPersistenceModel;
 
     /**
