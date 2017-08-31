@@ -89,6 +89,8 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
 
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
 
+        LOG.debug("Found user persistence model: {}", userPersistenceModel);
+
         final User user = userPersistenceMapper.mapFrom(userPersistenceModel);
 
         LOG.debug("Successfully found user: {}", user);

@@ -60,6 +60,7 @@ public class AuthenticationProviderHandler implements AuthenticationProvider {
 
         if (user != null) {
 
+            LOG.debug(bCryptPasswordEncoder.encode(password) + "\n" + user.getPassword());
             if (bCryptPasswordEncoder.matches(password, user.getPassword())) {
                 throw new InvalidParameterException("Invalid password");
             }

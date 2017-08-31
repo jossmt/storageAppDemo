@@ -42,35 +42,35 @@ public class SignUpValidationServiceHandler implements SignUpValidationService, 
     @Override
     public void validate(final Object target, final Errors errors) {
 
-        final User user = (User) target;
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "NotEmpty");
-        if (user.getFirstName().length() < 3 || user.getFirstName().length() > 32) {
-            errors.rejectValue("firstName", "Size.userForm.firstName");
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "NotEmpty");
-        if (user.getLastName().length() < 3 || user.getLastName().length() > 32) {
-            errors.rejectValue("lastName", "Size.userForm.lastName");
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
-        if (!user.getEmail().contains("@") || !user.getEmail().contains(".")) {
-            errors.rejectValue("email", "Email.userForm.email");
-        }
-
-        if (userService.loadUserByUsername(user.getEmail()) != null) {
-            errors.rejectValue("email", "Duplicate.userForm.email");
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "NotEmpty");
-        if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
-        }
+//        final User user = (User) target;
+//
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "NotEmpty");
+//        if (user.getFirstName().length() < 3 || user.getFirstName().length() > 32) {
+//            errors.rejectValue("firstName", "Size.userForm.firstName");
+//        }
+//
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "NotEmpty");
+//        if (user.getLastName().length() < 3 || user.getLastName().length() > 32) {
+//            errors.rejectValue("lastName", "Size.userForm.lastName");
+//        }
+//
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
+//        if (!user.getEmail().contains("@") || !user.getEmail().contains(".")) {
+//            errors.rejectValue("email", "Email.userForm.email");
+//        }
+//
+//        if (userService.loadUserByUsername(user.getEmail()) != null) {
+//            errors.rejectValue("email", "Duplicate.userForm.email");
+//        }
+//
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+//        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+//            errors.rejectValue("password", "Size.userForm.password");
+//        }
+//
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "NotEmpty");
+//        if (!user.getPasswordConfirm().equals(user.getPassword())) {
+//            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+//        }
     }
 }

@@ -41,10 +41,10 @@ public class LoginValidationServiceHandler implements LoginValidationService, Va
     @Override
     public void validate(final Object target, final Errors errors) {
 
-        final User user = (User) target;
-
-        if (userService.loadUserByUsername(user.getEmail()) == null) {
-            errors.rejectValue("email", "NotExist.userForm.email");
-        }
+//        final User user = (User) target;
+//
+//        if (userService.loadUserByUsername(user.getEmail()) == null) {
+//            errors.rejectValue("email", "NotExist.userForm.email");
+//        }
     }
 }

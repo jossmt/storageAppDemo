@@ -100,32 +100,6 @@ public class UserInfoController {
         userService.saveUser(userForm);
         userService.autologin(userForm.getEmail(), userForm.getPassword());
 
-        return "about/About";
-    }
-
-    /**
-     * Login service.
-     *
-     * @param userForm
-     *         {@link User}
-     * @param bindingResult
-     *         {@link BindingResult}
-     * @return Redirect success/failure page.
-     */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("userForm") final User userForm, final BindingResult bindingResult) {
-        LOG.debug("Logging in with user: {}", userForm);
-
-        loginValidationService.validate(userForm, bindingResult);
-
-        if (bindingResult.hasErrors()) {
-            return "login/Login";
-        }
-
-        userService.autologin(userForm.getEmail(), userForm.getPassword());
-
-        LOG.debug("Successfully logged in with user: {}", userForm.getFirstName());
-
         return "about/Home";
     }
 

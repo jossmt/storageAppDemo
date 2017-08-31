@@ -12,9 +12,6 @@
         </authentication-provider>
     </authentication-manager>
 
-    <!--<beans:bean id="userDetailsService"-->
-                <!--class="com.app.storage.service.security.UserDetailsServiceHandler"></beans:bean>-->
-
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>

@@ -23,7 +23,7 @@
                 <h2 class="fs-title">Create your account</h2>
                 <h3 class="fs-subtitle">This is step 1</h3>
 
-                <form:input path="email" type="text" name="email" placeholder="Email"/>
+                <form:input path="email" type="text" name="username" placeholder="Email"/>
                 <form:input path="password" type="password" name="pass" placeholder="Password"/>
                 <form:input path="passwordConfirm" type="password" name="cpass" placeholder="Confirm Password"/>
                 <input type="button" name="next" class="next action-button" value="Next"/>

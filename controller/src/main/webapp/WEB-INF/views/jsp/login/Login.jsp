@@ -8,14 +8,13 @@
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <form:form id="msform" method="post" modelAttribute="userForm"
-                   action="${pageContext.servletContext.contextPath}/login">
+        <form:form id="msform" method="post">
 
             <fieldset>
                 <h2 class="fs-title">ENTER LOGIN DETAILS</h2>
                 <h3 class="fs-subtitle">Or sign up now</h3>
-                <form:input path="email" type="text" name="email" placeholder="Email" />
-                <form:input path="password" type="password" name="pass" placeholder="Password" />
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
                 <input type="submit" name="submit" class="submit action-button" value="Submit" />
             </fieldset>
         </form:form>
