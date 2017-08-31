@@ -1,6 +1,7 @@
 package com.app.storage.persistence.model.trade;
 
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
+import com.app.storage.persistence.model.UserPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 import javax.persistence.*;
@@ -20,22 +21,27 @@ public class TradingAccountPersistenceModel {
     private Long id;
 
     /** Trading account type. */
-    @Column(name = "Account Type")
+    @Column(name = "AccountType")
     private String accountType;
 
     /** Account name. */
-    @Column(name = "Account Name")
+    @Column(name = "AccountName")
     private String accountName;
 
     /** Account password. */
-    @Column(name = "Account Password")
+    @Column(name = "AccountPassword")
     private String accountPassword;
 
     /** User role privileges. */
     @JoinTable(name = "TradingAccount_StorageItem", joinColumns = @JoinColumn(name = "trading_id"),
             inverseJoinColumns = @JoinColumn(name = "storage_id"))
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<StorageItemPersistenceModel> storageItemPersistenceModels;
+
+    /** Owner foreign key reference. */
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private UserPersistenceModel userPersistenceModel;
 
     /**
      * Gets Account name..
@@ -130,6 +136,25 @@ public class TradingAccountPersistenceModel {
      */
     public void setStorageItemPersistenceModels(List<StorageItemPersistenceModel> storageItemPersistenceModels) {
         this.storageItemPersistenceModels = storageItemPersistenceModels;
+    }
+
+    /**
+     * Gets Owner foreign key reference..
+     *
+     * @return Value of Owner foreign key reference..
+     */
+    public UserPersistenceModel getUserPersistenceModel() {
+        return userPersistenceModel;
+    }
+
+    /**
+     * Sets new Owner foreign key reference..
+     *
+     * @param userPersistenceModel
+     *         New value of Owner foreign key reference..
+     */
+    public void setUserPersistenceModel(UserPersistenceModel userPersistenceModel) {
+        this.userPersistenceModel = userPersistenceModel;
     }
 
     /**

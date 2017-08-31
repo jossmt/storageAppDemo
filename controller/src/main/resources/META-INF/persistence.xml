@@ -10,6 +10,7 @@
         <class>com.app.storage.persistence.model.RolePersistenceModel</class>
         <class>com.app.storage.persistence.model.payment.BillingAddressPersistenceModel</class>
         <class>com.app.storage.persistence.model.payment.CardInformationPersistenceModel</class>
+        <class>com.app.storage.persistence.model.trade.TradingAccountPersistenceModel</class>
 
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

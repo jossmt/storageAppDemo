@@ -1,11 +1,7 @@
 package com.app.storage.persistence.repository;
 
-import com.app.storage.persistence.mapper.StorageItemPersistenceMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
-import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
-import com.app.storage.persistence.model.payment.BillingAddressPersistenceModel;
-import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import org.hibernate.Hibernate;
 import org.junit.Assert;
 import org.junit.Test;
@@ -42,7 +38,7 @@ public class UserRepositoryTest {
         final UserPersistenceModel user = new UserPersistenceModel();
         user.setFirstName("fname");
         user.setLastName("lname");
-        user.setEmail("example3@email.com");
+        user.setEmail("exampl3@email.com");
         user.setPassword("pass");
         user.setRoles(Arrays.asList(role));
 
@@ -55,20 +51,6 @@ public class UserRepositoryTest {
         Assert.assertEquals(savedUser, updatedUser);
 
         //Cleanup
-        userRepository.delete(updatedUser.getId());
-    }
-
-    /**
-     * Test lazy load.
-     */
-    @Test
-    @Transactional
-    public void getUser() {
-
-        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail("jossmtt123@hotmail.com");
-
-        Hibernate.initialize(userPersistenceModel.getStorageItemPersistenceModelList());
-
-        System.out.println(userPersistenceModel.getStorageItemPersistenceModelList());
+        userRepository.delete(updatedUser);
     }
 }

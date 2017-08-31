@@ -38,14 +38,12 @@ public class RolePersistenceMapperTest {
         role.setName("Name");
 
         final UserPersistenceModel userPersistenceModel = new UserPersistenceModel();
-        userPersistenceModel.setId(1l);
         userPersistenceModel.setFirstName("firstName");
         userPersistenceModel.setLastName("lastName");
         userPersistenceModel.setPassword("password");
         userPersistenceModel.setEmail("Email");
 
         final User user = new User();
-        user.setId(1l);
         user.setFirstName("firstName");
         user.setLastName("lastName");
         user.setPassword("password");
@@ -71,7 +69,6 @@ public class RolePersistenceMapperTest {
         role.setName("Name");
 
         final UserPersistenceModel userPersistenceModel = new UserPersistenceModel();
-        userPersistenceModel.setId(1l);
         userPersistenceModel.setFirstName("firstName");
         userPersistenceModel.setLastName("lastName");
         userPersistenceModel.setPassword("password");

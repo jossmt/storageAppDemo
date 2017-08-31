@@ -1,5 +1,6 @@
 package com.app.storage.domain.model.payment;
 
+import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
@@ -21,6 +22,7 @@ public class PaymentTransaction {
 
     /** Billing Address. */
     private BillingAddress billingAddress;
+
 
     /**
      * Gets Card information..

@@ -1,5 +1,6 @@
 package com.app.storage.domain.model.payment;
 
+import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
@@ -21,7 +22,6 @@ public class CardInformation {
 
     /** Card holder name. */
     private String cardHolderName;
-
 
     /**
      * Gets cardNumber.

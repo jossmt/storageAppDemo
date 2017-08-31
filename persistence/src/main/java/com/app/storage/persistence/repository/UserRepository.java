@@ -50,7 +50,7 @@ public interface UserRepository extends CrudRepository<UserPersistenceModel, Lon
      *
      * @return {@link UserPersistenceModel}
      */
-    @Query(value = "SELECT * FROM User ORDER BY user_id DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM User ORDER BY User.user_id DESC LIMIT 1", nativeQuery = true)
     UserPersistenceModel findMostRecent();
 
     /**

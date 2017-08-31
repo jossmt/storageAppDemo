@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<link href="<c:url value="/resources/css/SignupNew.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/Signup.css" />" rel="stylesheet">
 
 
 <tiles:insertDefinition name="defaultTemplate">
@@ -15,7 +15,6 @@
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Account Setup</li>
-                <li>Social Profiles</li>
                 <li>Personal Details</li>
                 <li>Payment</li>
             </ul>
@@ -27,15 +26,6 @@
                 <form:input path="email" type="text" name="email" placeholder="Email"/>
                 <form:input path="password" type="password" name="pass" placeholder="Password"/>
                 <form:input path="passwordConfirm" type="password" name="cpass" placeholder="Confirm Password"/>
-                <input type="button" name="next" class="next action-button" value="Next"/>
-            </fieldset>
-            <fieldset>
-                <h2 class="fs-title">Trading Accounts</h2>
-                <h3 class="fs-subtitle">Add your intended selling platforms</h3>
-                <input type="text" name="amazon" placeholder="Amazon Account Name"/>
-                <input type="text" name="ebay" placeholder="Ebay Account Name"/>
-                <input type="text" name="craigslist" placeholder="Craigslist Account Name"/>
-                <input type="button" name="previous" class="previous action-button" value="Previous"/>
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
             <fieldset>

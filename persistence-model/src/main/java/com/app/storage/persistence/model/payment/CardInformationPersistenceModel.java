@@ -19,11 +19,11 @@ public class CardInformationPersistenceModel {
     private Long id;
 
     /** Card Holder Full Name. */
-    @Column(name = "Card Holder Name")
+    @Column(name = "CardHolderName")
     private String cardHolderName;
 
     /** Card Number. */
-    @Column(name = "Card Number")
+    @Column(name = "CardNumber")
     private Long cardNumber;
 
     /** Cvv. */
@@ -31,11 +31,11 @@ public class CardInformationPersistenceModel {
     private Integer cvv;
 
     /** Expiration Month. */
-    @Column(name = "Expiration Month")
+    @Column(name = "ExpirationMonth")
     private Integer expirationMonth;
 
     /** Expiration year. */
-    @Column(name = "Expiration Year")
+    @Column(name = "ExpirationYear")
     private Integer expirationYear;
 
     /**

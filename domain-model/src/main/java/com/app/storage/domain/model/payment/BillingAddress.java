@@ -1,5 +1,6 @@
 package com.app.storage.domain.model.payment;
 
+import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
@@ -18,7 +19,6 @@ public class BillingAddress {
 
     /** Country name. */
     private String countryName;
-
 
     /**
      * Sets new Country name..

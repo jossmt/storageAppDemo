@@ -6,6 +6,7 @@ import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.mapper.payment.BillingAddressPersistenceMapper;
 import com.app.storage.persistence.mapper.payment.CardInformationPersistenceMapper;
+import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import org.slf4j.Logger;
@@ -42,6 +43,9 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     /** {@link CardInformationPersistenceMapper}. */
     private CardInformationPersistenceMapper cardInformationPersistenceMapper;
 
+    /** {@link TradingAccountPersistenceMapper}. */
+    private TradingAccountPersistenceMapper tradingAccountPersistenceMapper;
+
     /** {@link ListMapper}. */
     private ListMapper listMapper;
 
@@ -69,7 +73,6 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
 
             userPersistenceModel.setEmail(user.getEmail());
             userPersistenceModel.setFirstName(user.getFirstName());
-            userPersistenceModel.setId(user.getId());
             userPersistenceModel.setLastName(user.getLastName());
             userPersistenceModel.setPassword(user.getPassword());
             userPersistenceModel.setRoles(listMapper.mapList((AbstractMapper) rolePersistenceMapper,
@@ -95,6 +98,13 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
                                                                                             true, user
                                                                                                     .getPaymentDetails()));
             }
+
+            if (user.getTradingAccounts() != null) {
+                userPersistenceModel.setTradingAccountPersistenceModelList(listMapper.mapList((AbstractMapper)
+                                                                                                      tradingAccountPersistenceMapper,
+                                                                                              true, user
+                                                                                                      .getTradingAccounts()));
+            }
         }
 
         LOG.debug("Successfully mapped user to persistence model");
@@ -113,7 +123,6 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
         if (userPersistenceModel != null) {
 
             user = new User();
-            user.setId(userPersistenceModel.getId());
             user.setEmail(userPersistenceModel.getEmail());
             user.setFirstName(userPersistenceModel.getFirstName());
             user.setLastName(userPersistenceModel.getLastName());
@@ -136,6 +145,12 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
             if (userPersistenceModel.getCardInformationPersistenceModels() != null) {
                 user.setPaymentDetails(listMapper.mapList((AbstractMapper) cardInformationPersistenceMapper, false,
                                                           userPersistenceModel.getCardInformationPersistenceModels()));
+            }
+
+            if (userPersistenceModel.getTradingAccountPersistenceModelList() != null) {
+                user.setTradingAccounts(listMapper.mapList((AbstractMapper) tradingAccountPersistenceMapper, false,
+                                                           userPersistenceModel
+                                                                   .getTradingAccountPersistenceModelList()));
             }
         }
 
@@ -186,5 +201,16 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     @Autowired
     public void setCardInformationPersistenceMapper(CardInformationPersistenceMapper cardInformationPersistenceMapper) {
         this.cardInformationPersistenceMapper = cardInformationPersistenceMapper;
+    }
+
+    /**
+     * Sets new {@link TradingAccountPersistenceMapper}..
+     *
+     * @param tradingAccountPersistenceMapper
+     *         New value of {@link TradingAccountPersistenceMapper}..
+     */
+    @Autowired
+    public void setTradingAccountPersistenceMapper(TradingAccountPersistenceMapper tradingAccountPersistenceMapper) {
+        this.tradingAccountPersistenceMapper = tradingAccountPersistenceMapper;
     }
 }

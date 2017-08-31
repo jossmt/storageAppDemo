@@ -17,6 +17,7 @@ package com.app.storage.domain.model;
 
 import com.app.storage.domain.model.payment.BillingAddress;
 import com.app.storage.domain.model.payment.CardInformation;
+import com.app.storage.domain.model.trade.TradingAccount;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -28,9 +29,6 @@ import java.util.List;
  * Represents a user in our system.
  */
 public class User implements Serializable {
-
-    /** Identifier. */
-    private Long id;
 
     /** First name. */
     @NotEmpty(message = "First name is required.")
@@ -59,6 +57,9 @@ public class User implements Serializable {
     /** list of {@link StorageItem}. */
     private List<StorageItem> storageItems;
 
+    /** list of {@link TradingAccount}. */
+    private List<TradingAccount> tradingAccounts;
+
     /** List of {@link CardInformation}. */
     private List<CardInformation> paymentDetails;
 
@@ -73,15 +74,6 @@ public class User implements Serializable {
      */
     public String getEmail() {
         return email;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return Value of id.
-     */
-    public Long getId() {
-        return id;
     }
 
     /**
@@ -139,7 +131,6 @@ public class User implements Serializable {
      *         {@link User}
      */
     public User(final User user) {
-        this.id = user.id;
         this.firstName = user.firstName;
         this.lastName = user.lastName;
         this.email = user.email;
@@ -154,16 +145,6 @@ public class User implements Serializable {
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    /**
-     * Sets new Identifier..
-     *
-     * @param id
-     *         New value of Identifier..
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**
@@ -275,6 +256,25 @@ public class User implements Serializable {
     }
 
     /**
+     * Sets new list of {@link TradingAccount}..
+     *
+     * @param tradingAccounts
+     *         New value of list of {@link TradingAccount}..
+     */
+    public void setTradingAccounts(List<TradingAccount> tradingAccounts) {
+        this.tradingAccounts = tradingAccounts;
+    }
+
+    /**
+     * Gets list of {@link TradingAccount}..
+     *
+     * @return Value of list of {@link TradingAccount}..
+     */
+    public List<TradingAccount> getTradingAccounts() {
+        return tradingAccounts;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -290,7 +290,6 @@ public class User implements Serializable {
 
         User user = (User) obj;
         return new EqualsBuilder()
-                .append(getId(), user.getId())
                 .append(getEmail(), user.getEmail())
                 .append(getFirstName(), user.getFirstName())
                 .append(getLastName(), user.getLastName())

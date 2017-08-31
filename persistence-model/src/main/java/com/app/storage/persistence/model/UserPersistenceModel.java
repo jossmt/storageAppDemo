@@ -17,6 +17,7 @@ package com.app.storage.persistence.model;
 
 import com.app.storage.persistence.model.payment.BillingAddressPersistenceModel;
 import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.model.trade.TradingAccountPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,7 +31,7 @@ import java.util.List;
 @Table(name = "User")
 public class UserPersistenceModel {
 
-    /** Identifier. */
+    /** Table id reference. */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
@@ -62,6 +63,10 @@ public class UserPersistenceModel {
     @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<StorageItemPersistenceModel> storageItemPersistenceModelList;
 
+    /** List of trading accounts. */
+    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TradingAccountPersistenceModel> tradingAccountPersistenceModelList;
+
     /** List of users payment options. */
     @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CardInformationPersistenceModel> cardInformationPersistenceModels;
@@ -86,16 +91,6 @@ public class UserPersistenceModel {
      */
     public String getPassword() {
         return password;
-    }
-
-    /**
-     * Sets new id.
-     *
-     * @param id
-     *         New value of id.
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**
@@ -124,15 +119,6 @@ public class UserPersistenceModel {
      */
     public String getFirstName() {
         return firstName;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return Value of id.
-     */
-    public Long getId() {
-        return id;
     }
 
     /**
@@ -242,6 +228,45 @@ public class UserPersistenceModel {
     }
 
     /**
+     * Gets List of trading accounts..
+     *
+     * @return Value of List of trading accounts..
+     */
+    public List<TradingAccountPersistenceModel> getTradingAccountPersistenceModelList() {
+        return tradingAccountPersistenceModelList;
+    }
+
+    /**
+     * Sets new List of trading accounts..
+     *
+     * @param tradingAccountPersistenceModelList
+     *         New value of List of trading accounts..
+     */
+    public void setTradingAccountPersistenceModelList(List<TradingAccountPersistenceModel>
+                                                              tradingAccountPersistenceModelList) {
+        this.tradingAccountPersistenceModelList = tradingAccountPersistenceModelList;
+    }
+
+    /**
+     * Sets new Table id reference..
+     *
+     * @param id
+     *         New value of Table id reference..
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets Table id reference..
+     *
+     * @return Value of Table id reference..
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -268,7 +293,7 @@ public class UserPersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(firstName).append(lastName).append(email).append(password).append(roles);
+        stringBuilder.append(firstName).append(lastName).append(email).append(password).append(roles);
 
         return stringBuilder.toString();
     }

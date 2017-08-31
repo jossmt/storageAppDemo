@@ -1,6 +1,10 @@
 package com.app.storage.domain.model.trade;
 
+import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
+
+import java.util.List;
 
 /**
  * Trading account domain model.
@@ -15,6 +19,12 @@ public class TradingAccount {
 
     /** {@link AccountType}. */
     private AccountType accountType;
+
+    /** Storage item list. */
+    private List<StorageItem> storageItems;
+
+    /** {@link User}. */
+    private User owner;
 
     /**
      * Gets Account password..
@@ -71,6 +81,44 @@ public class TradingAccount {
      */
     public String getAccountName() {
         return accountName;
+    }
+
+    /**
+     * Gets Storage item list..
+     *
+     * @return Value of Storage item list..
+     */
+    public List<StorageItem> getStorageItems() {
+        return storageItems;
+    }
+
+    /**
+     * Sets new Storage item list..
+     *
+     * @param storageItems
+     *         New value of Storage item list..
+     */
+    public void setStorageItems(List<StorageItem> storageItems) {
+        this.storageItems = storageItems;
+    }
+
+    /**
+     * Sets new {@link User}..
+     *
+     * @param owner
+     *         New value of {@link User}..
+     */
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    /**
+     * Gets {@link User}..
+     *
+     * @return Value of {@link User}..
+     */
+    public User getOwner() {
+        return owner;
     }
 
     /**
