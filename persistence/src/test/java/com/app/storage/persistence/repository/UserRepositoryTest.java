@@ -38,7 +38,7 @@ public class UserRepositoryTest {
         final UserPersistenceModel user = new UserPersistenceModel();
         user.setFirstName("fname");
         user.setLastName("lname");
-        user.setEmail("exampl3@email.com");
+        user.setEmail("examples@example.com");
         user.setPassword("pass");
         user.setRoles(Arrays.asList(role));
 
@@ -51,6 +51,6 @@ public class UserRepositoryTest {
         Assert.assertEquals(savedUser, updatedUser);
 
         //Cleanup
-        userRepository.delete(updatedUser);
+        userRepository.delete(updatedUser.getId());
     }
 }

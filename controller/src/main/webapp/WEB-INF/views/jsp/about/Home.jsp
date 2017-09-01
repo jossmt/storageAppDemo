@@ -6,9 +6,6 @@
 <head lang="en">
     <meta charset="UTF-8">
 
-    <!--Page Title-->
-    <title>Namari - Free Landing Page Template</title>
-
     <!--Meta Keywords and Description-->
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -48,17 +45,6 @@
             </div>
         </div>
         <!--End of Preloader-->
-
-        <div class="page-border" data-wow-duration="0.7s" data-wow-delay="0.2s">
-            <div class="top-border wow fadeInDown animated"
-                 style="visibility: visible; animation-name: fadeInDown;"></div>
-            <div class="right-border wow fadeInRight animated"
-                 style="visibility: visible; animation-name: fadeInRight;"></div>
-            <div class="bottom-border wow fadeInUp animated"
-                 style="visibility: visible; animation-name: fadeInUp;"></div>
-            <div class="left-border wow fadeInLeft animated"
-                 style="visibility: visible; animation-name: fadeInLeft;"></div>
-        </div>
 
         <div id="wrapper">
 
@@ -177,36 +163,36 @@
                 <aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery
                        data-featherlight-filter="a">
 
-                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg" />" data-featherlight="image"
+                    <a id="gal1" href="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg" />" data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="0.1s"><img
                             src="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg"/>"
                             alt=" Landing Page"/></a>
-                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-2.jpg"/>"
+                    <a id="gal2" href="<c:url value="/resources/img/gallery-images/gallery-image-2.jpg"/>"
                        data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="0.3s"><img
                             src="<c:url value="/resources/img/gallery-images/gallery-image-2.jpg"/>"
                             alt="Landing Page"/></a>
-                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-3.jpg"/>"
+                    <a id="gal3" href="<c:url value="/resources/img/gallery-images/gallery-image-3.jpg"/>"
                        data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="0.5s"><img
                             src="<c:url value="/resources/img/gallery-images/gallery-image-3.jpg"/>"
                             alt="Landing Page"/></a>
-                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
+                    <a id="gal4" href="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
                        data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="1.1s"><img
                             src="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
                             alt="Landing Page"/></a>
-                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
+                    <a id="gal5" href="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
                        data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="0.9s"><img
                             src="<c:url value="/resources/img/gallery-images/gallery-image-5.jpg"/>"
                             alt="Landing Page"/></a>
-                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-6.jpg"/>"
+                    <a id="gal6" href="<c:url value="/resources/img/gallery-images/gallery-image-6.jpg"/>"
                        data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="0.7s"><img
@@ -266,7 +252,7 @@
 
                             <div class="section-heading">
                                 <h3>TRUST</h3>
-                                <h2 class="section-title">Companies our services integrate withg</h2>
+                                <h2 class="section-title">Companies our services integrate with</h2>
                                 <p class="section-subtitle">We currently support a range of the largest selling sites
                                     available online.</p>
                             </div>
@@ -396,46 +382,6 @@
             </main>
             <!--End Main Content Area-->
 
-
-            <!--Footer-->
-            <footer id="landing-footer" class="clearfix">
-                <div class="row clearfix">
-
-                    <p id="copyright" class="col-2">Made with love by <a
-                            href="https://www.shapingrain.com">ShapingRain</a></p>
-
-                    <!--Social Icons in Footer-->
-                    <ul class="col-2 social-icons">
-                        <li>
-                            <a target="_blank" title="Facebook" href="https://www.facebook.com/username">
-                                <i class="fa fa-facebook fa-1x"></i><span>Facebook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" title="Google+" href="http://google.com/+username">
-                                <i class="fa fa-google-plus fa-1x"></i><span>Google+</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" title="Twitter" href="http://www.twitter.com/username">
-                                <i class="fa fa-twitter fa-1x"></i><span>Twitter</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" title="Instagram" href="http://www.instagram.com/username">
-                                <i class="fa fa-instagram fa-1x"></i><span>Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" title="behance" href="http://www.behance.net">
-                                <i class="fa fa-behance fa-1x"></i><span>Behance</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!--End of Social Icons in Footer-->
-                </div>
-            </footer>
-            <!--End of Footer-->
 
         </div>
 

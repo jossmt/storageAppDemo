@@ -128,7 +128,7 @@ figure {
 }
 
 #wrapper {
-    margin:0 15px;
+    margin:20px 15px;
     padding: 15px 0;
     position: relative;
 }
@@ -998,7 +998,6 @@ blockquote {
     font-style: normal;
     font-weight: normal;
     text-align: center;
-    content: "+";
     width: 70px;
     height: 70px;
     border-radius: 100em;
@@ -1013,6 +1012,30 @@ blockquote {
     -moz-transition: all .2s linear;
     transition: all .2s linear;
     vertical-align: middle;
+}
+
+#gal1:before{
+    content: 'Clothing';
+}
+
+#gal2:before{
+    content: 'Furniture';
+}
+
+#gal3:before{
+    content: 'Antiques';
+}
+
+#gal4:before{
+    content: 'Technology';
+}
+
+#gal5:before{
+    content: 'Automotives';
+}
+
+#gal6:before{
+    content: 'Everything';
 }
 
 #gallery a:hover:before {

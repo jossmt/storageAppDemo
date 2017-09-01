@@ -4,7 +4,6 @@
 <sec:authentication var="principal" property="principal"/>
 <sec:authorize var="loggedIn" access="isAuthenticated()"/>
 
-
 <div class="navbar">
 
     <h3 id="logo">Company<span>logo</span></h3>

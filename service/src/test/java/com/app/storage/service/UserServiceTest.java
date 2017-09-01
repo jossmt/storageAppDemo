@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 
 /**
  * Test for {@link UserService}
@@ -19,7 +20,7 @@ public class UserServiceTest {
 
     /** {@link AuthenticationManager}. */
     @Mock
-    private AuthenticationManager authenticationManager;
+    private AuthenticationProvider authenticationProvider;
 
     /** {@link UserPersistenceService}. */
     @Mock
@@ -34,7 +35,7 @@ public class UserServiceTest {
      */
     @Before
     public void setUp() {
-        userService = new UserServiceHandler(userPersistenceService);
+        userService = new UserServiceHandler(userPersistenceService, authenticationProvider);
     }
 
     /**

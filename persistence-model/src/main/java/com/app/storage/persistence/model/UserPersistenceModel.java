@@ -282,7 +282,6 @@ public class UserPersistenceModel {
                 .append(getFirstName(), userPersistenceModel.getFirstName())
                 .append(getLastName(), userPersistenceModel.getLastName())
                 .append(getEmail(), userPersistenceModel.getEmail())
-                .append(getPassword(), userPersistenceModel.getPassword())
                 .isEquals();
     }
 
