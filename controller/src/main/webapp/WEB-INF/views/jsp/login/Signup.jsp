@@ -31,8 +31,8 @@
             <fieldset>
                 <h2 class="fs-title">Personal Details</h2>
                 <h3 class="fs-subtitle">We will never sell it</h3>
-                <form:input path="firstName" type="text" name="fname" placeholder="First Name"/>
-                <form:input path="lastName" type="text" name="lname" placeholder="Last Name"/>
+                <form:input path="firstName" type="text" name="firstName" placeholder="First Name"/>
+                <form:input path="lastName" type="text" name="lastName" placeholder="Last Name"/>
                 <form:textarea path="billingAddress.streetAddress" name="address" placeholder="Address"/>
                 <form:input path="billingAddress.region" type="text" name="region" placeholder="Region"/>
                 <form:input path="billingAddress.postcode" type="text" name="postcode" placeholder="Postcode"/>

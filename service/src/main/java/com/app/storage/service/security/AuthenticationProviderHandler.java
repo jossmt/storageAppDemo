@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -39,9 +40,6 @@ public class AuthenticationProviderHandler implements AuthenticationProvider {
     private UserPersistenceService userPersistenceService;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /**
@@ -56,6 +54,8 @@ public class AuthenticationProviderHandler implements AuthenticationProvider {
         final String username = authentication.getPrincipal().toString();
         final String password = authentication.getCredentials().toString();
 
+        final Authentication customAuthentication;
+
         final User user = userPersistenceService.findUserByEmail(username);
 
         if (user != null) {
@@ -67,11 +67,18 @@ public class AuthenticationProviderHandler implements AuthenticationProvider {
 
             final CustomUserDetails customUserDetails = new CustomUserDetails(user);
             customUserDetails.setGrantedAuthorities(getAuthorities(user.getRoles()));
-            return new UsernamePasswordAuthenticationToken(customUserDetails, user.getPassword(), getAuthorities(user.getRoles()));
+            customAuthentication = new UsernamePasswordAuthenticationToken(customUserDetails, user.getPassword(),
+                                                                           getAuthorities(user.getRoles()));
 
         } else {
             throw new UsernameNotFoundException("No user with name: " + username);
         }
+
+        SecurityContextHolder.getContext().setAuthentication(customAuthentication);
+
+        LOG.debug("Successfully authentication user");
+
+        return customAuthentication;
 
     }
 

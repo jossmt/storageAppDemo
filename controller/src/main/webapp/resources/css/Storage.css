@@ -41,11 +41,11 @@
     transform: rotateY(180deg);
 }
 
-.back p,.back a{
+.back p, .back a {
     font-family: Advent Pro;
-    text-align:center;
+    text-align: center;
     color: #000000;
-    margin-top:0;
+    margin-top: 0;
 }
 
 #price {
@@ -59,5 +59,23 @@
 
 .list-container {
     display: inline-block;
-    top:30px;
+    top: 30px;
+}
+
+.sellButton {
+    float: right;
+    height: 40px;
+    width: 130px;
+    text-align: center;
+    background-color: #F32C52;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+}
+
+.sellButton span {
+    vertical-align: middle;
 }

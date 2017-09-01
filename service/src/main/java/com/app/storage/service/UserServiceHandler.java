@@ -10,7 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -37,6 +39,10 @@ public class UserServiceHandler implements UserService {
     /** {@link UserPersistenceService}. */
     private final UserPersistenceService userPersistenceService;
 
+    /** {@link AuthenticationProvider}. */
+    private final AuthenticationProvider authenticationProvider;
+
+
     /**
      * Constructor.
      *
@@ -44,9 +50,11 @@ public class UserServiceHandler implements UserService {
      *         {@link UserPersistenceService}
      */
     @Autowired
-    public UserServiceHandler(final UserPersistenceService userPersistenceService) {
+    public UserServiceHandler(final UserPersistenceService userPersistenceService,
+                              final AuthenticationProvider authenticationProvider) {
 
         this.userPersistenceService = userPersistenceService;
+        this.authenticationProvider = authenticationProvider;
     }
 
 
@@ -81,21 +89,11 @@ public class UserServiceHandler implements UserService {
 
         final User user = userPersistenceService.findUserByEmail(userEmail);
 
-        final UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken;
         if (user != null) {
-            usernamePasswordAuthenticationToken = new
-                    UsernamePasswordAuthenticationToken(userEmail, password, getAuthorities(user.getRoles()));
+            final Authentication authentication = new UsernamePasswordAuthenticationToken(userEmail, password);
+            authenticationProvider.authenticate(authentication);
         } else {
-            throw new UsernameNotFoundException("No user found with email: " + userEmail);
-        }
-
-        if (usernamePasswordAuthenticationToken.isAuthenticated()) {
-
-            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            LOG.debug(String.format("Auto login %s successfully!", userEmail));
-        } else {
-
-            LOG.debug("Auto login unsuccessful");
+            throw new UsernameNotFoundException("Unable to find user with email: " + userEmail);
         }
     }
 

@@ -6,13 +6,9 @@
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <div class="lowerNav">
-            <a class="sellButton" href="${pageContext.servletContext.contextPath}/sell"><span>Sell Something</span></a>
-        </div>
-
         <c:choose>
             <c:when test="${empty storageItems}">
-                <h1>You have not yet uploaded any items..</h1>
+                <h1>No items have been uploaded yet...</h1>
             </c:when>
             <c:otherwise>
                 <c:forEach items="${storageItems}" var="item" varStatus="theCount">

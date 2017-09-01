@@ -1,21 +1,10 @@
 /*custom font*/
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-/*basic reset*/
-* {margin: 0; padding: 0;}
-
-/*html {*/
-    /*height: 100%;*/
-    /*!*Image only BG fallback*!*/
-
-    /*!*background = gradient + image pattern combo*!*/
-    /*background:*/
-            /*linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));*/
-/*}*/
-
 body {
     font-family: montserrat, arial, verdana;
 }
+
 /*form styles*/
 #msform {
     width: 400px;
@@ -55,17 +44,17 @@ body {
 /*buttons*/
 #msform .action-button {
     width: 100px;
-    background: #27AE60;
+    background: #F32C52;
     font-weight: bold;
     color: white;
     border: 0 none;
-    border-radius: 1px;
+    border-radius: 2px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #F32C52;
 }
 /*headings*/
 .fs-title {
@@ -126,7 +115,7 @@ body {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-    background: #27AE60;
+    background: #F32C52;
     color: white;
 }
 

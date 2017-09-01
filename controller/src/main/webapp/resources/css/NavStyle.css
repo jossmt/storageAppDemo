@@ -1,65 +1,61 @@
-li {
+/** nvstyle stuff */
+.navbar li {
     list-style-type: none;
     display: inline;
 }
 
-#logo {
+.navbar #logo {
     color: lightgrey;
     font: normal 36px 'Advent Pro', cursive;
     margin: 0;
     float: left;
 }
 
-html {
-    height: 100%;
-    /*Image only BG fallback*/
-
-    /*background = gradient + image pattern combo*/
-    background:
-            linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
-}
-
-#logo span {
-    color: #5383d3;
+.navbar #logo span {
+    color: #F32C52;
 }
 
 .navbar .home {
+    margin-top:10px;
     text-align:right;
 }
 
 .navbar .login {
+    margin-top:5px;
     text-align:right;
 }
 
 /* Style the links inside the navigation bar */
-.home a {
-    color: lightgrey;
+.navbar .home a {
+    color: #4A789C;
     padding: 0px 12px;
     text-decoration: none;
     font-weight: bolder;
     font-family: Poppins;
     font-size: 16px;
-    border: 1px
+    border-bottom: 3px solid #4A789C;
 }
 
-.login a {
-    color: lightgrey;
-    padding: 0px 12px;
+.navbar .login a {
+    color: #4A789C;
+    padding: 10px 12px;
     text-decoration: none;
     font-weight: bolder;
     font-family: Poppins;
     font-size: 16px;
+    border-radius:3px;
+    border: 1px solid #4A789C;
 }
 
-.login a:hover {
-    color: orange;
+.navbar .login a:hover {
+    border:none;
 }
 
 /* Change the color of links on hover */
-.home a:hover {
-    color: orange;
+.navbar .home a:hover {
+    border:none;
 }
 
-#clearer {
+.navbar #clearer {
     clear: both;
 }

@@ -62,7 +62,7 @@ public class HomeController {
      *
      * @return About.jsp
      */
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String renderAbout() {
         return "about/Home";
     }

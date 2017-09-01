@@ -1,79 +1,458 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<link href="<c:url value="/resources/css/Home.css" />" rel="stylesheet">
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Bellefair">
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <!--Page Title-->
+    <title>Namari - Free Landing Page Template</title>
+
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+    <!--Favicon-->
+    <link href="<c:url value="/resources/img/favicon.ico" />" rel="stylesheet">
+
+    <!-- Main CSS Files -->
+    <link href="<c:url value="/resources/css/home/style.css" />" rel="stylesheet">
+
+    <!-- Namari Color CSS -->
+    <link href="<c:url value="/resources/css/home/namari-color.css" />" rel="stylesheet">
+
+    <!--Icon Fonts - Font Awesome Icons-->
+    <link href="<c:url value="/resources/css/home/namari-font-awesome.min.css" />" rel="stylesheet">
+
+    <!-- Animate CSS-->
+    <link href="<c:url value="/resources/css/home/animate.css" />" rel="stylesheet" type="text/css">
+
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet'
+          type='text/css'>
+</head>
+
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
-        <div class="homecontainer">
-            <div class="info">
-                <img height=500px width=100%
-                     src="${pageContext.request.contextPath}/resources/img/handimage.jpeg"/>
+        <body>
 
-                <div class="description">
-                    <p class="description_content">Use the <span style="color:#c17cdb">discover</span> option to
-                        see what we have to offer.
-                        <br/><br/><br/>
-                        Or make use of any of our services: <span style="color:#00fa9a">We collect. </span>
-                        <span style="color:#c17cdb">We sell.</span>
-                        <span style="color:deepskyblue">You earn.</span>
-                    </p>
-                </div>
-            </div>
-
-            <div id="mission" class="mission">
-
-                <img height=600px width=100% src="${pageContext.request.contextPath}/resources/img/BrickWall.jpg"/>
-
-                <div class="mission_content">
-                    <h1><span class="fade">- Our Mission -</span></h1>
-                    <p>
-                        <span class="fade">Here at description our aim is to make buying and selling that bit easier by doing
-                        the hard work for you. By collecting, valuing and listing your items for you, we take all the
-                        strain off your hands - so you can focus on more important things. </span>
-                        <br/>-------<br/>
-                        <span class="fade">Not here to sell?<br/>Discover what items we have listed. </span>
-                        <br/>-------<br/>
-                        <span class="fade">After all, one man's junk is another man'streasure.</span></p>
-                </div>
-            </div>
-
-            <div id="howitworks" class="howitworks">
-
-                <div class="gride">
-                    <p>1. Book a collection<br/>date online</p>
-                </div>
-                <div class="grida">
-                    <img height=70% width=70% src="${pageContext.request.contextPath}/resources/img/VanIcon.png"/>
-                </div>
-                <div class="gridg">
-                    <p>3.<br/> Login with your user<br/> details and see<br/> your items listed</p>
-                </div>
-                <div class="gridf">
-                    <img height=70% width=70%
-                         src="${pageContext.request.contextPath}/resources/img/CameraIcon.png"/>
-                </div>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status" class="la-ball-triangle-path">
                 <div></div>
-                <div class="gridj">
-
-                    <p>2.<br/> We'll capture, upload<br/>and safely store your<br/>items</p>
-                </div>
-                <div class="gridc">
-                    <img height=70% width=70%
-                         src="${pageContext.request.contextPath}/resources/img/LaptopIcon.png"/>
-                </div>
-                <div class="gridl">
-                    <p>4. Sit back and relax<br/>while we sell<br/>your items</p>
-                </div>
-                <div class="gridh">
-                    <img height=70% width=70%
-                         src="${pageContext.request.contextPath}/resources/img/MoneyBagIcon.png"/>
-                </div>
-
+                <div></div>
+                <div></div>
             </div>
         </div>
+        <!--End of Preloader-->
+
+        <div class="page-border" data-wow-duration="0.7s" data-wow-delay="0.2s">
+            <div class="top-border wow fadeInDown animated"
+                 style="visibility: visible; animation-name: fadeInDown;"></div>
+            <div class="right-border wow fadeInRight animated"
+                 style="visibility: visible; animation-name: fadeInRight;"></div>
+            <div class="bottom-border wow fadeInUp animated"
+                 style="visibility: visible; animation-name: fadeInUp;"></div>
+            <div class="left-border wow fadeInLeft animated"
+                 style="visibility: visible; animation-name: fadeInLeft;"></div>
+        </div>
+
+        <div id="wrapper">
+
+            <header id="banner" class="scrollto clearfix" data-enllax-ratio=".5">
+
+                <!--Banner Content-->
+                <div id="banner-content" class="row clearfix">
+
+                    <div class="col-38">
+
+                        <div class="section-heading">
+                            <h1>A SIMPLE SELLING SITE WITH A TWIST</h1>
+                            <h2>Namari is a commercial selling software that boosts your chances of selling online by
+                                automating the process for you!</h2>
+                        </div>
+
+                        <!--Call to Action-->
+                        <a href="#" class="button">START SELLING TODAY</a>
+                        <!--End Call to Action-->
+
+                    </div>
+
+                </div><!--End of Row-->
+            </header>
+
+            <!--Main Content Area-->
+            <main id="content">
+
+                <!--Introduction-->
+                <section id="about" class="introduction scrollto">
+
+                    <div class="row clearfix">
+
+                        <div class="col-3">
+                            <div class="section-heading">
+                                <h3>SUCCESS</h3>
+                                <h2 class="section-title">How We Help You To Sell Your Product</h2>
+                                <p class="section-subtitle">By integrating with all of your individual trading accounts
+                                    we help post, monitor and sell your items for you!</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2-3">
+
+                            <!--Icon Block-->
+                            <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.1s">
+                                <!--Icon-->
+                                <div class="icon">
+                                    <i class="fa fa-html5 fa-2x"></i>
+                                </div>
+                                <!--Icon Block Description-->
+                                <div class="icon-block-description">
+                                    <h4>Automated Posting</h4>
+                                    <p>Post your listing once and never again. We'll replicate the listing elsewhere for
+                                        you.</p>
+                                </div>
+                            </div>
+                            <!--End of Icon Block-->
+
+                            <!--Icon Block-->
+                            <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.3s">
+                                <!--Icon-->
+                                <div class="icon">
+                                    <i class="fa fa-bolt fa-2x"></i>
+                                </div>
+                                <!--Icon Block Description-->
+                                <div class="icon-block-description">
+                                    <h4>Monitoring</h4>
+                                    <p>Once live all your listings will be monitored and readily available for you to
+                                        see. We will monitor any changes within a split second.</p>
+                                </div>
+                            </div>
+                            <!--End of Icon Block-->
+
+                            <!--Icon Block-->
+                            <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
+                                <!--Icon-->
+                                <div class="icon">
+                                    <i class="fa fa-tablet fa-2x"></i>
+                                </div>
+                                <!--Icon Block Description-->
+                                <div class="icon-block-description">
+                                    <h4>Auto Sell</h4>
+                                    <p>Our auto sell function will immediately unlist your product from all other sites
+                                        the second it is bought.</p>
+                                </div>
+                            </div>
+                            <!--End of Icon Block-->
+
+                            <!--Icon Block-->
+                            <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
+                                <!--Icon-->
+                                <div class="icon">
+                                    <i class="fa fa-rocket fa-2x"></i>
+                                </div>
+                                <!--Icon Block Description-->
+                                <div class="icon-block-description">
+                                    <h4>Sell Quickly</h4>
+                                    <p>By listing your product on a greater range of selling sites, including our own,
+                                        you improve the visibility of your item in the online community.</p>
+                                </div>
+                            </div>
+                            <!--End of Icon Block-->
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+                <!--End of Introduction-->
+
+
+                <!--Gallery-->
+                <aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery
+                       data-featherlight-filter="a">
+
+                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg" />" data-featherlight="image"
+                       class="col-3 wow fadeIn"
+                       data-wow-delay="0.1s"><img
+                            src="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg"/>"
+                            alt=" Landing Page"/></a>
+                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-2.jpg"/>"
+                       data-featherlight="image"
+                       class="col-3 wow fadeIn"
+                       data-wow-delay="0.3s"><img
+                            src="<c:url value="/resources/img/gallery-images/gallery-image-2.jpg"/>"
+                            alt="Landing Page"/></a>
+                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-3.jpg"/>"
+                       data-featherlight="image"
+                       class="col-3 wow fadeIn"
+                       data-wow-delay="0.5s"><img
+                            src="<c:url value="/resources/img/gallery-images/gallery-image-3.jpg"/>"
+                            alt="Landing Page"/></a>
+                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
+                       data-featherlight="image"
+                       class="col-3 wow fadeIn"
+                       data-wow-delay="1.1s"><img
+                            src="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
+                            alt="Landing Page"/></a>
+                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-4.jpg"/>"
+                       data-featherlight="image"
+                       class="col-3 wow fadeIn"
+                       data-wow-delay="0.9s"><img
+                            src="<c:url value="/resources/img/gallery-images/gallery-image-5.jpg"/>"
+                            alt="Landing Page"/></a>
+                    <a href="<c:url value="/resources/img/gallery-images/gallery-image-6.jpg"/>"
+                       data-featherlight="image"
+                       class="col-3 wow fadeIn"
+                       data-wow-delay="0.7s"><img
+                            src="<c:url value="/resources/img/gallery-images/gallery-image-6.jpg"/>"
+                            alt="Landing Page"/></a>
+
+                </aside>
+                <!--End of Gallery-->
+
+                <!--Testimonials-->
+                <aside id="testimonials" class="scrollto text-center" data-enllax-ratio=".2">
+
+                    <div class="row clearfix">
+
+                        <div class="section-heading">
+                            <h3>FEEDBACK</h3>
+                            <h2 class="section-title">What our customers are saying</h2>
+                        </div>
+
+                        <!--User Testimonial-->
+                        <blockquote class="col-3 testimonial classic">
+                            <img src="<c:url value="/resources/img/user-images/user-1.jpg"/>" alt="User"/>
+                            <q>When I heard about Namari I knew I had to give it a try. I spend a lot of time selling my
+                                stuff online and this makes it quicker and simpler.</q>
+                            <footer>Vish Arora - Happy Customer</footer>
+                        </blockquote>
+                        <!-- End of Testimonial-->
+
+                        <!--User Testimonial-->
+                        <blockquote class="col-3 testimonial classic">
+                            <img src="<c:url value="/resources/img/user-images/user-2.jpg"/>" alt="User"/>
+                            <q>I like that Namari takes a hands off approach. This way I can handle what matters and let
+                                them take charge of the boring stuff.</q>
+                            <footer>Thomas Riordan - Happy Customer</footer>
+                        </blockquote>
+                        <!-- End of Testimonial-->
+
+                        <!--User Testimonial-->
+                        <blockquote class="col-3 testimonial classic">
+                            <img src="<c:url value="/resources/img/user-images/user-3.jpg"/>" alt="User"/>
+                            <q>I love Namari. My business relies on selling our products online. Using Namari I was able
+                                to reduce man hours significantly.</q>
+                            <footer>Perli Amelia - Happy Customer</footer>
+                        </blockquote>
+                        <!-- End of Testimonial-->
+
+                    </div>
+
+                </aside>
+                <!--End of Testimonials-->
+
+                <!--Clients-->
+                <section id="clients" class="scrollto clearfix">
+                    <div class="row clearfix">
+
+                        <div class="col-3">
+
+                            <div class="section-heading">
+                                <h3>TRUST</h3>
+                                <h2 class="section-title">Companies our services integrate withg</h2>
+                                <p class="section-subtitle">We currently support a range of the largest selling sites
+                                    available online.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2-3">
+
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo1.png"/>"
+                                     alt="Company"/>
+                                <div class="client-overlay"><span>Amazon</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo2.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Ebay</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo3.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Craigslist</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo4.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Gumtree</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo5.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Alibaba</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo6.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Etsy</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo7.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Ebid</span></div>
+                            </a>
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo8.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Bonanza</span></div>
+                            </a>
+
+                            <a href="#" class="col-3">
+                                <img src="<c:url value="/resources/img/company-images/company-logo9.png"/>" alt="Company"/>
+                                <div class="client-overlay"><span>Rakuten</span></div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!--End of Clients-->
+
+                <!--Pricing Tables-->
+                <section id="pricing" class="secondary-color text-center scrollto clearfix ">
+                    <div class="row clearfix">
+
+                        <div class="section-heading">
+                            <h3>YOUR CHOICE</h3>
+                            <h2 class="section-title">We have the right package for you</h2>
+                        </div>
+
+                        <!--Pricing Block-->
+                        <div class="pricing-block col-3 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="pricing-block-content">
+                                <h3>Personal</h3>
+                                <p class="pricing-sub">The standard version</p>
+                                <div class="pricing">
+                                    <div class="price"><span>£</span>9.99</div>
+                                    <p>Recommended for users with medium-low selling rates</p>
+                                </div>
+                                <ul>
+                                    <li>5 Items Monthly</li>
+                                    <li>Up to 4 Trading Accounts</li>
+                                    <li>Tutorials</li>
+                                    <li>Forum Support</li>
+                                </ul>
+                                <a href="#" class="button">SUBSCRIBER TODAY</a>
+                            </div>
+                        </div>
+                        <!--End Pricing Block-->
+
+                        <!--Pricing Block-->
+                        <div class="pricing-block featured col-3 wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="pricing-block-content">
+                                <h3>Student</h3>
+                                <p class="pricing-sub">Most popular choice</p>
+                                <div class="pricing">
+                                    <div class="price"><span>£</span>4.99</div>
+                                    <p>Our student option makes it affordable to sell</p>
+                                </div>
+                                <ul>
+                                    <li>5 Items Monthly</li>
+                                    <li>Up to 4 Trading Accounts</li>
+                                    <li>Tutorials with Files</li>
+                                    <li>Forum Support</li>
+                                </ul>
+                                <a href="#" class="button">SUBSCRIBE TODAY</a>
+                            </div>
+                        </div>
+                        <!--End Pricing Block-->
+
+                        <!--Pricing Block-->
+                        <div class="pricing-block col-3 wow fadeInUp" data-wow-delay="0.8s">
+                            <div class="pricing-block-content">
+                                <h3>Business</h3>
+                                <p class="pricing-sub">For the whole team</p>
+                                <div class="pricing">
+                                    <div class="price"><span>£</span>19.99</div>
+                                    <p>Our business deal allows for unlimited listings and selling opportunities</p>
+                                </div>
+                                <ul>
+                                    <li>Unlimited Items Monthly</li>
+                                    <li>Unlimited Trading Accounts</li>
+                                    <li>HD Video Tutorials</li>
+                                    <li>Chat Support</li>
+                                </ul>
+                                <a href="#" class="button">SUBSCRIBE TODAY</a>
+                            </div>
+                        </div>
+                        <!--End Pricing Block-->
+
+                    </div>
+                </section>
+                <!--End of Pricing Tables-->
+
+            </main>
+            <!--End Main Content Area-->
+
+
+            <!--Footer-->
+            <footer id="landing-footer" class="clearfix">
+                <div class="row clearfix">
+
+                    <p id="copyright" class="col-2">Made with love by <a
+                            href="https://www.shapingrain.com">ShapingRain</a></p>
+
+                    <!--Social Icons in Footer-->
+                    <ul class="col-2 social-icons">
+                        <li>
+                            <a target="_blank" title="Facebook" href="https://www.facebook.com/username">
+                                <i class="fa fa-facebook fa-1x"></i><span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Google+" href="http://google.com/+username">
+                                <i class="fa fa-google-plus fa-1x"></i><span>Google+</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Twitter" href="http://www.twitter.com/username">
+                                <i class="fa fa-twitter fa-1x"></i><span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Instagram" href="http://www.instagram.com/username">
+                                <i class="fa fa-instagram fa-1x"></i><span>Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="behance" href="http://www.behance.net">
+                                <i class="fa fa-behance fa-1x"></i><span>Behance</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--End of Social Icons in Footer-->
+                </div>
+            </footer>
+            <!--End of Footer-->
+
+        </div>
+
+        <!-- Include JavaScript resources -->
+        <script src="<spring:url value="/resources/js/jquery.1.8.3.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/wow.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/featherlight.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/featherlight.gallery.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/jquery.enllax.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/jquery.easing.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/jquery.stickyNavbar.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/images-loaded.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/lightbox.min.js"/>"></script>
+        <script src="<spring:url value="/resources/js/site.js"/>"></script>
+
+        </body>
     </tiles:putAttribute>
 </tiles:insertDefinition>
