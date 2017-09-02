@@ -1,12 +1,11 @@
-package com.app.storage.domain.model.payment;
+package com.app.storage.domain.model;
 
-import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
  * Billing Address Details.
  */
-public class BillingAddress {
+public class Address {
 
     /** Street Address. */
     private String streetAddress;
@@ -19,6 +18,9 @@ public class BillingAddress {
 
     /** Country name. */
     private String countryName;
+
+    /** Address type. */
+    private AddressType addressType;
 
     /**
      * Sets new Country name..
@@ -97,6 +99,25 @@ public class BillingAddress {
     }
 
     /**
+     * Gets Address type..
+     *
+     * @return Value of Address type..
+     */
+    public AddressType getAddressType() {
+        return addressType;
+    }
+
+    /**
+     * Sets new Address type..
+     *
+     * @param addressType
+     *         New value of Address type..
+     */
+    public void setAddressType(AddressType addressType) {
+        this.addressType = addressType;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -105,17 +126,18 @@ public class BillingAddress {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (!(obj instanceof BillingAddress))
+        if (!(obj instanceof Address))
             return false;
         if (obj == this)
             return true;
 
-        BillingAddress billingAddress = (BillingAddress) obj;
+        Address address = (Address) obj;
         return new EqualsBuilder()
-                .append(getCountryName(), billingAddress.getCountryName())
-                .append(getStreetAddress(), billingAddress.getStreetAddress())
-                .append(getPostcode(), billingAddress.getPostcode())
-                .append(getRegion(), billingAddress.getRegion())
+                .append(getCountryName(), address.getCountryName())
+                .append(getStreetAddress(), address.getStreetAddress())
+                .append(getPostcode(), address.getPostcode())
+                .append(getRegion(), address.getRegion())
+                .append(getAddressType(), address.getAddressType())
                 .isEquals();
     }
 
@@ -129,7 +151,7 @@ public class BillingAddress {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(countryName).append(streetAddress).append(region).append(postcode);
+        stringBuilder.append(countryName).append(streetAddress).append(region).append(postcode).append(addressType);
 
         return stringBuilder.toString();
     }

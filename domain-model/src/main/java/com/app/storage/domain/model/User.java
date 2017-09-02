@@ -15,7 +15,6 @@
  */
 package com.app.storage.domain.model;
 
-import com.app.storage.domain.model.payment.BillingAddress;
 import com.app.storage.domain.model.payment.CardInformation;
 import com.app.storage.domain.model.trade.TradingAccount;
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -63,8 +62,8 @@ public class User implements Serializable {
     /** List of {@link CardInformation}. */
     private List<CardInformation> paymentDetails;
 
-    /** List of {@link BillingAddress}. */
-    private BillingAddress billingAddress;
+    /** List of {@link Address}. */
+    private Address address;
 
 
     /**
@@ -237,22 +236,22 @@ public class User implements Serializable {
     }
 
     /**
-     * Gets List of {@link BillingAddress}..
+     * Gets List of {@link Address}..
      *
-     * @return Value of List of {@link BillingAddress}..
+     * @return Value of List of {@link Address}..
      */
-    public BillingAddress getBillingAddress() {
-        return billingAddress;
+    public Address getAddress() {
+        return address;
     }
 
     /**
-     * Sets new List of {@link BillingAddress}..
+     * Sets new List of {@link Address}..
      *
-     * @param billingAddress
-     *         New value of List of {@link BillingAddress}..
+     * @param address
+     *         New value of List of {@link Address}..
      */
-    public void setBillingAddress(BillingAddress billingAddress) {
-        this.billingAddress = billingAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     /**
@@ -298,7 +297,7 @@ public class User implements Serializable {
                 .append(getRoles(), user.getRoles())
                 .append(getStorageItems(), user.getStorageItems())
                 .append(getPaymentDetails(), user.getPaymentDetails())
-                .append(getBillingAddress(), user.getBillingAddress())
+                .append(getAddress(), user.getAddress())
                 .isEquals();
     }
 
@@ -313,7 +312,7 @@ public class User implements Serializable {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(firstName).append(lastName).append(email).append(password).append
-                (passwordConfirm).append(roles).append(billingAddress).append(paymentDetails);
+                (passwordConfirm).append(roles).append(address).append(paymentDetails);
 
         return stringBuilder.toString();
     }

@@ -1,5 +1,7 @@
 package com.app.storage.controller;
 
+import com.app.storage.controller.model.UploadDataWrapper;
+import com.app.storage.domain.model.AddressType;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
 import com.app.storage.service.StorageItemService;
@@ -11,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,6 +52,34 @@ public class StorageItemController {
                                  final UserService userService) {
         this.storageItemService = storageItemService;
         this.userService = userService;
+    }
+
+    /**
+     * Renders sell item view to container
+     *
+     * @return SellSingle.jsp
+     */
+    @RequestMapping(value = "/sell", method = RequestMethod.GET)
+    public String renderSell(final Model model) {
+
+        model.addAttribute("sellItem", new UploadDataWrapper());
+
+        return "sell/SellThing";
+    }
+
+    /**
+     * Renders sell item view to container
+     *
+     * @return SellSingle.jsp
+     */
+    @RequestMapping(value = "/sell", method = RequestMethod.POST)
+    public String handleSellItem(@ModelAttribute("sellItem") final UploadDataWrapper uploadDataWrapper) {
+
+//        uploadDataWrapper.getAddress().setAddressType(AddressType.DELIVERY);
+
+        LOG.debug("Sold item: {}", uploadDataWrapper.toString());
+
+        return "redirect:/discover";
     }
 
     /**

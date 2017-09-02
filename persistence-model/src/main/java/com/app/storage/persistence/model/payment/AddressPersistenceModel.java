@@ -9,13 +9,13 @@ import javax.persistence.*;
  * Billing Address persistence model.
  */
 @Entity
-@Table(name = "BillingAddress")
-public class BillingAddressPersistenceModel {
+@Table(name = "Address")
+public class AddressPersistenceModel {
 
     /** Unique db id. */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idBillingAddress")
+    @Column(name = "idAddress")
     private Long id;
 
     /** Street Address Details. */
@@ -33,6 +33,10 @@ public class BillingAddressPersistenceModel {
     /** Billing address country. */
     @Column(name = "Country")
     private String country;
+
+    /** Billing address country. */
+    @Column(name = "AddressType")
+    private String addressType;
 
     /**
      * Many-1 reference to owner model.
@@ -137,6 +141,25 @@ public class BillingAddressPersistenceModel {
     }
 
     /**
+     * Gets Billing address country..
+     *
+     * @return Value of Billing address country..
+     */
+    public String getAddressType() {
+        return addressType;
+    }
+
+    /**
+     * Sets new Billing address country..
+     *
+     * @param addressType
+     *         New value of Billing address country..
+     */
+    public void setAddressType(String addressType) {
+        this.addressType = addressType;
+    }
+
+    /**
      * Gets Unique db id..
      *
      * @return Value of Unique db id..
@@ -160,17 +183,18 @@ public class BillingAddressPersistenceModel {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (!(obj instanceof BillingAddressPersistenceModel))
+        if (!(obj instanceof AddressPersistenceModel))
             return false;
         if (obj == this)
             return true;
 
-        BillingAddressPersistenceModel billingAddressPersistenceModel = (BillingAddressPersistenceModel) obj;
+        AddressPersistenceModel addressPersistenceModel = (AddressPersistenceModel) obj;
         return new EqualsBuilder()
-                .append(getStreetAddress(), billingAddressPersistenceModel.getStreetAddress())
-                .append(getCountry(), billingAddressPersistenceModel.getCountry())
-                .append(getPostCode(), billingAddressPersistenceModel.getPostCode())
-                .append(getRegion(), billingAddressPersistenceModel.getRegion())
+                .append(getStreetAddress(), addressPersistenceModel.getStreetAddress())
+                .append(getCountry(), addressPersistenceModel.getCountry())
+                .append(getPostCode(), addressPersistenceModel.getPostCode())
+                .append(getRegion(), addressPersistenceModel.getRegion())
+                .append(getAddressType(), addressPersistenceModel.getAddressType())
                 .isEquals();
     }
 
@@ -182,7 +206,8 @@ public class BillingAddressPersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(streetAddress).append(region).append(postCode).append(country);
+        stringBuilder.append(id).append(streetAddress).append(region).append(postCode).append(country)
+                .append(addressType);
 
         return stringBuilder.toString();
     }

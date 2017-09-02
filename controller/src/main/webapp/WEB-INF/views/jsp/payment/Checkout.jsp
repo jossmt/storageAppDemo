@@ -57,13 +57,13 @@
             <div id="billingAddressInformation">
                 <h3>Billing Information</h3>
 
-                <form:input type="text" path="billingAddress.streetAddress"
+                <form:input type="text" path="address.streetAddress"
                             placeholder="Full Street Address Details"/>
-                <form:input type="text" path="billingAddress.region"
+                <form:input type="text" path="address.region"
                             placeholder="Region"/>
-                <form:input type="text" path="billingAddress.postcode"
+                <form:input type="text" path="address.postcode"
                             placeholder="Postcode"/>
-                <form:input type="text" path="billingAddress.countryName"
+                <form:input type="text" path="address.countryName"
                             placeholder="Country"/>
             </div>
 

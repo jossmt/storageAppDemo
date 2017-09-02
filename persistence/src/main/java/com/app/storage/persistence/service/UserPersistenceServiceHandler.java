@@ -140,7 +140,7 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
 
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
 
-        Hibernate.initialize(userPersistenceModel.getBillingAddressPersistenceModel());
+        Hibernate.initialize(userPersistenceModel.getAddressPersistenceModel());
         Hibernate.initialize(userPersistenceModel.getCardInformationPersistenceModels());
 
         LOG.debug("User stored items: {}", userPersistenceModel.getStorageItemPersistenceModelList());
@@ -161,7 +161,7 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
      */
     private UserPersistenceModel updateChildObjectReferences(final UserPersistenceModel userPersistenceModel) {
 
-        userPersistenceModel.getBillingAddressPersistenceModel().setUserPersistenceModel(userPersistenceModel);
+        userPersistenceModel.getAddressPersistenceModel().setUserPersistenceModel(userPersistenceModel);
 
         for (final CardInformationPersistenceModel cardInformationPersistenceModel : userPersistenceModel
                 .getCardInformationPersistenceModels()) {

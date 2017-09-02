@@ -18,7 +18,7 @@
                 <p class="gridb">edit</p>
                 <p class="gridc">Email: ${userModel.email}</p>
                 <p class="gridd">edit</p>
-                <p class="gride">Region: ${userModel.billingAddress.region}</p>
+                <p class="gride">Region: ${userModel.address.region}</p>
                 <p class="gridf">edit</p>
             </div>
         </div>

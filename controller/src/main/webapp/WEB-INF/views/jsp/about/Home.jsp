@@ -34,7 +34,6 @@
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
-        <body>
 
         <!-- Preloader -->
         <div id="preloader">
@@ -163,7 +162,8 @@
                 <aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery
                        data-featherlight-filter="a">
 
-                    <a id="gal1" href="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg" />" data-featherlight="image"
+                    <a id="gal1" href="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg" />"
+                       data-featherlight="image"
                        class="col-3 wow fadeIn"
                        data-wow-delay="0.1s"><img
                             src="<c:url value="/resources/img/gallery-images/gallery-image-1.jpg"/>"
@@ -215,9 +215,9 @@
                         <!--User Testimonial-->
                         <blockquote class="col-3 testimonial classic">
                             <img src="<c:url value="/resources/img/user-images/user-1.jpg"/>" alt="User"/>
-                            <q>When I heard about Namari I knew I had to give it a try. I spend a lot of time selling my
-                                stuff online and this makes it quicker and simpler.</q>
-                            <footer>Vish Arora - Happy Customer</footer>
+                            <q>When we heard about Namari we knew we had to give it a try. we spend a lot of time
+                                selling our stuff online and this makes it quicker and simpler.</q>
+                            <footer>Perli & Richard - Happy Customer</footer>
                         </blockquote>
                         <!-- End of Testimonial-->
 
@@ -235,7 +235,7 @@
                             <img src="<c:url value="/resources/img/user-images/user-3.jpg"/>" alt="User"/>
                             <q>I love Namari. My business relies on selling our products online. Using Namari I was able
                                 to reduce man hours significantly.</q>
-                            <footer>Perli Amelia - Happy Customer</footer>
+                            <footer>Mark O'Connor - Happy Customer</footer>
                         </blockquote>
                         <!-- End of Testimonial-->
 
@@ -267,36 +267,44 @@
                                 <div class="client-overlay"><span>Amazon</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo2.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo2.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Ebay</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo3.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo3.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Craigslist</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo4.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo4.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Gumtree</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo5.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo5.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Alibaba</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo6.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo6.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Etsy</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo7.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo7.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Ebid</span></div>
                             </a>
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo8.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo8.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Bonanza</span></div>
                             </a>
 
                             <a href="#" class="col-3">
-                                <img src="<c:url value="/resources/img/company-images/company-logo9.png"/>" alt="Company"/>
+                                <img src="<c:url value="/resources/img/company-images/company-logo9.png"/>"
+                                     alt="Company"/>
                                 <div class="client-overlay"><span>Rakuten</span></div>
                             </a>
 
@@ -398,7 +406,5 @@
         <script src="<spring:url value="/resources/js/images-loaded.min.js"/>"></script>
         <script src="<spring:url value="/resources/js/lightbox.min.js"/>"></script>
         <script src="<spring:url value="/resources/js/site.js"/>"></script>
-
-        </body>
     </tiles:putAttribute>
 </tiles:insertDefinition>

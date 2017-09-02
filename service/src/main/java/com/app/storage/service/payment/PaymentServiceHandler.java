@@ -115,10 +115,10 @@ public class PaymentServiceHandler implements PaymentService {
 
                 // Billing Address Details
                 .billingAddress()
-                .countryName(paymentTransaction.getBillingAddress().getCountryName())
-                .region(paymentTransaction.getBillingAddress().getRegion())
-                .streetAddress(paymentTransaction.getBillingAddress().getStreetAddress())
-                .postalCode(paymentTransaction.getBillingAddress().getPostcode())
+                .countryName(paymentTransaction.getAddress().getCountryName())
+                .region(paymentTransaction.getAddress().getRegion())
+                .streetAddress(paymentTransaction.getAddress().getStreetAddress())
+                .postalCode(paymentTransaction.getAddress().getPostcode())
                 .done()
 
                 // Other

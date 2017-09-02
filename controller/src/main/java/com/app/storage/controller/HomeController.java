@@ -28,7 +28,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public String renderHome() {
 
-        return "redirect:/discover";
+        return "redirect:/home";
     }
 
     /**
@@ -37,22 +37,7 @@ public class HomeController {
      * @return Storage.jsp
      */
     @RequestMapping(value = "/temp", method = RequestMethod.GET)
-    public String renderTemp(Model model) {
-
-        model.addAttribute("userForm", new User());
-
-        return "Temp";
-    }
-
-    /**
-     * Renders default view to container as home.
-     *
-     * @return Storage.jsp
-     */
-    @RequestMapping(value = "/temp", method = RequestMethod.POST)
-    public String renderTempData(@ModelAttribute("userForm") final User userForm) {
-
-       LOG.debug("SIGN UP FORM: {}", userForm.toString());
+    public String renderTemp() {
 
         return "Temp";
     }

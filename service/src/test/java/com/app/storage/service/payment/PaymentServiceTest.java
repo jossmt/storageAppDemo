@@ -1,6 +1,6 @@
 package com.app.storage.service.payment;
 
-import com.app.storage.domain.model.payment.BillingAddress;
+import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.payment.CardInformation;
 import com.app.storage.domain.model.payment.PaymentTransaction;
 import org.junit.Before;
@@ -44,11 +44,11 @@ public class PaymentServiceTest {
     public void testTransaction() {
 
         //Setup
-        final BillingAddress billingAddress = new BillingAddress();
-        billingAddress.setCountryName("United Kingdom");
-        billingAddress.setPostcode("KT11HS");
-        billingAddress.setRegion("Kingston");
-        billingAddress.setStreetAddress("Flat 4 Garricks House, Wadbrook Street");
+        final Address address = new Address();
+        address.setCountryName("United Kingdom");
+        address.setPostcode("KT11HS");
+        address.setRegion("Kingston");
+        address.setStreetAddress("Flat 4 Garricks House, Wadbrook Street");
 
         final CardInformation cardInformation = new CardInformation();
         cardInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
@@ -59,7 +59,7 @@ public class PaymentServiceTest {
 
         final PaymentTransaction paymentTransaction = new PaymentTransaction();
         paymentTransaction.setCardInformation(cardInformation);
-        paymentTransaction.setBillingAddress(billingAddress);
+        paymentTransaction.setAddress(address);
         paymentTransaction.setPaymentNonce("fake-valid-debit-nonce");
         paymentTransaction.setTransactionAmount(10.12);
 
@@ -77,11 +77,11 @@ public class PaymentServiceTest {
     public void testTransactionCard() {
 
         //Setup
-        final BillingAddress billingAddress = new BillingAddress();
-        billingAddress.setCountryName("United Kingdom");
-        billingAddress.setPostcode("KT11HS");
-        billingAddress.setRegion("Kingston");
-        billingAddress.setStreetAddress("Flat 4 Garricks House, Wadbrook Street");
+        final Address address = new Address();
+        address.setCountryName("United Kingdom");
+        address.setPostcode("KT11HS");
+        address.setRegion("Kingston");
+        address.setStreetAddress("Flat 4 Garricks House, Wadbrook Street");
 
         final CardInformation cardInformation = new CardInformation();
         cardInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
@@ -92,7 +92,7 @@ public class PaymentServiceTest {
 
         final PaymentTransaction paymentTransaction = new PaymentTransaction();
         paymentTransaction.setCardInformation(cardInformation);
-        paymentTransaction.setBillingAddress(billingAddress);
+        paymentTransaction.setAddress(address);
         paymentTransaction.setPaymentNonce("fake-valid-unknown-indicators-nonce");
         paymentTransaction.setTransactionAmount(10.12);
 

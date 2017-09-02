@@ -15,11 +15,10 @@
  */
 package com.app.storage.persistence.model;
 
-import com.app.storage.persistence.model.payment.BillingAddressPersistenceModel;
+import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import com.app.storage.persistence.model.trade.TradingAccountPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.List;
@@ -73,7 +72,7 @@ public class UserPersistenceModel {
 
     /** Billing Address. */
     @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private BillingAddressPersistenceModel billingAddressPersistenceModel;
+    private AddressPersistenceModel addressPersistenceModel;
 
     /**
      * Sets new email.
@@ -210,22 +209,22 @@ public class UserPersistenceModel {
     }
 
     /**
-     * Sets new billingAddressPersistenceModel.
+     * Sets new addressPersistenceModel.
      *
-     * @param billingAddressPersistenceModel
-     *         New value of billingAddressPersistenceModel.
+     * @param addressPersistenceModel
+     *         New value of addressPersistenceModel.
      */
-    public void setBillingAddressPersistenceModel(BillingAddressPersistenceModel billingAddressPersistenceModel) {
-        this.billingAddressPersistenceModel = billingAddressPersistenceModel;
+    public void setAddressPersistenceModel(AddressPersistenceModel addressPersistenceModel) {
+        this.addressPersistenceModel = addressPersistenceModel;
     }
 
     /**
-     * Gets billingAddressPersistenceModel.
+     * Gets addressPersistenceModel.
      *
-     * @return Value of billingAddressPersistenceModel.
+     * @return Value of addressPersistenceModel.
      */
-    public BillingAddressPersistenceModel getBillingAddressPersistenceModel() {
-        return billingAddressPersistenceModel;
+    public AddressPersistenceModel getAddressPersistenceModel() {
+        return addressPersistenceModel;
     }
 
     /**

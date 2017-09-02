@@ -2,13 +2,13 @@ package com.app.storage.persistence.service;
 
 import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
-import com.app.storage.domain.model.payment.BillingAddress;
+import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.payment.CardInformation;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
-import com.app.storage.persistence.model.payment.BillingAddressPersistenceModel;
+import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
@@ -107,10 +107,10 @@ public class UserPersistenceServiceTest {
     public void saveUserTest() {
 
         //Setup
-        final BillingAddress billingAddress = new BillingAddress();
-        billingAddress.setStreetAddress("streetAddress");
-        final BillingAddressPersistenceModel billingAddressPersistenceModel = new BillingAddressPersistenceModel();
-        billingAddressPersistenceModel.setStreetAddress("streetAddress");
+        final Address address = new Address();
+        address.setStreetAddress("streetAddress");
+        final AddressPersistenceModel addressPersistenceModel = new AddressPersistenceModel();
+        addressPersistenceModel.setStreetAddress("streetAddress");
 
         final CardInformation cardInformation = new CardInformation();
         cardInformation.setCardHolderName("cardHolderName");
@@ -130,7 +130,7 @@ public class UserPersistenceServiceTest {
         userPersistenceModel.setPassword("password");
         userPersistenceModel.setEmail("useremail");
         userPersistenceModel.setRoles(Arrays.asList(rolePersistenceModel));
-        userPersistenceModel.setBillingAddressPersistenceModel(billingAddressPersistenceModel);
+        userPersistenceModel.setAddressPersistenceModel(addressPersistenceModel);
         userPersistenceModel.setCardInformationPersistenceModels(Arrays.asList(cardInformationPersistenceModel));
 
         final User user = new User();
@@ -139,7 +139,7 @@ public class UserPersistenceServiceTest {
         user.setPassword("password");
         user.setEmail("useremail");
         user.setRoles(Arrays.asList(role));
-        user.setBillingAddress(billingAddress);
+        user.setAddress(address);
         user.setPaymentDetails(Arrays.asList(cardInformation));
 
         //Mock

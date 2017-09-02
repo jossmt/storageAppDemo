@@ -1,6 +1,6 @@
 package com.app.storage.domain.model.payment;
 
-import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.Address;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
@@ -21,7 +21,7 @@ public class PaymentTransaction {
     private CardInformation cardInformation;
 
     /** Billing Address. */
-    private BillingAddress billingAddress;
+    private Address address;
 
 
     /**
@@ -85,11 +85,11 @@ public class PaymentTransaction {
     /**
      * Sets new Billing Address..
      *
-     * @param billingAddress
+     * @param address
      *         New value of Billing Address..
      */
-    public void setBillingAddress(BillingAddress billingAddress) {
-        this.billingAddress = billingAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     /**
@@ -97,8 +97,8 @@ public class PaymentTransaction {
      *
      * @return Value of Billing Address..
      */
-    public BillingAddress getBillingAddress() {
-        return billingAddress;
+    public Address getAddress() {
+        return address;
     }
 
     /**
@@ -140,7 +140,7 @@ public class PaymentTransaction {
                 .append(getCardInformation(), paymentTransaction.getCardInformation())
                 .append(getPaymentNonce(), paymentTransaction.getPaymentNonce())
                 .append(getTransactionAmount(), paymentTransaction.getTransactionAmount())
-                .append(getBillingAddress(), paymentTransaction.getBillingAddress())
+                .append(getAddress(), paymentTransaction.getAddress())
                 .isEquals();
     }
 
@@ -154,7 +154,7 @@ public class PaymentTransaction {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(customerRef).append(cardInformation).append(billingAddress).append(paymentNonce)
+        stringBuilder.append(customerRef).append(cardInformation).append(address).append(paymentNonce)
                 .append(transactionAmount);
 
         return stringBuilder.toString();

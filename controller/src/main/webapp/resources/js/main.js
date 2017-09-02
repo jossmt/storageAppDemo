@@ -133,3 +133,17 @@ function redirectToItemPage(itemid) {
     window.location.href = baseurl + "/item?" + itemid;
     return;
 };
+
+function readFileUrl(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imagewrapper').empty();
+            $('#imageRender')
+                .attr('src', e.target.result).show();
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+};

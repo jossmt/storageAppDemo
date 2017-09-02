@@ -834,9 +834,9 @@ h6 {
 
 /* Icon Left*/
 
-.icon-left .icon {
-    left: 15;
-}
+/*.icon-left .icon {*/
+    /*left: 15;*/
+/*}*/
 
 .icon-left .icon-block-description {
     padding-left: 53px;
@@ -844,9 +844,9 @@ h6 {
 
 /* Icon Right */
 
-.icon-right .icon {
-    right: 15;
-}
+/*.icon-right .icon {*/
+    /*right: 15;*/
+/*}*/
 
 .icon-right .icon-block-description {
     padding-right: 53px;
@@ -1419,8 +1419,7 @@ blockquote {
 .client-overlay {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
-    top;
-    0;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -1509,7 +1508,7 @@ blockquote {
 .pricing  p {
     font-style:italic;
     color:#b4b4b4;
-    line-height:auto;
+    /*line-height:auto;*/
     margin:0;
 }
 
