@@ -1,5 +1,6 @@
 package com.app.storage.service;
 
+import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
@@ -144,5 +145,17 @@ public class UserServiceHandler implements UserService {
         }
 
         return grantedAuthorities;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void updateUserAddress(final String userEmail, final Address address) {
+
+        LOG.debug("Updating address to {} for user {}", address, userEmail);
+
+        userPersistenceService.updateUserAddress(userEmail, address);
+
+        LOG.debug("Successfully updated address");
     }
 }

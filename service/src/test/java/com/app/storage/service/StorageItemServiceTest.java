@@ -46,10 +46,10 @@ public class StorageItemServiceTest {
         storageItem.setSize("L");
 
         //Test
-        storageItemService.saveStorageItem(storageItem);
+        storageItemService.saveStorageItem("userEmail", storageItem);
 
         //Verify
-        Mockito.verify(storageItemPersistenceService).saveStorageItem(storageItem);
+        Mockito.verify(storageItemPersistenceService).saveStorageItem("userEmail", storageItem);
     }
 
     /**

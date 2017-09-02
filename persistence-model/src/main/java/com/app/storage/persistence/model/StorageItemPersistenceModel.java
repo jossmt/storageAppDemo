@@ -1,5 +1,6 @@
 package com.app.storage.persistence.model;
 
+import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 import javax.persistence.*;

@@ -4,12 +4,14 @@ import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.payment.CardInformation;
+import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.repository.AddressRepository;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
 import org.junit.Assert;
@@ -45,6 +47,14 @@ public class UserPersistenceServiceTest {
     @Mock
     private RoleRepository roleRepository;
 
+    /** {@link AddressRepository} */
+    @Mock
+    private AddressRepository addressRepository;
+
+    /** {@link RoleRepository} */
+    @Mock
+    private AddressPersistenceMapper addressPersistenceMapper;
+
     /** {@link UserPersistenceService}. */
     private UserPersistenceService userPersistenceService;
 
@@ -54,7 +64,9 @@ public class UserPersistenceServiceTest {
     @Before
     public void setUp() {
         userPersistenceService = new UserPersistenceServiceHandler(userRepository, roleRepository,
-                                                                   userPersistenceMapper, bCryptPasswordEncoder);
+                                                                   addressRepository, userPersistenceMapper,
+                                                                   addressPersistenceMapper,
+                                                                   bCryptPasswordEncoder);
     }
 
     /**

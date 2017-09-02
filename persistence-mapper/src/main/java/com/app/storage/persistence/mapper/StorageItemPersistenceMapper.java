@@ -27,20 +27,4 @@ public interface StorageItemPersistenceMapper {
      * @return {@link StorageItemPersistenceModel}
      */
     StorageItemPersistenceModel mapTo(final StorageItem storageItem);
-
-    /**
-     * Sets user persistence model to avoid circular dependency.
-     *
-     * @param userPersistenceModel
-     *         {@link UserPersistenceModel}
-     */
-    void setUserPersistenceModel(final UserPersistenceModel userPersistenceModel);
-
-    /**
-     * Sets user model to avoid circular dependency.
-     *
-     * @param userModel
-     *         {@link User}
-     */
-    void setUserModel(User userModel);
 }

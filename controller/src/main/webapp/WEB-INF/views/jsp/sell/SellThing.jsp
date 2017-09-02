@@ -11,7 +11,7 @@
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <form:form id="msform" method="post" modelAttribute="sellItem"
+        <form:form id="msform" method="post" enctype="multipart/form-data" modelAttribute="sellItem"
                    action="${pageContext.servletContext.contextPath}/sell">
 
             <!-- progressbar -->

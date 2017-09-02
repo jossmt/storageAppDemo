@@ -1,5 +1,6 @@
 package com.app.storage.persistence.service;
 
+import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,7 +16,7 @@ public interface UserPersistenceService {
      *         {@link User}
      * @return User.
      */
-    User saveUser(final User user);
+    User saveUser(User user);
 
     /**
      * Loads userdetails object by username.
@@ -24,7 +25,7 @@ public interface UserPersistenceService {
      *         Users email.
      * @return {@link UserDetails}
      */
-    User findUserByEmail(final String username);
+    User findUserByEmail(String username);
 
     /**
      * Loads userdetails object by username with storage items.
@@ -33,7 +34,7 @@ public interface UserPersistenceService {
      *         Users email.
      * @return {@link UserDetails}
      */
-    User findUserByEmailLoadStorage(final String username);
+    User findUserByEmailLoadStorage(String username);
 
     /**
      * Loads userdetails object by username with profile info.
@@ -42,5 +43,15 @@ public interface UserPersistenceService {
      *         Users email.
      * @return {@link UserDetails}
      */
-    User findUserByEmailLoadProfile(final String username);
+    User findUserByEmailLoadProfile(String username);
+
+    /**
+     * Updates user address.
+     *
+     * @param userEmail
+     *         Users email.
+     * @param address
+     *         {@link Address}
+     */
+    void updateUserAddress(String userEmail, Address address);
 }

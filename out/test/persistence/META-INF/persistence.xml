@@ -8,7 +8,7 @@
         <class>com.app.storage.persistence.model.StorageItemPersistenceModel</class>
         <class>com.app.storage.persistence.model.UserPersistenceModel</class>
         <class>com.app.storage.persistence.model.RolePersistenceModel</class>
-        <class>com.app.storage.persistence.model.payment.BillingAddressPersistenceModel</class>
+        <class>com.app.storage.persistence.model.payment.AddressPersistenceModel</class>
         <class>com.app.storage.persistence.model.payment.CardInformationPersistenceModel</class>
         <class>com.app.storage.persistence.model.trade.TradingAccountPersistenceModel</class>
 

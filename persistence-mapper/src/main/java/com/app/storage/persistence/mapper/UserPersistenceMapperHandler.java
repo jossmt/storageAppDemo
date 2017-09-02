@@ -77,10 +77,7 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
             userPersistenceModel.setRoles(listMapper.mapList((AbstractMapper) rolePersistenceMapper,
                                                              true, user.getRoles()));
 
-            if (storageItemPersistenceModels != null) {
-                userPersistenceModel.setStorageItemPersistenceModelList(storageItemPersistenceModels);
-            } else if (user.getStorageItems() != null) {
-                storageItemPersistenceMapper.setUserPersistenceModel(userPersistenceModel);
+            if (user.getStorageItems() != null) {
                 userPersistenceModel
                         .setStorageItemPersistenceModelList(listMapper.mapList((AbstractMapper)
                                                                                        storageItemPersistenceMapper,
@@ -89,7 +86,7 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
 
             if (user.getAddress() != null) {
                 userPersistenceModel.setAddressPersistenceModel(addressPersistenceMapper
-                                                                               .mapTo(user.getAddress()));
+                                                                        .mapTo(user.getAddress()));
             }
             if (user.getPaymentDetails() != null) {
                 userPersistenceModel.setCardInformationPersistenceModels(listMapper.mapList((AbstractMapper)
@@ -129,17 +126,14 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
             user.setRoles(listMapper.mapList((AbstractMapper) rolePersistenceMapper, false,
                                              userPersistenceModel.getRoles()));
 
-            if (storageItems != null) {
-                user.setStorageItems(storageItems);
-            } else if (userPersistenceModel.getStorageItemPersistenceModelList() != null) {
-                storageItemPersistenceMapper.setUserModel(user);
+            if (userPersistenceModel.getStorageItemPersistenceModelList() != null) {
                 user.setStorageItems(listMapper.mapList((AbstractMapper) storageItemPersistenceMapper, false,
                                                         userPersistenceModel.getStorageItemPersistenceModelList()));
             }
 
             if (userPersistenceModel.getAddressPersistenceModel() != null) {
                 user.setAddress(addressPersistenceMapper.mapFrom(userPersistenceModel
-                                                                                       .getAddressPersistenceModel()));
+                                                                         .getAddressPersistenceModel()));
             }
             if (userPersistenceModel.getCardInformationPersistenceModels() != null) {
                 user.setPaymentDetails(listMapper.mapList((AbstractMapper) cardInformationPersistenceMapper, false,

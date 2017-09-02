@@ -59,7 +59,6 @@ public class StorageItemControllerMapperHandler implements StorageItemController
             storageItem.setImage(storageItemControllerModel.getImage());
             storageItem.setSize(storageItemControllerModel.getSize());
             storageItem.setBrand(storageItemControllerModel.getBrand());
-            storageItem.setOwner(storageItemControllerModel.getUser());
             storageItem.setGrade(Grade.getGrade(storageItemControllerModel.getGrade()));
 
         }

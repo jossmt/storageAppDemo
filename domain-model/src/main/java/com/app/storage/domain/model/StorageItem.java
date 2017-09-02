@@ -36,9 +36,6 @@ public class StorageItem {
     /** URl represenation of image. */
     private String imageUrl;
 
-    /** Owner of item. */
-    private User owner;
-
     /**
      * Gets Image taken of item..
      *
@@ -154,25 +151,6 @@ public class StorageItem {
     }
 
     /**
-     * Gets Owner of item..
-     *
-     * @return Value of Owner of item..
-     */
-    public User getOwner() {
-        return owner;
-    }
-
-    /**
-     * Sets new Owner of item..
-     *
-     * @param owner
-     *         New value of Owner of item..
-     */
-    public void setOwner(final User owner) {
-        this.owner = owner;
-    }
-
-    /**
      * Gets Price..
      *
      * @return Value of Price..
@@ -253,7 +231,6 @@ public class StorageItem {
                 .append(getImageUrl(), storageItem.getImageUrl())
                 .append(getBrand(), storageItem.getBrand())
                 .append(getGrade(), storageItem.getGrade())
-                .append(getOwner(), storageItem.getOwner())
                 .append(getPrice(), storageItem.getPrice())
                 .isEquals();
     }
@@ -269,8 +246,7 @@ public class StorageItem {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(reference).append(description).append(size).append(dateStored).append(image).append
-                (imageUrl)
-                .append(brand).append(grade).append(owner).append(price);
+                (imageUrl).append(brand).append(grade).append(price);
 
         return stringBuilder.toString();
     }

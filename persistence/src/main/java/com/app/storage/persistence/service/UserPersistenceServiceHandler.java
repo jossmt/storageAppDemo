@@ -1,9 +1,13 @@
 package com.app.storage.persistence.service;
 
+import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
+import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.model.UserPersistenceModel;
+import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.repository.AddressRepository;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -33,20 +37,30 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
     /** {@link RoleRepository} */
     private final RoleRepository roleRepository;
 
+    /** {@link AddressRepository} */
+    private final AddressRepository addressRepository;
+
     /** {@link UserPersistenceMapper} */
     private final UserPersistenceMapper userPersistenceMapper;
+
+    /** {@link AddressPersistenceMapper} */
+    private final AddressPersistenceMapper addressPersistenceMapper;
 
     /** {@link BCryptPasswordEncoder} */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public UserPersistenceServiceHandler(final UserRepository userRepository, final RoleRepository roleRepository,
+                                         final AddressRepository addressRepository,
                                          final UserPersistenceMapper userPersistenceMapper,
+                                         final AddressPersistenceMapper addressPersistenceMapper,
                                          final BCryptPasswordEncoder bCryptPasswordEncoder) {
 
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.addressRepository = addressRepository;
         this.userPersistenceMapper = userPersistenceMapper;
+        this.addressPersistenceMapper = addressPersistenceMapper;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -169,6 +183,25 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         }
 
         return userPersistenceModel;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void updateUserAddress(final String userEmail, final Address address) {
+
+        LOG.debug("Updating user address {} for user {}", address, userEmail);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        final AddressPersistenceModel addressPersistenceModel = addressPersistenceMapper.mapTo(address);
+        addressPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+
+        addressRepository.save(addressPersistenceModel);
+
+        LOG.debug("Successfully updated address for user.");
+
     }
 
 }

@@ -9,6 +9,7 @@ import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.repository.StorageItemRepository;
+import com.app.storage.persistence.repository.UserRepository;
 import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,9 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
     /** {@link StorageItemRepository} */
     private final StorageItemRepository storageItemRepository;
 
+    /** {@link UserRepository} */
+    private final UserRepository userRepository;
+
     /** {@link ListMapper} */
     private final ListMapper listMapper;
 
@@ -46,10 +50,12 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
     @Autowired
     public StorageItemPersistenceServiceHandler(final StorageItemPersistenceMapper storageItemPersistenceMapper,
                                                 final StorageItemRepository storageItemRepository,
+                                                final UserRepository userRepository,
                                                 final ListMapper listMapper) {
 
         this.listMapper = listMapper;
         this.storageItemPersistenceMapper = storageItemPersistenceMapper;
+        this.userRepository = userRepository;
         this.storageItemRepository = storageItemRepository;
     }
 
@@ -79,16 +85,25 @@ public class StorageItemPersistenceServiceHandler implements StorageItemPersiste
      * {@inheritDoc}
      */
     @Override
-    public void saveStorageItem(final StorageItem storageItem) {
+    public StorageItem saveStorageItem(final String userEmail, final StorageItem storageItem) {
 
         LOG.debug("Saving storage item to database: {}", storageItem);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
 
         final StorageItemPersistenceModel storageItemPersistenceModel = storageItemPersistenceMapper.mapTo
                 (storageItem);
 
-        storageItemRepository.save(storageItemPersistenceModel);
+        storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
 
-        LOG.debug("Saved storage items to database.");
+        final StorageItemPersistenceModel storageItemPersistenceModelSaved = storageItemRepository.save
+                (storageItemPersistenceModel);
+
+        final StorageItem storageItemSaved = storageItemPersistenceMapper.mapFrom(storageItemPersistenceModelSaved);
+
+        LOG.debug("Saved storage items to database");
+
+        return storageItemSaved;
     }
 
     /**

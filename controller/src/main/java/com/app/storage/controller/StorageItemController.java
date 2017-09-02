@@ -14,12 +14,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
@@ -73,13 +72,26 @@ public class StorageItemController {
      * @return SellSingle.jsp
      */
     @RequestMapping(value = "/sell", method = RequestMethod.POST)
-    public String handleSellItem(@ModelAttribute("sellItem") final UploadDataWrapper uploadDataWrapper) {
-
-//        uploadDataWrapper.getAddress().setAddressType(AddressType.DELIVERY);
+    public String handleSellItem(final Principal principal, @ModelAttribute("sellItem") final UploadDataWrapper
+            uploadDataWrapper, @RequestParam("file") final MultipartFile multipartFile) {
 
         LOG.debug("Sold item: {}", uploadDataWrapper.toString());
 
-        return "redirect:/discover";
+        try {
+            uploadDataWrapper.getStorageItem().setImage(multipartFile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+            LOG.error("Unable to load image provided");
+        }
+
+        final StorageItem saveditem = storageItemService.saveStorageItem(principal.getName(), uploadDataWrapper
+                .getStorageItem());
+
+        if (uploadDataWrapper.getAddress() != null) {
+            userService.updateUserAddress(principal.getName(), uploadDataWrapper.getAddress());
+        }
+
+        return "redirect:/item/" + saveditem.getReference();
     }
 
     /**

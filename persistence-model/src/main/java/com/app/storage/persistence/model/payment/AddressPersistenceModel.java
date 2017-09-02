@@ -1,5 +1,6 @@
 package com.app.storage.persistence.model.payment;
 
+import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 

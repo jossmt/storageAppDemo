@@ -2,6 +2,7 @@ package com.app.storage.persistence.repository;
 
 import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
+import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -113,25 +114,5 @@ public class StorageItemRepositoryTest {
 
         //Clear
         storageItemRepository.delete(actualStorageItemPersistenceModel.getId());
-    }
-
-    //    @Test
-    public void saveExampleData() throws IOException {
-
-        //setup
-        final UserPersistenceModel userPersistenceModel = userRepository.findMostRecent();
-
-        final File image = new File("src/test/resources/example.jpg");
-        final byte[] imageBytes = FileUtils.readFileToByteArray(image);
-
-
-        final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
-        storageItemPersistenceModel.setDescription("Name");
-        storageItemPersistenceModel.setSize("L");
-        storageItemPersistenceModel.setImage(imageBytes);
-        storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
-
-        storageItemRepository.save(storageItemPersistenceModel);
-
     }
 }

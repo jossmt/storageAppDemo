@@ -22,10 +22,12 @@ public interface StorageItemPersistenceService {
     /**
      * Saves all storage items in database.
      *
+     * @param userEmail
+     *         User email.
      * @param storageItem
      *         Storage item.
      */
-    void saveStorageItem(StorageItem storageItem);
+    StorageItem saveStorageItem(String userEmail, StorageItem storageItem);
 
     /**
      * Returns storage item by unique reference code

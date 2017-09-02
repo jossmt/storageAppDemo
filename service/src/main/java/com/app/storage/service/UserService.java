@@ -1,5 +1,6 @@
 package com.app.storage.service;
 
+import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -53,4 +54,14 @@ public interface UserService {
      * @return {@link User}
      */
     User loadUserProfile(String userEmail);
+
+    /**
+     * Updates address for given user.
+     *
+     * @param userEmail
+     *         User Unique Reference
+     * @param address
+     *         {@link Address}
+     */
+    void updateUserAddress(String userEmail, Address address);
 }

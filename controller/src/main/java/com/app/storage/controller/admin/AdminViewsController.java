@@ -74,39 +74,39 @@ public class AdminViewsController {
         return "admin/Console";
     }
 
-    /**
-     * Registering new user
-     *
-     * @param storageItem
-     *         Filled in StorageItem form.
-     * @return redirect URL.
-     */
-    @RequestMapping(value = "/console", method = RequestMethod.POST)
-    public String registerStorageItem(@ModelAttribute("storageItem") final StorageItem storageItem,
-                                      @RequestParam("file") final MultipartFile multipartFile,
-                                      @RequestParam("userEmail") final String userEmail) {
-
-        LOG.debug("Uploaded item: {}", storageItem);
-        LOG.debug("User info: {}", userEmail);
-
-        final User user = userService.loadUserByUsername(userEmail);
-
-        if (user == null) {
-            throw new IllegalArgumentException("User with email: " + userEmail + "does not exist");
-        }else{
-            storageItem.setOwner(user);
-        }
-
-        try {
-            storageItem.setImage(multipartFile.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalStateException("Unable to load image file");
-        }
-
-        storageItemService.saveStorageItem(storageItem);
-
-
-        return "admin/Console";
-    }
+//    /**
+//     * Registering new user
+//     *
+//     * @param storageItem
+//     *         Filled in StorageItem form.
+//     * @return redirect URL.
+//     */
+//    @RequestMapping(value = "/console", method = RequestMethod.POST)
+//    public String registerStorageItem(@ModelAttribute("storageItem") final StorageItem storageItem,
+//                                      @RequestParam("file") final MultipartFile multipartFile,
+//                                      @RequestParam("userEmail") final String userEmail) {
+//
+//        LOG.debug("Uploaded item: {}", storageItem);
+//        LOG.debug("User info: {}", userEmail);
+//
+//        final User user = userService.loadUserByUsername(userEmail);
+//
+//        if (user == null) {
+//            throw new IllegalArgumentException("User with email: " + userEmail + "does not exist");
+//        }else{
+//            storageItem.setOwner(user);
+//        }
+//
+//        try {
+//            storageItem.setImage(multipartFile.getBytes());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            throw new IllegalStateException("Unable to load image file");
+//        }
+//
+//        storageItemService.saveStorageItem(storageItem);
+//
+//
+//        return "admin/Console";
+//    }
 }

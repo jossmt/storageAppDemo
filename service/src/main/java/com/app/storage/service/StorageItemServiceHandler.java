@@ -54,13 +54,15 @@ public class StorageItemServiceHandler implements StorageItemService {
     /**
      * {@inheritDoc}
      */
-    public void saveStorageItem(final StorageItem storageItem) {
+    public StorageItem saveStorageItem(final String userEmail, final StorageItem storageItem) {
 
-        LOG.debug("Saving storage item: {}", storageItem);
+        LOG.debug("Saving storage item: {} for user: {}", storageItem, userEmail);
 
-        storageItemPersistenceService.saveStorageItem(storageItem);
+        final StorageItem storageItemUpdated = storageItemPersistenceService.saveStorageItem(userEmail, storageItem);
 
-        LOG.debug("Success saving storage items.");
+        LOG.debug("Success saving storage item.");
+
+        return storageItemUpdated;
     }
 
     /**

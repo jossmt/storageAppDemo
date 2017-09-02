@@ -25,15 +25,6 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
     /** Logger. */
     private static final Logger LOG = LoggerFactory.getLogger(StorageItemPersistenceMapper.class);
 
-    /** User persistence model. */
-    private UserPersistenceModel userPersistenceModel;
-
-    /** Sets user model. */
-    private User user;
-
-    /** {@link UserPersistenceMapper}. */
-    private UserPersistenceMapper userPersistenceMapper;
-
     /**
      * {@inheritDoc}
      */
@@ -54,13 +45,6 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
             storageItem.setBrand(storageItemPersistenceModel.getBrand());
             storageItem.setGrade(Grade.valueOf(storageItemPersistenceModel.getGrade()));
             storageItem.setPrice(storageItemPersistenceModel.getPrice());
-
-            if (user != null) {
-                storageItem.setOwner(user);
-            } else if (storageItemPersistenceModel.getUserPersistenceModel() != null) {
-                storageItem.setOwner(userPersistenceMapper.mapFrom(storageItemPersistenceModel
-                                                                           .getUserPersistenceModel()));
-            }
         }
 
         LOG.debug("Mapping storage item domain model to persistence model.");
@@ -94,45 +78,10 @@ public class StorageItemPersistenceMapperHandler implements StorageItemPersisten
                 storageItemPersistenceModel.setGrade(storageItem.getGrade().name());
             }
 
-            if (userPersistenceModel != null) {
-                storageItemPersistenceModel.setUserPersistenceModel(userPersistenceModel);
-            } else if (storageItem.getOwner() != null) {
-                storageItemPersistenceModel.setUserPersistenceModel(userPersistenceMapper.mapTo(storageItem.getOwner
-                        ()));
-            }
-
         }
 
         LOG.debug("Mapping storage item persistence model to domain model.");
 
         return storageItemPersistenceModel;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setUserPersistenceModel(UserPersistenceModel userPersistenceModel) {
-        this.userPersistenceModel = userPersistenceModel;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setUserModel(User userModel) {
-        this.user = userModel;
-    }
-
-
-    /**
-     * Sets new {@link UserPersistenceMapper}..
-     *
-     * @param userPersistenceMapper
-     *         New value of {@link UserPersistenceMapper}..
-     */
-    @Autowired
-    public void setUserPersistenceMapper(final UserPersistenceMapper userPersistenceMapper) {
-        this.userPersistenceMapper = userPersistenceMapper;
     }
 }

@@ -21,10 +21,12 @@ public interface StorageItemService {
     /**
      * Saves a list of storage items.
      *
+     * @param userEmail
+     *         User email.
      * @param storageItem
      *         Storage item list.
      */
-    void saveStorageItem(StorageItem storageItem);
+    StorageItem saveStorageItem(String userEmail, StorageItem storageItem);
 
     /**
      * Returns storage item by unique reference.
