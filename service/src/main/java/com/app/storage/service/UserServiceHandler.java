@@ -3,6 +3,7 @@ package com.app.storage.service;
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.trade.TradingAccount;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.repository.UserRepository;
@@ -126,6 +127,21 @@ public class UserServiceHandler implements UserService {
         LOG.debug("Successfully found user: {}", user);
 
         return user;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<TradingAccount> loadUserTradingAccounts(final String userEmail) {
+
+        LOG.debug("Loading user trading accounts by email: {}", userEmail);
+
+        final List<TradingAccount> tradingAccounts = userPersistenceService.loadUserTradingAccounts(userEmail);
+
+        LOG.debug("Successfully found user trading accounts: {}", tradingAccounts);
+
+        return tradingAccounts;
     }
 
     /**

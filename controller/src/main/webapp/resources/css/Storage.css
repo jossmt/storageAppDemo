@@ -39,6 +39,7 @@
 /* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
+    display:table;
 }
 
 .back p, .back a {
@@ -46,6 +47,17 @@
     text-align: center;
     color: #000000;
     margin-top: 0;
+    vertical-align: middle;
+    display:table-cell;
+}
+
+#selector{
+    display:block;
+}
+
+.front p {
+    font-family: Advent Pro;
+    text-align: center;
 }
 
 #price {
@@ -59,7 +71,8 @@
 
 .list-container {
     display: inline-block;
-    top: 30px;
+    margin: 30px 30px 0px 30px;
+    border: 2px solid #d2b356;
 }
 
 .sellButton {

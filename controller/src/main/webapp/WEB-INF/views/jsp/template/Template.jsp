@@ -54,5 +54,5 @@
 <tiles:insertAttribute name="body"/>
 </body>
 <div id="clearer"></div>
-<tiles:insertAttribute name="footer"/>
+<%--<tiles:insertAttribute name="footer"/>--%>
 </html>

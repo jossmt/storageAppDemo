@@ -2,7 +2,10 @@ package com.app.storage.service;
 
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.trade.TradingAccount;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.List;
 
 /**
  * User service.
@@ -54,6 +57,15 @@ public interface UserService {
      * @return {@link User}
      */
     User loadUserProfile(String userEmail);
+
+    /**
+     * Loads user information by unique email.
+     *
+     * @param userEmail
+     *         Users email.
+     * @return {@link User}
+     */
+    List<TradingAccount> loadUserTradingAccounts(String userEmail);
 
     /**
      * Updates address for given user.

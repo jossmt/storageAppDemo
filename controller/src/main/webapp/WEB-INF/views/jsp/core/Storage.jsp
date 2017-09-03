@@ -18,25 +18,21 @@
                 <c:forEach items="${storageItems}" var="item" varStatus="theCount">
                     <div class="list-container">
                         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                            <div class="flipper">
-                                <div class="front">
-                                    <!-- front content -->
-                                    <span class="logoWrapper">
+                            <a id="selector" href="${pageContext.servletContext.contextPath}/item/${item.reference}">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <!-- front content -->
+                                        <span class="logoWrapper">
                                      <img id="img" height="200px" width="150px" src="${item.imageUrl}"
                                           alt='icon'></span>
+                                        <p id="price"><c:out value="Price: ${item.price}"/></p>
+                                    </div>
+                                    <div class="back">
+                                        <!-- back content -->
+                                        <p><c:out value="Description: ${item.description}"/></p>
+                                    </div>
                                 </div>
-                                <div class="back">
-                                    <!-- back content -->
-                                    <p><c:out value="Brand: ${item.brand}"/></p>
-                                    <p><c:out value="Size: ${item.size}"/></p>
-                                    <p><c:out value="Description: ${item.description}"/></p>
-                                    <p id="price"><c:out value="Price: ${item.price}"/></p>
-                                    <p><c:out value="Grade: ${item.grade}"/></p>
-                                    <a id="selector"
-                                       href="${pageContext.servletContext.contextPath}/item/${item.reference}">View
-                                        Item</a>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </c:forEach>

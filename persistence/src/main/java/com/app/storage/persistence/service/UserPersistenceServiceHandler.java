@@ -2,11 +2,16 @@ package com.app.storage.persistence.service;
 
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.trade.TradingAccount;
 import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
+import com.app.storage.persistence.mapper.constants.AbstractMapper;
+import com.app.storage.persistence.mapper.constants.ListMapper;
+import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.model.trade.TradingAccountPersistenceModel;
 import com.app.storage.persistence.repository.AddressRepository;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
@@ -20,6 +25,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Implementation of {@link UserPersistenceService}
@@ -46,14 +53,21 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
     /** {@link AddressPersistenceMapper} */
     private final AddressPersistenceMapper addressPersistenceMapper;
 
+    /** {@link TradingAccountPersistenceMapper} */
+    private final TradingAccountPersistenceMapper tradingAccountPersistenceMapper;
+
     /** {@link BCryptPasswordEncoder} */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    /** {@link ListMapper}. */
+    private final ListMapper listMapper;
 
     @Autowired
     public UserPersistenceServiceHandler(final UserRepository userRepository, final RoleRepository roleRepository,
                                          final AddressRepository addressRepository,
                                          final UserPersistenceMapper userPersistenceMapper,
                                          final AddressPersistenceMapper addressPersistenceMapper,
+                                         final TradingAccountPersistenceMapper tradingAccountPersistenceMapper,
                                          final BCryptPasswordEncoder bCryptPasswordEncoder) {
 
         this.userRepository = userRepository;
@@ -61,7 +75,10 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         this.addressRepository = addressRepository;
         this.userPersistenceMapper = userPersistenceMapper;
         this.addressPersistenceMapper = addressPersistenceMapper;
+        this.tradingAccountPersistenceMapper = tradingAccountPersistenceMapper;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+
+        listMapper = new ListMapper();
     }
 
     /**
@@ -164,6 +181,29 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         LOG.debug("Successfully found user: {}", user);
 
         return user;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional
+    @Override
+    public List<TradingAccount> loadUserTradingAccounts(final String userEmail) {
+
+        LOG.debug("Loading user trading accounts for {}", userEmail);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        final List<TradingAccountPersistenceModel> tradingAccountPersistenceModels = userPersistenceModel
+                .getTradingAccountPersistenceModelList();
+
+        final List<TradingAccount> tradingAccounts = listMapper.mapList((AbstractMapper)
+                                                                                tradingAccountPersistenceMapper,
+                                                                        false, tradingAccountPersistenceModels);
+
+        LOG.debug("Successfully returning trading accounts: {}", tradingAccounts);
+
+        return tradingAccounts;
     }
 
     /**

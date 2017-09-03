@@ -61,7 +61,7 @@
                         </div>
 
                         <!--Call to Action-->
-                        <a href="#" class="button">START SELLING TODAY</a>
+                        <a href="${pageContext.servletContext.contextPath}/sell" class="button">START SELLING TODAY</a>
                         <!--End Call to Action-->
 
                     </div>

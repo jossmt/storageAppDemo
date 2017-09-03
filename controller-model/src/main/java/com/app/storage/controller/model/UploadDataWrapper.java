@@ -1,11 +1,8 @@
 package com.app.storage.controller.model;
 
-import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.trade.TradingAccount;
 import org.apache.commons.lang.builder.EqualsBuilder;
-
-import java.util.List;
 
 /**
  * Wrapper for user upload data.
@@ -15,22 +12,11 @@ public class UploadDataWrapper {
     /** {@link StorageItem}. */
     private StorageItem storageItem;
 
-    /** {@link Address}. */
-    private Address address;
+    /** Defaults to true for paypal - false=cash on collection */
+    private boolean paymentType = true;
 
     /** {@link TradingAccount}. */
-    private List<TradingAccount> tradingAccounts;
-
-
-    /**
-     * Sets new {@link Address}..
-     *
-     * @param address
-     *         New value of {@link Address}..
-     */
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+    private String[] tradingAccounts;
 
     /**
      * Gets {@link StorageItem}..
@@ -39,25 +25,6 @@ public class UploadDataWrapper {
      */
     public StorageItem getStorageItem() {
         return storageItem;
-    }
-
-    /**
-     * Gets {@link TradingAccount}..
-     *
-     * @return Value of {@link TradingAccount}..
-     */
-    public List<TradingAccount> getTradingAccounts() {
-        return tradingAccounts;
-    }
-
-    /**
-     * Sets new {@link TradingAccount}..
-     *
-     * @param tradingAccounts
-     *         New value of {@link TradingAccount}..
-     */
-    public void setTradingAccounts(List<TradingAccount> tradingAccounts) {
-        this.tradingAccounts = tradingAccounts;
     }
 
     /**
@@ -71,13 +38,43 @@ public class UploadDataWrapper {
     }
 
     /**
-     * Gets {@link Address}..
+     * Sets new {@link TradingAccount}..
      *
-     * @return Value of {@link Address}..
+     * @param tradingAccounts
+     *         New value of {@link TradingAccount}..
      */
-    public Address getAddress() {
-        return address;
+    public void setTradingAccounts(String[] tradingAccounts) {
+        this.tradingAccounts = tradingAccounts;
     }
+
+    /**
+     * Gets {@link TradingAccount}..
+     *
+     * @return Value of {@link TradingAccount}..
+     */
+    public String[] getTradingAccounts() {
+        return tradingAccounts;
+    }
+
+    /**
+     * Sets new Defaults to true for paypal - false=cash on collection.
+     *
+     * @param paymentType
+     *         New value of Defaults to true for paypal - false=cash on collection.
+     */
+    public void setPaymentType(boolean paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    /**
+     * Gets Defaults to true for paypal - false=cash on collection.
+     *
+     * @return Value of Defaults to true for paypal - false=cash on collection.
+     */
+    public boolean getPaymentType() {
+        return paymentType;
+    }
+
 
     /**
      * Equals override.
@@ -95,9 +92,9 @@ public class UploadDataWrapper {
 
         UploadDataWrapper uploadDataWrapper = (UploadDataWrapper) obj;
         return new EqualsBuilder()
-                .append(getAddress(), uploadDataWrapper.getAddress())
                 .append(getStorageItem(), uploadDataWrapper.getStorageItem())
                 .append(getTradingAccounts(), uploadDataWrapper.getTradingAccounts())
+                .append(getPaymentType(), uploadDataWrapper.getPaymentType())
                 .isEquals();
     }
 
@@ -111,7 +108,7 @@ public class UploadDataWrapper {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(address).append(storageItem).append(tradingAccounts);
+        stringBuilder.append(storageItem).append(tradingAccounts).append(getPaymentType());
 
         return stringBuilder.toString();
     }

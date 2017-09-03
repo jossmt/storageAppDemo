@@ -2,7 +2,10 @@ package com.app.storage.persistence.service;
 
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.trade.TradingAccount;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.List;
 
 /**
  * User persistence service.
@@ -44,6 +47,15 @@ public interface UserPersistenceService {
      * @return {@link UserDetails}
      */
     User findUserByEmailLoadProfile(String username);
+
+    /**
+     * Loads user trading accounts that are setup.
+     *
+     * @param userEmail
+     *         User Identifier.
+     * @return list of {@link TradingAccount}
+     */
+    List<TradingAccount> loadUserTradingAccounts(String userEmail);
 
     /**
      * Updates user address.

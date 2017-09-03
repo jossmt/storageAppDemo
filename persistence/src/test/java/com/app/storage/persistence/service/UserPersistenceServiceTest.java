@@ -7,6 +7,7 @@ import com.app.storage.domain.model.payment.CardInformation;
 import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
+import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.model.payment.AddressPersistenceModel;
@@ -55,6 +56,10 @@ public class UserPersistenceServiceTest {
     @Mock
     private AddressPersistenceMapper addressPersistenceMapper;
 
+    /** {@link TradingAccountPersistenceMapper} */
+    @Mock
+    private TradingAccountPersistenceMapper tradingAccountPersistenceMapper;
+
     /** {@link UserPersistenceService}. */
     private UserPersistenceService userPersistenceService;
 
@@ -66,6 +71,7 @@ public class UserPersistenceServiceTest {
         userPersistenceService = new UserPersistenceServiceHandler(userRepository, roleRepository,
                                                                    addressRepository, userPersistenceMapper,
                                                                    addressPersistenceMapper,
+                                                                   tradingAccountPersistenceMapper,
                                                                    bCryptPasswordEncoder);
     }
 

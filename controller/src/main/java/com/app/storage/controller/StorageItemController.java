@@ -4,6 +4,7 @@ import com.app.storage.controller.model.UploadDataWrapper;
 import com.app.storage.domain.model.AddressType;
 import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.trade.TradingAccount;
 import com.app.storage.service.StorageItemService;
 import com.app.storage.service.UserService;
 import org.apache.commons.lang.Validate;
@@ -59,8 +60,11 @@ public class StorageItemController {
      * @return SellSingle.jsp
      */
     @RequestMapping(value = "/sell", method = RequestMethod.GET)
-    public String renderSell(final Model model) {
+    public String renderSell(final Principal principal, final Model model) {
 
+        final List<TradingAccount> tradingAccounts = userService.loadUserTradingAccounts(principal.getName());
+
+        model.addAttribute("tradingAccounts", tradingAccounts);
         model.addAttribute("sellItem", new UploadDataWrapper());
 
         return "sell/SellThing";
@@ -75,7 +79,7 @@ public class StorageItemController {
     public String handleSellItem(final Principal principal, @ModelAttribute("sellItem") final UploadDataWrapper
             uploadDataWrapper, @RequestParam("file") final MultipartFile multipartFile) {
 
-        LOG.debug("Sold item: {}", uploadDataWrapper.toString());
+        LOG.debug("Adding item to Sell {}", uploadDataWrapper.toString());
 
         try {
             uploadDataWrapper.getStorageItem().setImage(multipartFile.getBytes());
@@ -86,10 +90,6 @@ public class StorageItemController {
 
         final StorageItem saveditem = storageItemService.saveStorageItem(principal.getName(), uploadDataWrapper
                 .getStorageItem());
-
-        if (uploadDataWrapper.getAddress() != null) {
-            userService.updateUserAddress(principal.getName(), uploadDataWrapper.getAddress());
-        }
 
         return "redirect:/item/" + saveditem.getReference();
     }
