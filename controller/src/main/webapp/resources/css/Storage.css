@@ -80,13 +80,15 @@
     height: 40px;
     width: 130px;
     text-align: center;
-    background-color: #F32C52;
+    background-color: #2764eb;
     font-size: 16px;
     color: white;
-    border-radius: 8px;
+    border-radius: 1px;
     padding: 0;
     border: none;
     text-decoration: none;
+    margin-top:15px;
+    margin-right:30px;
 }
 
 .sellButton span {

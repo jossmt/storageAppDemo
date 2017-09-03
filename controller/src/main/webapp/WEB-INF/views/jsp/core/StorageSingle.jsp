@@ -13,7 +13,7 @@
         <div class="singleitem-container">
             <div class="imageholder">
                 <span class="logoWrapper">
-                    <img id="img" height="500px" width="400px" src="${storageItem.imageUrl}"
+                    <img id="img" height="100%" src="${storageItem.imageUrl}"
                          alt='icon'></span>
             </div>
 
@@ -22,12 +22,12 @@
                 <p>Brand: ${storageItem.brand}</p>
                 <p>Size: ${storageItem.size}</p>
                 <p>Description: ${storageItem.description}</p>
-                <p id="price">Price: ${storageItem.price}</p>
                 <p>Grade: ${storageItem.grade}</p>
+                <p id="price">Price: ${storageItem.price}</p>
 
                 <form:form action="${pageContext.servletContext.contextPath}/addToBasket">
                     <input name="uniqueRef" type="hidden" value="${storageItem.reference}">
-                    <button type="submit">Add to Basket</button>
+                    <button id="addToBasketButton" type="submit">Add to Basket</button>
                 </form:form>
 
             </div>

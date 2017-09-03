@@ -6,10 +6,6 @@
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <div class="lowerNav">
-            <a class="sellButton" href="${pageContext.servletContext.contextPath}/sell"><span>Sell Something</span></a>
-        </div>
-
         <c:choose>
             <c:when test="${empty storageItems}">
                 <h1>You have not yet uploaded any items..</h1>
@@ -29,7 +25,7 @@
                                     </div>
                                     <div class="back">
                                         <!-- back content -->
-                                        <p><c:out value="Description: ${item.description}"/></p>
+                                        <p><c:out value="${item.description}"/></p>
                                     </div>
                                 </div>
                             </a>

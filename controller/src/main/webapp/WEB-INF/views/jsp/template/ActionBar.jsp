@@ -24,11 +24,12 @@
     </div>
     <div class="home">
         <ul>
+            <a id="howitworksnav" href="${pageContext.servletContext.contextPath}/home">Home</a>
             <a id="discovernav" href="${pageContext.servletContext.contextPath}/discover">Discover</a>
-            <a id="howitworksnav" href="${pageContext.servletContext.contextPath}/home">How selling works?</a>
             <c:choose>
                 <c:when test="${loggedIn}">
                     <a href="${pageContext.servletContext.contextPath}/myItems">My Items</a>
+                    <a href="${pageContext.servletContext.contextPath}/sell">Sell</a>
                 </c:when>
             </c:choose>
             <a id="basketnav" href="${pageContext.servletContext.contextPath}/basket">Basket</a>

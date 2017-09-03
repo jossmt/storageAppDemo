@@ -28,12 +28,12 @@
 
                             <div class="detailsholder">
 
-                                <p>Description: ${item.description}</p>
+                                <p>${item.description}</p>
                                 <p id="price">Price: ${item.price}</p>
 
                                 <form:form action="${pageContext.servletContext.contextPath}/removeFromBasket">
                                     <input name="uniqueRef" type="hidden" value="${item.reference}">
-                                    <button type="submit">Remove</button>
+                                    <button id="removeButton" type="submit">Remove</button>
                                 </form:form>
 
                             </div>
@@ -48,7 +48,7 @@
             <h3>Total price: ${totalPrice}</h3>
 
             <form:form method="get" action="${pageContext.servletContext.contextPath}/checkout">
-                <button type="submit">Check Out</button>
+                <button id="checkoutButton" type="submit">Check Out</button>
             </form:form>
         </div>
     </tiles:putAttribute>

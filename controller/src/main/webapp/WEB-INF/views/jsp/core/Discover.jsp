@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="back">
                                         <!-- back content -->
-                                        <p><c:out value="Description: ${item.description}"/></p>
+                                        <p><c:out value="${item.description}"/></p>
                                     </div>
                                 </div>
                             </a>
