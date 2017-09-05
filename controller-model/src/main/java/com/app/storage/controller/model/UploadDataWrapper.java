@@ -1,6 +1,6 @@
 package com.app.storage.controller.model;
 
-import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.listing.ItemListing;
 import com.app.storage.domain.model.trade.TradingAccount;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
@@ -9,8 +9,8 @@ import org.apache.commons.lang.builder.EqualsBuilder;
  */
 public class UploadDataWrapper {
 
-    /** {@link StorageItem}. */
-    private StorageItem storageItem;
+    /** {@link ItemListing}. */
+    private ItemListing itemListing;
 
     /** Defaults to true for paypal - false=cash on collection */
     private boolean paymentType = true;
@@ -19,22 +19,22 @@ public class UploadDataWrapper {
     private String[] tradingAccounts;
 
     /**
-     * Gets {@link StorageItem}..
+     * Gets {@link ItemListing}..
      *
-     * @return Value of {@link StorageItem}..
+     * @return Value of {@link ItemListing}..
      */
-    public StorageItem getStorageItem() {
-        return storageItem;
+    public ItemListing getItemListing() {
+        return itemListing;
     }
 
     /**
-     * Sets new {@link StorageItem}..
+     * Sets new {@link ItemListing}..
      *
-     * @param storageItem
-     *         New value of {@link StorageItem}..
+     * @param itemListing
+     *         New value of {@link ItemListing}..
      */
-    public void setStorageItem(StorageItem storageItem) {
-        this.storageItem = storageItem;
+    public void setItemListing(ItemListing itemListing) {
+        this.itemListing = itemListing;
     }
 
     /**
@@ -92,7 +92,7 @@ public class UploadDataWrapper {
 
         UploadDataWrapper uploadDataWrapper = (UploadDataWrapper) obj;
         return new EqualsBuilder()
-                .append(getStorageItem(), uploadDataWrapper.getStorageItem())
+                .append(getItemListing(), uploadDataWrapper.getItemListing())
                 .append(getTradingAccounts(), uploadDataWrapper.getTradingAccounts())
                 .append(getPaymentType(), uploadDataWrapper.getPaymentType())
                 .isEquals();
@@ -108,7 +108,7 @@ public class UploadDataWrapper {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(storageItem).append(tradingAccounts).append(getPaymentType());
+        stringBuilder.append(itemListing).append(tradingAccounts).append(getPaymentType());
 
         return stringBuilder.toString();
     }

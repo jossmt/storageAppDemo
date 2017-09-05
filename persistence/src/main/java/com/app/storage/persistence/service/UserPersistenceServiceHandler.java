@@ -9,8 +9,8 @@ import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
 import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.UserPersistenceModel;
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
-import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
+import com.app.storage.persistence.model.payment.PaymentInformationPersistenceModel;
 import com.app.storage.persistence.model.trade.TradingAccountPersistenceModel;
 import com.app.storage.persistence.repository.AddressRepository;
 import com.app.storage.persistence.repository.RoleRepository;
@@ -145,9 +145,9 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
 
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
 
-        Hibernate.initialize(userPersistenceModel.getStorageItemPersistenceModelList());
+        Hibernate.initialize(userPersistenceModel.getItemListingPersistenceModelList());
 
-        LOG.debug("User stored items: {}", userPersistenceModel.getStorageItemPersistenceModelList());
+        LOG.debug("User stored items: {}", userPersistenceModel.getItemListingPersistenceModelList());
 
         final User user = userPersistenceMapper.mapFrom(userPersistenceModel);
 
@@ -171,10 +171,11 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
 
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
 
-        Hibernate.initialize(userPersistenceModel.getAddressPersistenceModel());
-        Hibernate.initialize(userPersistenceModel.getCardInformationPersistenceModels());
+        Hibernate.initialize(userPersistenceModel.getAddressPersistenceModels());
+        Hibernate.initialize(userPersistenceModel.getPaymentInformationPersistenceModel());
+        Hibernate.initialize(userPersistenceModel.getTradingAccountPersistenceModelList());
 
-        LOG.debug("User stored items: {}", userPersistenceModel.getStorageItemPersistenceModelList());
+        LOG.debug("User stored items: {}", userPersistenceModel.getItemListingPersistenceModelList());
 
         final User user = userPersistenceMapper.mapFrom(userPersistenceModel);
 
@@ -215,11 +216,17 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
      */
     private UserPersistenceModel updateChildObjectReferences(final UserPersistenceModel userPersistenceModel) {
 
-        userPersistenceModel.getAddressPersistenceModel().setUserPersistenceModel(userPersistenceModel);
+        LOG.debug("Updating child object references to owner");
+        if (userPersistenceModel.getAddressPersistenceModels() != null) {
+            for (final AddressPersistenceModel addressPersistenceModel : userPersistenceModel
+                    .getAddressPersistenceModels()) {
+                addressPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+            }
+        }
 
-        for (final CardInformationPersistenceModel cardInformationPersistenceModel : userPersistenceModel
-                .getCardInformationPersistenceModels()) {
-            cardInformationPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+        if (userPersistenceModel.getPaymentInformationPersistenceModel() != null) {
+
+            userPersistenceModel.getPaymentInformationPersistenceModel().setUserPersistenceModel(userPersistenceModel);
         }
 
         return userPersistenceModel;

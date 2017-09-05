@@ -1,11 +1,7 @@
 package com.app.storage.persistence.mapper;
 
-import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
-import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
-
-import java.util.List;
 
 /**
  * User persistence mapper.

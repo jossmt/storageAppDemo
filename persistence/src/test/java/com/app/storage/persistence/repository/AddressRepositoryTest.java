@@ -1,7 +1,7 @@
 package com.app.storage.persistence.repository;
 
 import com.app.storage.persistence.model.UserPersistenceModel;
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +38,7 @@ public class AddressRepositoryTest {
         addressPersistenceModel.setPostCode("postcode");
         addressPersistenceModel.setStreetAddress("street address");
         addressPersistenceModel.setAddressType("BILLING");
+        addressPersistenceModel.setDefault(false);
         addressPersistenceModel.setUserPersistenceModel(userPersistenceModel);
 
         //Test

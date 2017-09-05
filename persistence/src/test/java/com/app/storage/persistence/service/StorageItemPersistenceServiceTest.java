@@ -1,9 +1,9 @@
 //package com.app.storage.persistence.service;
 //
-//import com.app.storage.domain.model.StorageItem;
-//import com.app.storage.persistence.mapper.StorageItemPersistenceMapper;
+//import com.app.storage.domain.model.ItemListing;
+//import com.app.storage.persistence.mapper.ItemListingPersistenceMapper;
 //import com.app.storage.persistence.mapper.constants.ListMapper;
-//import com.app.storage.persistence.model.StorageItemPersistenceModel;
+//import com.app.storage.persistence.model.ItemListingPersistenceModel;
 //import com.app.storage.persistence.repository.StorageItemRepository;
 //import org.joda.time.DateTime;
 //import org.junit.Assert;
@@ -18,7 +18,7 @@
 //import java.util.List;
 //
 ///**
-// * Test for {@link StorageItemPersistenceService}
+// * Test for {@link ItemListingPersistenceService}
 // */
 //@RunWith(MockitoJUnitRunner.class)
 //public class StorageItemPersistenceServiceTest {
@@ -27,15 +27,15 @@
 //    @Mock
 //    private StorageItemRepository storageItemRepository;
 //
-//    /** {@link StorageItemPersistenceMapper}. */
+//    /** {@link ItemListingPersistenceMapper}. */
 //    @Mock
-//    private StorageItemPersistenceMapper storageItemPersistenceMapper;
+//    private ItemListingPersistenceMapper storageItemPersistenceMapper;
 //
 //    /** {@link ListMapper}. */
 //    private ListMapper listMapper;
 //
-//    /** {@link StorageItemPersistenceService}. */
-//    private StorageItemPersistenceService storageItemPersistenceService;
+//    /** {@link ItemListingPersistenceService}. */
+//    private ItemListingPersistenceService storageItemPersistenceService;
 //
 //    /**
 //     * Setup.
@@ -43,7 +43,7 @@
 //    @Before
 //    public void setup() {
 //        listMapper = new ListMapper();
-//        storageItemPersistenceService = new StorageItemPersistenceServiceHandler(storageItemPersistenceMapper,
+//        storageItemPersistenceService = new ItemListingPersistenceServiceHandler(storageItemPersistenceMapper,
 //                                                                                 storageItemRepository, listMapper);
 //    }
 //
@@ -54,13 +54,13 @@
 //    public void saveStorageItemsTest() {
 //
 //        //Setup
-//        final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+//        final ItemListingPersistenceModel storageItemPersistenceModel = new ItemListingPersistenceModel();
 //        storageItemPersistenceModel.setDescription("Name");
 //        storageItemPersistenceModel.setSize("Size");
 //        storageItemPersistenceModel.setId(1l);
 //        storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
 //
-//        final StorageItem storageItem = new StorageItem();
+//        final ItemListing storageItem = new ItemListing();
 //        storageItem.setDescription(storageItemPersistenceModel.getDescription());
 //        storageItem.setSize(storageItemPersistenceModel.getSize());
 //        storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -86,13 +86,13 @@
 //    public void retrieveAllStorageItemsTest() {
 //
 //        //Setup
-//        final StorageItemPersistenceModel storageItemPersistenceModel = new StorageItemPersistenceModel();
+//        final ItemListingPersistenceModel storageItemPersistenceModel = new ItemListingPersistenceModel();
 //        storageItemPersistenceModel.setDescription("Name");
 //        storageItemPersistenceModel.setSize("Size");
 //        storageItemPersistenceModel.setId(1l);
 //        storageItemPersistenceModel.setImage(new byte[]{1, 0, 1});
 //
-//        final StorageItem storageItem = new StorageItem();
+//        final ItemListing storageItem = new ItemListing();
 //        storageItem.setDescription(storageItemPersistenceModel.getDescription());
 //        storageItem.setSize(storageItemPersistenceModel.getSize());
 //        storageItem.setImage(storageItemPersistenceModel.getImage());
@@ -103,7 +103,7 @@
 //        Mockito.when(storageItemRepository.findAll()).thenReturn(Arrays.asList(storageItemPersistenceModel));
 //
 //        //Test
-//        final List<StorageItem> storageItems = storageItemPersistenceService.retrieveAllStorageItems();
+//        final List<ItemListing> storageItems = storageItemPersistenceService.retrieveAllStorageItems();
 //
 //        //Verify
 //        Mockito.verify(storageItemPersistenceMapper).mapFrom(storageItemPersistenceModel);

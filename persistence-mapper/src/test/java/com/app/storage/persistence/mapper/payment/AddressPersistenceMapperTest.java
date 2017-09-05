@@ -4,7 +4,7 @@ import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.AddressType;
 import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.AddressPersistenceMapperHandler;
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

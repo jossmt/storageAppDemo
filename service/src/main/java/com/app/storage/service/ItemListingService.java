@@ -1,41 +1,40 @@
 package com.app.storage.service;
 
-import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.listing.ItemListing;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
 /**
  * Storage item service.
  */
-public interface StorageItemService {
+public interface ItemListingService {
 
     /**
      * Returns all storage items.
      *
-     * @return StorageItem.
+     * @return ItemListing.
      */
-    List<StorageItem> retrieveAllStorageItems();
+    List<ItemListing> retrieveAllStorageItems();
 
     /**
      * Saves a list of storage items.
      *
      * @param userEmail
      *         User email.
-     * @param storageItem
+     * @param itemListing
      *         Storage item list.
      */
-    StorageItem saveStorageItem(String userEmail, StorageItem storageItem);
+    ItemListing saveStorageItem(String userEmail, ItemListing itemListing);
 
     /**
      * Returns storage item by unique reference.
      *
      * @param reference
      *         Unique reference.
-     * @return {@link StorageItem}
+     * @return {@link ItemListing}
      */
-    StorageItem findStorageItemByReference(String reference);
+    ItemListing findStorageItemByReference(String reference);
 
     /**
      * Calculates total price of basket items.
@@ -44,5 +43,5 @@ public interface StorageItemService {
      *         Items user added to basket.
      * @return
      */
-    Double calculateTotalPrice(Set<StorageItem> basketItems);
+    Double calculateTotalPrice(Set<ItemListing> basketItems);
 }

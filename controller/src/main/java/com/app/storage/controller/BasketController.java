@@ -1,7 +1,7 @@
 package com.app.storage.controller;
 
-import com.app.storage.domain.model.StorageItem;
-import com.app.storage.service.StorageItemService;
+import com.app.storage.domain.model.listing.ItemListing;
+import com.app.storage.service.ItemListingService;
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,23 +20,23 @@ import java.util.*;
 public class BasketController {
 
     /** Logger. */
-    private static final Logger LOG = LoggerFactory.getLogger(StorageItemController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemListingController.class);
 
-    /** {@link StorageItemService} */
-    private final StorageItemService storageItemService;
+    /** {@link ItemListingService} */
+    private final ItemListingService itemListingService;
 
-    /** List of {@link StorageItem} added to basket. */
-    private final Set<StorageItem> basketSet = new LinkedHashSet<>();
+    /** List of {@link ItemListing} added to basket. */
+    private final Set<ItemListing> basketSet = new LinkedHashSet<>();
 
     /**
      * Constructor.
      *
-     * @param storageItemService
+     * @param itemListingService
      *         Storage item service.
      */
     @Autowired
-    public BasketController(final StorageItemService storageItemService) {
-        this.storageItemService = storageItemService;
+    public BasketController(final ItemListingService itemListingService) {
+        this.itemListingService = itemListingService;
     }
 
     /**
@@ -50,11 +50,11 @@ public class BasketController {
 
         final ModelAndView modelAndView = new ModelAndView();
 
-        final StorageItem storageItem = storageItemService.findStorageItemByReference(uniqueRef);
+        final ItemListing itemListing = itemListingService.findStorageItemByReference(uniqueRef);
 
-        basketSet.add(storageItem);
+        basketSet.add(itemListing);
 
-        LOG.debug("Appended item: {}", storageItem);
+        LOG.debug("Appended item: {}", itemListing);
 
         modelAndView.setViewName("redirect:/basket");
 
@@ -89,7 +89,7 @@ public class BasketController {
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public ModelAndView renderBasket() {
 
-        final Double totalPrice = storageItemService.calculateTotalPrice(basketSet);
+        final Double totalPrice = itemListingService.calculateTotalPrice(basketSet);
 
         final ModelAndView modelAndView = new ModelAndView();
 
@@ -112,10 +112,10 @@ public class BasketController {
 
         final Integer basketSize = basketSet.size();
 
-        for (final StorageItem storageItem : basketSet) {
+        for (final ItemListing itemListing : basketSet) {
 
-            if (storageItem.getReference().equals(uniqueRef)) {
-                basketSet.remove(storageItem);
+            if (itemListing.getReference().equals(uniqueRef)) {
+                basketSet.remove(itemListing);
                 break;
             }
         }
@@ -124,11 +124,11 @@ public class BasketController {
     }
 
     /**
-     * Gets List of {@link StorageItem} added to basket..
+     * Gets List of {@link ItemListing} added to basket..
      *
-     * @return Value of List of {@link StorageItem} added to basket..
+     * @return Value of List of {@link ItemListing} added to basket..
      */
-    public Set<StorageItem> getBasketSet() {
+    public Set<ItemListing> getBasketSet() {
         return basketSet;
     }
 }

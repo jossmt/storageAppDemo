@@ -1,7 +1,7 @@
 package com.app.storage.controller;
 
 import com.app.storage.domain.model.payment.PaymentTransaction;
-import com.app.storage.service.StorageItemService;
+import com.app.storage.service.ItemListingService;
 import com.app.storage.service.payment.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -27,8 +26,8 @@ public class CheckoutController {
     /** {@link BasketController}. */
     private final BasketController basketController;
 
-    /** {@link StorageItemService}. */
-    private final StorageItemService storageItemService;
+    /** {@link ItemListingService}. */
+    private final ItemListingService itemListingService;
 
     /** {@link PaymentService}. */
     private final PaymentService paymentService;
@@ -38,14 +37,14 @@ public class CheckoutController {
      *
      * @param basketController
      *         {@link BasketController}
-     * @param storageItemService
+     * @param itemListingService
      *         {@link BasketController}
      */
     public CheckoutController(final BasketController basketController,
-                              final StorageItemService storageItemService,
+                              final ItemListingService itemListingService,
                               final PaymentService paymentService) {
         this.basketController = basketController;
-        this.storageItemService = storageItemService;
+        this.itemListingService = itemListingService;
         this.paymentService = paymentService;
     }
 
@@ -59,7 +58,7 @@ public class CheckoutController {
 
         paymentService.initialiseGateway();
 
-        final Double totalPrice = storageItemService.calculateTotalPrice(basketController.getBasketSet());
+        final Double totalPrice = itemListingService.calculateTotalPrice(basketController.getBasketSet());
 
         final ModelAndView modelAndView = new ModelAndView();
 

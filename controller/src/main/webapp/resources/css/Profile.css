@@ -1,62 +1,69 @@
-.profile-data h3 {
-    font-size: 30px;
-    font-family: Advent Pro;
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.profile-data-set .title{
+    color:black;
+    font-size:25px;
+    font-family:montserrat, arial, verdana;
+    margin-top:40px;
 }
 
-.profile-data {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: auto 100px;
-    grid-template-rows: 30px;
-    grid-template-areas: "a b" "c d" "e f" "g h" "i j";
-    background: #ffbc0e;
-    text-align: center;
+.profile-data-set .minortitle{
+    color:black;
+    font-size:20px;
+    font-family:montserrat, arial, verdana;
+    margin-top:10px;
 }
 
-.grida {
-    grid-area: a;
+.profile-data-set h3{
+    color:lightgrey;
+    font-size:15px;
+    font-family:Poppins;
 }
 
-.gridb {
-    grid-area: b;
+.profile-container{
+    position: relative;
 }
 
-.gridc {
-    grid-area: c;
+.profile-data, .profile-img-container img{
+    display: inline-block;
 }
 
-.gridd {
-    grid-area: d;
+.profile-data-set{
+    margin-left:20px;
+    margin-top:20px;
+    display: table;
+}
+.profile-data-set h3, profile-data-set span{
+    display: table-cell;
 }
 
-.gride {
-    grid-area: e;
+.profile-data-set span{
+    position: absolute;
+    right:45%;
 }
 
-.gridf {
-    grid-area: f;
+.profile-img-container{
+    width:40%;
+    float:right;
 }
 
-.gridg {
-    grid-area: g;
+.profile-data-set a {
+    color: #d2b356;
+    padding: 6px 8px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: Poppins;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #d2b356;
+    background-color:white;
+    margin-right:20px;
+    margin-top:30px;
+    cursor:pointer;
 }
 
-.gridh {
-    grid-area: h;
-}
-
-.gridi {
-    grid-area: i;
-}
-
-.gridj {
-    grid-area: j;
-}
-
-.gridk {
-    grid-area: k;
-}
-
-.gridl {
-    grid-area: l;
+.tradeIcon{
+    left:25px;
+    height:20px;
+    width:30px;
 }

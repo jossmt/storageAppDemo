@@ -1,5 +1,6 @@
-package com.app.storage.domain.model;
+package com.app.storage.domain.model.listing;
 
+import com.app.storage.domain.model.Grade;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 import java.util.Date;
@@ -7,7 +8,7 @@ import java.util.Date;
 /**
  * Storage item.
  */
-public class StorageItem {
+public class ItemListing {
 
     /** Unique reference code. */
     private String reference;
@@ -35,6 +36,12 @@ public class StorageItem {
 
     /** URl represenation of image. */
     private String imageUrl;
+
+    /** {@link DeliveryType}. */
+    private DeliveryType deliveryType;
+
+    /** Delivery charge. */
+    private Double deliveryCharge;
 
     /**
      * Gets Image taken of item..
@@ -208,6 +215,44 @@ public class StorageItem {
     }
 
     /**
+     * Gets {@link DeliveryType}..
+     *
+     * @return Value of {@link DeliveryType}..
+     */
+    public DeliveryType getDeliveryType() {
+        return deliveryType;
+    }
+
+    /**
+     * Sets new {@link DeliveryType}..
+     *
+     * @param deliveryType
+     *         New value of {@link DeliveryType}..
+     */
+    public void setDeliveryType(DeliveryType deliveryType) {
+        this.deliveryType = deliveryType;
+    }
+
+    /**
+     * Sets new Delivery charge..
+     *
+     * @param deliveryCharge
+     *         New value of Delivery charge..
+     */
+    public void setDeliveryCharge(Double deliveryCharge) {
+        this.deliveryCharge = deliveryCharge;
+    }
+
+    /**
+     * Gets Delivery charge..
+     *
+     * @return Value of Delivery charge..
+     */
+    public Double getDeliveryCharge() {
+        return deliveryCharge;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -216,22 +261,24 @@ public class StorageItem {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (!(obj instanceof StorageItem))
+        if (!(obj instanceof ItemListing))
             return false;
         if (obj == this)
             return true;
 
-        StorageItem storageItem = (StorageItem) obj;
+        ItemListing itemListing = (ItemListing) obj;
         return new EqualsBuilder()
-                .append(getReference(), storageItem.getReference())
-                .append(getDateStored(), storageItem.getDateStored())
-                .append(getDescription(), storageItem.getDescription())
-                .append(getSize(), storageItem.getSize())
-                .append(getImage(), storageItem.getImage())
-                .append(getImageUrl(), storageItem.getImageUrl())
-                .append(getBrand(), storageItem.getBrand())
-                .append(getGrade(), storageItem.getGrade())
-                .append(getPrice(), storageItem.getPrice())
+                .append(getReference(), itemListing.getReference())
+                .append(getDateStored(), itemListing.getDateStored())
+                .append(getDescription(), itemListing.getDescription())
+                .append(getSize(), itemListing.getSize())
+                .append(getImage(), itemListing.getImage())
+                .append(getImageUrl(), itemListing.getImageUrl())
+                .append(getBrand(), itemListing.getBrand())
+                .append(getGrade(), itemListing.getGrade())
+                .append(getPrice(), itemListing.getPrice())
+                .append(getDeliveryType(), itemListing.getDeliveryType())
+                .append(getDeliveryCharge(), itemListing.getDeliveryCharge())
                 .isEquals();
     }
 
@@ -245,8 +292,8 @@ public class StorageItem {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(reference).append(description).append(size).append(dateStored).append(image).append
-                (imageUrl).append(brand).append(grade).append(price);
+        stringBuilder.append(reference).append(description).append(size).append(dateStored).append(brand).append
+                (grade).append(price).append(deliveryType).append(deliveryCharge);
 
         return stringBuilder.toString();
     }

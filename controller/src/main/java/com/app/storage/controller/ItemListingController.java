@@ -1,11 +1,10 @@
 package com.app.storage.controller;
 
 import com.app.storage.controller.model.UploadDataWrapper;
-import com.app.storage.domain.model.AddressType;
-import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.listing.ItemListing;
 import com.app.storage.domain.model.User;
 import com.app.storage.domain.model.trade.TradingAccount;
-import com.app.storage.service.StorageItemService;
+import com.app.storage.service.ItemListingService;
 import com.app.storage.service.UserService;
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
@@ -28,13 +27,13 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/")
-public class StorageItemController {
+public class ItemListingController {
 
     /** Logger. */
-    private static final Logger LOG = LoggerFactory.getLogger(StorageItemController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemListingController.class);
 
-    /** {@link StorageItemService} */
-    private final StorageItemService storageItemService;
+    /** {@link ItemListingService} */
+    private final ItemListingService itemListingService;
 
     /** {@link UserService} */
     private final UserService userService;
@@ -42,15 +41,15 @@ public class StorageItemController {
     /**
      * Constructor.
      *
-     * @param storageItemService
+     * @param itemListingService
      *         Storage item service.
      * @param userService
      *         User service.
      */
     @Autowired
-    public StorageItemController(final StorageItemService storageItemService,
+    public ItemListingController(final ItemListingService itemListingService,
                                  final UserService userService) {
-        this.storageItemService = storageItemService;
+        this.itemListingService = itemListingService;
         this.userService = userService;
     }
 
@@ -82,14 +81,14 @@ public class StorageItemController {
         LOG.debug("Adding item to Sell {}", uploadDataWrapper.toString());
 
         try {
-            uploadDataWrapper.getStorageItem().setImage(multipartFile.getBytes());
+            uploadDataWrapper.getItemListing().setImage(multipartFile.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
             LOG.error("Unable to load image provided");
         }
 
-        final StorageItem saveditem = storageItemService.saveStorageItem(principal.getName(), uploadDataWrapper
-                .getStorageItem());
+        final ItemListing saveditem = itemListingService.saveStorageItem(principal.getName(), uploadDataWrapper
+                .getItemListing());
 
         return "redirect:/item/" + saveditem.getReference();
     }
@@ -105,12 +104,12 @@ public class StorageItemController {
 
         final ModelAndView modelAndView = new ModelAndView();
 
-        final StorageItem storageItem = storageItemService.findStorageItemByReference(reference);
+        final ItemListing itemListing = itemListingService.findStorageItemByReference(reference);
 
-        LOG.debug("Successfully returned storage item {} with reference {}.", storageItem, reference);
+        LOG.debug("Successfully returned storage item {} with reference {}.", itemListing, reference);
 
         modelAndView.setViewName("core/StorageSingle");
-        modelAndView.addObject("storageItem", storageItem);
+        modelAndView.addObject("itemListing", itemListing);
 
         return modelAndView;
     }
@@ -126,12 +125,12 @@ public class StorageItemController {
 
         final ModelAndView modelAndView = new ModelAndView();
 
-        final List<StorageItem> storageItems = storageItemService.retrieveAllStorageItems();
+        final List<ItemListing> itemListings = itemListingService.retrieveAllStorageItems();
 
-        LOG.debug("Successfully returned all stored items: {}.", storageItems);
+        LOG.debug("Successfully returned all stored items: {}.", itemListings);
 
         modelAndView.setViewName("core/Discover");
-        modelAndView.addObject("storageItems", storageItems);
+        modelAndView.addObject("itemListings", itemListings);
 
         return modelAndView;
     }
@@ -155,11 +154,11 @@ public class StorageItemController {
 
         final User user = userService.loadUserStorage(userDetails.getUsername());
 
-        LOG.debug("Successfully returned all stored items: {} for user: {}.", user.getStorageItems(), user
+        LOG.debug("Successfully returned all stored items: {} for user: {}.", user.getItemListings(), user
                 .getFirstName());
 
         modelAndView.setViewName("core/Storage");
-        modelAndView.addObject("storageItems", user.getStorageItems());
+        modelAndView.addObject("itemListings", user.getItemListings());
 
         return modelAndView;
     }

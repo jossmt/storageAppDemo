@@ -1,4 +1,4 @@
-<%@ page import="com.app.storage.domain.model.StorageItem" %>
+<%@ page import="com.app.storage.domain.model.listing.ItemListing" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -39,17 +39,17 @@
                             </div>
                         </div>
                     </c:forEach>
+
+                    <div class="checkout">
+
+                        <h3>Total price: ${totalPrice}</h3>
+
+                        <form:form method="get" action="${pageContext.servletContext.contextPath}/checkout">
+                            <button id="checkoutButton" type="submit">Check Out</button>
+                        </form:form>
+                    </div>
                 </c:otherwise>
             </c:choose>
-        </div>
-
-        <div class="checkout">
-
-            <h3>Total price: ${totalPrice}</h3>
-
-            <form:form method="get" action="${pageContext.servletContext.contextPath}/checkout">
-                <button id="checkoutButton" type="submit">Check Out</button>
-            </form:form>
         </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>

@@ -25,7 +25,7 @@ public class Base64ImageEncoder {
 
         final String imageUrl = "data:image/png;base64," + Base64.encode(image);
 
-        LOG.debug("Successfully encoded image returning url: {}", imageUrl);
+        LOG.debug("Successfully encoded image");
 
         return imageUrl;
     }

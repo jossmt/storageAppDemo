@@ -6,7 +6,7 @@
 }
 
 .singleitem-container h1{
-    margin-top:15px;
+    margin-top:40px;
     font-family:montserrat;
     font-size:20px;
 }
@@ -16,7 +16,7 @@
 }
 
 .detailsholder p{
-    font-family:Advent Pro;
+    font-family:montserrat;
 }
 
 #price {
@@ -58,5 +58,6 @@
 
 .checkout h3{
     color:red;
-    font-family:Advent Pro;
+    font-family:montserrat;
+    margin-right:30px;
 }

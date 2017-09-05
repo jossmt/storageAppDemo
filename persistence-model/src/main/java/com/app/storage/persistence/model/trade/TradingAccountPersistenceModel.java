@@ -1,6 +1,6 @@
 package com.app.storage.persistence.model.trade;
 
-import com.app.storage.persistence.model.StorageItemPersistenceModel;
+import com.app.storage.persistence.model.ItemListingPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
@@ -33,10 +33,10 @@ public class TradingAccountPersistenceModel {
     private String accountPassword;
 
     /** User role privileges. */
-    @JoinTable(name = "TradingAccount_StorageItem", joinColumns = @JoinColumn(name = "trading_id"),
+    @JoinTable(name = "TradingAccount_ItemListing", joinColumns = @JoinColumn(name = "trading_id"),
             inverseJoinColumns = @JoinColumn(name = "storage_id"))
     @ManyToMany(fetch = FetchType.LAZY)
-    private List<StorageItemPersistenceModel> storageItemPersistenceModels;
+    private List<ItemListingPersistenceModel> itemListingPersistenceModels;
 
     /** Owner foreign key reference. */
     @ManyToOne(fetch = FetchType.EAGER)
@@ -124,18 +124,18 @@ public class TradingAccountPersistenceModel {
      *
      * @return Value of User role privileges..
      */
-    public List<StorageItemPersistenceModel> getStorageItemPersistenceModels() {
-        return storageItemPersistenceModels;
+    public List<ItemListingPersistenceModel> getItemListingPersistenceModels() {
+        return itemListingPersistenceModels;
     }
 
     /**
      * Sets new User role privileges..
      *
-     * @param storageItemPersistenceModels
+     * @param itemListingPersistenceModels
      *         New value of User role privileges..
      */
-    public void setStorageItemPersistenceModels(List<StorageItemPersistenceModel> storageItemPersistenceModels) {
-        this.storageItemPersistenceModels = storageItemPersistenceModels;
+    public void setItemListingPersistenceModels(List<ItemListingPersistenceModel> itemListingPersistenceModels) {
+        this.itemListingPersistenceModels = itemListingPersistenceModels;
     }
 
     /**

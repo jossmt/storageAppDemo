@@ -10,7 +10,7 @@
 
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
-        <form:form method="POST" modelAttribute="storageItem" enctype="multipart/form-data">
+        <form:form method="POST" modelAttribute="itemListing" enctype="multipart/form-data">
             <div class="imgcontainer">
                 <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
             </div>

@@ -1,6 +1,5 @@
 package com.app.storage.persistence.model;
 
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 import javax.persistence.*;
@@ -11,8 +10,8 @@ import java.util.Date;
  * Users photo storage persistence model.
  */
 @Entity
-@Table(name = "StorageItem")
-public class StorageItemPersistenceModel {
+@Table(name = "ItemListing")
+public class ItemListingPersistenceModel {
 
     /** Reference identifier. */
     @Id
@@ -50,6 +49,14 @@ public class StorageItemPersistenceModel {
     /** Image taken of item. */
     @Column(name = "Image")
     private byte[] image;
+
+    /** Delivery charge. */
+    @Column(name = "DeliveryCharge")
+    private Double deliveryCharge;
+
+    /** Delivery type. */
+    @Column(name = "DeliveryType")
+    private String deliveryType;
 
     /** Owner foreign key reference. */
     @ManyToOne(fetch = FetchType.EAGER)
@@ -248,6 +255,44 @@ public class StorageItemPersistenceModel {
     }
 
     /**
+     * Sets new Delivery type..
+     *
+     * @param deliveryType
+     *         New value of Delivery type..
+     */
+    public void setDeliveryType(String deliveryType) {
+        this.deliveryType = deliveryType;
+    }
+
+    /**
+     * Gets Delivery type..
+     *
+     * @return Value of Delivery type..
+     */
+    public String getDeliveryType() {
+        return deliveryType;
+    }
+
+    /**
+     * Sets new Delivery charge..
+     *
+     * @param deliveryCharge
+     *         New value of Delivery charge..
+     */
+    public void setDeliveryCharge(Double deliveryCharge) {
+        this.deliveryCharge = deliveryCharge;
+    }
+
+    /**
+     * Gets Delivery charge..
+     *
+     * @return Value of Delivery charge..
+     */
+    public Double getDeliveryCharge() {
+        return deliveryCharge;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -256,21 +301,23 @@ public class StorageItemPersistenceModel {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (!(obj instanceof StorageItemPersistenceModel))
+        if (!(obj instanceof ItemListingPersistenceModel))
             return false;
         if (obj == this)
             return true;
 
-        StorageItemPersistenceModel storageItemControllerModel = (StorageItemPersistenceModel) obj;
+        ItemListingPersistenceModel itemListing = (ItemListingPersistenceModel) obj;
         return new EqualsBuilder()
-                .append(getDateStored(), storageItemControllerModel.getDateStored())
-                .append(getReference(), storageItemControllerModel.getReference())
-                .append(getDescription(), storageItemControllerModel.getDescription())
-                .append(getSize(), storageItemControllerModel.getSize())
-                .append(getImage(), storageItemControllerModel.getImage())
-                .append(getBrand(), storageItemControllerModel.getBrand())
-                .append(getGrade(), storageItemControllerModel.getGrade())
-                .append(getPrice(), storageItemControllerModel.getPrice())
+                .append(getDateStored(), itemListing.getDateStored())
+                .append(getReference(), itemListing.getReference())
+                .append(getDescription(), itemListing.getDescription())
+                .append(getSize(), itemListing.getSize())
+                .append(getImage(), itemListing.getImage())
+                .append(getBrand(), itemListing.getBrand())
+                .append(getGrade(), itemListing.getGrade())
+                .append(getPrice(), itemListing.getPrice())
+                .append(getDeliveryType(), itemListing.getDeliveryType())
+                .append(getDeliveryCharge(), itemListing.getDeliveryCharge())
                 .isEquals();
     }
 
@@ -284,8 +331,8 @@ public class StorageItemPersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(id).append(reference).append(description).append(size).append(dateStored).append(image)
-                .append(brand).append(grade).append(price);
+        stringBuilder.append(id).append(reference).append(description).append(size).append(dateStored)
+                .append(brand).append(grade).append(price).append(deliveryType).append(deliveryCharge);
 
         return stringBuilder.toString();
     }

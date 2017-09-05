@@ -3,7 +3,7 @@ package com.app.storage.persistence.mapper;
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.AddressType;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -35,6 +35,7 @@ public class AddressPersistenceMapperHandler implements AddressPersistenceMapper
             addressPersistenceModel.setRegion(address.getRegion());
             addressPersistenceModel.setStreetAddress(address.getStreetAddress());
             addressPersistenceModel.setAddressType(address.getAddressType().toString());
+            addressPersistenceModel.setDefault(address.isDefault());
         }
 
         LOG.debug("Successfully mapped billing address persistence model to domain model: {}",
@@ -60,6 +61,7 @@ public class AddressPersistenceMapperHandler implements AddressPersistenceMapper
             address.setPostcode(addressPersistenceModel.getPostCode());
             address.setCountryName(addressPersistenceModel.getCountry());
             address.setAddressType(AddressType.valueOf(addressPersistenceModel.getAddressType()));
+            address.setDefault(addressPersistenceModel.isDefault());
         }
 
         LOG.debug("Successfully mapped to domain model: {}", address);

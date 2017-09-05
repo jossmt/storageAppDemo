@@ -1,7 +1,5 @@
-package com.app.storage.persistence.model.payment;
+package com.app.storage.persistence.model;
 
-import com.app.storage.persistence.model.StorageItemPersistenceModel;
-import com.app.storage.persistence.model.UserPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 import javax.persistence.*;
@@ -39,10 +37,14 @@ public class AddressPersistenceModel {
     @Column(name = "AddressType")
     private String addressType;
 
+    /** Boolean whether is default delivery/billing address. */
+    @Column(name = "IsDefault")
+    private boolean isDefault;
+
     /**
      * Many-1 reference to owner model.
      */
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", nullable = false)
     private UserPersistenceModel userPersistenceModel;
 
@@ -180,6 +182,25 @@ public class AddressPersistenceModel {
     }
 
     /**
+     * Gets Boolean whether is default deliverybilling address..
+     *
+     * @return Value of Boolean whether is default deliverybilling address..
+     */
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    /**
+     * Sets new Boolean whether is default deliverybilling address..
+     *
+     * @param checkDefault
+     *         New value of Boolean whether is default deliverybilling address..
+     */
+    public void setDefault(boolean checkDefault) {
+        this.isDefault = checkDefault;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -196,6 +217,7 @@ public class AddressPersistenceModel {
                 .append(getPostCode(), addressPersistenceModel.getPostCode())
                 .append(getRegion(), addressPersistenceModel.getRegion())
                 .append(getAddressType(), addressPersistenceModel.getAddressType())
+                .append(isDefault(), addressPersistenceModel.isDefault())
                 .isEquals();
     }
 
@@ -208,7 +230,7 @@ public class AddressPersistenceModel {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(id).append(streetAddress).append(region).append(postCode).append(country)
-                .append(addressType);
+                .append(addressType).append(isDefault);
 
         return stringBuilder.toString();
     }

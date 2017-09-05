@@ -7,11 +7,13 @@
     <tiles:putAttribute name="body">
 
         <c:choose>
-            <c:when test="${empty storageItems}">
-                <h1>You have not yet uploaded any items..</h1>
+            <c:when test="${empty itemListings}">
+                <div class="noitem-container">
+                    <h1>You have not yet uploaded any items..</h1>
+                </div>
             </c:when>
             <c:otherwise>
-                <c:forEach items="${storageItems}" var="item" varStatus="theCount">
+                <c:forEach items="${itemListings}" var="item" varStatus="theCount">
                     <div class="list-container">
                         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                             <a id="selector" href="${pageContext.servletContext.contextPath}/item/${item.reference}">

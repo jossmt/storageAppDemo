@@ -3,15 +3,15 @@ package com.app.storage.persistence.service;
 import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
 import com.app.storage.domain.model.Address;
-import com.app.storage.domain.model.payment.CardInformation;
+import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
-import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
+import com.app.storage.persistence.model.payment.PaymentInformationPersistenceModel;
 import com.app.storage.persistence.repository.AddressRepository;
 import com.app.storage.persistence.repository.RoleRepository;
 import com.app.storage.persistence.repository.UserRepository;
@@ -130,10 +130,11 @@ public class UserPersistenceServiceTest {
         final AddressPersistenceModel addressPersistenceModel = new AddressPersistenceModel();
         addressPersistenceModel.setStreetAddress("streetAddress");
 
-        final CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardHolderName("cardHolderName");
-        final CardInformationPersistenceModel cardInformationPersistenceModel = new CardInformationPersistenceModel();
-        cardInformationPersistenceModel.setCardHolderName("cardHolderName");
+        final PaymentInformation paymentInformation = new PaymentInformation();
+        paymentInformation.setCardHolderName("cardHolderName");
+        final PaymentInformationPersistenceModel paymentInformationPersistenceModel = new
+                PaymentInformationPersistenceModel();
+        paymentInformationPersistenceModel.setCardHolderName("cardHolderName");
 
 
         final RolePersistenceModel rolePersistenceModel = new RolePersistenceModel();
@@ -148,8 +149,8 @@ public class UserPersistenceServiceTest {
         userPersistenceModel.setPassword("password");
         userPersistenceModel.setEmail("useremail");
         userPersistenceModel.setRoles(Arrays.asList(rolePersistenceModel));
-        userPersistenceModel.setAddressPersistenceModel(addressPersistenceModel);
-        userPersistenceModel.setCardInformationPersistenceModels(Arrays.asList(cardInformationPersistenceModel));
+        userPersistenceModel.setAddressPersistenceModels(Arrays.asList(addressPersistenceModel));
+        userPersistenceModel.setPaymentInformationPersistenceModel(paymentInformationPersistenceModel);
 
         final User user = new User();
         user.setFirstName("firstName");
@@ -157,8 +158,8 @@ public class UserPersistenceServiceTest {
         user.setPassword("password");
         user.setEmail("useremail");
         user.setRoles(Arrays.asList(role));
-        user.setAddress(address);
-        user.setPaymentDetails(Arrays.asList(cardInformation));
+        user.setAddressList(Arrays.asList(address));
+        user.setPaymentInformation(paymentInformation);
 
         //Mock
         Mockito.when(userPersistenceMapper.mapTo(user)).thenReturn(userPersistenceModel);

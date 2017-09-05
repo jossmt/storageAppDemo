@@ -6,33 +6,36 @@
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
 
-        <c:choose>
-            <c:when test="${empty storageItems}">
-                <h1>No items have been uploaded yet...</h1>
-            </c:when>
-            <c:otherwise>
-                <c:forEach items="${storageItems}" var="item" varStatus="theCount">
-                    <div class="list-container">
-                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                            <a id="selector" href="${pageContext.servletContext.contextPath}/item/${item.reference}">
-                                <div class="flipper">
-                                    <div class="front">
-                                        <!-- front content -->
-                                        <span class="logoWrapper">
+            <c:choose>
+                <c:when test="${empty itemListings}">
+                    <div class="noitem-container">
+                    <h1>No items have been uploaded yet...</h1>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach items="${itemListings}" var="item" varStatus="theCount">
+                        <div class="list-container">
+                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                <a id="selector"
+                                   href="${pageContext.servletContext.contextPath}/item/${item.reference}">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <!-- front content -->
+                                            <span class="logoWrapper">
                                      <img id="img" height="200px" width="150px" src="${item.imageUrl}"
                                           alt='icon'></span>
-                                        <p id="price"><c:out value="Price: ${item.price}"/></p>
+                                            <p id="price"><c:out value="Price: ${item.price}"/></p>
+                                        </div>
+                                        <div class="back">
+                                            <!-- back content -->
+                                            <p><c:out value="${item.description}"/></p>
+                                        </div>
                                     </div>
-                                    <div class="back">
-                                        <!-- back content -->
-                                        <p><c:out value="${item.description}"/></p>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>
     </tiles:putAttribute>
 </tiles:insertDefinition>

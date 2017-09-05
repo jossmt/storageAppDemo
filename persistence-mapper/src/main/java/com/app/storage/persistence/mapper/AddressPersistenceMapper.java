@@ -1,7 +1,7 @@
 package com.app.storage.persistence.mapper;
 
 import com.app.storage.domain.model.Address;
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
 
 /**
  * Billing Address Persistence Mapper.

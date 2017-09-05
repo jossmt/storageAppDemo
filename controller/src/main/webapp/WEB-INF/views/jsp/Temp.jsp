@@ -47,10 +47,10 @@
         <h3 class="fs-subtitle">We will never sell it</h3>
         <form:input path="firstName" type="text" name="fname" placeholder="First Name" />
         <form:input path="lastName" type="text" name="lname" placeholder="Last Name" />
-        <form:textarea path="address.streetAddress" name="address" placeholder="Address" />
-        <form:input path="address.region" type="text" name="region" placeholder="Region" />
-        <form:input path="address.postcode" type="text" name="postcode" placeholder="Postcode" />
-        <form:input path="address.countryName" type="text" name="country" placeholder="Country" />
+        <form:textarea path="addressList.streetAddress" name="addressList" placeholder="Address" />
+        <form:input path="addressList.region" type="text" name="region" placeholder="Region" />
+        <form:input path="addressList.postcode" type="text" name="postcode" placeholder="Postcode" />
+        <form:input path="addressList.countryName" type="text" name="country" placeholder="Country" />
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>

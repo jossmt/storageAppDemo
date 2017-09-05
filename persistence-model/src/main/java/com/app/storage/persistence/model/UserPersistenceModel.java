@@ -15,8 +15,7 @@
  */
 package com.app.storage.persistence.model;
 
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
-import com.app.storage.persistence.model.payment.CardInformationPersistenceModel;
+import com.app.storage.persistence.model.payment.PaymentInformationPersistenceModel;
 import com.app.storage.persistence.model.trade.TradingAccountPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
@@ -60,19 +59,19 @@ public class UserPersistenceModel {
 
     /** List of users items. */
     @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<StorageItemPersistenceModel> storageItemPersistenceModelList;
+    private List<ItemListingPersistenceModel> itemListingPersistenceModelList;
 
     /** List of trading accounts. */
     @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TradingAccountPersistenceModel> tradingAccountPersistenceModelList;
 
     /** List of users payment options. */
-    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CardInformationPersistenceModel> cardInformationPersistenceModels;
+    @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private PaymentInformationPersistenceModel paymentInformationPersistenceModel;
 
     /** Billing Address. */
-    @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private AddressPersistenceModel addressPersistenceModel;
+    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<AddressPersistenceModel> addressPersistenceModels;
 
     /**
      * Sets new email.
@@ -174,18 +173,18 @@ public class UserPersistenceModel {
      *
      * @return Value of List of users items..
      */
-    public List<StorageItemPersistenceModel> getStorageItemPersistenceModelList() {
-        return storageItemPersistenceModelList;
+    public List<ItemListingPersistenceModel> getItemListingPersistenceModelList() {
+        return itemListingPersistenceModelList;
     }
 
     /**
      * Sets new List of users items..
      *
-     * @param storageItemPersistenceModelList
+     * @param itemListingPersistenceModelList
      *         New value of List of users items..
      */
-    public void setStorageItemPersistenceModelList(List<StorageItemPersistenceModel> storageItemPersistenceModelList) {
-        this.storageItemPersistenceModelList = storageItemPersistenceModelList;
+    public void setItemListingPersistenceModelList(List<ItemListingPersistenceModel> itemListingPersistenceModelList) {
+        this.itemListingPersistenceModelList = itemListingPersistenceModelList;
     }
 
     /**
@@ -193,29 +192,29 @@ public class UserPersistenceModel {
      *
      * @return Value of List of users payment options..
      */
-    public List<CardInformationPersistenceModel> getCardInformationPersistenceModels() {
-        return cardInformationPersistenceModels;
+    public PaymentInformationPersistenceModel getPaymentInformationPersistenceModel() {
+        return paymentInformationPersistenceModel;
     }
 
     /**
      * Sets new List of users payment options..
      *
-     * @param cardInformationPersistenceModels
+     * @param paymentInformationPersistenceModel
      *         New value of List of users payment options..
      */
-    public void setCardInformationPersistenceModels(List<CardInformationPersistenceModel>
-                                                            cardInformationPersistenceModels) {
-        this.cardInformationPersistenceModels = cardInformationPersistenceModels;
+    public void setPaymentInformationPersistenceModel(final PaymentInformationPersistenceModel
+                                                              paymentInformationPersistenceModel) {
+        this.paymentInformationPersistenceModel = paymentInformationPersistenceModel;
     }
 
     /**
      * Sets new addressPersistenceModel.
      *
-     * @param addressPersistenceModel
+     * @param addressPersistenceModels
      *         New value of addressPersistenceModel.
      */
-    public void setAddressPersistenceModel(AddressPersistenceModel addressPersistenceModel) {
-        this.addressPersistenceModel = addressPersistenceModel;
+    public void setAddressPersistenceModels(final List<AddressPersistenceModel> addressPersistenceModels) {
+        this.addressPersistenceModels = addressPersistenceModels;
     }
 
     /**
@@ -223,8 +222,8 @@ public class UserPersistenceModel {
      *
      * @return Value of addressPersistenceModel.
      */
-    public AddressPersistenceModel getAddressPersistenceModel() {
-        return addressPersistenceModel;
+    public List<AddressPersistenceModel> getAddressPersistenceModels() {
+        return addressPersistenceModels;
     }
 
     /**

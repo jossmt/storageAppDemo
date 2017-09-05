@@ -13,7 +13,7 @@
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta description="viewport" content="width=device-width, initial-scale=1">
-	<meta description="keywords" content="footer, address, phone, icons" />
+	<meta description="keywords" content="footer, addressList, phone, icons" />
     
     <!-- StyleSheets -->
 	<link href="<spring:url value="/resources/css/Footer.css" />" rel="stylesheet">

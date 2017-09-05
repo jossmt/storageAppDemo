@@ -1,7 +1,7 @@
 package com.app.storage.service.payment;
 
 import com.app.storage.domain.model.Address;
-import com.app.storage.domain.model.payment.CardInformation;
+import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.domain.model.payment.PaymentTransaction;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,15 +50,15 @@ public class PaymentServiceTest {
         address.setRegion("Kingston");
         address.setStreetAddress("Flat 4 Garricks House, Wadbrook Street");
 
-        final CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
-        cardInformation.setCardNumber(1234567891011L);
-        cardInformation.setCvvValue(123);
-        cardInformation.setExpirationMonth(02);
-        cardInformation.setExpirationYear(2019);
+        final PaymentInformation paymentInformation = new PaymentInformation();
+        paymentInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
+        paymentInformation.setCardNumber(1234567891011L);
+        paymentInformation.setCvvValue(123);
+        paymentInformation.setExpirationMonth(02);
+        paymentInformation.setExpirationYear(2019);
 
         final PaymentTransaction paymentTransaction = new PaymentTransaction();
-        paymentTransaction.setCardInformation(cardInformation);
+        paymentTransaction.setPaymentInformation(paymentInformation);
         paymentTransaction.setAddress(address);
         paymentTransaction.setPaymentNonce("fake-valid-debit-nonce");
         paymentTransaction.setTransactionAmount(10.12);
@@ -83,15 +83,15 @@ public class PaymentServiceTest {
         address.setRegion("Kingston");
         address.setStreetAddress("Flat 4 Garricks House, Wadbrook Street");
 
-        final CardInformation cardInformation = new CardInformation();
-        cardInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
-        cardInformation.setCardNumber(1234567891011L);
-        cardInformation.setCvvValue(123);
-        cardInformation.setExpirationMonth(02);
-        cardInformation.setExpirationYear(2019);
+        final PaymentInformation paymentInformation = new PaymentInformation();
+        paymentInformation.setCardHolderName("JOSS RIAN MILLER-TODD");
+        paymentInformation.setCardNumber(1234567891011L);
+        paymentInformation.setCvvValue(123);
+        paymentInformation.setExpirationMonth(02);
+        paymentInformation.setExpirationYear(2019);
 
         final PaymentTransaction paymentTransaction = new PaymentTransaction();
-        paymentTransaction.setCardInformation(cardInformation);
+        paymentTransaction.setPaymentInformation(paymentInformation);
         paymentTransaction.setAddress(address);
         paymentTransaction.setPaymentNonce("fake-valid-unknown-indicators-nonce");
         paymentTransaction.setTransactionAmount(10.12);

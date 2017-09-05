@@ -107,10 +107,10 @@ public class PaymentServiceHandler implements PaymentService {
 
                 // Credit card details.
                 .creditCard()
-                .cardholderName(paymentTransaction.getCardInformation().getCardHolderName())
-                .cvv(paymentTransaction.getCardInformation().getCvvValue().toString())
-                .expirationMonth(paymentTransaction.getCardInformation().getExpirationMonth().toString())
-                .expirationYear(paymentTransaction.getCardInformation().getExpirationYear().toString())
+                .cardholderName(paymentTransaction.getPaymentInformation().getCardHolderName())
+                .cvv(paymentTransaction.getPaymentInformation().getCvvValue().toString())
+                .expirationMonth(paymentTransaction.getPaymentInformation().getExpirationMonth().toString())
+                .expirationYear(paymentTransaction.getPaymentInformation().getExpirationYear().toString())
                 .done()
 
                 // Billing Address Details

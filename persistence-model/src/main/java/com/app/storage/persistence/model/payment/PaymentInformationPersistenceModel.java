@@ -9,8 +9,8 @@ import javax.persistence.*;
  * Card payment information persistence model.
  */
 @Entity
-@Table(name = "CardInformation")
-public class CardInformationPersistenceModel {
+@Table(name = "PaymentInformation")
+public class PaymentInformationPersistenceModel {
 
     /** Unique db id. */
     @Id
@@ -38,10 +38,14 @@ public class CardInformationPersistenceModel {
     @Column(name = "ExpirationYear")
     private Integer expirationYear;
 
+    /** Paypal username. */
+    @Column(name = "PaypalUser")
+    private String paypalUsername;
+
     /**
      * Many-1 reference to owner model.
      */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", nullable = false)
     private UserPersistenceModel userPersistenceModel;
 
@@ -179,22 +183,43 @@ public class CardInformationPersistenceModel {
     }
 
     /**
+     * Gets Paypal username..
+     *
+     * @return Value of Paypal username..
+     */
+    public String getPaypalUsername() {
+        return paypalUsername;
+    }
+
+    /**
+     * Sets new Paypal username..
+     *
+     * @param paypalUsername
+     *         New value of Paypal username..
+     */
+    public void setPaypalUsername(String paypalUsername) {
+        this.paypalUsername = paypalUsername;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public boolean equals(final Object obj) {
-        if (!(obj instanceof CardInformationPersistenceModel))
+        if (!(obj instanceof PaymentInformationPersistenceModel))
             return false;
         if (obj == this)
             return true;
 
-        CardInformationPersistenceModel cardInformationPersistenceModel = (CardInformationPersistenceModel) obj;
+        PaymentInformationPersistenceModel paymentInformationPersistenceModel = (PaymentInformationPersistenceModel)
+                obj;
         return new EqualsBuilder()
-                .append(getCardHolderName(), cardInformationPersistenceModel.getCardHolderName())
-                .append(getCardNumber(), cardInformationPersistenceModel.getCardNumber())
-                .append(getCvv(), cardInformationPersistenceModel.getCvv())
-                .append(getExpirationMonth(), cardInformationPersistenceModel.getExpirationMonth())
-                .append(getExpirationYear(), cardInformationPersistenceModel.getExpirationYear())
+                .append(getCardHolderName(), paymentInformationPersistenceModel.getCardHolderName())
+                .append(getCardNumber(), paymentInformationPersistenceModel.getCardNumber())
+                .append(getCvv(), paymentInformationPersistenceModel.getCvv())
+                .append(getExpirationMonth(), paymentInformationPersistenceModel.getExpirationMonth())
+                .append(getExpirationYear(), paymentInformationPersistenceModel.getExpirationYear())
+                .append(getPaypalUsername(), paymentInformationPersistenceModel.getPaypalUsername())
                 .isEquals();
     }
 
@@ -207,7 +232,7 @@ public class CardInformationPersistenceModel {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(cardHolderName).append(cardNumber).append(cvv).append(expirationMonth)
-                .append(expirationYear);
+                .append(expirationYear).append(paypalUsername);
 
         return stringBuilder.toString();
     }

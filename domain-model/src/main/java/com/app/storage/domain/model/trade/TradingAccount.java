@@ -1,6 +1,6 @@
 package com.app.storage.domain.model.trade;
 
-import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.listing.ItemListing;
 import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
@@ -21,7 +21,7 @@ public class TradingAccount {
     private AccountType accountType;
 
     /** Storage item list. */
-    private List<StorageItem> storageItems;
+    private List<ItemListing> itemListings;
 
     /** {@link User}. */
     private User owner;
@@ -88,18 +88,18 @@ public class TradingAccount {
      *
      * @return Value of Storage item list..
      */
-    public List<StorageItem> getStorageItems() {
-        return storageItems;
+    public List<ItemListing> getItemListings() {
+        return itemListings;
     }
 
     /**
      * Sets new Storage item list..
      *
-     * @param storageItems
+     * @param itemListings
      *         New value of Storage item list..
      */
-    public void setStorageItems(List<StorageItem> storageItems) {
-        this.storageItems = storageItems;
+    public void setItemListings(List<ItemListing> itemListings) {
+        this.itemListings = itemListings;
     }
 
     /**

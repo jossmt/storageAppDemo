@@ -15,7 +15,8 @@
  */
 package com.app.storage.domain.model;
 
-import com.app.storage.domain.model.payment.CardInformation;
+import com.app.storage.domain.model.listing.ItemListing;
+import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.domain.model.trade.TradingAccount;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.hibernate.validator.constraints.Email;
@@ -38,7 +39,7 @@ public class User implements Serializable {
     private String lastName;
 
     /** Email. */
-    @Email(message = "Please provide a valid email address.")
+    @Email(message = "Please provide a valid email addressList.")
     @NotEmpty(message = "Email is required.")
     private String email;
 
@@ -53,17 +54,17 @@ public class User implements Serializable {
     /** List of {@Role}. */
     private List<Role> roles;
 
-    /** list of {@link StorageItem}. */
-    private List<StorageItem> storageItems;
+    /** list of {@link ItemListing}. */
+    private List<ItemListing> itemListings;
 
     /** list of {@link TradingAccount}. */
     private List<TradingAccount> tradingAccounts;
 
-    /** List of {@link CardInformation}. */
-    private List<CardInformation> paymentDetails;
+    /** {@link PaymentInformation}. */
+    private PaymentInformation paymentInformation;
 
     /** List of {@link Address}. */
-    private Address address;
+    private List<Address> addressList;
 
 
     /**
@@ -200,39 +201,39 @@ public class User implements Serializable {
     /**
      * Gets all user storage items.
      *
-     * @return {@link StorageItem}
+     * @return {@link ItemListing}
      */
-    public List<StorageItem> getStorageItems() {
-        return storageItems;
+    public List<ItemListing> getItemListings() {
+        return itemListings;
     }
 
     /**
      * Sets storage items.
      *
-     * @param storageItems
-     *         list of {@link StorageItem}
+     * @param itemListings
+     *         list of {@link ItemListing}
      */
-    public void setStorageItems(List<StorageItem> storageItems) {
-        this.storageItems = storageItems;
+    public void setItemListings(List<ItemListing> itemListings) {
+        this.itemListings = itemListings;
     }
 
     /**
-     * Gets List of {@link CardInformation}..
+     * Gets {@link PaymentInformation}..
      *
-     * @return Value of List of {@link CardInformation}..
+     * @return Value of {@link PaymentInformation}..
      */
-    public List<CardInformation> getPaymentDetails() {
-        return paymentDetails;
+    public PaymentInformation getPaymentInformation() {
+        return paymentInformation;
     }
 
     /**
-     * Sets new List of {@link CardInformation}..
+     * Sets new List of {@link PaymentInformation}..
      *
-     * @param paymentDetails
-     *         New value of List of {@link CardInformation}..
+     * @param paymentInformation
+     *         New value of List of {@link PaymentInformation}..
      */
-    public void setPaymentDetails(List<CardInformation> paymentDetails) {
-        this.paymentDetails = paymentDetails;
+    public void setPaymentInformation(final PaymentInformation paymentInformation) {
+        this.paymentInformation = paymentInformation;
     }
 
     /**
@@ -240,18 +241,18 @@ public class User implements Serializable {
      *
      * @return Value of List of {@link Address}..
      */
-    public Address getAddress() {
-        return address;
+    public List<Address> getAddressList() {
+        return addressList;
     }
 
     /**
      * Sets new List of {@link Address}..
      *
-     * @param address
+     * @param addressList
      *         New value of List of {@link Address}..
      */
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
     }
 
     /**
@@ -295,9 +296,6 @@ public class User implements Serializable {
                 .append(getPassword(), user.getPassword())
                 .append(getPasswordConfirm(), user.getPasswordConfirm())
                 .append(getRoles(), user.getRoles())
-                .append(getStorageItems(), user.getStorageItems())
-                .append(getPaymentDetails(), user.getPaymentDetails())
-                .append(getAddress(), user.getAddress())
                 .isEquals();
     }
 
@@ -312,7 +310,7 @@ public class User implements Serializable {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(firstName).append(lastName).append(email).append(password).append
-                (passwordConfirm).append(roles).append(address).append(paymentDetails);
+                (passwordConfirm).append(roles);
 
         return stringBuilder.toString();
     }

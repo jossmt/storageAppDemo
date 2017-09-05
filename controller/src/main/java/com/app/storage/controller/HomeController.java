@@ -1,14 +1,10 @@
 package com.app.storage.controller;
 
-import com.app.storage.domain.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Returns views for core UI switching.
@@ -18,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     /** Logger. */
-    private static final Logger LOG = LoggerFactory.getLogger(StorageItemController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemListingController.class);
 
     /**
      * Renders default view to container as home.

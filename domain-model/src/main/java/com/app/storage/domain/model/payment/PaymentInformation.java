@@ -1,12 +1,11 @@
 package com.app.storage.domain.model.payment;
 
-import com.app.storage.domain.model.User;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
  * Card information holder.
  */
-public class CardInformation {
+public class PaymentInformation {
 
     /** Full credit/debit card number. */
     private Long cardNumber;
@@ -22,6 +21,9 @@ public class CardInformation {
 
     /** Card holder name. */
     private String cardHolderName;
+
+    /** Paypal user name. */
+    private String paypalUsername;
 
     /**
      * Gets cardNumber.
@@ -119,6 +121,25 @@ public class CardInformation {
     }
 
     /**
+     * Sets new Paypal user name..
+     *
+     * @param paypalUsername
+     *         New value of Paypal user name..
+     */
+    public void setPaypalUsername(String paypalUsername) {
+        this.paypalUsername = paypalUsername;
+    }
+
+    /**
+     * Gets Paypal user name..
+     *
+     * @return Value of Paypal user name..
+     */
+    public String getPaypalUsername() {
+        return paypalUsername;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -127,18 +148,19 @@ public class CardInformation {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (!(obj instanceof CardInformation))
+        if (!(obj instanceof PaymentInformation))
             return false;
         if (obj == this)
             return true;
 
-        CardInformation cardInformation = (CardInformation) obj;
+        PaymentInformation paymentInformation = (PaymentInformation) obj;
         return new EqualsBuilder()
-                .append(getCardHolderName(), cardInformation.getCardHolderName())
-                .append(getCvvValue(), cardInformation.getCvvValue())
-                .append(getExpirationYear(), cardInformation.getExpirationYear())
-                .append(getExpirationMonth(), cardInformation.getExpirationMonth())
-                .append(getCardNumber(), cardInformation.getCardNumber())
+                .append(getCardHolderName(), paymentInformation.getCardHolderName())
+                .append(getCvvValue(), paymentInformation.getCvvValue())
+                .append(getExpirationYear(), paymentInformation.getExpirationYear())
+                .append(getExpirationMonth(), paymentInformation.getExpirationMonth())
+                .append(getCardNumber(), paymentInformation.getCardNumber())
+                .append(getPaypalUsername(), paymentInformation.getPaypalUsername())
                 .isEquals();
     }
 
@@ -153,7 +175,7 @@ public class CardInformation {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(cardHolderName).append(cardNumber).append(cvvValue).append(expirationYear)
-                .append(expirationMonth);
+                .append(expirationMonth).append(paypalUsername);
 
         return stringBuilder.toString();
     }

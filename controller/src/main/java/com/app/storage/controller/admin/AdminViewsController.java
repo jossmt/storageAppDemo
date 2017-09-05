@@ -1,25 +1,18 @@
 package com.app.storage.controller.admin;
 
-import com.app.storage.controller.StorageItemController;
+import com.app.storage.controller.ItemListingController;
 import com.app.storage.controller.mapper.StorageItemControllerMapper;
-import com.app.storage.domain.model.StorageItem;
-import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.listing.ItemListing;
 import com.app.storage.persistence.mapper.constants.ListMapper;
-import com.app.storage.service.StorageItemService;
+import com.app.storage.service.ItemListingService;
 import com.app.storage.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 /**
  * Returns views for core UI switching.
@@ -29,10 +22,10 @@ import java.io.IOException;
 public class AdminViewsController {
 
     /** Logger. */
-    private static final Logger LOG = LoggerFactory.getLogger(StorageItemController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ItemListingController.class);
 
-    /** {@link StorageItemService} */
-    private final StorageItemService storageItemService;
+    /** {@link ItemListingService} */
+    private final ItemListingService itemListingService;
 
     /** {@link UserService} */
     private final UserService userService;
@@ -46,18 +39,18 @@ public class AdminViewsController {
     /**
      * Constructor.
      *
-     * @param storageItemService
-     *         {@link StorageItemService}
+     * @param itemListingService
+     *         {@link ItemListingService}
      * @param storageItemControllerMapper
      *         {@link StorageItemControllerMapper}
      */
     @Autowired
-    public AdminViewsController(final StorageItemService storageItemService,
+    public AdminViewsController(final ItemListingService itemListingService,
                                 final StorageItemControllerMapper storageItemControllerMapper,
                                 final UserService userService) {
 
         listMapper = new ListMapper();
-        this.storageItemService = storageItemService;
+        this.itemListingService = itemListingService;
         this.userService = userService;
         this.storageItemControllerMapper = storageItemControllerMapper;
     }
@@ -69,7 +62,7 @@ public class AdminViewsController {
      */
     @RequestMapping(value = "/console", method = RequestMethod.GET)
     public String renderSignup(final Model model) {
-        model.addAttribute("storageItem", new StorageItem());
+        model.addAttribute("storageItem", new ItemListing());
 
         return "admin/Console";
     }
@@ -78,11 +71,11 @@ public class AdminViewsController {
 //     * Registering new user
 //     *
 //     * @param storageItem
-//     *         Filled in StorageItem form.
+//     *         Filled in ItemListing form.
 //     * @return redirect URL.
 //     */
 //    @RequestMapping(value = "/console", method = RequestMethod.POST)
-//    public String registerStorageItem(@ModelAttribute("storageItem") final StorageItem storageItem,
+//    public String registerStorageItem(@ModelAttribute("storageItem") final ItemListing storageItem,
 //                                      @RequestParam("file") final MultipartFile multipartFile,
 //                                      @RequestParam("userEmail") final String userEmail) {
 //
@@ -104,7 +97,7 @@ public class AdminViewsController {
 //            throw new IllegalStateException("Unable to load image file");
 //        }
 //
-//        storageItemService.saveStorageItem(storageItem);
+//        itemListingService.saveStorageItem(storageItem);
 //
 //
 //        return "admin/Console";

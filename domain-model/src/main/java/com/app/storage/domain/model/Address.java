@@ -22,6 +22,9 @@ public class Address {
     /** Address type. */
     private AddressType addressType;
 
+    /** Boolean whether address is their default. */
+    private boolean isDefault;
+
     /**
      * Sets new Country name..
      *
@@ -118,6 +121,25 @@ public class Address {
     }
 
     /**
+     * Sets new Boolean whether address is their default..
+     *
+     * @param isDefault
+     *         New value of Boolean whether address is their default..
+     */
+    public void setDefault(boolean isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    /**
+     * Gets Boolean whether address is their default..
+     *
+     * @return Value of Boolean whether address is their default..
+     */
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -138,6 +160,7 @@ public class Address {
                 .append(getPostcode(), address.getPostcode())
                 .append(getRegion(), address.getRegion())
                 .append(getAddressType(), address.getAddressType())
+                .append(isDefault(), address.isDefault())
                 .isEquals();
     }
 
@@ -151,7 +174,8 @@ public class Address {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(countryName).append(streetAddress).append(region).append(postcode).append(addressType);
+        stringBuilder.append(countryName).append(streetAddress).append(region).append(postcode).append(addressType)
+                .append(isDefault);
 
         return stringBuilder.toString();
     }

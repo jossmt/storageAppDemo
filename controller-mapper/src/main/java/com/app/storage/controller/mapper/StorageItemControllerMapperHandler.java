@@ -2,7 +2,7 @@ package com.app.storage.controller.mapper;
 
 import com.app.storage.controller.model.StorageItemControllerModel;
 import com.app.storage.domain.model.Grade;
-import com.app.storage.domain.model.StorageItem;
+import com.app.storage.domain.model.listing.ItemListing;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * Implementation of {@link StorageItemControllerMapper}
  */
 @Component
-public class StorageItemControllerMapperHandler implements StorageItemControllerMapper, AbstractMapper<StorageItem,
+public class StorageItemControllerMapperHandler implements StorageItemControllerMapper, AbstractMapper<ItemListing,
         StorageItemControllerModel> {
 
     /** Logger. */
@@ -22,20 +22,20 @@ public class StorageItemControllerMapperHandler implements StorageItemController
     /**
      * {@inheritDoc}
      */
-    public StorageItemControllerModel mapFrom(final StorageItem storageItem) {
+    public StorageItemControllerModel mapFrom(final ItemListing itemListing) {
 
-        LOG.debug("Mapping storage item {} to storage item controller model.", storageItem);
+        LOG.debug("Mapping storage item {} to storage item controller model.", itemListing);
 
         StorageItemControllerModel storageItemControllerModel = null;
-        if (storageItem != null) {
+        if (itemListing != null) {
 
             storageItemControllerModel = new StorageItemControllerModel();
-            storageItemControllerModel.setDescription(storageItem.getDescription());
-            storageItemControllerModel.setSize(storageItem.getSize());
-            storageItemControllerModel.setImage(storageItem.getImage());
-            storageItemControllerModel.setBrand(storageItem.getBrand());
-            if (storageItem.getGrade() != null) {
-                storageItemControllerModel.setGrade(storageItem.getGrade().name());
+            storageItemControllerModel.setDescription(itemListing.getDescription());
+            storageItemControllerModel.setSize(itemListing.getSize());
+            storageItemControllerModel.setImage(itemListing.getImage());
+            storageItemControllerModel.setBrand(itemListing.getBrand());
+            if (itemListing.getGrade() != null) {
+                storageItemControllerModel.setGrade(itemListing.getGrade().name());
             }
         }
 
@@ -47,25 +47,25 @@ public class StorageItemControllerMapperHandler implements StorageItemController
     /**
      * {@inheritDoc}
      */
-    public StorageItem mapTo(final StorageItemControllerModel storageItemControllerModel) {
+    public ItemListing mapTo(final StorageItemControllerModel storageItemControllerModel) {
 
         LOG.debug("Mapping storage item controller model {} to domain model.", storageItemControllerModel);
 
-        StorageItem storageItem = null;
+        ItemListing itemListing = null;
         if (storageItemControllerModel != null) {
 
-            storageItem = new StorageItem();
-            storageItem.setDescription(storageItemControllerModel.getDescription());
-            storageItem.setImage(storageItemControllerModel.getImage());
-            storageItem.setSize(storageItemControllerModel.getSize());
-            storageItem.setBrand(storageItemControllerModel.getBrand());
-            storageItem.setGrade(Grade.getGrade(storageItemControllerModel.getGrade()));
+            itemListing = new ItemListing();
+            itemListing.setDescription(storageItemControllerModel.getDescription());
+            itemListing.setImage(storageItemControllerModel.getImage());
+            itemListing.setSize(storageItemControllerModel.getSize());
+            itemListing.setBrand(storageItemControllerModel.getBrand());
+            itemListing.setGrade(Grade.getGrade(storageItemControllerModel.getGrade()));
 
         }
 
-        LOG.debug("Mapped storage item controller model to domain model.", storageItem);
+        LOG.debug("Mapped storage item controller model to domain model.", itemListing);
 
-        return storageItem;
+        return itemListing;
     }
 
 }

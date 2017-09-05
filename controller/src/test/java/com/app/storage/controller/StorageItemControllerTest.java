@@ -2,9 +2,9 @@
 //
 //import com.app.storage.controller.mapper.StorageItemControllerMapper;
 //import com.app.storage.controller.model.StorageItemControllerModel;
-//import com.app.storage.domain.model.StorageItem;
+//import com.app.storage.domain.model.ItemListing;
 //import com.app.storage.persistence.mapper.constants.ListMapper;
-//import com.app.storage.service.StorageItemService;
+//import com.app.storage.service.ItemListingService;
 //import org.junit.Assert;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -23,9 +23,9 @@
 //@RunWith(MockitoJUnitRunner.class)
 //public class StorageItemControllerTest {
 //
-//    /** {@link StorageItemService} */
+//    /** {@link ItemListingService} */
 //    @Mock
-//    private StorageItemService storageItemService;
+//    private ItemListingService storageItemService;
 //
 //    /** {@link StorageItemControllerMapper} */
 //    @Mock
@@ -54,7 +54,7 @@
 //    public void testStorageItemlookup() {
 //
 //        //Setup
-//        final StorageItem storageItem = new StorageItem();
+//        final ItemListing storageItem = new ItemListing();
 //        storageItem.setId(1L);
 //        storageItem.setDescription("T-Shirt");
 //        storageItem.setSize("L");
@@ -80,7 +80,7 @@
 //    public void saveStorageItemsTest() {
 //
 //        //Setup
-//        final StorageItem storageItem = new StorageItem();
+//        final ItemListing storageItem = new ItemListing();
 //        storageItem.setId(1L);
 //        storageItem.setDescription("T-Shirt");
 //        storageItem.setSize("L");

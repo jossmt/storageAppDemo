@@ -1,6 +1,6 @@
 package com.app.storage.persistence.repository;
 
-import com.app.storage.persistence.model.payment.AddressPersistenceModel;
+import com.app.storage.persistence.model.AddressPersistenceModel;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;

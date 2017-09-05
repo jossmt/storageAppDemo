@@ -20,7 +20,8 @@
             <ul id="progressbar">
                 <li class="active">Item Details</li>
                 <li>Trading Accounts</li>
-                <li>Address</li>
+                <li>Delivery Options</li>
+                <li>Payment</li>
             </ul>
 
             <fieldset>
@@ -31,12 +32,12 @@
                 </div>
                 <img id="imageRender" src="#" width="100%" hidden/>
                 <input type="file" name="file" onchange="readFileUrl(this)"/>
-                <form:textarea path="storageItem.description" type="text" name="description"
+                <form:textarea path="itemListing.description" type="text" name="description"
                                placeholder="Item Description..."/>
-                <form:input path="storageItem.brand" type="text" name="brand" placeholder="Brand"/>
-                <form:input path="storageItem.size" type="text" name="size" placeholder="Size (If Applicable)"/>
-                <form:input path="storageItem.grade" type="text" name="grade" placeholder="Grade of item (A-F)"/>
-                <form:input path="storageItem.price" type="text" name="price" placeholder="Price"/>
+                <form:input path="itemListing.brand" type="text" name="brand" placeholder="Brand"/>
+                <form:input path="itemListing.size" type="text" name="size" placeholder="Size (If Applicable)"/>
+                <form:input path="itemListing.grade" type="text" name="grade" placeholder="Grade of item (A-F)"/>
+                <form:input path="itemListing.price" type="text" name="price" placeholder="Price"/>
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
             <fieldset>
@@ -57,6 +58,28 @@
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
             <fieldset>
+                <h2 class="fs-title">Delivery Options</h2>
+                <h3 class="fs-subtitle">How will you deliver this item?</h3>
+                <div class="paymentOptions">
+                    <label><form:radiobutton name="deliverycost" path="itemListing.deliveryType" value="FAST"/>Fast
+                        Track
+                        Postage (1-3 Days)</label>
+                    <label><form:radiobutton name="deliverycost" path="itemListing.deliveryType" value="NORMAL"/>Normal
+                        Track Postage (3-7 Days)
+                    </label>
+                    <label><form:radiobutton name="deliverycost" path="itemListing.deliveryType" value="EXTENDED"/>Extended
+                        Track Postage (7-14 Days)
+                    </label>
+                    <label><form:radiobutton name="deliverycost" path="itemListing.deliveryType" value="COLLECTION"/>Pick
+                        Up Only
+                    </label>
+                    <form:input id="deliveryCharge" path="itemListing.deliveryCharge" type="text"
+                                placeholder="Delivery Charge"/>
+                </div>
+                <input type="button" name="previous" class="previous action-button" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
                 <h2 class="fs-title">Payment Options</h2>
                 <h3 class="fs-subtitle">Preferred Method of Payment Receipt</h3>
                 <div class="paymentOptions">
@@ -64,6 +87,7 @@
                     <label><form:radiobutton path="paymentType" title="Cash on Collection" value="false"/>
                         Cash on Collection </label>
                 </div>
+                <input type="button" name="previous" class="previous action-button" value="Previous"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
         </form:form>

@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
-    $('abouttext').fadeIn('slow', function () {
-        // Animation complete
-    });
-
-    $("#aboutnav", "#howitworksnav").click(function () {
-        $('html, body').animate({
-            scrollTop: $(window.location.hash).offset().top
-        }, 2000);
+    $('input[type=radio][name=deliverycost]:radio').change(function () {
+        alert('something');
+        if (this.value === 'COLLECTION') {
+            $('#deliveryCharge').hide();
+        }
+        else{
+            $('#deliveryCharge').show();
+        }
     });
 
     $("#accordion").accordion({

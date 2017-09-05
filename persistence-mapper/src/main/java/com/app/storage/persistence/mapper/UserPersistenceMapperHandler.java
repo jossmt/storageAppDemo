@@ -1,19 +1,15 @@
 package com.app.storage.persistence.mapper;
 
-import com.app.storage.domain.model.StorageItem;
 import com.app.storage.domain.model.User;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
-import com.app.storage.persistence.mapper.payment.CardInformationPersistenceMapper;
+import com.app.storage.persistence.mapper.payment.PaymentInformationPersistenceMapper;
 import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
-import com.app.storage.persistence.model.StorageItemPersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * Implementation of {@link UserPersistenceMapper}
@@ -24,23 +20,17 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     /** Logger. */
     private static final Logger LOG = LoggerFactory.getLogger(UserPersistenceMapper.class);
 
-    /** {@link StorageItemPersistenceModel}. */
-    private List<StorageItemPersistenceModel> storageItemPersistenceModels;
-
-    /** {@link StorageItem}. */
-    private List<StorageItem> storageItems;
-
     /** {@link RolePersistenceMapper} */
     private RolePersistenceMapper rolePersistenceMapper;
 
-    /** {@link StorageItemPersistenceMapper} */
-    private StorageItemPersistenceMapper storageItemPersistenceMapper;
+    /** {@link ItemListingPersistenceMapper} */
+    private ItemListingPersistenceMapper itemListingPersistenceMapper;
 
     /** {@link AddressPersistenceMapper}. */
     private AddressPersistenceMapper addressPersistenceMapper;
 
-    /** {@link CardInformationPersistenceMapper}. */
-    private CardInformationPersistenceMapper cardInformationPersistenceMapper;
+    /** {@link PaymentInformationPersistenceMapper}. */
+    private PaymentInformationPersistenceMapper paymentInformationPersistenceMapper;
 
     /** {@link TradingAccountPersistenceMapper}. */
     private TradingAccountPersistenceMapper tradingAccountPersistenceMapper;
@@ -77,22 +67,22 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
             userPersistenceModel.setRoles(listMapper.mapList((AbstractMapper) rolePersistenceMapper,
                                                              true, user.getRoles()));
 
-            if (user.getStorageItems() != null) {
+            if (user.getItemListings() != null) {
                 userPersistenceModel
-                        .setStorageItemPersistenceModelList(listMapper.mapList((AbstractMapper)
-                                                                                       storageItemPersistenceMapper,
-                                                                               true, user.getStorageItems()));
+                        .setItemListingPersistenceModelList(listMapper.mapList((AbstractMapper)
+                                                                                       itemListingPersistenceMapper,
+                                                                               true, user.getItemListings()));
             }
 
-            if (user.getAddress() != null) {
-                userPersistenceModel.setAddressPersistenceModel(addressPersistenceMapper
-                                                                        .mapTo(user.getAddress()));
+            if (user.getAddressList() != null) {
+                userPersistenceModel.setAddressPersistenceModels(listMapper.mapList((AbstractMapper)
+                                                                                            addressPersistenceMapper,
+                                                                                    true,
+                                                                                    user.getAddressList()));
             }
-            if (user.getPaymentDetails() != null) {
-                userPersistenceModel.setCardInformationPersistenceModels(listMapper.mapList((AbstractMapper)
-                                                                                                    cardInformationPersistenceMapper,
-                                                                                            true, user
-                                                                                                    .getPaymentDetails()));
+            if (user.getPaymentInformation() != null) {
+                userPersistenceModel.setPaymentInformationPersistenceModel(
+                        paymentInformationPersistenceMapper.mapTo(user.getPaymentInformation()));
             }
 
             if (user.getTradingAccounts() != null) {
@@ -126,18 +116,19 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
             user.setRoles(listMapper.mapList((AbstractMapper) rolePersistenceMapper, false,
                                              userPersistenceModel.getRoles()));
 
-            if (userPersistenceModel.getStorageItemPersistenceModelList() != null) {
-                user.setStorageItems(listMapper.mapList((AbstractMapper) storageItemPersistenceMapper, false,
-                                                        userPersistenceModel.getStorageItemPersistenceModelList()));
+            if (userPersistenceModel.getItemListingPersistenceModelList() != null) {
+                user.setItemListings(listMapper.mapList((AbstractMapper) itemListingPersistenceMapper, false,
+                                                        userPersistenceModel.getItemListingPersistenceModelList()));
             }
 
-            if (userPersistenceModel.getAddressPersistenceModel() != null) {
-                user.setAddress(addressPersistenceMapper.mapFrom(userPersistenceModel
-                                                                         .getAddressPersistenceModel()));
+            if (userPersistenceModel.getAddressPersistenceModels() != null) {
+                user.setAddressList(listMapper.mapList((AbstractMapper) addressPersistenceMapper, false,
+                                                       userPersistenceModel
+                                                               .getAddressPersistenceModels()));
             }
-            if (userPersistenceModel.getCardInformationPersistenceModels() != null) {
-                user.setPaymentDetails(listMapper.mapList((AbstractMapper) cardInformationPersistenceMapper, false,
-                                                          userPersistenceModel.getCardInformationPersistenceModels()));
+            if (userPersistenceModel.getPaymentInformationPersistenceModel() != null) {
+                user.setPaymentInformation(paymentInformationPersistenceMapper.mapFrom(
+                        userPersistenceModel.getPaymentInformationPersistenceModel()));
             }
 
             if (userPersistenceModel.getTradingAccountPersistenceModelList() != null) {
@@ -153,14 +144,14 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     }
 
     /**
-     * Sets new {@link StorageItemPersistenceMapper}.
+     * Sets new {@link ItemListingPersistenceMapper}.
      *
-     * @param storageItemPersistenceMapper
-     *         New value of {@link StorageItemPersistenceMapper}.
+     * @param itemListingPersistenceMapper
+     *         New value of {@link ItemListingPersistenceMapper}.
      */
     @Autowired
-    public void setStorageItemPersistenceMapper(StorageItemPersistenceMapper storageItemPersistenceMapper) {
-        this.storageItemPersistenceMapper = storageItemPersistenceMapper;
+    public void setItemListingPersistenceMapper(ItemListingPersistenceMapper itemListingPersistenceMapper) {
+        this.itemListingPersistenceMapper = itemListingPersistenceMapper;
     }
 
     /**
@@ -186,14 +177,15 @@ public class UserPersistenceMapperHandler implements UserPersistenceMapper, Abst
     }
 
     /**
-     * Sets new {@link CardInformationPersistenceMapper}..
+     * Sets new {@link PaymentInformationPersistenceMapper}..
      *
-     * @param cardInformationPersistenceMapper
-     *         New value of {@link CardInformationPersistenceMapper}..
+     * @param paymentInformationPersistenceMapper
+     *         New value of {@link PaymentInformationPersistenceMapper}..
      */
     @Autowired
-    public void setCardInformationPersistenceMapper(CardInformationPersistenceMapper cardInformationPersistenceMapper) {
-        this.cardInformationPersistenceMapper = cardInformationPersistenceMapper;
+    public void setPaymentInformationPersistenceMapper(PaymentInformationPersistenceMapper
+                                                               paymentInformationPersistenceMapper) {
+        this.paymentInformationPersistenceMapper = paymentInformationPersistenceMapper;
     }
 
     /**

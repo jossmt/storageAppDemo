@@ -18,7 +18,7 @@ public class PaymentTransaction {
     private Double transactionAmount;
 
     /** Card information. */
-    private CardInformation cardInformation;
+    private PaymentInformation paymentInformation;
 
     /** Billing Address. */
     private Address address;
@@ -29,8 +29,8 @@ public class PaymentTransaction {
      *
      * @return Value of Card information..
      */
-    public CardInformation getCardInformation() {
-        return cardInformation;
+    public PaymentInformation getPaymentInformation() {
+        return paymentInformation;
     }
 
     /**
@@ -74,11 +74,11 @@ public class PaymentTransaction {
     /**
      * Sets new Card information..
      *
-     * @param cardInformation
+     * @param paymentInformation
      *         New value of Card information..
      */
-    public void setCardInformation(CardInformation cardInformation) {
-        this.cardInformation = cardInformation;
+    public void setPaymentInformation(PaymentInformation paymentInformation) {
+        this.paymentInformation = paymentInformation;
     }
 
 
@@ -137,7 +137,7 @@ public class PaymentTransaction {
         PaymentTransaction paymentTransaction = (PaymentTransaction) obj;
         return new EqualsBuilder()
                 .append(getCustomerRef(), paymentTransaction.getCustomerRef())
-                .append(getCardInformation(), paymentTransaction.getCardInformation())
+                .append(getPaymentInformation(), paymentTransaction.getPaymentInformation())
                 .append(getPaymentNonce(), paymentTransaction.getPaymentNonce())
                 .append(getTransactionAmount(), paymentTransaction.getTransactionAmount())
                 .append(getAddress(), paymentTransaction.getAddress())
@@ -154,7 +154,7 @@ public class PaymentTransaction {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(customerRef).append(cardInformation).append(address).append(paymentNonce)
+        stringBuilder.append(customerRef).append(paymentInformation).append(address).append(paymentNonce)
                 .append(transactionAmount);
 
         return stringBuilder.toString();
