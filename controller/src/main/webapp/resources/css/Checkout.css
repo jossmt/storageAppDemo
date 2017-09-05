@@ -113,10 +113,130 @@
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .10);
 }
 
 /* Global */
 * {
     box-sizing: border-box;
 }
+
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+    font-family: montserrat, arial, verdana;
+}
+
+/*form styles*/
+
+.msformwrapper {
+    margin-top: 40px;
+    align-content: center;
+}
+
+.msform {
+    width: 40%;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+/*Hide all except first fieldset*/
+.msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+.msform input, #msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+.msform i {
+    box-sizing: border-box;
+    padding: 50px 0;
+}
+
+/*buttons*/
+.msform .action-button {
+    width: 100px;
+    background: #F32C52;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+.msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #F32C52;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.msform input[type=radio] {
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.submit-container{
+    margin-right: 20px;
+    float: right;
+}
+
+.submit-container p {
+    font-size: 20px;
+}
+
+#paynowbutton {
+    background-color:white;
+    color: #d2b356;
+    padding: 12px 14px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: Poppins;
+    font-size: 20px;
+    border-radius:3px;
+    border: 1px solid #d2b356;
+    margin-bottom:40px;
+}
+

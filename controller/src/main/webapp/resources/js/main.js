@@ -1,14 +1,27 @@
 $(document).ready(function () {
 
+    $("input[type=radio][name=usePaypal]").change(function () {
+        if (this.value === 'true') {
+            $('#paypalDetails').show();
+            $('#cardDetails').hide();
+        }
+        else {
+            $('#paypalDetails').hide();
+            $('#cardDetails').show();
+        }
+    });
+
     $('input[type=radio][name=deliverycost]:radio').change(function () {
         alert('something');
         if (this.value === 'COLLECTION') {
             $('#deliveryCharge').hide();
         }
-        else{
+        else {
             $('#deliveryCharge').show();
         }
     });
+
+
 
     $("#accordion").accordion({
         active: false,

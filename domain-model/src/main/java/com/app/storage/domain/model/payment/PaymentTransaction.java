@@ -1,15 +1,21 @@
 package com.app.storage.domain.model.payment;
 
 import com.app.storage.domain.model.Address;
+import com.app.storage.domain.model.listing.ItemListing;
 import org.apache.commons.lang.builder.EqualsBuilder;
+
+import java.util.List;
 
 /**
  * Payment transaction details.
  */
 public class PaymentTransaction {
 
-    /** Customer reference. */
-    private String customerRef;
+    /** User reference of buyer. */
+    private String buyerUserRef;
+
+    /** List of {@link ItemListing} by reference. */
+    private List<String> itemListings;
 
     /** Payment type. */
     private String paymentNonce;
@@ -19,6 +25,9 @@ public class PaymentTransaction {
 
     /** Card information. */
     private PaymentInformation paymentInformation;
+
+    /** Boolean to use paypal or card */
+    private boolean usePaypal = true;
 
     /** Billing Address. */
     private Address address;
@@ -102,23 +111,63 @@ public class PaymentTransaction {
     }
 
     /**
-     * Gets Customer reference..
+     * Sets new itemListings.
      *
-     * @return Value of Customer reference..
+     * @param itemListings
+     *         New value of itemListings.
      */
-    public String getCustomerRef() {
-        return customerRef;
+    public void setItemListings(List<String> itemListings) {
+        this.itemListings = itemListings;
     }
 
     /**
-     * Sets new Customer reference..
+     * Gets itemListings.
      *
-     * @param customerRef
-     *         New value of Customer reference..
+     * @return Value of itemListings.
      */
-    public void setCustomerRef(String customerRef) {
-        this.customerRef = customerRef;
+    public List<String> getItemListings() {
+        return itemListings;
     }
+
+    /**
+     * Gets User reference of buyer..
+     *
+     * @return Value of User reference of buyer..
+     */
+    public String getBuyerUserRef() {
+        return buyerUserRef;
+    }
+
+    /**
+     * Sets new User reference of buyer..
+     *
+     * @param buyerUserRef
+     *         New value of User reference of buyer..
+     */
+    public void setBuyerUserRef(String buyerUserRef) {
+        this.buyerUserRef = buyerUserRef;
+    }
+
+
+    /**
+     * Gets Boolean to use paypal or card.
+     *
+     * @return Value of Boolean to use paypal or card.
+     */
+    public boolean isUsePaypal() {
+        return usePaypal;
+    }
+
+    /**
+     * Sets new Boolean to use paypal or card.
+     *
+     * @param usePaypal
+     *         New value of Boolean to use paypal or card.
+     */
+    public void setUsePaypal(boolean usePaypal) {
+        this.usePaypal = usePaypal;
+    }
+
 
     /**
      * Equals override.
@@ -136,11 +185,13 @@ public class PaymentTransaction {
 
         PaymentTransaction paymentTransaction = (PaymentTransaction) obj;
         return new EqualsBuilder()
-                .append(getCustomerRef(), paymentTransaction.getCustomerRef())
+                .append(getBuyerUserRef(), paymentTransaction.getBuyerUserRef())
+                .append(getItemListings(), paymentTransaction.getItemListings())
                 .append(getPaymentInformation(), paymentTransaction.getPaymentInformation())
                 .append(getPaymentNonce(), paymentTransaction.getPaymentNonce())
                 .append(getTransactionAmount(), paymentTransaction.getTransactionAmount())
                 .append(getAddress(), paymentTransaction.getAddress())
+                .append(isUsePaypal(), paymentTransaction.isUsePaypal())
                 .isEquals();
     }
 
@@ -154,8 +205,8 @@ public class PaymentTransaction {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(customerRef).append(paymentInformation).append(address).append(paymentNonce)
-                .append(transactionAmount);
+        stringBuilder.append(buyerUserRef).append(itemListings).append(paymentInformation).append(address).append
+                (paymentNonce).append(transactionAmount).append(isUsePaypal());
 
         return stringBuilder.toString();
     }

@@ -1,31 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-
 .singleitem-container {
     text-align: center;
 }
 
-.singleitem-container h1{
-    margin-top:40px;
-    font-family:montserrat;
-    font-size:20px;
+.singleitem-container h1 {
+    margin-top: 40px;
+    font-family: montserrat;
+    font-size: 20px;
 }
 
 .detailsholder, .imageholder {
     display: inline-block;
 }
 
-.detailsholder p{
-    font-family:montserrat;
+.detailsholder p {
+    font-family: montserrat;
 }
 
 #price {
-    margin-right:20px;
+    margin-right: 20px;
     color: red;
 }
 
 .checkout {
-    float:right;
+    float: right;
 }
 
 #removeButton {
@@ -36,9 +35,9 @@
     font-size: 16px;
     border-radius: 3px;
     border: 1px solid #d2b356;
-    background-color:white;
-    margin-top:30px;
-    cursor:pointer;
+    background-color: white;
+    margin-top: 30px;
+    cursor: pointer;
 }
 
 #checkoutButton {
@@ -50,14 +49,14 @@
     font-size: 16px;
     border-radius: 3px;
     border: 1px solid #d2b356;
-    background-color:white;
-    margin-right:20px;
-    margin-top:30px;
-    cursor:pointer;
+    background-color: white;
+    margin-right: 20px;
+    margin-top: 30px;
+    cursor: pointer;
 }
 
-.checkout h3{
-    color:red;
-    font-family:montserrat;
-    margin-right:30px;
+.checkout h3 {
+    color: red;
+    font-family: montserrat;
+    margin-right: 30px;
 }

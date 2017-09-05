@@ -1,7 +1,11 @@
 package com.app.storage.controller;
 
+import com.app.storage.domain.model.Address;
+import com.app.storage.domain.model.AddressType;
+import com.app.storage.domain.model.User;
 import com.app.storage.domain.model.payment.PaymentTransaction;
 import com.app.storage.service.ItemListingService;
+import com.app.storage.service.UserService;
 import com.app.storage.service.payment.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +36,9 @@ public class CheckoutController {
     /** {@link PaymentService}. */
     private final PaymentService paymentService;
 
+    /** {@link UserService}. */
+    private final UserService userService;
+
     /**
      * Controller
      *
@@ -42,10 +49,13 @@ public class CheckoutController {
      */
     public CheckoutController(final BasketController basketController,
                               final ItemListingService itemListingService,
-                              final PaymentService paymentService) {
+                              final PaymentService paymentService,
+                              final UserService userService) {
+
         this.basketController = basketController;
         this.itemListingService = itemListingService;
         this.paymentService = paymentService;
+        this.userService = userService;
     }
 
     /**
@@ -54,11 +64,13 @@ public class CheckoutController {
      * @return Checkout.jsp
      */
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
-    public ModelAndView renderCheckout() {
+    public ModelAndView renderCheckout(final Principal principal) {
 
         paymentService.initialiseGateway();
 
         final Double totalPrice = itemListingService.calculateTotalPrice(basketController.getBasketSet());
+
+        final User userInformation = userService.loadUserProfile(principal.getName());
 
         final ModelAndView modelAndView = new ModelAndView();
 
@@ -67,6 +79,16 @@ public class CheckoutController {
         modelAndView.addObject("basketItems", basketController.getBasketSet());
         modelAndView.addObject("userToken", paymentService.generateClientToken());
         modelAndView.addObject("paymentTransaction", new PaymentTransaction());
+
+        if(userInformation.getPaymentInformation() != null){
+            modelAndView.addObject("defaultPayment", userInformation.getPaymentInformation());
+        }
+
+        for (final Address address : userInformation.getAddressList()) {
+            if (address.getAddressType().equals(AddressType.DELIVERY)) {
+                modelAndView.addObject("defaultAddress", address);
+            }
+        }
 
         LOG.debug("Rendering checkout jsp");
 
@@ -80,12 +102,12 @@ public class CheckoutController {
      */
     @RequestMapping(value = "/checkout", method = RequestMethod.POST)
     public ModelAndView handleCheckout(@ModelAttribute("paymentInformation") final PaymentTransaction
-                                                   paymentTransaction,
+                                               paymentTransaction,
                                        final Principal principal) {
 
         LOG.debug("Returning payment details: {}", paymentTransaction.toString());
 
-        paymentTransaction.setCustomerRef(principal.getName());
+        paymentTransaction.setBuyerUserRef(principal.getName());
         paymentTransaction.setPaymentNonce("fake-valid-debit-nonce");
 
         final boolean transactionResponse = paymentService.executeTransaction(paymentTransaction);
