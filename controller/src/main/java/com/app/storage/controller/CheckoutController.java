@@ -80,7 +80,7 @@ public class CheckoutController {
         modelAndView.addObject("userToken", paymentService.generateClientToken());
         modelAndView.addObject("paymentTransaction", new PaymentTransaction());
 
-        if(userInformation.getPaymentInformation() != null){
+        if (userInformation.getPaymentInformation() != null) {
             modelAndView.addObject("defaultPayment", userInformation.getPaymentInformation());
         }
 
@@ -108,7 +108,8 @@ public class CheckoutController {
         LOG.debug("Returning payment details: {}", paymentTransaction.toString());
 
         paymentTransaction.setBuyerUserRef(principal.getName());
-        paymentTransaction.setPaymentNonce("fake-valid-debit-nonce");
+        paymentTransaction.setTransactionAmount(itemListingService.calculateTotalPrice(
+                basketController.getBasketSet()));
 
         final boolean transactionResponse = paymentService.executeTransaction(paymentTransaction);
 

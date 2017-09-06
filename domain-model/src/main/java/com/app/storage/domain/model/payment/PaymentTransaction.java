@@ -206,7 +206,7 @@ public class PaymentTransaction {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(buyerUserRef).append(itemListings).append(paymentInformation).append(address).append
-                (paymentNonce).append(transactionAmount).append(isUsePaypal());
+                (paymentNonce).append(transactionAmount).append(usePaypal);
 
         return stringBuilder.toString();
     }

@@ -24,6 +24,12 @@
                 <p>Description: ${itemListing.description}</p>
                 <p>Grade: ${itemListing.grade}</p>
                 <p id="price">Price: ${itemListing.price}</p>
+                <c:choose>
+                    <c:when test="${not empty item.deliveryCharge}">
+                        <p id="price"> + Delivery Charge: ${itemListing.deliveryCharge}</p>
+                    </c:when>
+                    <c:otherwise/>
+                </c:choose>
 
                 <form:form action="${pageContext.servletContext.contextPath}/addToBasket">
                     <input name="uniqueRef" type="hidden" value="${itemListing.reference}">

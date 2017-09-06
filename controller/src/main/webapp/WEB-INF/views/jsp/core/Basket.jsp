@@ -30,6 +30,12 @@
 
                                 <p>${item.description}</p>
                                 <p id="price">Price: ${item.price}</p>
+                                <c:choose>
+                                    <c:when test="${not empty item.deliveryCharge}">
+                                        <p id="price"> + Delivery Charge: ${item.deliveryCharge}</p>
+                                    </c:when>
+                                    <c:otherwise/>
+                                </c:choose>
 
                                 <form:form action="${pageContext.servletContext.contextPath}/removeFromBasket">
                                     <input name="uniqueRef" type="hidden" value="${item.reference}">

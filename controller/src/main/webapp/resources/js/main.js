@@ -11,8 +11,7 @@ $(document).ready(function () {
         }
     });
 
-    $('input[type=radio][name=deliverycost]:radio').change(function () {
-        alert('something');
+    $("input[type=radio][name='itemListing.deliveryType']").change(function () {
         if (this.value === 'COLLECTION') {
             $('#deliveryCharge').hide();
         }

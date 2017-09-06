@@ -91,6 +91,9 @@ public class ItemListingServiceHandler implements ItemListingService {
         for (ItemListing itemListing : basketItems) {
             if (itemListing.getPrice() != null) {
                 price += itemListing.getPrice();
+                if(itemListing.getDeliveryCharge() != null) {
+                    price += itemListing.getDeliveryCharge();
+                }
             }
         }
 

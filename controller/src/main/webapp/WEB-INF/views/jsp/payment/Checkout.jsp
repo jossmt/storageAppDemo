@@ -70,6 +70,9 @@
                                                 placeholder="Paypal Username"/>
                                 </div>
                                 <div id="cardDetails" hidden>
+                                    <form:select path="paymentInformation.cardType">
+                                        <form:options items="${paymentInformation.cardType}"/>
+                                    </form:select>
                                     <form:input path="paymentInformation.cardHolderName" type="text"
                                                 name="cardholdername"
                                                 placeholder="Card Holder Name"/>
@@ -102,6 +105,7 @@
 
                         <div class="submit-container">
                             <p>Total Price: ${totalPrice}</p>
+                            <form:input path="transactionAmount" name="transactionAmount" type="hidden"/>
                             <input id="paynowbutton" type="submit" name="submit" value="Pay Now"/>
                         </div>
                     </form:form>

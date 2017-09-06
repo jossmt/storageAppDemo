@@ -96,14 +96,54 @@ public class PaymentServiceHandler implements PaymentService {
 
         LOG.debug("Making payment for transaction: {}", paymentTransaction);
 
+        boolean transactionResponse;
+        if (paymentTransaction.isUsePaypal()) {
+            transactionResponse = executePaypalTransaction(paymentTransaction);
+        } else {
+            transactionResponse = executeCardTransaction(paymentTransaction);
+        }
+
+        return transactionResponse;
+    }
+
+    /**
+     * Function to execute card transaction
+     *
+     * @param paymentTransaction
+     *         {@link PaymentTransaction}
+     * @return Result of request.
+     */
+    private boolean executeCardTransaction(final PaymentTransaction paymentTransaction) {
+
         final DecimalFormat df = new DecimalFormat("#.00");
         final String doubleFormatted = df.format(paymentTransaction.getTransactionAmount());
         final BigDecimal bigDecimal = new BigDecimal(doubleFormatted);
 
+        String paymentNonce = null;
+        switch (paymentTransaction.getPaymentInformation().getCardType()) {
+            case AMEX:
+                paymentNonce = ServiceConstants.SANDBOX_AMEX_NONCE;
+                break;
+            case VISA:
+                paymentNonce = ServiceConstants.SANDBOX_VISA_NONCE;
+                break;
+            case DEBIT:
+                paymentNonce = ServiceConstants.SANDBOX_DEBIT_NONCE;
+                break;
+            case DISCOVER:
+                paymentNonce = ServiceConstants.SANDBOX_DISCOVER_NONCE;
+                break;
+            case MASTERCARD:
+                paymentNonce = ServiceConstants.SANDBOX_MASTERCARD_NONCE;
+                break;
+            case MAESTRO:
+                paymentNonce = ServiceConstants.SANDBOX_MAESTRO_NONCE;
+        }
+        paymentTransaction.setPaymentNonce(paymentNonce);
+
         TransactionRequest request = new TransactionRequest()
                 .amount(bigDecimal)
                 .paymentMethodNonce(paymentTransaction.getPaymentNonce())
-//                .customerId(paymentTransaction.getCustomerRef())
 
                 // Credit card details.
                 .creditCard()
@@ -128,6 +168,64 @@ public class PaymentServiceHandler implements PaymentService {
 
         Result<Transaction> result = braintreeGateway.transaction().sale(request);
 
+        handleResult(result);
+
+        LOG.debug("Execution status of transaction is: {}", result.isSuccess());
+
+        return result.isSuccess();
+    }
+
+    /**
+     * Function to execute Paypal Transaction.
+     *
+     * @param paymentTransaction
+     *         {@link PaymentTransaction}
+     * @return Result of request.
+     */
+    private boolean executePaypalTransaction(final PaymentTransaction paymentTransaction) {
+
+        final DecimalFormat df = new DecimalFormat("#.00");
+        final String doubleFormatted = df.format(paymentTransaction.getTransactionAmount());
+        final BigDecimal bigDecimal = new BigDecimal(doubleFormatted);
+
+        paymentTransaction.setPaymentNonce(ServiceConstants.SANDBOX_PAYPAL_NONCE);
+
+        TransactionRequest request = new TransactionRequest()
+                .amount(bigDecimal)
+                .paymentMethodNonce(paymentTransaction.getPaymentNonce())
+                .paypalAccount()
+                .payeeEmail(paymentTransaction.getPaymentInformation().getPaypalUsername())
+                .done()
+
+                // Billing Address Details
+                .billingAddress()
+                .countryName(paymentTransaction.getAddress().getCountryName())
+                .region(paymentTransaction.getAddress().getRegion())
+                .streetAddress(paymentTransaction.getAddress().getStreetAddress())
+                .postalCode(paymentTransaction.getAddress().getPostcode())
+                .done()
+
+                // Other
+                .options()
+                .submitForSettlement(true)
+                .done();
+
+        Result<Transaction> result = braintreeGateway.transaction().sale(request);
+
+        handleResult(result);
+
+        LOG.debug("Execution status of transaction is: {}", result.isSuccess());
+
+        return result.isSuccess();
+    }
+
+    /**
+     * Handles payment result response.
+     *
+     * @param result
+     *         Result of {@link Transaction}.
+     */
+    private void handleResult(final Result<Transaction> result) {
         if (!result.isSuccess()) {
             try {
                 for (final ValidationError validationError : result.getErrors().getAllDeepValidationErrors()) {
@@ -141,9 +239,5 @@ public class PaymentServiceHandler implements PaymentService {
 
             throw new IllegalStateException("Payment was denied.");
         }
-
-        LOG.debug("Execution status of transaction is: {}", result.isSuccess());
-
-        return result.isSuccess();
     }
 }

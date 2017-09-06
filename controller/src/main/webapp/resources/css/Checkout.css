@@ -164,7 +164,7 @@ body {
 }
 
 /*inputs*/
-.msform input, #msform textarea {
+.msform input, #msform textarea, #msform select, #msform option {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -218,7 +218,7 @@ body {
     margin-top: -2px;
 }
 
-.submit-container{
+.submit-container {
     margin-right: 20px;
     float: right;
 }
@@ -228,15 +228,15 @@ body {
 }
 
 #paynowbutton {
-    background-color:white;
+    background-color: white;
     color: #d2b356;
     padding: 12px 14px;
     text-decoration: none;
     font-weight: bolder;
     font-family: Poppins;
     font-size: 20px;
-    border-radius:3px;
+    border-radius: 3px;
     border: 1px solid #d2b356;
-    margin-bottom:40px;
+    margin-bottom: 40px;
 }
 

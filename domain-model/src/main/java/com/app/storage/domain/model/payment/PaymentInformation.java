@@ -7,6 +7,9 @@ import org.apache.commons.lang.builder.EqualsBuilder;
  */
 public class PaymentInformation {
 
+    /** Type of card. */
+    private CardType cardType;
+
     /** Full credit/debit card number. */
     private Long cardNumber;
 
@@ -140,6 +143,25 @@ public class PaymentInformation {
     }
 
     /**
+     * Gets Type of card..
+     *
+     * @return Value of Type of card..
+     */
+    public CardType getCardType() {
+        return cardType;
+    }
+
+    /**
+     * Sets new Type of card..
+     *
+     * @param cardType
+     *         New value of Type of card..
+     */
+    public void setCardType(CardType cardType) {
+        this.cardType = cardType;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -155,6 +177,7 @@ public class PaymentInformation {
 
         PaymentInformation paymentInformation = (PaymentInformation) obj;
         return new EqualsBuilder()
+                .append(getCardType(), paymentInformation.getCardType())
                 .append(getCardHolderName(), paymentInformation.getCardHolderName())
                 .append(getCvvValue(), paymentInformation.getCvvValue())
                 .append(getExpirationYear(), paymentInformation.getExpirationYear())
@@ -174,7 +197,7 @@ public class PaymentInformation {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(cardHolderName).append(cardNumber).append(cvvValue).append(expirationYear)
+        stringBuilder.append(cardType).append(cardHolderName).append(cardNumber).append(cvvValue).append(expirationYear)
                 .append(expirationMonth).append(paypalUsername);
 
         return stringBuilder.toString();

@@ -38,7 +38,7 @@ public class ItemListing {
     private String imageUrl;
 
     /** {@link DeliveryType}. */
-    private DeliveryType deliveryType;
+    private DeliveryType deliveryType = DeliveryType.NORMAL;
 
     /** Delivery charge. */
     private Double deliveryCharge;
