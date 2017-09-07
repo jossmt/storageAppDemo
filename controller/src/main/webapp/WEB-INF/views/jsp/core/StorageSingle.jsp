@@ -23,10 +23,10 @@
                 <p>Size: ${itemListing.size}</p>
                 <p>Description: ${itemListing.description}</p>
                 <p>Grade: ${itemListing.grade}</p>
-                <p id="price">Price: ${itemListing.price}</p>
+                <p id="price">Price: &pound${itemListing.price}</p>
                 <c:choose>
-                    <c:when test="${not empty item.deliveryCharge}">
-                        <p id="price"> + Delivery Charge: ${itemListing.deliveryCharge}</p>
+                    <c:when test="${not empty itemListing.deliveryCharge}">
+                        <p id="price"> + Delivery Charge: &pound${itemListing.deliveryCharge}</p>
                     </c:when>
                     <c:otherwise/>
                 </c:choose>

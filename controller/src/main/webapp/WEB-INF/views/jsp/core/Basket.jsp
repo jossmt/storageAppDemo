@@ -29,10 +29,10 @@
                             <div class="detailsholder">
 
                                 <p>${item.description}</p>
-                                <p id="price">Price: ${item.price}</p>
+                                <p id="price">Price: &pound${item.price}</p>
                                 <c:choose>
                                     <c:when test="${not empty item.deliveryCharge}">
-                                        <p id="price"> + Delivery Charge: ${item.deliveryCharge}</p>
+                                        <p id="price"> + Delivery Charge: &pound${item.deliveryCharge}</p>
                                     </c:when>
                                     <c:otherwise/>
                                 </c:choose>
@@ -48,7 +48,7 @@
 
                     <div class="checkout">
 
-                        <h3>Total price: ${totalPrice}</h3>
+                        <h3>Total price: &pound${totalPrice}</h3>
 
                         <form:form method="get" action="${pageContext.servletContext.contextPath}/checkout">
                             <button id="checkoutButton" type="submit">Check Out</button>

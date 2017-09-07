@@ -1,5 +1,28 @@
 $(document).ready(function () {
 
+    $(".popupbutton").click(function () {
+
+        var scrollTop     = $(window).scrollTop();
+
+        var identifier = this.getAttribute("id");
+        var identifierWrapper = identifier + "wrapper";
+        var identifierText = identifier + "text";
+
+        $(".popup").hide();
+        $(".popuptext").hide();
+
+        $("#" + identifierWrapper).css("margin-top", scrollTop + 100);
+
+        $("#" + identifierWrapper).show();
+        $("#" + identifierText).show();
+
+    });
+
+    $(".cancel").click(function () {
+        $(".popup").hide();
+        $(".popuptext").hide();
+    });
+
     $("input[type=radio][name=usePaypal]").change(function () {
         if (this.value === 'true') {
             $('#paypalDetails').show();
@@ -18,14 +41,6 @@ $(document).ready(function () {
         else {
             $('#deliveryCharge').show();
         }
-    });
-
-
-
-    $("#accordion").accordion({
-        active: false,
-        collapsible: true,
-        heightStyle: "content"
     });
 
     $(window).on("load", function () {

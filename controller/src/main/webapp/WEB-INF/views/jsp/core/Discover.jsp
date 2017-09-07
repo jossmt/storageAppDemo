@@ -24,7 +24,7 @@
                                             <span class="logoWrapper">
                                      <img id="img" height="200px" width="150px" src="${item.imageUrl}"
                                           alt='icon'></span>
-                                            <p id="price"><c:out value="Price: ${item.price}"/></p>
+                                            <p id="price">Price: &pound<c:out value="${item.price}"/></p>
                                         </div>
                                         <div class="back">
                                             <!-- back content -->

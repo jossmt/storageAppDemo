@@ -30,10 +30,10 @@
                             <div class="detailsholder">
 
                                 <p>Description: ${item.description}</p>
-                                <p id="price">Price: ${item.price}</p>
+                                <p id="price">Price: &pound${item.price}</p>
                                 <c:choose>
                                     <c:when test="${not empty item.deliveryCharge}">
-                                        <p id="price"> + Delivery Charge: ${item.deliveryCharge}</p>
+                                        <p id="price"> + Delivery Charge: &pound${item.deliveryCharge}</p>
                                     </c:when>
                                     <c:otherwise/>
                                 </c:choose>
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="submit-container">
-                            <p>Total Price: ${totalPrice}</p>
+                            <p>Total Price: &pound${totalPrice}</p>
                             <form:input path="transactionAmount" name="transactionAmount" type="hidden"/>
                             <input id="paynowbutton" type="submit" name="submit" value="Pay Now"/>
                         </div>

@@ -329,7 +329,7 @@
                                 <h3>Personal</h3>
                                 <p class="pricing-sub">The standard version</p>
                                 <div class="pricing">
-                                    <div class="price"><span>£</span>9.99</div>
+                                    <div class="price"><span>&pound</span>9.99</div>
                                     <p>Recommended for users with medium-low selling rates</p>
                                 </div>
                                 <ul>
@@ -349,7 +349,7 @@
                                 <h3>Student</h3>
                                 <p class="pricing-sub">Most popular choice</p>
                                 <div class="pricing">
-                                    <div class="price"><span>£</span>4.99</div>
+                                    <div class="price"><span>&pound</span>4.99</div>
                                     <p>Our student option makes it affordable to sell</p>
                                 </div>
                                 <ul>
@@ -369,7 +369,7 @@
                                 <h3>Business</h3>
                                 <p class="pricing-sub">For the whole team</p>
                                 <div class="pricing">
-                                    <div class="price"><span>£</span>19.99</div>
+                                    <div class="price"><span>&pound</span>19.99</div>
                                     <p>Our business deal allows for unlimited listings and selling opportunities</p>
                                 </div>
                                 <ul>

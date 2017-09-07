@@ -10,7 +10,7 @@
 	<sec:authentication var="principal" property="principal" />
     
     <!-- Meta info -->
-    <meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta description="viewport" content="width=device-width, initial-scale=1">
 	<meta description="keywords" content="footer, addressList, phone, icons" />

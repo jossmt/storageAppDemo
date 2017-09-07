@@ -67,3 +67,88 @@
     height:20px;
     width:30px;
 }
+
+.fs-title {
+    font-family: montserrat, arial, verdana;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+.fs-subtitle {
+    font-family: montserrat, arial, verdana;
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Popup container - can be anything you want */
+.popup {
+    position:absolute;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 600px;
+    text-align: center;
+    float:left;
+    top:0;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    position: absolute;
+    z-index: 1;
+    /*    margin-left: -80px;*/
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 10px 10px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0;
+}
+
+.popuptext input, .popuptext textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/*buttons*/
+.popuptext .action-button {
+    width: 100px;
+    background: #F32C52;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+.popuptext .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #F32C52;
+}
