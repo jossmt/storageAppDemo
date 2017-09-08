@@ -37,8 +37,6 @@ import java.util.List;
 @RunWith(MockitoJUnitRunner.class)
 public class UserPersistenceServiceTest {
 
-    private List<AddressPersistenceModel> addressPersistenceModels;
-
     /** {@link AbstractMapper} */
     @Mock
     private UserPersistenceMapper userPersistenceMapper;
@@ -55,22 +53,6 @@ public class UserPersistenceServiceTest {
     @Mock
     private RoleRepository roleRepository;
 
-    /** {@link AddressRepository} */
-    @Mock
-    private AddressRepository addressRepository;
-
-    /** {@link PaymentInformationPersistenceMapper} */
-    @Mock
-    private PaymentInformationPersistenceMapper paymentInformationPersistenceMapper;
-
-    /** {@link RoleRepository} */
-    @Mock
-    private AddressPersistenceMapper addressPersistenceMapper;
-
-    /** {@link TradingAccountPersistenceMapper} */
-    @Mock
-    private TradingAccountPersistenceMapper tradingAccountPersistenceMapper;
-
     /** {@link UserPersistenceService}. */
     private UserPersistenceService userPersistenceService;
 
@@ -80,11 +62,7 @@ public class UserPersistenceServiceTest {
     @Before
     public void setUp() {
         userPersistenceService = new UserPersistenceServiceHandler(userRepository, roleRepository,
-                                                                   addressRepository,
                                                                    userPersistenceMapper,
-                                                                   paymentInformationPersistenceMapper,
-                                                                   addressPersistenceMapper,
-                                                                   tradingAccountPersistenceMapper,
                                                                    bCryptPasswordEncoder);
 
     }

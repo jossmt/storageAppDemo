@@ -52,25 +52,6 @@ public interface UserPersistenceService {
     User findUserByEmailLoadProfile(String username);
 
     /**
-     * Loads user trading accounts that are setup.
-     *
-     * @param userEmail
-     *         User Identifier.
-     * @return list of {@link TradingAccount}
-     */
-    List<TradingAccount> loadUserTradingAccounts(String userEmail);
-
-    /**
-     * Updates user address.
-     *
-     * @param userEmail
-     *         Users email.
-     * @param address
-     *         {@link Address}
-     */
-    void updateUserAddress(String userEmail, Address address);
-
-    /**
      * Updates user name's for logged in user
      *
      * @param email
@@ -81,16 +62,6 @@ public interface UserPersistenceService {
      *         User last name.
      */
     void updateUsername(String email, String firstName, String lastName);
-
-    /**
-     * Updates user payment information.
-     *
-     * @param userEmail
-     *         Users email.
-     * @param paymentInformation
-     *         Users payment information.
-     */
-    void updateUserPaymentInformation(String userEmail, PaymentInformation paymentInformation);
 
     /**
      * Updates user email.

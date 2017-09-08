@@ -1,6 +1,9 @@
 package com.app.storage.service;
 
 import com.app.storage.domain.model.User;
+import com.app.storage.persistence.service.AddressPersistenceService;
+import com.app.storage.persistence.service.PaymentInformationPersistenceService;
+import com.app.storage.persistence.service.TradingAccountPersistenceService;
 import com.app.storage.persistence.service.UserPersistenceService;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,6 +29,18 @@ public class UserServiceTest {
     @Mock
     private UserPersistenceService userPersistenceService;
 
+    /** {@link AddressPersistenceService}. */
+    @Mock
+    private AddressPersistenceService addressPersistenceService;
+
+    /** {@link PaymentInformationPersistenceService}. */
+    @Mock
+    private PaymentInformationPersistenceService paymentInformationPersistenceService;
+
+    /** {@link TradingAccountPersistenceService}. */
+    @Mock
+    private TradingAccountPersistenceService tradingAccountPersistenceService;
+
     /** {@link UserService}. */
     @Mock
     private UserService userService;
@@ -35,7 +50,9 @@ public class UserServiceTest {
      */
     @Before
     public void setUp() {
-        userService = new UserServiceHandler(userPersistenceService, authenticationProvider);
+        userService = new UserServiceHandler(userPersistenceService, addressPersistenceService,
+                                             paymentInformationPersistenceService,
+                                             tradingAccountPersistenceService, authenticationProvider);
     }
 
     /**

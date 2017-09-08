@@ -265,11 +265,19 @@
                             <fieldset class="modaldata">
                                 <h2 class="fs-title">UPDATE PAYMENT INFORMATION</h2>
                                 <h3 class="fs-subtitle">Set new card details</h3>
-                                <input type="text" name="cardholdername" placeholder="Card Holder Name"/>
-                                <input type="text" name="cardnumber" placeholder="Card Number"/>
+                                <h3 class="fs-subtitle-left">Select Card Type:</h3>
+                                <select name="cardType">
+                                    <c:forEach items="${cardTypes}" var="cardType">
+                                        <option value="${cardType}">
+                                                ${cardType}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="cardHolderName" placeholder="Card Holder Name"/>
+                                <input type="text" name="cardNumber" placeholder="Card Number"/>
                                 <input type="text" name="cvv" placeholder="CVV"/>
-                                <input type="text" name="expmonth" placeholder="Expiration Month e.g. Feb"/>
-                                <input type="text" name="expyear" placeholder="Expiration year e.g. 2019"/>
+                                <input type="text" name="expMonth" placeholder="Expiration Month e.g. Feb"/>
+                                <input type="text" name="expYear" placeholder="Expiration year e.g. 2019"/>
                                 <input type="button" name="cancel" class="cancel action-button" value="Cancel"/>
                                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
                             </fieldset>
@@ -280,6 +288,19 @@
                 <div class="profile-data-set">
                     <h1 class="title">Trading Accounts</h1>
                 </div>
+
+                <div class="profile-data-set final">
+                    <c:choose>
+                        <c:when test="${not empty userModel.tradingAccounts}">
+
+                        </c:when>
+                        <c:otherwise>
+                            <h3>You have not yet added any Trading Accounts</h3>
+                        </c:otherwise>
+                    </c:choose>
+                    <span><a id="tradeaccountpopup" class="popupbutton">Add a Trading Account</a></span>
+                </div>
+
             </div>
 
             <div class="profile-img-container">

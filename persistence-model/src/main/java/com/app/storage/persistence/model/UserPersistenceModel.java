@@ -74,11 +74,13 @@ public class UserPersistenceModel {
     private List<TradingAccountPersistenceModel> tradingAccountPersistenceModelList;
 
     /** List of users payment options. */
-    @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval =
+            true)
     private PaymentInformationPersistenceModel paymentInformationPersistenceModel;
 
     /** Billing Address. */
-    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval=true)
+    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval =
+            true)
     private List<AddressPersistenceModel> addressPersistenceModels;
 
     /**

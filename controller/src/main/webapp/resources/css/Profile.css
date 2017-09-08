@@ -39,11 +39,11 @@
 
 .profile-data-set span{
     position: absolute;
-    right:45%;
+    right:50%;
 }
 
 .profile-img-container{
-    width:40%;
+    width:45%;
     float:right;
 }
 
@@ -60,6 +60,10 @@
     margin-right:20px;
     margin-top:30px;
     cursor:pointer;
+}
+
+.final {
+    margin-bottom:100px;
 }
 
 .tradeIcon{
@@ -81,6 +85,17 @@
     font-size: 13px;
     color: #666;
     margin-bottom: 20px;
+}
+
+.fs-subtitle-left {
+    font-family: montserrat, arial, verdana;
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+    margin-top:5px;
+    float:left;
+    text-align:left;
 }
 
 /* Popup container - can be anything you want */
@@ -113,7 +128,7 @@
     margin: 0;
 }
 
-.popuptext input, .popuptext textarea {
+.popuptext input, .popuptext textarea , .popuptext option, .popuptext select{
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -149,6 +164,8 @@
     padding: 10px 5px;
     margin: 10px 5px;
 }
+
+
 .popuptext .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #F32C52;
 }

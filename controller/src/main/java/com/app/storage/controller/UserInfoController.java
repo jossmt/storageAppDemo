@@ -131,6 +131,7 @@ public class UserInfoController {
         final User userDetails = userService.loadUserProfile(principal.getName());
 
         modelAndView.setViewName("profile/Profile");
+        modelAndView.addObject("cardTypes", CardType.values());
         modelAndView.addObject("userModel", userDetails);
 
         LOG.debug("Successfully loaded user: {}", userDetails);
@@ -256,12 +257,12 @@ public class UserInfoController {
      * @return Profile.jsp
      */
     @RequestMapping(value = "/profile/edit/card", method = RequestMethod.POST)
-    public String updateUserCard(final Principal principal, @RequestParam("cardholdername") final String cardholdername,
-                                 @RequestParam("cardnumber") final Long cardNumber,
+    public String updateUserCard(final Principal principal, @RequestParam("cardHolderName") final String cardholdername,
+                                 @RequestParam("cardNumber") final Long cardNumber,
                                  @RequestParam("cvv") final Integer cvv,
-                                 @RequestParam("cardtype") final CardType cardType,
-                                 @RequestParam("expmonth") final Integer expirationMonth,
-                                 @RequestParam("expyear") final Integer expirationYear) {
+                                 @RequestParam("cardType") final CardType cardType,
+                                 @RequestParam("expMonth") final Integer expirationMonth,
+                                 @RequestParam("expYear") final Integer expirationYear) {
 
         final PaymentInformation paymentInformation = new PaymentInformation();
         paymentInformation.setCardHolderName(cardholdername);

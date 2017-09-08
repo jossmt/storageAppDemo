@@ -5,6 +5,9 @@ import com.app.storage.domain.model.Role;
 import com.app.storage.domain.model.User;
 import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.domain.model.trade.TradingAccount;
+import com.app.storage.persistence.service.AddressPersistenceService;
+import com.app.storage.persistence.service.PaymentInformationPersistenceService;
+import com.app.storage.persistence.service.TradingAccountPersistenceService;
 import com.app.storage.persistence.service.UserPersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +36,15 @@ public class UserServiceHandler implements UserService {
     /** {@link UserPersistenceService}. */
     private final UserPersistenceService userPersistenceService;
 
+    /** {@link AddressPersistenceService}. */
+    private final AddressPersistenceService addressPersistenceService;
+
+    /** {@link PaymentInformationPersistenceService}. */
+    private final PaymentInformationPersistenceService paymentInformationPersistenceService;
+
+    /** {@link TradingAccountPersistenceService}. */
+    private final TradingAccountPersistenceService tradingAccountPersistenceService;
+
     /** {@link AuthenticationProvider}. */
     private final AuthenticationProvider authenticationProvider;
 
@@ -45,9 +57,15 @@ public class UserServiceHandler implements UserService {
      */
     @Autowired
     public UserServiceHandler(final UserPersistenceService userPersistenceService,
+                              final AddressPersistenceService addressPersistenceService,
+                              final PaymentInformationPersistenceService paymentInformationPersistenceService,
+                              final TradingAccountPersistenceService tradingAccountPersistenceService,
                               final AuthenticationProvider authenticationProvider) {
 
         this.userPersistenceService = userPersistenceService;
+        this.addressPersistenceService = addressPersistenceService;
+        this.paymentInformationPersistenceService = paymentInformationPersistenceService;
+        this.tradingAccountPersistenceService = tradingAccountPersistenceService;
         this.authenticationProvider = authenticationProvider;
     }
 
@@ -129,7 +147,8 @@ public class UserServiceHandler implements UserService {
 
         LOG.debug("Loading user trading accounts by email: {}", userEmail);
 
-        final List<TradingAccount> tradingAccounts = userPersistenceService.loadUserTradingAccounts(userEmail);
+        final List<TradingAccount> tradingAccounts = tradingAccountPersistenceService
+                .loadUserTradingAccounts(userEmail);
 
         LOG.debug("Successfully found user trading accounts: {}", tradingAccounts);
 
@@ -162,7 +181,7 @@ public class UserServiceHandler implements UserService {
 
         LOG.debug("Updating address to {} for user {}", address, userEmail);
 
-        userPersistenceService.updateUserAddress(userEmail, address);
+        addressPersistenceService.updateUserAddress(userEmail, address);
 
         LOG.debug("Successfully updated address");
     }
@@ -188,7 +207,7 @@ public class UserServiceHandler implements UserService {
 
         LOG.debug("Updating user {} with payment information: {}", paymentInformation);
 
-        userPersistenceService.updateUserPaymentInformation(email, paymentInformation);
+        paymentInformationPersistenceService.updateUserPaymentInformation(email, paymentInformation);
 
         LOG.debug("Successfully updated user payment information");
     }
