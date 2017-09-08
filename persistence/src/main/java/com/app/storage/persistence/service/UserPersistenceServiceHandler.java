@@ -2,11 +2,13 @@ package com.app.storage.persistence.service;
 
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.domain.model.trade.TradingAccount;
 import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
 import com.app.storage.persistence.mapper.constants.ListMapper;
+import com.app.storage.persistence.mapper.payment.PaymentInformationPersistenceMapper;
 import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.UserPersistenceModel;
 import com.app.storage.persistence.model.AddressPersistenceModel;
@@ -26,6 +28,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,6 +50,9 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
     /** {@link AddressRepository} */
     private final AddressRepository addressRepository;
 
+    /** {@link PaymentInformationPersistenceMapper} */
+    private final PaymentInformationPersistenceMapper paymentInformationPersistenceMapper;
+
     /** {@link UserPersistenceMapper} */
     private final UserPersistenceMapper userPersistenceMapper;
 
@@ -62,10 +68,14 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
     /** {@link ListMapper}. */
     private final ListMapper listMapper;
 
+    /**
+     * Constructor
+     */
     @Autowired
     public UserPersistenceServiceHandler(final UserRepository userRepository, final RoleRepository roleRepository,
                                          final AddressRepository addressRepository,
                                          final UserPersistenceMapper userPersistenceMapper,
+                                         final PaymentInformationPersistenceMapper paymentInformationPersistenceMapper,
                                          final AddressPersistenceMapper addressPersistenceMapper,
                                          final TradingAccountPersistenceMapper tradingAccountPersistenceMapper,
                                          final BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -74,6 +84,7 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         this.roleRepository = roleRepository;
         this.addressRepository = addressRepository;
         this.userPersistenceMapper = userPersistenceMapper;
+        this.paymentInformationPersistenceMapper = paymentInformationPersistenceMapper;
         this.addressPersistenceMapper = addressPersistenceMapper;
         this.tradingAccountPersistenceMapper = tradingAccountPersistenceMapper;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -91,9 +102,13 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
         LOG.debug("Saving user, {}", user);
 
         UserPersistenceModel userPersistenceModel = userPersistenceMapper.mapTo(user);
-        userPersistenceModel.setPassword(bCryptPasswordEncoder.encode(userPersistenceModel.getPassword()));
-        userPersistenceModel.setRoles(IterableUtils.toList(roleRepository.findAll()));
 
+        final UserPersistenceModel existingUserPersistenceModel = userRepository.findByEmail(user.getEmail());
+        if (existingUserPersistenceModel == null) {
+
+            userPersistenceModel.setPassword(bCryptPasswordEncoder.encode(userPersistenceModel.getPassword()));
+            userPersistenceModel.setRoles(IterableUtils.toList(roleRepository.findAll()));
+        }
         userPersistenceModel = updateChildObjectReferences(userPersistenceModel);
 
         final UserPersistenceModel userPersistenceModelSaved = userRepository.save(userPersistenceModel);
@@ -235,20 +250,158 @@ public class UserPersistenceServiceHandler implements UserPersistenceService {
     /**
      * {@inheritDoc}
      */
+    @Transactional
     @Override
     public void updateUserAddress(final String userEmail, final Address address) {
 
         LOG.debug("Updating user address {} for user {}", address, userEmail);
 
         final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
-
         final AddressPersistenceModel addressPersistenceModel = addressPersistenceMapper.mapTo(address);
+
+        LOG.debug("Addresses before: {}", userPersistenceModel.getAddressPersistenceModels().toString());
+
         addressPersistenceModel.setUserPersistenceModel(userPersistenceModel);
 
-        addressRepository.save(addressPersistenceModel);
+        final AddressPersistenceModel addressPersistenceModelSaved = addressRepository.save(addressPersistenceModel);
+        userPersistenceModel.addAddress(addressPersistenceModelSaved);
+
+        LOG.debug("Addresses after: {}", userPersistenceModel.getAddressPersistenceModels().toString());
+
+        userPersistenceModel.removeAllDuplicateAddress();
+
+        LOG.debug("Addresses after duplicate removal: {}", userPersistenceModel.getAddressPersistenceModels());
 
         LOG.debug("Successfully updated address for user.");
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional
+    @Override
+    public void updateUsername(final String email, final String firstName, final String lastName) {
+
+        LOG.debug("Updating user : {} with first name: {} and last name : {}", email, firstName, lastName);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(email);
+
+        if (userPersistenceModel != null) {
+            userPersistenceModel.setFirstName(firstName);
+            userPersistenceModel.setLastName(lastName);
+        } else {
+            throw new UsernameNotFoundException("Invalid user email");
+        }
+
+        LOG.debug("Successfully saved user name information update");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional
+    @Override
+    public void updateUserPaymentInformation(final String userEmail, final PaymentInformation paymentInformation) {
+
+        LOG.debug("Updating users paypal details");
+
+        final PaymentInformationPersistenceModel paymentInformationPersistenceModel =
+                paymentInformationPersistenceMapper.mapTo(paymentInformation);
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        //Updates either paypal info or card info depending on whats been populated
+        if (paymentInformationPersistenceModel.getPaypalUsername() != null) {
+
+            if (userPersistenceModel.getPaymentInformationPersistenceModel() != null) {
+                userPersistenceModel.getPaymentInformationPersistenceModel()
+                        .setPaypalUsername(paymentInformationPersistenceModel.getPaypalUsername());
+            } else {
+                paymentInformationPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+                userPersistenceModel.setPaymentInformationPersistenceModel(paymentInformationPersistenceModel);
+            }
+        } else {
+
+            if (userPersistenceModel.getPaymentInformationPersistenceModel() != null) {
+
+                paymentInformationPersistenceModel.setPaypalUsername(userPersistenceModel
+                                                                             .getPaymentInformationPersistenceModel()
+                                                                             .getPaypalUsername());
+                userPersistenceModel.setPaymentInformationPersistenceModel(paymentInformationPersistenceModel);
+            } else {
+                paymentInformationPersistenceModel.setUserPersistenceModel(userPersistenceModel);
+                userPersistenceModel.setPaymentInformationPersistenceModel(paymentInformationPersistenceModel);
+            }
+        }
+
+        LOG.debug("Successfully updated users paypal details");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional
+    @Override
+    public void updateUserEmail(final String userEmail, final String newEmail) {
+
+        LOG.debug("Updating user email");
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        userPersistenceModel.setEmail(newEmail);
+
+        LOG.debug("Successfully updated user email");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void updateUserPassword(final String userEmail, final String password) {
+
+        LOG.debug("Updating user password");
+
+        final UserPersistenceModel userPersistenceModel = userRepository.findByEmail(userEmail);
+
+        userPersistenceModel.setPassword(bCryptPasswordEncoder.encode(password));
+
+        LOG.debug("Successfully updated password");
+
+    }
+
+    /**
+     * Update user address or override it if already exists
+     *
+     * @param addressPersistenceModels
+     *         List of {@link AddressPersistenceModel}
+     * @param addressPersistenceModel
+     *         {@link AddressPersistenceModel}
+     */
+    @Transactional
+    private List<AddressPersistenceModel> updateAddress(final List<AddressPersistenceModel> addressPersistenceModels,
+                                                        final AddressPersistenceModel addressPersistenceModel) {
+
+        LOG.debug("Address's before update: {} of new address {}", addressPersistenceModels
+                .toString(), addressPersistenceModel);
+
+        if (addressPersistenceModels != null) {
+
+            addressPersistenceModels.removeIf(addressPersistenceModelActual ->
+                                                      addressPersistenceModelActual
+                                                              .getAddressType().equals
+                                                              (addressPersistenceModel
+                                                                       .getAddressType()));
+
+            addressPersistenceModels.add(addressPersistenceModel);
+        } else {
+
+            addressPersistenceModels.add(addressPersistenceModel);
+        }
+
+        LOG.debug("Address's after: {}", addressPersistenceModels.toString());
+
+        return addressPersistenceModels;
     }
 
 }

@@ -161,18 +161,22 @@ public class ItemListingPersistenceMapperTest {
         final ItemListing itemListing = new ItemListing();
         itemListing.setReference("reference");
         itemListing.setDescription("name1");
+        itemListing.setDeliveryType(DeliveryType.NORMAL);
         final ItemListing itemListing2 = new ItemListing();
         itemListing2.setReference("reference");
         itemListing2.setDescription("name2");
+        itemListing2.setDeliveryType(DeliveryType.NORMAL);
 
         final List<ItemListing> mappingList = Arrays.asList(itemListing, itemListing2);
 
         final ItemListingPersistenceModel itemListingPersistenceModel = new ItemListingPersistenceModel();
         itemListingPersistenceModel.setReference("reference");
         itemListingPersistenceModel.setDescription("name1");
+        itemListingPersistenceModel.setDeliveryType("NORMAL");
         final ItemListingPersistenceModel itemListingPersistenceModel2 = new ItemListingPersistenceModel();
         itemListingPersistenceModel2.setReference("reference");
         itemListingPersistenceModel2.setDescription("name2");
+        itemListingPersistenceModel2.setDeliveryType("NORMAL");
 
         final List<ItemListingPersistenceModel> mappedList = Arrays.asList(itemListingPersistenceModel,
                                                                            itemListingPersistenceModel2);

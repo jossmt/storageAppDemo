@@ -2,6 +2,7 @@ package com.app.storage.service;
 
 import com.app.storage.domain.model.Address;
 import com.app.storage.domain.model.User;
+import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.domain.model.trade.TradingAccount;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -76,4 +77,47 @@ public interface UserService {
      *         {@link Address}
      */
     void updateUserAddress(String userEmail, Address address);
+
+
+    /**
+     * Updates user name's for logged in user
+     *
+     * @param email
+     *         User email.
+     * @param firstName
+     *         User first name.
+     * @param lastName
+     *         User last name.
+     */
+    void updateUsername(String email, String firstName, String lastName);
+
+    /**
+     * Updates users payment information with given email.
+     *
+     * @param email
+     *         User email.
+     * @param paymentInformation
+     *         User payment information.
+     */
+    void updateUserPaymentInformation(String email, PaymentInformation paymentInformation);
+
+    /**
+     * Updates users email with new email.
+     *
+     * @param email
+     *         User email.
+     * @param newEmail
+     *         User new email.
+     */
+    void updateUserEmail(String email, String newEmail);
+
+    /**
+     * Updates users pass with given password.
+     *
+     * @param email
+     *         User email.
+     * @param password
+     *         User password.
+     */
+    void updateUserPassword(String email, String password);
 }

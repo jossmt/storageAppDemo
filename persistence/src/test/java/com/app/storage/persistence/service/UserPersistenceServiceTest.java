@@ -7,6 +7,7 @@ import com.app.storage.domain.model.payment.PaymentInformation;
 import com.app.storage.persistence.mapper.AddressPersistenceMapper;
 import com.app.storage.persistence.mapper.UserPersistenceMapper;
 import com.app.storage.persistence.mapper.constants.AbstractMapper;
+import com.app.storage.persistence.mapper.payment.PaymentInformationPersistenceMapper;
 import com.app.storage.persistence.mapper.trade.TradingAccountPersistenceMapper;
 import com.app.storage.persistence.model.RolePersistenceModel;
 import com.app.storage.persistence.model.UserPersistenceModel;
@@ -23,14 +24,20 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Test for {@link UserPersistenceService}
  */
 @RunWith(MockitoJUnitRunner.class)
 public class UserPersistenceServiceTest {
+
+    private List<AddressPersistenceModel> addressPersistenceModels;
 
     /** {@link AbstractMapper} */
     @Mock
@@ -52,6 +59,10 @@ public class UserPersistenceServiceTest {
     @Mock
     private AddressRepository addressRepository;
 
+    /** {@link PaymentInformationPersistenceMapper} */
+    @Mock
+    private PaymentInformationPersistenceMapper paymentInformationPersistenceMapper;
+
     /** {@link RoleRepository} */
     @Mock
     private AddressPersistenceMapper addressPersistenceMapper;
@@ -69,10 +80,13 @@ public class UserPersistenceServiceTest {
     @Before
     public void setUp() {
         userPersistenceService = new UserPersistenceServiceHandler(userRepository, roleRepository,
-                                                                   addressRepository, userPersistenceMapper,
+                                                                   addressRepository,
+                                                                   userPersistenceMapper,
+                                                                   paymentInformationPersistenceMapper,
                                                                    addressPersistenceMapper,
                                                                    tradingAccountPersistenceMapper,
                                                                    bCryptPasswordEncoder);
+
     }
 
     /**

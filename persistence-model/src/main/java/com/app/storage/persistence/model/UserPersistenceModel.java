@@ -18,8 +18,14 @@ package com.app.storage.persistence.model;
 import com.app.storage.persistence.model.payment.PaymentInformationPersistenceModel;
 import com.app.storage.persistence.model.trade.TradingAccountPersistenceModel;
 import org.apache.commons.lang.builder.EqualsBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -28,6 +34,8 @@ import java.util.List;
 @Entity
 @Table(name = "User")
 public class UserPersistenceModel {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserPersistenceModel.class);
 
     /** Table id reference. */
     @Id
@@ -70,7 +78,7 @@ public class UserPersistenceModel {
     private PaymentInformationPersistenceModel paymentInformationPersistenceModel;
 
     /** Billing Address. */
-    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "userPersistenceModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval=true)
     private List<AddressPersistenceModel> addressPersistenceModels;
 
     /**
@@ -215,6 +223,75 @@ public class UserPersistenceModel {
      */
     public void setAddressPersistenceModels(final List<AddressPersistenceModel> addressPersistenceModels) {
         this.addressPersistenceModels = addressPersistenceModels;
+    }
+
+    /**
+     * Add new addressPersistenceModel.
+     *
+     * @param addressPersistenceModel
+     *         New value of addressPersistenceModel.
+     */
+    @Transactional
+    public void addAddress(final AddressPersistenceModel addressPersistenceModel) {
+
+        addressPersistenceModels.add(addressPersistenceModel);
+    }
+
+    /**
+     * Add new addressPersistenceModel.
+     *
+     * @param addressPersistenceModel
+     *         New value of addressPersistenceModel.
+     */
+    @Transactional
+    public void removeAddress(final AddressPersistenceModel addressPersistenceModel) {
+
+        addressPersistenceModels.remove(addressPersistenceModel);
+    }
+
+    /**
+     * Removes any duplicate addresses (can only be 1 billing/1 delivery)
+     */
+    @Transactional
+    public void removeAllDuplicateAddress() {
+
+        final Iterator<AddressPersistenceModel> addressPersistenceModelIterator = addressPersistenceModels.iterator();
+
+        Integer billingCount = 0;
+        Integer deliveryCount = 0;
+
+        Long oldBilling = 0L;
+        Long oldDelivery = 0L;
+
+        while (addressPersistenceModelIterator.hasNext()) {
+
+            final AddressPersistenceModel addressPersistenceModel = addressPersistenceModelIterator.next();
+            if (addressPersistenceModel.getAddressType().equals("BILLING")) {
+
+                billingCount++;
+                if ((billingCount > 1 && addressPersistenceModel.getId() < oldBilling) || billingCount < 2) {
+
+                    oldBilling = addressPersistenceModel.getId();
+                }
+            } else {
+                deliveryCount++;
+                if ((deliveryCount > 1 && addressPersistenceModel.getId() < oldDelivery) || deliveryCount < 2) {
+
+                    oldDelivery = addressPersistenceModel.getId();
+                }
+            }
+        }
+
+        if (billingCount > 1) {
+            final Long oldId = oldBilling;
+            addressPersistenceModels.removeIf(addressPersistenceModel -> addressPersistenceModel.getId().equals
+                    (oldId));
+        }
+        if (deliveryCount > 1) {
+            final Long oldId = oldDelivery;
+            addressPersistenceModels.removeIf(addressPersistenceModel -> addressPersistenceModel.getId().equals
+                    (oldId));
+        }
     }
 
     /**

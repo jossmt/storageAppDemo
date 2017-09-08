@@ -108,8 +108,8 @@ public class CheckoutController {
         LOG.debug("Returning payment details: {}", paymentTransaction.toString());
 
         paymentTransaction.setBuyerUserRef(principal.getName());
-        paymentTransaction.setTransactionAmount(itemListingService.calculateTotalPrice(
-                basketController.getBasketSet()));
+        paymentTransaction.setTransactionAmount(itemListingService
+                                                        .calculateTotalPrice(basketController.getBasketSet()));
 
         final boolean transactionResponse = paymentService.executeTransaction(paymentTransaction);
 
