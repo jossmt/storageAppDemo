@@ -169,3 +169,32 @@
 .popuptext .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #F32C52;
 }
+
+
+/** Trading Accounts Design */
+
+.profile-data-set li img {
+    height:60px;
+    width:100px;
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+.profile-data-set li p {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.profile-data-set li {
+    padding: 10px;
+    overflow: auto;
+}
+
+.profile-data-set li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.profile-data-set ul {
+    list-style-type: none;
+    width: 500px;
+}

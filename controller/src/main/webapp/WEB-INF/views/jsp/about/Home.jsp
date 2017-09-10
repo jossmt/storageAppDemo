@@ -17,8 +17,8 @@
     <!-- Main CSS Files -->
     <link href="<c:url value="/resources/css/home/style.css" />" rel="stylesheet">
 
-    <!-- Namari Color CSS -->
-    <link href="<c:url value="/resources/css/home/namari-color.css" />" rel="stylesheet">
+    <!-- Numori Color CSS -->
+    <link href="<c:url value="/resources/css/home/numori-color.css" />" rel="stylesheet">
 
     <!--Icon Fonts - Font Awesome Icons-->
     <link href="<c:url value="/resources/css/home/namari-font-awesome.min.css" />" rel="stylesheet">
@@ -56,7 +56,7 @@
 
                         <div class="section-heading">
                             <h1>A SIMPLE SELLING SITE WITH A TWIST</h1>
-                            <h2>Namari is a commercial selling software that boosts your chances of selling online by
+                            <h2>Numori is a commercial selling software that boosts your chances of selling online by
                                 automating the process for you!</h2>
                         </div>
 
@@ -215,7 +215,7 @@
                         <!--User Testimonial-->
                         <blockquote class="col-3 testimonial classic">
                             <img src="<c:url value="/resources/img/user-images/user-1.jpg"/>" alt="User"/>
-                            <q>When we heard about Namari we knew we had to give it a try. we spend a lot of time
+                            <q>When we heard about Numori we knew we had to give it a try. we spend a lot of time
                                 selling our stuff online and this makes it quicker and simpler.</q>
                             <footer>Perli & Richard - Happy Customer</footer>
                         </blockquote>
@@ -224,7 +224,7 @@
                         <!--User Testimonial-->
                         <blockquote class="col-3 testimonial classic">
                             <img src="<c:url value="/resources/img/user-images/user-2.jpg"/>" alt="User"/>
-                            <q>I like that Namari takes a hands off approach. This way I can handle what matters and let
+                            <q>I like that Numori takes a hands off approach. This way I can handle what matters and let
                                 them take charge of the boring stuff.</q>
                             <footer>Thomas Riordan - Happy Customer</footer>
                         </blockquote>
@@ -233,7 +233,7 @@
                         <!--User Testimonial-->
                         <blockquote class="col-3 testimonial classic">
                             <img src="<c:url value="/resources/img/user-images/user-3.jpg"/>" alt="User"/>
-                            <q>I love Namari. My business relies on selling our products online. Using Namari I was able
+                            <q>I love Numori. My business relies on selling our products online. Using Numori I was able
                                 to reduce man hours significantly.</q>
                             <footer>Mark O'Connor - Happy Customer</footer>
                         </blockquote>

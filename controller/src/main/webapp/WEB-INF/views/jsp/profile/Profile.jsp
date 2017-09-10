@@ -292,7 +292,14 @@
                 <div class="profile-data-set final">
                     <c:choose>
                         <c:when test="${not empty userModel.tradingAccounts}">
-
+                            <ul>
+                                <c:forEach items="${userModel.tradingAccounts}" var="tradingAccount">
+                                    <li>
+                                        <img src="<c:url value="/resources/img/logos/${tradingAccount.accountType}.jpg"/>">
+                                        <h3>Username: ${tradingAccount.accountName} <br/>Password: *******</h3>
+                                    </li>
+                                </c:forEach>
+                            </ul>
                         </c:when>
                         <c:otherwise>
                             <h3>You have not yet added any Trading Accounts</h3>

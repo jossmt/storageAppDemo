@@ -6,7 +6,7 @@
 
 <div class="navbar">
 
-    <h3 id="logo">Company<span>logo</span></h3>
+    <h3 id="logo"><span>Nu</span>mori</h3>
 
     <div class="login">
         <ul>

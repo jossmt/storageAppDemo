@@ -15,7 +15,7 @@
                 <h3 class="fs-subtitle">Or sign up now</h3>
                 <input type="text" placeholder="Enter Username" name="username" required>
                 <input type="password" placeholder="Enter Password" name="password" required>
-                <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                <input type="submit" name="submit" class="submit action-button" value="Login" />
             </fieldset>
         </form:form>
     </tiles:putAttribute>

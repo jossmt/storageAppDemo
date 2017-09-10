@@ -9,5 +9,19 @@ public enum AccountType {
 
     EBAY,
 
-    CRAIGSLIST
+    CRAIGSLIST,
+
+    ETSY,
+
+    BONANZA,
+
+    MERCARI,
+
+    ALIBABA,
+
+    EBID,
+
+    RAKUTEN
+
+
 }
