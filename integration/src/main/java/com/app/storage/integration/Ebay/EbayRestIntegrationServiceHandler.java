@@ -4,8 +4,10 @@ import com.app.storage.integration.Ebay.config.ClientSetup;
 import com.app.storage.integration.Ebay.config.EbayAPIRequestHeadersBuilder;
 import com.app.storage.integration.IntegrationConstants;
 import com.app.storage.integration.model.Ebay.EbayRequestType;
+import com.app.storage.integration.model.Ebay.Requests.FetchTokenRequestIntegrationModel;
 import com.app.storage.integration.model.Ebay.Requests.GetSessionIDRequestIntegrationModel;
 import com.app.storage.integration.model.Ebay.Responses.EbayApplicationLevelErrorResponseModel;
+import com.app.storage.integration.model.Ebay.Responses.FetchTokenResponseIntegrationModel;
 import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseIntegrationModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,6 +80,38 @@ public class EbayRestIntegrationServiceHandler extends ClientSetup implements Eb
         LOG.debug("Found session get session response.");
 
         return getSessionIDResponseIntegrationModel;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public FetchTokenResponseIntegrationModel fetchUserToken(final String sessionId) {
+
+        LOG.debug("Fetching token response for session id: {}", sessionId);
+
+        final FetchTokenRequestIntegrationModel fetchTokenRequestIntegrationModel = new
+                FetchTokenRequestIntegrationModel();
+        fetchTokenRequestIntegrationModel.setSessionId(sessionId);
+
+        final Entity entity = Entity.xml(fetchTokenRequestIntegrationModel);
+
+        final MultivaluedMap<String, Object> headers = EbayAPIRequestHeadersBuilder.buildFullHeadersSandbox
+                (EbayRequestType.FETCH_TOKEN.getRequestType());
+
+        final Response response = getWebTarget().request(MediaType.APPLICATION_XML).headers(headers)
+                .post(entity);
+
+        response.bufferEntity();
+        handleApplicationLevelErrorResponse(response);
+
+        final FetchTokenResponseIntegrationModel fetchTokenResponseIntegrationModel = response.readEntity
+                (FetchTokenResponseIntegrationModel.class);
+
+        LOG.debug("Successfully fetched user token");
+
+
+        return fetchTokenResponseIntegrationModel;
     }
 
 

@@ -7,6 +7,8 @@ public enum EbayRequestType {
 
     GET_SESSION_ID("GetSessionID"),
 
+    FETCH_TOKEN("FetchToken"),
+
     ADD_ITEM("AddItem");
 
 

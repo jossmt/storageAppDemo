@@ -11,4 +11,9 @@ public interface EbayAuthIntegrationService {
      * @return Loging redirect url.
      */
     String authenticateNewUser();
+
+    /**
+     * Update users authorisation token and link to trading account.
+     */
+    void updateUserAuthToken(String sessionIdEncoded);
 }

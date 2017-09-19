@@ -1,5 +1,6 @@
 package com.app.storage.integration.Ebay;
 
+import com.app.storage.integration.model.Ebay.Responses.FetchTokenResponseIntegrationModel;
 import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseIntegrationModel;
 
 /**
@@ -7,6 +8,17 @@ import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseInte
  */
 public interface EbayRestIntegrationService {
 
-    /** Generates a session id. */
+    /**
+     * Generates a session id.
+     */
     GetSessionIDResponseIntegrationModel generateNewSessionID();
+
+    /**
+     * Fetch user token.
+     *
+     * @param sessionId
+     *         Session identifier.
+     * @return {@link FetchTokenResponseIntegrationModel}
+     */
+    FetchTokenResponseIntegrationModel fetchUserToken(String sessionId);
 }

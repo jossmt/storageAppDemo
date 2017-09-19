@@ -4,6 +4,7 @@ import com.app.storage.domain.model.trade.TradingAccount;
 import com.app.storage.integration.EncodeDecodeHandler;
 import com.app.storage.integration.IntegrationConstants;
 import com.app.storage.integration.model.Ebay.EbayRequestType;
+import com.app.storage.integration.model.Ebay.Responses.FetchTokenResponseIntegrationModel;
 import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseIntegrationModel;
 import com.app.storage.integration.model.Ebay.SubModels.General.Other.AckCodeType;
 import org.slf4j.Logger;
@@ -62,6 +63,20 @@ public class EbayAuthIntegrationServiceHandler implements EbayAuthIntegrationSer
         LOG.debug("Successfully built redirect url: {}", redirectURL);
 
         return redirectURL;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void updateUserAuthToken(final String sessionIdEncoded) {
+
+        LOG.debug("Updating user authorisation token.");
+
+        final String sessionIdDecoded = EncodeDecodeHandler.decodeString(sessionIdEncoded);
+
+        final FetchTokenResponseIntegrationModel fetchTokenResponseIntegrationModel = ebayRestIntegrationService
+                .fetchUserToken(sessionIdEncoded);
     }
 
     /**

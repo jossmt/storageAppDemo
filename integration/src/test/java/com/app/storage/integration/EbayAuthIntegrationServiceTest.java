@@ -61,6 +61,7 @@ public class EbayAuthIntegrationServiceTest {
         Mockito.verify(ebayRestIntegrationService).generateNewSessionID();
 
         //Assert
+        System.out.println(urlResponse);
         Assert.assertEquals(urlResponse, response);
     }
 }
