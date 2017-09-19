@@ -22,4 +22,13 @@ public enum EbayRequestType {
     EbayRequestType(final String requestType) {
         this.requestType = requestType;
     }
+
+    /**
+     * Gets Request type..
+     *
+     * @return Value of Request type..
+     */
+    public String getRequestType() {
+        return requestType;
+    }
 }

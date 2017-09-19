@@ -9,9 +9,9 @@ import java.io.Serializable;
 /**
  * Model for GetSessionIdRequest
  */
-@XmlRootElement(name = "GetSessionIDRequest")
+@XmlRootElement(name = "GetSessionIDRequest", namespace = "urn:ebay:apis:eBLBaseComponents")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class GetSessionIDRequestIntegrationModel implements Serializable{
+public class GetSessionIDRequestIntegrationModel implements Serializable {
 
     @XmlElement(name = "RuName")
     private String ruName;

@@ -2,6 +2,7 @@ package com.app.storage.integration;
 
 import com.app.storage.integration.Ebay.EbayRestIntegrationService;
 import com.app.storage.integration.Ebay.EbayRestIntegrationServiceHandler;
+import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseIntegrationModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,10 +30,9 @@ public class EbayRestIntegrationServiceTest {
     public void generateSessionIDTest() {
 
         //Test
-        final String sessionID = ebayRestIntegrationService.generateNewSessionID();
+        final GetSessionIDResponseIntegrationModel responseModel = ebayRestIntegrationService.generateNewSessionID();
 
         //Assert
-        Assert.assertNotNull(sessionID);
-
+        Assert.assertNotNull(responseModel);
     }
 }

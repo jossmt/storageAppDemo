@@ -11,9 +11,9 @@ import java.io.Serializable;
 /**
  * Ebay Add Item Request XML model.
  */
-@XmlRootElement(name = "AddItemRequest")
+@XmlRootElement(name = "AddItemRequest", namespace = "urn:ebay:apis:eBLBaseComponents")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AddItemRequestIntegrationModel implements Serializable{
+public class AddItemRequestIntegrationModel implements Serializable {
 
     /** Full details of add item listing model. */
     @XmlElement(name = "Item")

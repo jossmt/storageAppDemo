@@ -5,22 +5,18 @@ import com.app.storage.integration.Ebay.config.EbayAPIRequestHeadersBuilder;
 import com.app.storage.integration.IntegrationConstants;
 import com.app.storage.integration.model.Ebay.EbayRequestType;
 import com.app.storage.integration.model.Ebay.Requests.GetSessionIDRequestIntegrationModel;
-import com.app.storage.integration.model.Ebay.Responses.EbayGenericErrorResponseIntegrationModel;
+import com.app.storage.integration.model.Ebay.Responses.EbayApplicationLevelErrorResponseModel;
 import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseIntegrationModel;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.client.RestTemplate;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
-
-import org.glassfish.jersey.client.ClientConfig;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 
 /**
@@ -41,7 +37,7 @@ public class EbayRestIntegrationServiceHandler extends ClientSetup implements Eb
      * {@inheritDoc}
      */
     @Override
-    public String generateNewSessionID() {
+    public GetSessionIDResponseIntegrationModel generateNewSessionID() {
 
         LOG.debug("Generating new session id.");
 
@@ -53,72 +49,57 @@ public class EbayRestIntegrationServiceHandler extends ClientSetup implements Eb
         final Entity entity = Entity.xml(sessionIDRequest);
 
         final MultivaluedMap<String, Object> headers = EbayAPIRequestHeadersBuilder.buildFullHeadersSandbox
-                (EbayRequestType.GET_SESSION_ID.name());
+                (EbayRequestType.GET_SESSION_ID.getRequestType());
+
+//        try {
+//            JAXBContext jaxbContext = JAXBContext.newInstance(GetSessionIDRequestIntegrationModel.class);
+//            Marshaller jaxbMarshaller = null;
+//
+//            jaxbMarshaller = jaxbContext.createMarshaller();
+//
+//            // output pretty printed
+//            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//
+//            jaxbMarshaller.marshal(sessionIDRequest, System.out);
+//
+//        } catch (JAXBException e) {
+//            e.printStackTrace();
+//        }
 
         final Response response = getWebTarget().request(MediaType.APPLICATION_XML).headers(headers)
                 .post(entity);
 
-        GetSessionIDResponseIntegrationModel getSessionIDResponseIntegrationModel =
-                (GetSessionIDResponseIntegrationModel) handleGenericErrorConditions(response);
+        response.bufferEntity();
+        handleApplicationLevelErrorResponse(response);
 
-        LOG.debug("Found session id");
+        final GetSessionIDResponseIntegrationModel getSessionIDResponseIntegrationModel = response.readEntity
+                (GetSessionIDResponseIntegrationModel.class);
 
-        return getSessionIDResponseIntegrationModel.getSessionID();
+        LOG.debug("Found session get session response.");
+
+        return getSessionIDResponseIntegrationModel;
     }
 
 
     /**
-     * Handler for request error conditions.
+     * Handles ebay generic error response
      *
      * @param response
-     * @return
+     *         {@link Response}
      */
-    private Object handleGenericErrorConditions(final Response response) {
+    private void handleApplicationLevelErrorResponse(final Response response) {
 
-        LOG.debug("Handling error conditions for response: {}", response.toString());
+        EbayApplicationLevelErrorResponseModel genericErrorResponse;
+        try {
+            genericErrorResponse = response.readEntity
+                    (EbayApplicationLevelErrorResponseModel.class);
 
-        if (response.getStatus() == 200 || response.getStatus() == 202) {
+        } catch (Exception e) {
 
-            return response.getEntity();
-
-        } else if (response.getEntity() instanceof EbayGenericErrorResponseIntegrationModel) {
-
-            throw new IllegalStateException("Ebay specific generic error - replace with descriptive");
-
-        } else {
-
-            throw new IllegalStateException("Unknown error - return descriptive error to user");
+            LOG.debug("Response not ebay application-level error response");
+            return;
         }
+
+        throw new IllegalStateException(genericErrorResponse.toString());
     }
-
-
-//    final HttpEntity<GetSessionIDRequestIntegrationModel> request = new
-//            HttpEntity<>(sessionIDRequest, headers);
-//
-//    final String responseString = restTemplate.postForObject(
-//            IntegrationConstants.EBAY_SANDBOX_URL, request, String.class);
-//
-//        System.out.println(responseString);
-//
-//    final ResponseEntity<Object> genericResponse = restTemplate.postForEntity(
-//            IntegrationConstants.EBAY_SANDBOX_URL, request, Object.class);
-//
-//        System.out.println(genericResponse.getBody());
-//
-//    GetSessionIDResponseIntegrationModel getSessionIDResponseIntegrationModel = null;
-//        if (genericResponse.getBody() instanceof GetSessionIDResponseIntegrationModel) {
-//        getSessionIDResponseIntegrationModel = (GetSessionIDResponseIntegrationModel) genericResponse.getBody();
-//
-//        System.out.println("response 200: " + getSessionIDResponseIntegrationModel.toString());
-//    } else if(genericResponse.getBody() instanceof EbayGenericErrorResponseIntegrationModel) {
-//
-//        final EbayGenericErrorResponseIntegrationModel ebayGenericErrorResponse =
-//                (EbayGenericErrorResponseIntegrationModel) genericResponse.getBody();
-//
-//        System.out.println(ebayGenericErrorResponse.toString());
-//    }else{
-//        System.out.println("Response else: " + genericResponse.toString());
-//    }
-//
-//        return getSessionIDResponseIntegrationModel.getSessionID();
 }

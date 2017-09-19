@@ -1,9 +1,18 @@
 package com.app.storage.integration.Ebay;
 
 import com.app.storage.domain.model.trade.TradingAccount;
+import com.app.storage.integration.EncodeDecodeHandler;
+import com.app.storage.integration.IntegrationConstants;
+import com.app.storage.integration.model.Ebay.EbayRequestType;
+import com.app.storage.integration.model.Ebay.Responses.GetSessionIDResponseIntegrationModel;
+import com.app.storage.integration.model.Ebay.SubModels.General.Other.AckCodeType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 /**
  * Implementation of {@link EbayAuthIntegrationService}
@@ -11,8 +20,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class EbayAuthIntegrationServiceHandler implements EbayAuthIntegrationService {
 
-    /** Spring rest template. */
-    private RestTemplate restTemplate = new RestTemplate();
+    /** Logger. */
+    private static final Logger LOG = LoggerFactory.getLogger(EbayAuthIntegrationService.class);
 
     /** {@link EbayRestIntegrationService}./ */
     private final EbayRestIntegrationService ebayRestIntegrationService;
@@ -32,9 +41,39 @@ public class EbayAuthIntegrationServiceHandler implements EbayAuthIntegrationSer
      * {@inheritDoc}
      */
     @Override
-    public void authenticateNewUser() {
+    public String authenticateNewUser() {
 
-        final String sessionID = ebayRestIntegrationService.generateNewSessionID();
+        final GetSessionIDResponseIntegrationModel sessionIDResponseModel = ebayRestIntegrationService
+                .generateNewSessionID();
+
+        String sessionID = null;
+        if (sessionIDResponseModel.getAckCodeType().equals(AckCodeType.Success)) {
+
+            sessionID = sessionIDResponseModel.getSessionID();
+        } else {
+
+            handleRequestErrorResponses(sessionIDResponseModel.getErrorList(), EbayRequestType.GET_SESSION_ID);
+        }
+
+        final String encodedSessionID = EncodeDecodeHandler.encodeString(sessionID);
+
+        final String redirectURL = String.format(IntegrationConstants.EBAY_SANDBOX_LOGIN_URL, encodedSessionID);
+
+        LOG.debug("Successfully built redirect url: {}", redirectURL);
+
+        return redirectURL;
+    }
+
+    /**
+     * Handles error responses.
+     *
+     * @param errors
+     *         list of {@link Error}
+     * @param requestType
+     *         {@link EbayRequestType}
+     */
+    private void handleRequestErrorResponses(final List<Error> errors, final EbayRequestType requestType) {
+
 
     }
 }

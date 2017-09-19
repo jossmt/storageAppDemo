@@ -8,6 +8,7 @@ public interface EbayAuthIntegrationService {
     /**
      * Authenticates new user by generating token and persisting data.
      *
+     * @return Loging redirect url.
      */
-    void authenticateNewUser();
+    String authenticateNewUser();
 }

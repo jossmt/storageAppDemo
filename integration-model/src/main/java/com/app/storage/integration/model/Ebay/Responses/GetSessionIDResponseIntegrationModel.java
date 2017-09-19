@@ -1,6 +1,7 @@
 package com.app.storage.integration.model.Ebay.Responses;
 
 import com.app.storage.integration.model.Ebay.SubModels.General.Other.AckCodeType;
+import org.apache.commons.lang.builder.EqualsBuilder;
 import org.joda.time.DateTime;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,13 +14,9 @@ import java.util.List;
 /**
  * Returns SessionID following GetSessionIDRequest
  */
-@XmlRootElement(name = "GetSessionIDResponse")
+@XmlRootElement(name = "GetSessionIDResponse", namespace = "urn:ebay:apis:eBLBaseComponents")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class GetSessionIDResponseIntegrationModel implements Serializable{
-
-    /** Session id. */
-    @XmlElement(name = "SessionID")
-    private String sessionID;
+public class GetSessionIDResponseIntegrationModel implements Serializable {
 
     /** Determines response status (success/failure). */
     @XmlElement(name = "Ack")
@@ -43,6 +40,10 @@ public class GetSessionIDResponseIntegrationModel implements Serializable{
     /** Version of response schema used. */
     @XmlElement(name = "Version")
     private String version;
+
+    /** Session id. */
+    @XmlElement(name = "SessionID")
+    private String sessionID;
 
 
     /**
@@ -176,5 +177,42 @@ public class GetSessionIDResponseIntegrationModel implements Serializable{
      */
     public List<Error> getErrorList() {
         return errorList;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(final Object obj) {
+        if (!(obj instanceof GetSessionIDResponseIntegrationModel))
+            return false;
+        if (obj == this)
+            return true;
+
+        GetSessionIDResponseIntegrationModel getSessionIDResponseIntegrationModel =
+                (GetSessionIDResponseIntegrationModel) obj;
+        return new EqualsBuilder()
+                .append(getSessionID(), getSessionIDResponseIntegrationModel.getSessionID())
+                .append(getErrorList(), getSessionIDResponseIntegrationModel.getErrorList())
+                .append(getAckCodeType(), getSessionIDResponseIntegrationModel.getAckCodeType())
+                .append(getBuild(), getSessionIDResponseIntegrationModel.getBuild())
+                .append(getCorrelationID(), getSessionIDResponseIntegrationModel.getCorrelationID())
+                .append(getTimeStamp(), getSessionIDResponseIntegrationModel.getTimeStamp())
+                .append(getVersion(), getSessionIDResponseIntegrationModel.getVersion())
+                .isEquals();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(sessionID).append(errorList).append(ackCodeType).append(build).append(correlationID)
+                .append(timeStamp).append(version);
+
+        return stringBuilder.toString();
     }
 }

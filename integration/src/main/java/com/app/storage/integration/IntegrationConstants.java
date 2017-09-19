@@ -13,6 +13,10 @@ public class IntegrationConstants {
     /** Ebay sandbox session url. */
     public static final String EBAY_SANDBOX_RUNAME = "Joss_Miller-Tod-JossMill-Numori-vjplv";
 
+    /** Ebay sandbox login url. */
+    public static final String EBAY_SANDBOX_LOGIN_URL = "https://signin.sandbox.ebay.com/ws/eBayISAPI" +
+            ".dll?SignIn&RuName=" + EBAY_SANDBOX_RUNAME + "&SessID=%s";
+
     //Header keys
     /** Refers to the key for ebay release version the application supports */
     public static final String EBAY_COMPATIBILITY_KEY = "X-EBAY-API-COMPATIBILITY-LEVEL";
@@ -46,7 +50,7 @@ public class IntegrationConstants {
     public static final String EBAY_CERT_NAME_SANDBOX_VALUE = "SBX-5d7504c435c6-56c1-4ab9-8b71-94e4";
 
     /** Ebay UK site id url. */
-    public static final String EBAY_SITE_ID_UK_VALUE = "http://www.ebay.co.uk";
+    public static final String EBAY_SITE_ID_UK_VALUE = "3";
 
     /** Ebay auth n auth cert redirect url. */
     public static final String EBAY_AUTHnAUTH_CERT_URL = "https://signin.sandbox.ebay.com/ws/eBayISAPI" +
