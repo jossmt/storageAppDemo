@@ -23,7 +23,7 @@
     <context:component-scan base-package="com.app.storage.domain"/>
 
     <!--<context:annotation-config />-->
-    <tx:annotation-driven />
+    <tx:annotation-driven/>
 
     <!-- View resolver -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -89,10 +89,26 @@
     </bean>
 
     <bean id="multipartResolver"
-                class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
         <!-- setting maximum upload size -->
-        <property name="maxUploadSize" value="10000000" />
+        <property name="maxUploadSize" value="10000000"/>
     </bean>
 
+    <!-- XML Converter handling -->
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+                <ref bean="xmlMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    </bean>
+
+    <bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
+    </bean>
 </beans>

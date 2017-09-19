@@ -1,16 +1,19 @@
 package com.app.storage.integration.model.Ebay.Requests;
 
-import com.app.storage.integration.IntegrationConstants;
 import com.app.storage.integration.model.Ebay.SubModels.AddItemIntegrationModel;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Ebay Add Item Request XML model.
  */
 @XmlRootElement(name = "AddItemRequest")
-public class AddItemRequestIntegrationModel {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class AddItemRequestIntegrationModel implements Serializable{
 
     /** Full details of add item listing model. */
     @XmlElement(name = "Item")
@@ -18,7 +21,7 @@ public class AddItemRequestIntegrationModel {
 
     /** Version of api. */
     @XmlElement(name = "Version")
-    private String version = IntegrationConstants.API_VERSION_NUMBER;
+    private String version;
 
 
     /**

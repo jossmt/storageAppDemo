@@ -4,12 +4,11 @@ import com.app.storage.integration.model.Ebay.SubModels.ListingDetails.CurrencyC
 import com.app.storage.integration.model.Ebay.SubModels.Policies.Insurance.InsuranceDetailsModel;
 import com.app.storage.integration.model.Ebay.SubModels.Policies.Insurance.InternationalInsuranceDetailsModel;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.List;
 
 @XmlRootElement(name = "ShippingDetails")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ShippingDetails {
 
     /** Cash on delivery cost if cash on delivery is payment preference. */

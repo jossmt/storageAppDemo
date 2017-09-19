@@ -8,8 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Warranty duration of item listing.
  */
-@XmlRootElement(name = "WarrantyDurationOption")
-@XmlAccessorType(XmlAccessType.FIELD)
 public enum WarrantyTypeOption {
 
     DealerWarranty,

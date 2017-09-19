@@ -42,6 +42,7 @@ public class TradingAccountPersistenceMapperHandler implements TradingAccountPer
             tradingAccountPersistenceModel.setAccountName(tradingAccount.getAccountName());
             tradingAccountPersistenceModel.setAccountPassword(tradingAccount.getAccountPassword());
             tradingAccountPersistenceModel.setAccountType(tradingAccount.getAccountType().toString());
+            tradingAccountPersistenceModel.setAuthToken(tradingAccount.getAuthToken());
 
             if (tradingAccount.getItemListings() != null) {
                 tradingAccountPersistenceModel.setItemListingPersistenceModels(listMapper.mapList
@@ -69,6 +70,7 @@ public class TradingAccountPersistenceMapperHandler implements TradingAccountPer
             tradingAccount.setAccountName(tradingAccountPersistenceModel.getAccountName());
             tradingAccount.setAccountPassword(tradingAccountPersistenceModel.getAccountPassword());
             tradingAccount.setAccountType(AccountType.valueOf(tradingAccountPersistenceModel.getAccountType()));
+            tradingAccount.setAuthToken(tradingAccountPersistenceModel.getAuthToken());
 
             if (tradingAccountPersistenceModel.getItemListingPersistenceModels() != null) {
                 tradingAccount.setItemListings(listMapper.mapList(

@@ -23,6 +23,9 @@ public class TradingAccount {
     /** Storage item list. */
     private List<ItemListing> itemListings;
 
+    /** User account authentication token. */
+    private String authToken;
+
     /** {@link User}. */
     private User owner;
 
@@ -122,6 +125,25 @@ public class TradingAccount {
     }
 
     /**
+     * Gets User account authentication token..
+     *
+     * @return Value of User account authentication token..
+     */
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    /**
+     * Sets new User account authentication token..
+     *
+     * @param authToken
+     *         New value of User account authentication token..
+     */
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
+
+    /**
      * Equals override.
      *
      * @param obj
@@ -140,6 +162,7 @@ public class TradingAccount {
                 .append(getAccountName(), tradingAccount.getAccountName())
                 .append(getAccountPassword(), tradingAccount.getAccountPassword())
                 .append(getAccountType(), tradingAccount.getAccountType())
+                .append(getAuthToken(), tradingAccount.getAuthToken())
                 .isEquals();
     }
 
@@ -153,7 +176,7 @@ public class TradingAccount {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(accountName).append(accountPassword).append(accountType);
+        stringBuilder.append(accountName).append(accountPassword).append(accountType).append(authToken);
 
         return stringBuilder.toString();
     }

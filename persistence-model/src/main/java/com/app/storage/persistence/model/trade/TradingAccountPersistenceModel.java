@@ -32,6 +32,9 @@ public class TradingAccountPersistenceModel {
     @Column(name = "AccountPassword")
     private String accountPassword;
 
+    @Column(name = "AuthorisationToken")
+    private String authToken;
+
     /** User role privileges. */
     @JoinTable(name = "TradingAccount_ItemListing", joinColumns = @JoinColumn(name = "trading_id"),
             inverseJoinColumns = @JoinColumn(name = "storage_id"))
@@ -158,6 +161,25 @@ public class TradingAccountPersistenceModel {
     }
 
     /**
+     * Sets new authToken.
+     *
+     * @param authToken
+     *         New value of authToken.
+     */
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
+
+    /**
+     * Gets authToken.
+     *
+     * @return Value of authToken.
+     */
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -172,6 +194,7 @@ public class TradingAccountPersistenceModel {
                 .append(getAccountName(), tradingAccountPersistenceModel.getAccountName())
                 .append(getAccountType(), tradingAccountPersistenceModel.getAccountType())
                 .append(getAccountPassword(), tradingAccountPersistenceModel.getAccountPassword())
+                .append(getAuthToken(), tradingAccountPersistenceModel.getAuthToken())
                 .isEquals();
     }
 
@@ -183,7 +206,7 @@ public class TradingAccountPersistenceModel {
 
         final StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(accountName).append(accountPassword).append(accountType);
+        stringBuilder.append(accountName).append(accountPassword).append(accountType).append(authToken);
 
         return stringBuilder.toString();
     }

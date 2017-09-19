@@ -1,5 +1,7 @@
 package com.app.storage.integration.model.Ebay.SubModels.ListingDetails;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -7,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Best offer details.
  */
 @XmlRootElement(name = "BestOfferDetails")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BestOfferDetails {
 
     /** Whether best offer option is available to buyer. */

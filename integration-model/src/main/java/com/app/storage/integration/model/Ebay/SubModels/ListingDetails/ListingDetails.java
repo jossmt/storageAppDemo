@@ -1,13 +1,12 @@
 package com.app.storage.integration.model.Ebay.SubModels.ListingDetails;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 /**
  * Item listing details.
  */
 @XmlRootElement(name = "ListingDetails")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ListingDetails {
 
     /** Offer price at which listing is auto sold. */

@@ -1,5 +1,7 @@
 package com.app.storage.integration.model.Ebay.SubModels.Policies;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -7,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Sales tax.
  */
 @XmlRootElement(name = "SalesTax")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SalesTax {
 
     /** Sales tax percent. */

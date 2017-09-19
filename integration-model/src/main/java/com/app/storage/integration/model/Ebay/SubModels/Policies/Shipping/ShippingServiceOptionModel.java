@@ -1,5 +1,7 @@
 package com.app.storage.integration.model.Ebay.SubModels.Policies.Shipping;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -7,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Shipping service option data.
  */
 @XmlRootElement(name = "ShippingServiceOptions")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ShippingServiceOptionModel extends ShippingServiceOption {
 
     /** Free shipping enabler. */

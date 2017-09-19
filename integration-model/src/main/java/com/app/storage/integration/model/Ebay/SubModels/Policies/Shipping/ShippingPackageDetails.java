@@ -1,13 +1,12 @@
 package com.app.storage.integration.model.Ebay.SubModels.Policies.Shipping;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 /**
  * Shipping package details.
  */
 @XmlRootElement(name = "ShippingPackageDetails")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ShippingPackageDetails {
 
     /** Measurement unit. */
